@@ -1,0 +1,15 @@
+Below are {{ reports|length }} research reports rated by a human expert on quality (0-3 scale). Analyze these reports to identify the patterns that explain the expert's scoring.
+
+{% for report in reports %}
+---
+Report {{ loop.index }}:
+Question: {{ report.question }}
+Quality Score: {{ report.quality_score }}/3
+
+Report:
+{{ report.research_output[:3000] }}
+{% if report.research_output|length > 3000 %}[...truncated, {{ report.research_output|length }} total chars]{% endif %}
+---
+{% endfor %}
+
+Identify the quality dimensions that best explain why the expert gave higher vs. lower scores. For each dimension, describe what high-scoring and low-scoring reports look like on that dimension.

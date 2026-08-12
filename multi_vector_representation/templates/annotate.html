@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevance Annotation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #4CAF50;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .query-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .query-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .query-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .doc-section {
+            margin-bottom: 30px;
+        }
+
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .doc-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+            flex: 1;
+        }
+
+        .doc-type {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .ground-truth-badge {
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .doc-preview {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .relevance-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .relevance-btn {
+            padding: 15px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .relevance-btn:hover {
+            border-color: #4CAF50;
+            background: #f1f8f4;
+        }
+
+        .relevance-btn:active {
+            transform: scale(0.98);
+        }
+
+        .key-hint {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .complete-message {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .complete-message h2 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .shortcuts {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text" id="progressText">Loading...</div>
+
+        <div id="annotationContent">
+            <div class="complete-message">
+                <h2>Loading annotations...</h2>
+            </div>
+        </div>
+
+        <div class="shortcuts">
+            <strong>Keyboard shortcuts:</strong> 0-3 (rate), ← (back), Space (skip)
+        </div>
+    </div>
+
+    <script>
+        let currentItem = null;
+
+        async function loadNext() {
+            const response = await fetch('/api/next');
+            const data = await response.json();
+
+            updateProgress(data.progress);
+
+            if (data.complete) {
+                showComplete();
+                return;
+            }
+
+            currentItem = data;
+            renderAnnotation(data);
+        }
+
+        function updateProgress(progress) {
+            const percentage = progress.percentage.toFixed(1);
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent =
+                `Progress: ${progress.completed}/${progress.total} judgments (${percentage}%)`;
+        }
+
+        function renderAnnotation(data) {
+            const isGroundTruth = data.is_ground_truth;
+            const groundTruthBadge = isGroundTruth ?
+                '<span class="ground-truth-badge">✓ Ground Truth</span>' : '';
+
+            const html = `
+                <div class="query-section">
+                    <div class="query-label">Query</div>
+                    <div class="query-text">${escapeHtml(data.query_text)}</div>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-header">
+                        <div class="doc-title">${escapeHtml(data.doc.title)}</div>
+                        <span class="doc-type">${data.doc.content_type}</span>
+                        ${groundTruthBadge}
+                    </div>
+
+                    <div class="doc-preview">${escapeHtml(data.doc.preview)}</div>
+
+                    <div class="relevance-buttons">
+                        <button class="relevance-btn" onclick="submitAnnotation(0)">
+                            <span class="key-hint">0</span>
+                            Not Relevant
+                        </button>
+                        <button class="relevance-btn" onclick="submitAnnotation(1)">
+                            <span class="key-hint">1</span>
+                            Somewhat
+                        </button>
+                        <button class="relevance-btn" onclick="submitAnnotation(2)">
+                            <span class="key-hint">2</span>
+                            Relevant
+                        </button>
+                        <button class="relevance-btn" onclick="submitAnnotation(3)">
+                            <span class="key-hint">3</span>
+                            Highly Relevant
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('annotationContent').innerHTML = html;
+        }
+
+        async function submitAnnotation(relevance) {
+            if (!currentItem) return;
+
+            const response = await fetch('/api/annotate', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    query_id: currentItem.query_id,
+                    doc_id: currentItem.doc.doc_id,
+                    relevance: relevance
+                })
+            });
+
+            const result = await response.json();
+            updateProgress(result.progress);
+
+            loadNext();
+        }
+
+        function showComplete() {
+            const html = `
+                <div class="complete-message">
+                    <h2>🎉 All annotations complete!</h2>
+                    <p>Your annotations have been saved to data/annotations.json</p>
+                </div>
+            `;
+            document.getElementById('annotationContent').innerHTML = html;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function skipCurrent() {
+            if (!currentItem) return;
+            loadNext();
+        }
+
+        async function goBack() {
+            const response = await fetch('/api/undo', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'}
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                currentItem = data;
+                renderAnnotation(data);
+                updateProgress(data.progress);
+            } else {
+                console.log('Cannot go back:', data.message);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '3') {
+                submitAnnotation(parseInt(e.key));
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                skipCurrent();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goBack();
+            }
+        });
+
+        loadNext();
+    </script>
+</body>
+</html>

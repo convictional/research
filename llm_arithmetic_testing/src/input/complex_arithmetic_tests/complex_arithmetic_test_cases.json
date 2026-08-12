@@ -1,0 +1,8504 @@
+{
+  "test_cases": [
+    {
+      "numbers": [
+        -15.35,
+        -5.83,
+        -24.9,
+        49.23,
+        32.54,
+        -39.56
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -97.09,
+        78.55,
+        -29.92,
+        91.93,
+        70.93,
+        93.75
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        11.03,
+        4.11,
+        -89.69,
+        11.67,
+        -60.95,
+        -30.38
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        28.93,
+        -83.08,
+        -34.91,
+        -86.66,
+        -66.79,
+        37.56
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        21.11,
+        86.47,
+        79.02,
+        -30.22,
+        -52.71,
+        -10.25
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        78.61,
+        47.47,
+        -18.32,
+        11.88,
+        -8.75,
+        98.51
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        87.77,
+        44.63,
+        58.7,
+        71.04,
+        -3.59,
+        3.74
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        54.75,
+        -72.09,
+        14.25,
+        24.17,
+        -26.94,
+        -65.77
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -38.37,
+        92.79,
+        16.83,
+        -71.36,
+        73.93,
+        -14.02
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -35.46,
+        82.51,
+        17.31,
+        97.57,
+        -69.22,
+        -44.0
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -8.41,
+        61.74,
+        -29.1,
+        58.38,
+        -64.14,
+        25.26
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        30.47,
+        15.59,
+        -23.22,
+        -99.93,
+        -25.02,
+        -87.99
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -38.94,
+        36.02,
+        93.7,
+        79.78,
+        81.92,
+        39.29
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        77.27,
+        90.24,
+        -5.78,
+        -38.1,
+        -60.96,
+        75.73
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -90.26,
+        85.91,
+        86.86,
+        -8.63,
+        -52.05,
+        -35.91
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -31.74,
+        -72.61,
+        -35.93,
+        -66.89,
+        30.72,
+        -83.89
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -71.51,
+        34.11,
+        93.58,
+        -2.74,
+        -23.78,
+        -95.01
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -83.39,
+        18.87,
+        51.49,
+        62.64,
+        -64.4,
+        -30.86
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -24.64,
+        -12.05,
+        13.91,
+        11.07,
+        -9.68,
+        50.06
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        52.27,
+        23.9,
+        71.03,
+        -33.52,
+        12.63,
+        -86.54
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        18.25,
+        13.58,
+        57.77,
+        -95.34,
+        -90.06,
+        -89.5
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        74.47,
+        34.66,
+        17.3,
+        16.64,
+        48.33,
+        93.83
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        37.41,
+        -98.22,
+        98.57,
+        -28.58,
+        -96.98,
+        -62.5
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -11.32,
+        79.3,
+        50.44,
+        64.12,
+        -82.89,
+        62.62
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -57.28,
+        50.57,
+        -24.95,
+        77.57,
+        31.84,
+        9.69
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -20.89,
+        11.24,
+        79.23,
+        25.83,
+        26.17,
+        4.56
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -82.45,
+        93.53,
+        19.15,
+        -0.48,
+        86.01,
+        -15.89
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        69.91,
+        43.35,
+        93.03,
+        -26.13,
+        92.0,
+        84.97
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        13.69,
+        -17.16,
+        30.37,
+        36.48,
+        31.38,
+        -99.63
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -0.28,
+        -96.5,
+        66.49,
+        92.65,
+        26.83,
+        13.44
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        93.94,
+        -58.71,
+        55.74,
+        -33.33,
+        9.13,
+        -59.99
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -2.27,
+        -49.0,
+        39.05,
+        -61.2,
+        40.22,
+        -75.94
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        45.06,
+        85.22,
+        -14.56,
+        0.21,
+        -56.08,
+        -39.5
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -2.51,
+        47.18,
+        68.76,
+        -16.57,
+        -73.16,
+        34.5
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -1.31,
+        -84.26,
+        30.99,
+        92.88,
+        -24.63,
+        -68.18
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        99.83,
+        65.75,
+        -59.88,
+        49.63,
+        2.13,
+        76.03
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -54.79,
+        -88.68,
+        15.28,
+        99.76,
+        24.33,
+        19.07
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        78.27,
+        -86.59,
+        28.94,
+        92.86,
+        96.87,
+        -9.49
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        10.81,
+        87.57,
+        35.97,
+        27.8,
+        -18.78,
+        -63.83
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -28.37,
+        60.55,
+        87.43,
+        6.52,
+        -87.96,
+        74.47
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -62.15,
+        89.01,
+        56.51,
+        20.15,
+        -4.57,
+        -30.45
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -65.61,
+        84.29,
+        19.15,
+        90.43,
+        92.17,
+        -75.53
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        43.79,
+        88.85,
+        -45.12,
+        46.82,
+        -38.82,
+        -23.94
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        22.66,
+        30.66,
+        37.2,
+        7.23,
+        2.81,
+        74.85
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        63.4,
+        -74.31,
+        32.84,
+        36.83,
+        80.1,
+        -9.71
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "divide",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        85.74,
+        -36.59,
+        52.73,
+        88.06,
+        20.45,
+        93.26
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -58.56,
+        15.29,
+        70.11,
+        47.47,
+        -66.04,
+        -64.46
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        7.01,
+        -39.86,
+        24.45,
+        -44.9,
+        -41.65,
+        44.0
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -47.79,
+        -55.18,
+        -38.79,
+        70.27,
+        -26.59,
+        -23.66
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -8.37,
+        70.17,
+        -92.48,
+        -30.49,
+        50.19,
+        -83.42
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        82.18,
+        60.57,
+        14.92,
+        -65.14,
+        41.89,
+        47.82
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        83.98,
+        -15.75,
+        2.47,
+        82.36,
+        -89.73,
+        -14.08
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "divide",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -36.76,
+        -58.81,
+        23.48,
+        -72.94,
+        -74.99,
+        -94.21
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        75.7,
+        32.61,
+        98.62,
+        -80.36,
+        -10.24,
+        15.34
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        12.3,
+        39.73,
+        -68.46,
+        82.58,
+        36.67,
+        -83.66
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -10.2,
+        -98.98,
+        93.93,
+        21.19,
+        85.76,
+        52.17
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        26.74,
+        51.12,
+        -30.45,
+        92.75,
+        52.37,
+        47.31
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -94.21,
+        -61.31,
+        16.99,
+        -78.64,
+        69.57,
+        78.7
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        74.75,
+        -62.46,
+        61.26,
+        44.41,
+        72.0,
+        -49.67
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -32.43,
+        89.75,
+        23.98,
+        -10.81,
+        32.3,
+        -71.75
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -59.04,
+        79.4,
+        7.88,
+        15.67,
+        84.32,
+        15.53
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        9.6,
+        31.93,
+        -34.51,
+        -11.8,
+        -55.18,
+        -87.34
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        10.38,
+        -64.11,
+        -2.59,
+        53.79,
+        11.38,
+        -36.1
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        57.7,
+        -48.92,
+        -29.8,
+        70.99,
+        11.48,
+        9.25
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        24.8,
+        61.41,
+        24.31,
+        90.4,
+        -38.11,
+        2.98
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        31.4,
+        -20.46,
+        6.08,
+        79.35,
+        -8.54,
+        77.58
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -43.54,
+        6.62,
+        -55.97,
+        94.43,
+        -68.61,
+        51.25
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -4.63,
+        -89.09,
+        -24.92,
+        -69.24,
+        -29.58,
+        63.42
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -19.03,
+        -28.87,
+        -34.13,
+        -69.77,
+        31.59,
+        70.5
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        48.86,
+        97.84,
+        58.57,
+        5.61,
+        -3.8,
+        -16.62
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        65.93,
+        56.54,
+        24.8,
+        -39.12,
+        68.96,
+        -12.83
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -92.44,
+        31.08,
+        -62.42,
+        17.86,
+        -12.32,
+        10.57
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -29.69,
+        68.48,
+        -84.42,
+        -16.35,
+        -29.93,
+        77.45
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        33.92,
+        43.21,
+        75.81,
+        -47.59,
+        -51.32,
+        85.16
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "multiply",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        30.24,
+        35.27,
+        61.91,
+        65.76,
+        85.51,
+        34.2
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -4.94,
+        78.6,
+        87.98,
+        89.26,
+        -49.67,
+        15.61
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "divide",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -37.3,
+        41.38,
+        81.55,
+        61.1,
+        15.99,
+        98.11
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        72.72,
+        -4.51,
+        -39.17,
+        -23.16,
+        77.31,
+        86.42
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -50.99,
+        22.69,
+        66.99,
+        26.89,
+        88.37,
+        27.21
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        50.57,
+        66.66,
+        68.91,
+        -18.91,
+        73.58,
+        30.28
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        94.99,
+        47.22,
+        -34.44,
+        37.13,
+        -4.42,
+        43.99
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        11.75,
+        -55.55,
+        -79.8,
+        32.26,
+        -99.41,
+        -47.21
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        55.89,
+        -41.25,
+        17.39,
+        -94.33,
+        27.73,
+        -54.75
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -28.45,
+        55.99,
+        85.38,
+        58.22,
+        46.32,
+        73.55
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        69.84,
+        -66.05,
+        73.72,
+        -81.34,
+        53.3,
+        -59.53
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -70.14,
+        -85.38,
+        63.89,
+        -79.3,
+        87.82,
+        -55.89
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -32.24,
+        -41.57,
+        -36.88,
+        21.03,
+        0.46,
+        -14.05
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -40.17,
+        93.41,
+        -85.35,
+        75.24,
+        56.07,
+        11.14
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -77.01,
+        37.92,
+        -6.37,
+        -74.07,
+        78.47,
+        -61.77
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        58.4,
+        68.34,
+        59.31,
+        72.45,
+        -25.02,
+        67.1
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -57.13,
+        -17.39,
+        98.39,
+        76.58,
+        79.27,
+        -67.04
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        57.68,
+        -24.78,
+        -37.56,
+        69.07,
+        -17.29,
+        -15.3
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -30.22,
+        23.13,
+        73.15,
+        54.77,
+        19.22,
+        51.04
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -18.69,
+        -23.03,
+        9.08,
+        -44.62,
+        -52.59,
+        36.62
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -95.99,
+        68.49,
+        61.95,
+        96.19,
+        1.2,
+        52.12
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        81.05,
+        45.68,
+        8.73,
+        -98.84,
+        17.48,
+        30.46
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -95.46,
+        -56.9,
+        -89.82,
+        34.14,
+        5.59,
+        -74.77
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -49.95,
+        68.88,
+        28.39,
+        66.91,
+        7.96,
+        74.21
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -28.48,
+        5.85,
+        20.23,
+        80.46,
+        47.98,
+        -9.57
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -66.62,
+        44.75,
+        -69.56,
+        89.36,
+        -35.61,
+        -24.35
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        29.67,
+        9.08,
+        -67.38,
+        45.07,
+        -14.79,
+        30.07
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -66.87,
+        45.26,
+        -93.03,
+        -58.55,
+        10.34,
+        -47.35
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        59.98,
+        88.88,
+        -22.77,
+        28.9,
+        22.04,
+        -50.76
+      ],
+      "operations": [
+        "add",
+        "add",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        53.34,
+        37.28,
+        47.64,
+        28.66,
+        52.28,
+        -20.92
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -20.01,
+        -71.2,
+        -6.49,
+        -81.13,
+        76.15,
+        -51.9
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -0.81,
+        -14.67,
+        -9.37,
+        -47.12,
+        -3.31,
+        69.32
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -48.34,
+        21.45,
+        55.55,
+        45.43,
+        62.63,
+        -55.31
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        50.68,
+        -49.87,
+        76.48,
+        19.57,
+        -58.53,
+        64.82
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -24.95,
+        7.2,
+        31.89,
+        -62.09,
+        33.57,
+        88.72
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -25.06,
+        -75.41,
+        -49.59,
+        11.12,
+        32.86,
+        -10.41
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        20.86,
+        24.3,
+        57.02,
+        91.93,
+        66.39,
+        -22.77
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -33.94,
+        -64.3,
+        49.68,
+        18.83,
+        -38.88,
+        51.56
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -81.21,
+        -14.69,
+        51.32,
+        -12.69,
+        -59.7,
+        -80.12
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -55.59,
+        67.33,
+        -35.53,
+        91.35,
+        71.48,
+        66.47
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -1.34,
+        77.47,
+        -95.54,
+        -98.34,
+        23.4,
+        -80.25
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -79.93,
+        -79.7,
+        67.73,
+        -88.66,
+        73.26,
+        60.49
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        82.55,
+        92.74,
+        42.02,
+        38.17,
+        18.82,
+        67.4
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        0.67,
+        -83.22,
+        27.75,
+        10.28,
+        82.17,
+        59.67
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -48.15,
+        -82.61,
+        3.49,
+        -95.47,
+        -83.1,
+        14.88
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        6.97,
+        40.6,
+        51.88,
+        -37.54,
+        31.3,
+        -77.34
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -57.65,
+        95.44,
+        91.65,
+        -76.59,
+        12.44,
+        -51.82
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        44.37,
+        59.55,
+        51.71,
+        -83.24,
+        -69.89,
+        -56.19
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        3.13,
+        -27.96,
+        -30.81,
+        45.63,
+        84.32,
+        -21.62
+      ],
+      "operations": [
+        "add",
+        "add",
+        "divide",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -85.84,
+        0.76,
+        -20.84,
+        74.87,
+        93.63,
+        16.72
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        31.73,
+        20.14,
+        25.58,
+        79.43,
+        85.19,
+        74.66
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        27.5,
+        71.89,
+        15.64,
+        -57.06,
+        53.56,
+        18.43
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "multiply",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -76.03,
+        -5.29,
+        -27.1,
+        -9.92,
+        12.73,
+        12.54
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        63.76,
+        -28.89,
+        13.67,
+        58.4,
+        95.35,
+        10.44
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        26.32,
+        28.44,
+        -41.06,
+        88.58,
+        44.83,
+        -1.26
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        59.71,
+        -28.65,
+        6.26,
+        7.98,
+        29.1,
+        1.45
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        38.22,
+        -9.32,
+        -45.87,
+        35.96,
+        71.08,
+        53.83
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -20.38,
+        52.31,
+        -1.58,
+        52.6,
+        -92.13,
+        -21.15
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        68.82,
+        57.02,
+        13.71,
+        37.76,
+        42.92,
+        -37.22
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "divide",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        88.77,
+        -94.34,
+        -92.66,
+        80.31,
+        33.91,
+        80.01
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -52.03,
+        3.06,
+        -56.07,
+        -69.55,
+        93.23,
+        -5.21
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        85.43,
+        17.64,
+        74.42,
+        -99.39,
+        -43.76,
+        27.54
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        45.91,
+        40.01,
+        69.21,
+        -33.62,
+        59.98,
+        65.26
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        44.35,
+        44.79,
+        -28.57,
+        -60.53,
+        8.12,
+        59.3
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -58.94,
+        -72.53,
+        59.33,
+        -6.85,
+        79.21,
+        53.92
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        54.87,
+        47.78,
+        68.14,
+        82.05,
+        -9.85,
+        12.71
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        24.25,
+        50.65,
+        16.93,
+        -70.9,
+        93.18,
+        99.73
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -53.72,
+        -42.0,
+        68.97,
+        61.78,
+        88.04,
+        74.07
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        31.29,
+        83.13,
+        -88.32,
+        -99.31,
+        49.81,
+        79.39
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -30.86,
+        -49.92,
+        -86.08,
+        6.24,
+        -58.09,
+        65.55
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        54.23,
+        65.1,
+        -30.46,
+        74.63,
+        -73.82,
+        80.76
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -68.07,
+        -72.1,
+        87.92,
+        -54.2,
+        59.49,
+        -58.31
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        21.59,
+        69.29,
+        -4.84,
+        28.23,
+        -14.34,
+        -61.3
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -81.67,
+        95.09,
+        -29.42,
+        45.87,
+        -80.35,
+        -32.15
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -10.5,
+        46.14,
+        72.95,
+        98.66,
+        74.99,
+        -68.37
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        5.58,
+        41.28,
+        -37.48,
+        67.97,
+        -44.92,
+        -80.63
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "multiply",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        2.87,
+        97.39,
+        29.54,
+        -28.2,
+        -24.32,
+        85.12
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -0.12,
+        17.29,
+        56.4,
+        25.65,
+        24.26,
+        -74.76
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -39.89,
+        82.06,
+        74.72,
+        -53.33,
+        79.46,
+        -16.04
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        82.65,
+        16.62,
+        36.12,
+        65.19,
+        45.89,
+        23.9
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -80.31,
+        -14.79,
+        54.39,
+        11.33,
+        29.85,
+        -45.58
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        15.97,
+        -16.55,
+        -6.67,
+        58.87,
+        -16.29,
+        -86.35
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        92.5,
+        70.22,
+        -88.53,
+        99.53,
+        53.7,
+        0.52
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -59.3,
+        61.66,
+        80.91,
+        -62.62,
+        84.91,
+        99.5
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        17.1,
+        41.46,
+        43.18,
+        -63.11,
+        53.04,
+        5.45
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -12.32,
+        36.58,
+        -95.05,
+        -17.79,
+        34.89,
+        -16.5
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -30.54,
+        16.63,
+        15.99,
+        -52.93,
+        12.35,
+        -53.79
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        37.89,
+        78.71,
+        78.48,
+        -55.8,
+        35.67,
+        4.16
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -53.61,
+        -4.18,
+        92.68,
+        70.14,
+        -44.73,
+        -77.26
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -60.18,
+        -2.27,
+        10.72,
+        0.55,
+        85.92,
+        89.59
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -10.66,
+        65.87,
+        72.75,
+        -98.97,
+        84.38,
+        -2.17
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -65.49,
+        23.77,
+        74.62,
+        42.09,
+        37.83,
+        86.92
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        45.61,
+        33.04,
+        -82.99,
+        8.28,
+        69.23,
+        41.8
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        23.43,
+        -65.0,
+        -53.41,
+        -15.37,
+        73.46,
+        13.82
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        43.12,
+        -44.12,
+        -71.77,
+        4.92,
+        -60.25,
+        54.83
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        85.69,
+        52.11,
+        20.08,
+        -52.98,
+        39.35,
+        56.24
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        0.24,
+        85.27,
+        -88.34,
+        -83.59,
+        87.28,
+        82.62
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -92.71,
+        58.43,
+        -94.75,
+        -70.19,
+        86.06,
+        -36.46
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        10.19,
+        88.06,
+        -23.78,
+        -31.3,
+        -21.07,
+        -60.88
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        79.37,
+        33.16,
+        -46.71,
+        79.49,
+        4.48,
+        22.03
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "divide",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -37.23,
+        74.25,
+        -12.76,
+        -31.2,
+        -25.43,
+        -40.27
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -75.86,
+        34.42,
+        -47.36,
+        72.35,
+        9.06,
+        24.21
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -32.63,
+        3.1,
+        63.08,
+        32.63,
+        94.24,
+        -51.97
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -15.9,
+        70.8,
+        88.41,
+        63.66,
+        -99.53,
+        22.87
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        43.27,
+        -16.95,
+        76.69,
+        -86.2,
+        37.33,
+        54.65
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        68.04,
+        70.41,
+        -48.02,
+        16.22,
+        -27.35,
+        -84.71
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -35.43,
+        90.27,
+        74.55,
+        30.19,
+        -79.03,
+        -46.15
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        46.0,
+        -18.83,
+        91.66,
+        15.43,
+        80.12,
+        10.8
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -43.02,
+        56.34,
+        -95.12,
+        -29.57,
+        -83.25,
+        39.2
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -53.68,
+        86.7,
+        8.33,
+        36.9,
+        -45.19,
+        63.68
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -70.18,
+        97.87,
+        -19.55,
+        80.38,
+        67.86,
+        -24.6
+      ],
+      "operations": [
+        "add",
+        "add",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        82.83,
+        73.44,
+        19.99,
+        18.17,
+        69.7,
+        59.67
+      ],
+      "operations": [
+        "add",
+        "add",
+        "divide",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -99.56,
+        32.24,
+        -67.16,
+        -74.63,
+        -78.42,
+        -18.92
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -7.95,
+        30.42,
+        58.01,
+        -69.95,
+        24.19,
+        -44.72
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -23.52,
+        -85.17,
+        -89.48,
+        50.48,
+        -70.23,
+        -83.51
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        41.16,
+        7.54,
+        -36.81,
+        -90.06,
+        -33.85,
+        -93.96
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        77.78,
+        12.89,
+        9.77,
+        -39.17,
+        -41.58,
+        83.01
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -0.63,
+        -70.07,
+        -78.56,
+        55.06,
+        95.84,
+        76.43
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -59.95,
+        24.73,
+        -74.56,
+        58.57,
+        37.79,
+        -15.07
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -65.63,
+        32.28,
+        7.93,
+        70.23,
+        -94.34,
+        3.73
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -26.78,
+        -75.99,
+        -50.67,
+        -35.74,
+        44.31,
+        97.23
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        39.98,
+        99.27,
+        79.87,
+        2.3,
+        82.4,
+        79.91
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        17.71,
+        -1.57,
+        81.6,
+        27.25,
+        88.9,
+        65.81
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        10.51,
+        15.04,
+        8.84,
+        49.44,
+        -16.32,
+        83.1
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -19.98,
+        92.07,
+        26.99,
+        -66.8,
+        32.32,
+        -63.15
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -47.31,
+        -48.72,
+        77.4,
+        -94.63,
+        34.1,
+        94.61
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -76.35,
+        -34.57,
+        15.83,
+        68.07,
+        -28.3,
+        95.51
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -9.83,
+        57.43,
+        13.27,
+        -38.36,
+        4.4,
+        -43.56
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -27.78,
+        72.03,
+        -86.33,
+        0.16,
+        14.93,
+        92.2
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        81.36,
+        83.74,
+        11.6,
+        -31.86,
+        56.68,
+        -29.07
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        16.83,
+        -92.55,
+        69.35,
+        -11.05,
+        -40.79,
+        13.9
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -1.45,
+        43.69,
+        -36.46,
+        41.71,
+        60.06,
+        -29.84
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        98.67,
+        4.43,
+        65.93,
+        94.56,
+        27.28,
+        91.6
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        10.93,
+        54.8,
+        28.53,
+        -34.11,
+        -72.87,
+        66.86
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        29.76,
+        -24.37,
+        36.73,
+        71.07,
+        -20.22,
+        75.63
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        78.7,
+        77.9,
+        34.47,
+        -31.88,
+        42.86,
+        75.6
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        7.74,
+        15.83,
+        8.76,
+        86.94,
+        -78.64,
+        20.01
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -25.05,
+        70.66,
+        -95.12,
+        -25.76,
+        -21.91,
+        -27.23
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        82.38,
+        -76.81,
+        -61.54,
+        -79.85,
+        81.41,
+        17.56
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -99.57,
+        -79.43,
+        -58.33,
+        53.84,
+        -80.49,
+        79.07
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -26.76,
+        -93.24,
+        -88.17,
+        43.05,
+        90.28,
+        34.55
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        98.14,
+        24.37,
+        47.77,
+        80.87,
+        -48.68,
+        3.65
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -68.68,
+        13.03,
+        93.16,
+        56.27,
+        -58.21,
+        13.04
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -4.08,
+        38.2,
+        -13.36,
+        45.16,
+        -52.84,
+        50.37
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        28.38,
+        -39.19,
+        -44.56,
+        96.49,
+        -88.94,
+        78.08
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        77.56,
+        64.83,
+        93.27,
+        29.3,
+        -26.62,
+        -6.61
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -35.76,
+        61.97,
+        71.25,
+        -94.63,
+        -34.14,
+        -71.09
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        20.68,
+        33.88,
+        -43.5,
+        78.16,
+        -63.5,
+        55.47
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -16.08,
+        9.58,
+        -36.32,
+        -97.17,
+        54.16,
+        -95.03
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -47.1,
+        61.44,
+        86.69,
+        26.74,
+        -4.49,
+        95.15
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -76.31,
+        40.11,
+        -98.08,
+        2.68,
+        18.53,
+        -78.94
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        48.71,
+        -97.25,
+        -32.96,
+        86.25,
+        6.6,
+        68.69
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "add",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -85.65,
+        37.51,
+        -48.43,
+        -99.67,
+        95.41,
+        98.29
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        19.17,
+        13.81,
+        7.57,
+        -43.53,
+        -3.82,
+        68.81
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "add",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -84.19,
+        -32.02,
+        39.56,
+        -11.63,
+        -74.47,
+        32.07
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -12.69,
+        40.4,
+        -68.44,
+        53.59,
+        -74.78,
+        -34.63
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        54.71,
+        -0.97,
+        -50.78,
+        3.91,
+        27.17,
+        88.68
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "divide",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        51.76,
+        -77.01,
+        8.31,
+        3.42,
+        -68.06,
+        -77.72
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        74.84,
+        43.18,
+        33.13,
+        -67.72,
+        -46.11,
+        14.13
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        65.69,
+        56.26,
+        -31.86,
+        7.05,
+        -59.89,
+        51.09
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -45.53,
+        83.5,
+        9.6,
+        32.48,
+        4.77,
+        3.67
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -82.85,
+        -14.52,
+        48.02,
+        49.95,
+        91.97,
+        -70.58
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "divide",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -90.35,
+        47.27,
+        60.88,
+        -89.11,
+        62.84,
+        1.0
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -44.15,
+        48.36,
+        74.35,
+        -85.58,
+        75.9,
+        -65.09
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -18.24,
+        10.42,
+        93.46,
+        69.09,
+        36.81,
+        82.02
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        2.12,
+        97.0,
+        -54.31,
+        -86.27,
+        26.2,
+        10.9
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        17.43,
+        56.85,
+        7.07,
+        32.75,
+        59.21,
+        6.25
+      ],
+      "operations": [
+        "add",
+        "add",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        15.69,
+        -7.71,
+        74.66,
+        14.18,
+        59.94,
+        -31.5
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        6.22,
+        69.4,
+        -81.29,
+        90.56,
+        66.01,
+        -92.15
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "divide",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        4.86,
+        54.0,
+        88.61,
+        39.02,
+        57.67,
+        -34.93
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        82.28,
+        -88.13,
+        74.79,
+        -87.88,
+        68.5,
+        -55.34
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        70.33,
+        40.42,
+        -6.17,
+        42.55,
+        39.62,
+        51.53
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        58.44,
+        -49.42,
+        -86.04,
+        9.49,
+        91.42,
+        92.55
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        67.06,
+        17.24,
+        28.27,
+        -34.77,
+        89.13,
+        56.85
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -90.14,
+        68.75,
+        23.96,
+        64.93,
+        -91.1,
+        76.54
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -92.08,
+        -1.47,
+        -61.11,
+        63.9,
+        -22.84,
+        21.7
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        69.23,
+        76.05,
+        -43.89,
+        27.38,
+        -37.24,
+        91.5
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        70.04,
+        21.38,
+        -40.59,
+        -11.55,
+        66.6,
+        -70.12
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        73.82,
+        49.86,
+        31.07,
+        44.49,
+        76.88,
+        46.87
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -76.64,
+        70.45,
+        24.9,
+        56.27,
+        -12.14,
+        88.35
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -41.49,
+        -7.26,
+        89.41,
+        46.27,
+        -10.39,
+        44.83
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        46.79,
+        -92.08,
+        69.0,
+        -5.79,
+        3.24,
+        37.98
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -47.87,
+        -31.54,
+        -91.51,
+        56.21,
+        13.16,
+        4.34
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        52.19,
+        -50.06,
+        41.61,
+        -59.51,
+        -15.6,
+        82.87
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -69.68,
+        68.71,
+        56.72,
+        58.13,
+        73.48,
+        12.12
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -56.18,
+        87.41,
+        65.98,
+        62.24,
+        66.5,
+        74.18
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -0.0,
+        90.72,
+        82.25,
+        -98.3,
+        77.32,
+        -34.62
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        53.49,
+        20.54,
+        -59.93,
+        58.69,
+        9.79,
+        45.36
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -64.85,
+        -42.18,
+        68.08,
+        -49.5,
+        96.53,
+        20.59
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        82.77,
+        -13.49,
+        21.15,
+        91.59,
+        -27.04,
+        57.2
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "divide",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -68.84,
+        -31.58,
+        37.74,
+        -24.98,
+        71.64,
+        -61.43
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        19.13,
+        29.82,
+        61.26,
+        54.85,
+        -8.53,
+        -16.38
+      ],
+      "operations": [
+        "add",
+        "add",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -79.16,
+        51.8,
+        -90.66,
+        -90.83,
+        75.78,
+        -67.67
+      ],
+      "operations": [
+        "add",
+        "add",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        17.03,
+        5.49,
+        14.36,
+        4.71,
+        61.01,
+        83.19
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -90.89,
+        75.2,
+        -15.82,
+        75.73,
+        92.4,
+        57.74
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        94.56,
+        64.28,
+        95.99,
+        32.85,
+        -94.48,
+        -97.51
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -37.73,
+        80.07,
+        -49.67,
+        43.69,
+        -19.32,
+        51.92
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -56.87,
+        97.37,
+        15.65,
+        23.3,
+        47.3,
+        61.41
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -11.63,
+        74.41,
+        -25.49,
+        15.85,
+        15.4,
+        64.73
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -18.87,
+        81.68,
+        0.33,
+        60.06,
+        94.75,
+        -31.23
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -89.77,
+        4.41,
+        -83.57,
+        -30.85,
+        -47.67,
+        -54.29
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        42.38,
+        2.37,
+        32.49,
+        28.43,
+        -74.11,
+        64.93
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "divide",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -52.91,
+        -30.57,
+        -81.05,
+        -31.14,
+        20.56,
+        -45.07
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        9.66,
+        -92.74,
+        63.34,
+        11.75,
+        15.05,
+        68.9
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        15.16,
+        86.79,
+        32.01,
+        98.09,
+        12.48,
+        85.38
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        2.71,
+        79.28,
+        -63.96,
+        -53.8,
+        64.91,
+        -49.97
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -4.67,
+        71.62,
+        13.67,
+        43.12,
+        7.85,
+        46.85
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        15.15,
+        -48.02,
+        -63.68,
+        33.31,
+        75.95,
+        -40.89
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -93.74,
+        11.47,
+        50.2,
+        99.52,
+        -60.81,
+        86.49
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -64.77,
+        9.35,
+        45.2,
+        2.66,
+        16.39,
+        -92.68
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -26.73,
+        65.97,
+        -12.87,
+        60.63,
+        56.77,
+        36.85
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -46.22,
+        22.23,
+        54.3,
+        -59.71,
+        -47.6,
+        -83.17
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        8.54,
+        47.4,
+        61.36,
+        92.18,
+        67.89,
+        43.81
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -50.92,
+        59.32,
+        -40.03,
+        2.34,
+        -14.32,
+        50.07
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        26.12,
+        48.28,
+        73.19,
+        42.75,
+        -32.3,
+        -42.36
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -30.15,
+        40.9,
+        48.95,
+        -93.88,
+        72.08,
+        -10.33
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        82.91,
+        82.36,
+        93.21,
+        57.46,
+        14.02,
+        -82.92
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        14.18,
+        61.84,
+        -76.44,
+        17.58,
+        27.29,
+        -87.51
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        36.03,
+        77.75,
+        84.16,
+        58.35,
+        78.55,
+        35.65
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -93.09,
+        -14.06,
+        0.11,
+        51.43,
+        -20.6,
+        84.56
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        42.48,
+        79.8,
+        55.84,
+        54.86,
+        -45.87,
+        20.75
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -5.48,
+        6.08,
+        46.77,
+        97.21,
+        98.08,
+        10.68
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -15.79,
+        44.32,
+        50.17,
+        37.35,
+        83.37,
+        -95.17
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -77.51,
+        -36.0,
+        17.05,
+        -31.61,
+        -11.73,
+        28.44
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        57.22,
+        -9.45,
+        18.6,
+        -64.17,
+        63.1,
+        91.49
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -41.57,
+        -55.77,
+        58.75,
+        68.18,
+        -84.51,
+        95.97
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -97.85,
+        -50.17,
+        -92.4,
+        31.93,
+        99.17,
+        -87.55
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -39.87,
+        82.9,
+        71.33,
+        3.11,
+        74.01,
+        -76.95
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        74.56,
+        -99.87,
+        88.56,
+        -78.4,
+        7.18,
+        22.49
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        44.77,
+        24.32,
+        -7.7,
+        60.55,
+        12.36,
+        -19.61
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -14.64,
+        -43.92,
+        1.17,
+        -17.67,
+        0.16,
+        87.63
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        33.52,
+        97.79,
+        34.98,
+        -48.62,
+        -2.99,
+        73.83
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        43.26,
+        65.57,
+        -94.89,
+        -38.39,
+        69.8,
+        -90.19
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -97.54,
+        -75.16,
+        69.14,
+        25.67,
+        3.34,
+        76.16
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -58.73,
+        10.41,
+        79.74,
+        -47.45,
+        -59.87,
+        -11.71
+      ],
+      "operations": [
+        "add",
+        "add",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -24.25,
+        98.77,
+        32.04,
+        2.02,
+        40.33,
+        -60.78
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        97.69,
+        25.19,
+        30.64,
+        75.81,
+        46.03,
+        -97.33
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "divide",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        92.78,
+        67.21,
+        -72.5,
+        36.31,
+        21.71,
+        57.28
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "divide",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -52.46,
+        88.79,
+        4.49,
+        -90.35,
+        98.89,
+        -29.6
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -50.67,
+        83.47,
+        -48.78,
+        4.14,
+        49.0,
+        13.2
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -23.22,
+        -10.63,
+        13.45,
+        34.2,
+        59.89,
+        -70.66
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -36.24,
+        67.94,
+        17.49,
+        20.0,
+        77.5,
+        68.75
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        97.4,
+        70.71,
+        66.11,
+        57.28,
+        9.83,
+        38.0
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        0.71,
+        93.88,
+        49.51,
+        -99.38,
+        50.42,
+        67.15
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        91.15,
+        76.21,
+        -47.85,
+        81.52,
+        26.95,
+        -94.76
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -75.3,
+        52.83,
+        -42.98,
+        -24.51,
+        60.28,
+        -7.4
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -44.84,
+        82.38,
+        86.09,
+        -61.39,
+        39.46,
+        -19.29
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        23.87,
+        41.5,
+        66.97,
+        23.54,
+        79.25,
+        -70.2
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        61.99,
+        79.57,
+        87.33,
+        18.98,
+        -68.53,
+        96.17
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        1.15,
+        -23.63,
+        -45.35,
+        69.87,
+        36.7,
+        -49.42
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        75.85,
+        91.24,
+        99.44,
+        39.78,
+        -81.25,
+        -86.73
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        85.43,
+        -88.64,
+        34.88,
+        73.95,
+        -45.3,
+        76.45
+      ],
+      "operations": [
+        "add",
+        "add",
+        "divide",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -78.18,
+        -15.14,
+        -13.18,
+        -96.43,
+        -46.94,
+        41.34
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        98.98,
+        -37.32,
+        61.48,
+        71.39,
+        -90.08,
+        -11.66
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        83.81,
+        56.74,
+        52.39,
+        91.71,
+        -53.28,
+        51.13
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        58.11,
+        51.99,
+        84.85,
+        11.4,
+        32.82,
+        -16.83
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -61.72,
+        18.17,
+        9.83,
+        28.89,
+        -25.98,
+        -48.72
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -17.46,
+        52.65,
+        -4.13,
+        -23.05,
+        -67.76,
+        -65.7
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -3.89,
+        67.56,
+        29.0,
+        -43.63,
+        -28.13,
+        -79.08
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -78.16,
+        56.02,
+        37.1,
+        -86.01,
+        -68.91,
+        69.08
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -73.68,
+        86.1,
+        25.65,
+        4.84,
+        36.87,
+        -84.93
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        4.38,
+        -60.69,
+        10.16,
+        32.83,
+        9.87,
+        84.69
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -10.51,
+        66.42,
+        18.42,
+        0.45,
+        2.03,
+        98.78
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -33.45,
+        -76.7,
+        36.98,
+        11.36,
+        49.79,
+        13.09
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -11.0,
+        -95.12,
+        33.84,
+        -65.81,
+        62.76,
+        -19.41
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -6.05,
+        -6.07,
+        3.69,
+        45.1,
+        21.96,
+        89.48
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -86.73,
+        43.92,
+        -40.45,
+        91.98,
+        30.74,
+        0.12
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        94.92,
+        73.65,
+        -14.92,
+        31.46,
+        -19.8,
+        -50.97
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        56.85,
+        70.4,
+        8.97,
+        15.16,
+        80.18,
+        20.3
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        96.56,
+        -52.23,
+        79.44,
+        -96.98,
+        66.36,
+        45.97
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        11.23,
+        71.73,
+        -29.51,
+        -21.51,
+        -91.74,
+        16.65
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        22.34,
+        6.47,
+        23.0,
+        85.17,
+        75.47,
+        -91.07
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        90.39,
+        52.44,
+        -70.56,
+        73.45,
+        31.61,
+        -32.44
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -79.37,
+        69.8,
+        29.98,
+        3.68,
+        -20.84,
+        58.13
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        98.27,
+        -13.56,
+        -78.15,
+        93.06,
+        -33.74,
+        -94.79
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -8.5,
+        35.91,
+        5.82,
+        42.09,
+        46.43,
+        -18.27
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        25.14,
+        35.8,
+        96.12,
+        -44.68,
+        -62.8,
+        20.84
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        34.62,
+        32.49,
+        55.29,
+        5.45,
+        94.55,
+        -15.01
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        69.97,
+        86.39,
+        85.75,
+        86.81,
+        3.69,
+        -63.13
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        84.31,
+        51.59,
+        -11.61,
+        -25.52,
+        81.17,
+        35.3
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -21.1,
+        -40.58,
+        64.14,
+        72.68,
+        0.57,
+        50.83
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        52.41,
+        57.67,
+        9.36,
+        49.23,
+        -40.45,
+        -44.18
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        95.62,
+        -77.65,
+        22.59,
+        -0.06,
+        -67.88,
+        47.01
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -91.35,
+        16.9,
+        -3.4,
+        -30.58,
+        -14.12,
+        94.76
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -55.44,
+        92.79,
+        -24.86,
+        -85.38,
+        18.65,
+        74.47
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -20.7,
+        47.62,
+        84.03,
+        -40.35,
+        82.82,
+        81.53
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        76.12,
+        -72.64,
+        40.0,
+        28.66,
+        98.97,
+        58.15
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -46.75,
+        -19.44,
+        88.74,
+        65.92,
+        70.2,
+        -17.54
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -75.5,
+        -21.96,
+        47.76,
+        34.43,
+        79.5,
+        76.86
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -67.4,
+        -5.27,
+        -62.19,
+        -64.17,
+        77.48,
+        67.23
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -21.81,
+        -0.39,
+        -73.8,
+        87.18,
+        61.16,
+        -62.19
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        67.97,
+        62.46,
+        3.67,
+        -43.73,
+        -79.82,
+        -71.78
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -47.17,
+        -82.8,
+        82.59,
+        29.46,
+        -95.49,
+        23.18
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        59.2,
+        36.53,
+        -89.61,
+        85.88,
+        11.81,
+        42.59
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        54.79,
+        26.94,
+        -25.59,
+        42.27,
+        73.0,
+        34.58
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        93.72,
+        59.87,
+        -28.62,
+        -50.75,
+        -21.51,
+        -83.86
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        62.13,
+        -53.12,
+        15.71,
+        53.69,
+        -12.17,
+        -19.02
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -82.42,
+        -51.82,
+        -50.89,
+        82.57,
+        -46.93,
+        -55.77
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -3.44,
+        84.59,
+        -56.76,
+        -25.2,
+        94.69,
+        80.73
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -41.95,
+        -45.11,
+        86.63,
+        -92.8,
+        -12.86,
+        43.39
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        71.02,
+        23.97,
+        24.67,
+        32.26,
+        -62.04,
+        49.0
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -69.47,
+        -87.65,
+        39.27,
+        14.45,
+        96.45,
+        42.82
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        81.03,
+        -31.63,
+        62.48,
+        -33.63,
+        17.24,
+        63.05
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        46.86,
+        89.12,
+        -46.08,
+        41.67,
+        -31.37,
+        12.02
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        62.08,
+        60.56,
+        -25.37,
+        35.0,
+        42.04,
+        -5.38
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -6.16,
+        -46.59,
+        -25.83,
+        35.69,
+        9.17,
+        -49.06
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        10.97,
+        57.24,
+        42.08,
+        0.53,
+        -4.66,
+        62.44
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        11.94,
+        -0.11,
+        -60.55,
+        76.33,
+        11.61,
+        43.58
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        69.24,
+        53.57,
+        -57.25,
+        -35.99,
+        62.0,
+        47.33
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "subtract",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        62.18,
+        17.38,
+        95.21,
+        34.1,
+        83.09,
+        47.5
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -82.53,
+        -15.0,
+        -97.0,
+        -65.53,
+        44.59,
+        -80.78
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -77.4,
+        87.3,
+        -46.32,
+        -92.68,
+        21.83,
+        25.03
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        60.14,
+        43.48,
+        -65.34,
+        69.43,
+        -23.71,
+        93.23
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -28.23,
+        -37.83,
+        -16.11,
+        -95.34,
+        34.85,
+        -41.19
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -94.7,
+        -49.3,
+        2.63,
+        -96.34,
+        51.28,
+        33.82
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        99.15,
+        -84.62,
+        65.15,
+        -67.24,
+        -46.69,
+        -1.45
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        31.24,
+        -48.6,
+        94.34,
+        35.41,
+        -23.03,
+        14.0
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -92.51,
+        19.04,
+        55.97,
+        -98.0,
+        -12.29,
+        77.05
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -60.37,
+        25.22,
+        -51.36,
+        -53.43,
+        22.45,
+        93.37
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -0.49,
+        -92.63,
+        -19.7,
+        61.46,
+        55.97,
+        93.21
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        17.08,
+        -59.22,
+        26.03,
+        46.48,
+        35.93,
+        -29.86
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        90.67,
+        37.3,
+        65.42,
+        25.46,
+        96.32,
+        88.56
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -29.04,
+        47.76,
+        -6.51,
+        -3.48,
+        88.91,
+        7.2
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -35.17,
+        70.68,
+        -11.27,
+        -43.56,
+        -71.42,
+        -82.62
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -1.56,
+        97.9,
+        -88.46,
+        -80.61,
+        31.05,
+        5.32
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        27.22,
+        92.98,
+        8.34,
+        -3.71,
+        51.97,
+        -60.37
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        66.85,
+        40.0,
+        9.61,
+        7.33,
+        -70.81,
+        -41.53
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "divide",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -95.27,
+        14.08,
+        -68.01,
+        71.57,
+        57.29,
+        -46.97
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -60.91,
+        86.72,
+        7.28,
+        -13.71,
+        39.29,
+        -93.47
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -99.24,
+        25.95,
+        -75.9,
+        79.53,
+        8.47,
+        21.41
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        32.15,
+        -62.87,
+        84.81,
+        -51.36,
+        19.7,
+        42.0
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        9.34,
+        -49.2,
+        73.73,
+        -34.29,
+        27.88,
+        -83.89
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        48.19,
+        -47.71,
+        -4.82,
+        4.74,
+        -67.22,
+        13.72
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "divide",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -25.0,
+        -5.88,
+        -49.65,
+        -49.15,
+        10.56,
+        33.12
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -93.74,
+        -59.45,
+        -90.36,
+        43.05,
+        82.65,
+        -76.6
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "divide",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        43.99,
+        12.2,
+        61.69,
+        42.61,
+        3.89,
+        14.82
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -15.77,
+        -78.22,
+        -54.69,
+        38.92,
+        -20.06,
+        -78.44
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -50.26,
+        -8.05,
+        -59.05,
+        7.72,
+        -67.41,
+        1.64
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "subtract",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -83.1,
+        42.07,
+        -19.56,
+        85.66,
+        -1.99,
+        62.96
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -97.09,
+        2.99,
+        88.47,
+        60.87,
+        14.08,
+        9.68
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "divide",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -39.64,
+        9.86,
+        22.67,
+        79.01,
+        17.94,
+        46.9
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        85.45,
+        90.82,
+        44.65,
+        62.66,
+        27.29,
+        15.42
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        77.48,
+        -21.78,
+        88.68,
+        -58.2,
+        38.71,
+        21.11
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        14.69,
+        -36.75,
+        -94.84,
+        -60.19,
+        41.08,
+        -64.57
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -64.86,
+        84.78,
+        -34.33,
+        91.12,
+        -52.86,
+        -36.12
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "divide",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        17.48,
+        -75.49,
+        98.57,
+        -59.46,
+        3.15,
+        31.99
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -90.99,
+        80.58,
+        79.26,
+        -14.99,
+        46.25,
+        -67.4
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -40.14,
+        35.99,
+        -83.36,
+        43.77,
+        28.33,
+        8.1
+      ],
+      "operations": [
+        "add",
+        "add",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -40.36,
+        -77.76,
+        -9.19,
+        82.87,
+        81.95,
+        -76.65
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -91.85,
+        82.52,
+        -83.31,
+        95.36,
+        21.5,
+        -82.21
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "divide",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        70.44,
+        11.89,
+        29.52,
+        82.5,
+        88.97,
+        -23.56
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -5.61,
+        91.57,
+        -81.16,
+        -1.84,
+        -41.44,
+        -76.79
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -75.7,
+        65.13,
+        80.53,
+        92.82,
+        23.62,
+        -41.1
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        74.75,
+        19.91,
+        23.13,
+        30.65,
+        -91.93,
+        86.47
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -0.23,
+        44.52,
+        88.24,
+        13.8,
+        69.31,
+        -15.08
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        67.81,
+        55.96,
+        -12.22,
+        95.06,
+        80.7,
+        99.69
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        10.6,
+        63.69,
+        10.61,
+        62.83,
+        -29.63,
+        -41.91
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        81.5,
+        83.35,
+        -26.68,
+        -52.15,
+        30.81,
+        92.51
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        12.72,
+        -66.92,
+        -27.89,
+        -70.57,
+        6.8,
+        -6.5
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -69.35,
+        -17.36,
+        25.17,
+        56.1,
+        -77.03,
+        58.23
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -89.72,
+        31.68,
+        74.7,
+        81.0,
+        45.87,
+        70.52
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "add",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        50.92,
+        -59.81,
+        64.75,
+        49.72,
+        76.0,
+        9.07
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -10.67,
+        -52.62,
+        1.16,
+        22.73,
+        53.34,
+        -55.46
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -14.69,
+        11.68,
+        17.55,
+        -11.37,
+        75.84,
+        5.28
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        99.43,
+        38.79,
+        9.72,
+        -54.1,
+        -91.11,
+        95.04
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "subtract",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -50.47,
+        90.88,
+        42.2,
+        70.06,
+        65.41,
+        -26.56
+      ],
+      "operations": [
+        "add",
+        "multiply",
+        "divide",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        28.66,
+        42.71,
+        25.25,
+        -24.29,
+        -22.98,
+        -8.16
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -97.88,
+        -61.96,
+        -97.72,
+        -18.7,
+        -3.63,
+        -30.45
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "add",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -45.07,
+        45.32,
+        64.07,
+        -93.06,
+        98.51,
+        60.19
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -15.96,
+        48.1,
+        -10.0,
+        40.92,
+        56.78,
+        -86.87
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -54.69,
+        2.11,
+        61.44,
+        5.05,
+        -26.43,
+        -75.61
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -58.33,
+        14.18,
+        63.08,
+        38.62,
+        2.22,
+        34.19
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -28.83,
+        -45.31,
+        77.07,
+        -67.42,
+        -25.49,
+        45.34
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "add",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -35.78,
+        7.71,
+        -63.29,
+        69.12,
+        -15.56,
+        -18.14
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "divide",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        98.0,
+        30.89,
+        -23.28,
+        -73.34,
+        -70.91,
+        -70.74
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        58.98,
+        -92.35,
+        -27.16,
+        -38.18,
+        7.81,
+        -85.65
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -33.41,
+        -3.33,
+        56.29,
+        0.06,
+        94.08,
+        -61.6
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        56.51,
+        -84.48,
+        -82.43,
+        65.7,
+        -50.37,
+        74.08
+      ],
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -33.48,
+        -48.03,
+        7.22,
+        -49.36,
+        -14.93,
+        19.3
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "subtract",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -57.51,
+        4.57,
+        59.01,
+        54.56,
+        -71.26,
+        77.38
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -24.72,
+        -16.53,
+        21.23,
+        72.08,
+        -25.21,
+        99.1
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "divide",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -78.33,
+        -18.83,
+        81.94,
+        -29.59,
+        -22.78,
+        -2.98
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "multiply",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -23.28,
+        -11.07,
+        63.85,
+        -87.31,
+        25.96,
+        -75.15
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -3.45,
+        92.38,
+        45.52,
+        7.42,
+        13.21,
+        -91.33
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        9.35,
+        94.18,
+        83.32,
+        21.37,
+        -49.66,
+        26.19
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        12.97,
+        28.14,
+        71.42,
+        -30.32,
+        -95.94,
+        94.64
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -19.54,
+        -45.42,
+        -55.9,
+        51.76,
+        -86.73,
+        40.65
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "divide",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -55.77,
+        5.12,
+        93.24,
+        54.13,
+        11.43,
+        59.31
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -14.01,
+        15.82,
+        -27.17,
+        97.55,
+        -52.39,
+        35.0
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -23.76,
+        -76.25,
+        32.47,
+        -92.56,
+        82.38,
+        74.32
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "add",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -83.34,
+        8.15,
+        27.03,
+        -1.51,
+        -16.85,
+        79.62
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "multiply",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -16.49,
+        -27.2,
+        21.52,
+        28.51,
+        83.61,
+        71.77
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "multiply",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        40.19,
+        58.97,
+        82.66,
+        17.34,
+        7.09,
+        14.75
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        17.2,
+        39.69,
+        60.64,
+        -6.86,
+        -61.47,
+        99.34
+      ],
+      "operations": [
+        "subtract",
+        "add",
+        "multiply",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -6.75,
+        52.86,
+        -82.09,
+        -17.98,
+        -55.82,
+        83.37
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -51.74,
+        67.87,
+        -8.5,
+        77.9,
+        -50.73,
+        92.91
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        45.97,
+        95.37,
+        34.06,
+        33.25,
+        15.48,
+        -60.58
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        34.39,
+        -61.2,
+        -64.41,
+        58.34,
+        14.37,
+        -48.37
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "divide",
+        "multiply",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -85.85,
+        -5.05,
+        72.7,
+        30.35,
+        56.18,
+        1.14
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "divide",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -73.44,
+        -40.45,
+        30.45,
+        34.44,
+        45.97,
+        80.04
+      ],
+      "operations": [
+        "add",
+        "subtract",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        31.57,
+        49.14,
+        13.74,
+        -20.9,
+        -3.09,
+        69.54
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        21.48,
+        61.71,
+        79.07,
+        31.72,
+        53.08,
+        17.68
+      ],
+      "operations": [
+        "divide",
+        "divide",
+        "subtract",
+        "divide",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -41.56,
+        82.45,
+        26.73,
+        51.07,
+        97.47,
+        38.89
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "add",
+        "subtract",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -16.36,
+        -97.83,
+        52.85,
+        42.27,
+        17.31,
+        -81.91
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "multiply",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -74.26,
+        1.72,
+        14.94,
+        -12.01,
+        24.16,
+        95.16
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -89.77,
+        7.92,
+        21.66,
+        35.69,
+        -72.58,
+        14.96
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "subtract",
+        "multiply",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -95.89,
+        31.28,
+        17.68,
+        -19.83,
+        45.39,
+        -55.98
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "add",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -36.25,
+        -55.29,
+        87.81,
+        -98.09,
+        68.0,
+        73.94
+      ],
+      "operations": [
+        "multiply",
+        "add",
+        "add",
+        "multiply",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -45.01,
+        80.81,
+        -72.95,
+        -43.84,
+        -80.94,
+        76.97
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "add",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -27.17,
+        -69.87,
+        19.56,
+        1.34,
+        91.81,
+        71.45
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "divide",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        47.06,
+        -61.32,
+        48.98,
+        -82.85,
+        70.11,
+        13.23
+      ],
+      "operations": [
+        "multiply",
+        "divide",
+        "subtract",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        -50.74,
+        73.86,
+        57.51,
+        91.66,
+        -5.41,
+        41.7
+      ],
+      "operations": [
+        "divide",
+        "subtract",
+        "divide",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -7.06,
+        -33.81,
+        96.95,
+        85.82,
+        -19.22,
+        -12.79
+      ],
+      "operations": [
+        "multiply",
+        "subtract",
+        "subtract",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -8.96,
+        -53.21,
+        29.12,
+        73.18,
+        -50.88,
+        80.65
+      ],
+      "operations": [
+        "subtract",
+        "divide",
+        "multiply",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -25.54,
+        37.87,
+        53.01,
+        73.59,
+        22.75,
+        -0.13
+      ],
+      "operations": [
+        "subtract",
+        "subtract",
+        "subtract",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        35.26,
+        76.12,
+        20.47,
+        -45.15,
+        60.14,
+        49.14
+      ],
+      "operations": [
+        "multiply",
+        "multiply",
+        "subtract",
+        "add",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        -76.52,
+        99.91,
+        36.6,
+        4.24,
+        14.04,
+        -96.77
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        86.98,
+        30.83,
+        77.48,
+        -91.13,
+        -19.21,
+        -41.58
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -53.4,
+        -6.92,
+        96.58,
+        -67.59,
+        -21.87,
+        -31.71
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "multiply",
+        "multiply"
+      ]
+    },
+    {
+      "numbers": [
+        35.71,
+        -17.26,
+        56.95,
+        -47.67,
+        -46.98,
+        65.32
+      ],
+      "operations": [
+        "add",
+        "divide",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        64.46,
+        -82.65,
+        -77.11,
+        30.21,
+        -70.16,
+        87.16
+      ],
+      "operations": [
+        "add",
+        "add",
+        "subtract",
+        "subtract",
+        "divide"
+      ]
+    },
+    {
+      "numbers": [
+        12.77,
+        69.89,
+        81.73,
+        -52.13,
+        74.51,
+        40.95
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "add",
+        "add",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        -35.03,
+        98.29,
+        -48.84,
+        27.08,
+        32.61,
+        -66.52
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "subtract",
+        "subtract",
+        "subtract"
+      ]
+    },
+    {
+      "numbers": [
+        27.62,
+        16.13,
+        -86.29,
+        91.53,
+        -2.89,
+        55.37
+      ],
+      "operations": [
+        "divide",
+        "add",
+        "multiply",
+        "subtract",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        -31.93,
+        98.39,
+        52.88,
+        -65.1,
+        56.09,
+        3.9
+      ],
+      "operations": [
+        "divide",
+        "multiply",
+        "multiply",
+        "divide",
+        "add"
+      ]
+    },
+    {
+      "numbers": [
+        80.41,
+        63.86,
+        19.26,
+        -7.77,
+        29.29,
+        -86.31
+      ],
+      "operations": [
+        "subtract",
+        "multiply",
+        "add",
+        "divide",
+        "subtract"
+      ]
+    }
+  ]
+}

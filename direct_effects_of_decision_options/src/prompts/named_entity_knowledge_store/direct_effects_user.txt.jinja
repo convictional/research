@@ -1,0 +1,31 @@
+Review the following information:
+
+<decision_context>
+Decision Title: <decision_title>{{decision.title}}</decision_title>
+Decision Goals: <decision_goals>{{decision.goals}}</decision_goals>
+
+Decision Criteria:
+<decision_criteria>
+{%- for criterion in decision.criteria %}
+- Criterion {{loop.index}}:
+  Title: {{criterion.title}}
+  Description: {{criterion.description}}
+{% endfor %}
+</decision_criteria>
+
+Decision Option:
+Title: <option_title>{{option.title}}</option_title>
+Description: <option_description>{{option.description}}</option_description>
+</decision_context>
+
+<named_entities_context>
+Relevant Named Entities:
+{%- for entity in named_entities %}
+- Entity Name: <entity_name>{{entity.entity_name}}</entity_name>
+  Entity index: <entity_index>{{entity.index}}</entity_index>
+  Category: <entity_category>{{entity.category}}</entity_category>
+  Description: <entity_description>{{entity.description}}</entity_description>
+{% endfor %}
+</named_entities_context>
+
+Please proceed with your analysis and list of direct effects for the given decision option.

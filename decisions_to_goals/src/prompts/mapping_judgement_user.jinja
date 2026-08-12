@@ -1,0 +1,37 @@
+## Organizational Goals ({{ goals_count }})
+
+{{ goals_formatted }}
+
+---
+
+## Decision Under Review
+
+{{ decision_formatted }}
+
+---
+
+## Prior Analysis
+
+{{ analysis_text }}
+
+---
+
+## High-Confidence Assumptions (the ONLY basis for your decision)
+
+{% if has_high_assumptions %}
+The following assumptions were identified with HIGH confidence in the prior analysis.
+You MUST discard all reasoning based on low or medium confidence assumptions.
+Only the points below should drive your mapping decision.
+
+{% for assumption in high_confidence_assumptions %}
+- {{ assumption }} [HIGH]
+{% endfor %}
+
+{% else %}
+No high-confidence assumptions were identified in the prior analysis.
+Base your decision solely on the factual content as written — do not invent connections.
+{% endif %}
+
+---
+
+Now produce your mapping decision for decision_id: {{ decision_id }}

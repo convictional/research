@@ -1,0 +1,60 @@
+{
+  "title": "Decision: Acquiring TechStack Solutions Inc.",
+  "goals": "expand product capabilities, acquire strategic IP, gain market share in enterprise segment, and accelerate growth through established customer base",
+  "options": [
+    {
+      "title": "Complete Acquisition",
+      "description": "Full acquisition at $45M valuation with immediate integration of team, product, and customers"
+    },
+    {
+      "title": "Partial Stake with Option",
+      "description": "Purchase 30% stake at $15M with option to acquire remaining shares within 24 months"
+    },
+    {
+      "title": "Strategic Partnership First",
+      "description": "Begin with 12-month strategic partnership including co-marketing and product integration, with potential acquisition afterward"
+    },
+    {
+      "title": "Decline Acquisition",
+      "description": "Focus on organic growth and potential development of competing products/features internally"
+    }
+  ],
+  "criteria": [
+    {
+      "title": "Valuation",
+      "description": "Assessment of asking price versus market comparables, revenue multiples, and strategic value"
+    },
+    {
+      "title": "Technology Fit",
+      "description": "Compatibility of tech stack, architecture, and potential integration challenges"
+    },
+    {
+      "title": "Cultural Alignment",
+      "description": "Compatibility of company cultures, values, and working styles"
+    },
+    {
+      "title": "Market Position",
+      "description": "Current market share, brand strength, and competitive advantage in target segments"
+    },
+    {
+      "title": "Financial Health",
+      "description": "Revenue growth, profit margins, burn rate, and outstanding liabilities"
+    },
+    {
+      "title": "Team Retention",
+      "description": "Likelihood of retaining key personnel and integration costs for the broader team"
+    },
+    {
+      "title": "Customer Base",
+      "description": "Quality and stability of existing customer relationships and contracts"
+    },
+    {
+      "title": "Regulatory Risk",
+      "description": "Potential regulatory hurdles, compliance issues, and legal considerations"
+    },
+    {
+      "title": "Integration Complexity",
+      "description": "Estimated time, cost, and complexity of technical and operational integration"
+    }
+  ]
+}

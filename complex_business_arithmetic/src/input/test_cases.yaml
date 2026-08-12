@@ -1,0 +1,206 @@
+test_cases:
+  - id: 1
+    name: FP&A analysis for a tech company with 3 business units. Additional investment.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024.csv
+        description: |
+          The dataset represents financial and operational performance for a technology company broken down
+          by three business units (Software, Hardware, and Services) for each month of 2024.
+
+          Date: Monthly data points for 2024
+          Department: Business unit (Software, Hardware, Services)
+          Revenue: Monthly revenue in USD
+          COGS: Cost of goods sold
+          Operating_Expenses: Non-COGS operating expenses
+          Marketing_Spend: Marketing expenditure
+          R&D_Spend: Research and development investment
+          Headcount: Number of employees in the department
+          New_Customers: New customer acquisitions that month
+          Customer_Churn: Number of customers lost that month
+          Average_Deal_Size: Average revenue per new customer
+    results_csv_output_file_name: results_output_test_case_1
+
+  - id: 2
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      No data attachment description.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024.csv
+        description: ""
+    results_csv_output_file_name: results_output_test_case_2
+
+  - id: 3
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      No data attachment description. Bad CSV column headers.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024_bad_column_headers.csv
+        description: ""
+    results_csv_output_file_name: results_output_test_case_3
+
+  - id: 4
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      No data attachment description. VERY bad CSV column headers.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024_very_bad_column_headers.csv
+        description: ""
+    results_csv_output_file_name: results_output_test_case_4
+
+  - id: 5
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      Nested tables in CSV.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024_nested.csv
+        description: |
+          The dataset represents financial and operational performance for a technology company broken down
+          by three business units (Software, Hardware, and Services) for each month of 2024.
+
+          Month: Monthly data points
+          Department: Business unit (Software, Hardware, Services)
+          Revenue: Monthly revenue in USD
+          COGS: Cost of goods sold
+          Operating_Expenses: Non-COGS operating expenses
+          Marketing_Spend: Marketing expenditure
+          R&D_Spend: Research and development investment
+          Headcount: Number of employees in the department
+          New_Customers: New customer acquisitions that month
+          Customer_Churn: Number of customers lost that month
+          Average_Deal_Size: Average revenue per new customer
+          Total_revenue: Total revenue
+    results_csv_output_file_name: results_output_test_case_5
+
+  - id: 6
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      Messy data: mixed types, weird null values, missing data, etc.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024_messy.csv
+        description: |
+          The dataset represents financial and operational performance for a technology company broken down
+          by three business units (Software, Hardware, and Services) for each month of 2024.
+
+          Date: Monthly data points for 2024
+          Department: Business unit (Software, Hardware, Services)
+          Revenue: Monthly revenue in USD
+          COGS: Cost of goods sold
+          Operating_Expenses: Non-COGS operating expenses
+          Marketing_Spend: Marketing expenditure
+          R&D_Spend: Research and development investment
+          Headcount: Number of employees in the department
+          New_Customers: New customer acquisitions that month
+          Customer_Churn: Number of customers lost that month
+          Average_Deal_Size: Average revenue per new customer
+    results_csv_output_file_name: results_output_test_case_6
+
+  - id: 7
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      Really messy data: Many mixed types, weird null values, missing data, etc.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024_really_messy.csv
+        description: |
+          The dataset represents financial and operational performance for a technology company broken down
+          by three business units (Software, Hardware, and Services) for each month of 2024.
+
+          Date: Monthly data points for 2024
+          Department: Business unit (Software, Hardware, Services)
+          Revenue: Monthly revenue in USD
+          COGS: Cost of goods sold
+          Operating_Expenses: Non-COGS operating expenses
+          Marketing_Spend: Marketing expenditure
+          R&D_Spend: Research and development investment
+          Headcount: Number of employees in the department
+          New_Customers: New customer acquisitions that month
+          Customer_Churn: Number of customers lost that month
+          Average_Deal_Size: Average revenue per new customer
+    results_csv_output_file_name: results_output_test_case_7
+
+  - id: 8
+    name: |
+      FP&A analysis for a tech company with 3 business units. Additional investment.
+
+      Use more cautionary system prompt.
+
+      Really messy data: Many mixed types, weird null values, missing data, etc.
+    user_query: |
+      Our company is considering a strategic pivot in 2025.
+      We need to analyze which department we should prioritize for investment given current performance trends and market conditions.
+
+      If we were to invest an additional $1.5M in only one department, which would yield the highest return?
+      Consider scenarios where this investment would be split between marketing (to reduce customer churn by 15-20%)
+      and R&D (to increase average deal size by 10-15%).
+    attachments:
+      - file_name: fp&a_dataset_2024_really_messy.csv
+        description: |
+          The dataset represents financial and operational performance for a technology company broken down
+          by three business units (Software, Hardware, and Services) for each month of 2024.
+
+          Date: Monthly data points for 2024
+          Department: Business unit (Software, Hardware, Services)
+          Revenue: Monthly revenue in USD
+          COGS: Cost of goods sold
+          Operating_Expenses: Non-COGS operating expenses
+          Marketing_Spend: Marketing expenditure
+          R&D_Spend: Research and development investment
+          Headcount: Number of employees in the department
+          New_Customers: New customer acquisitions that month
+          Customer_Churn: Number of customers lost that month
+          Average_Deal_Size: Average revenue per new customer
+    results_csv_output_file_name: results_output_test_case_8

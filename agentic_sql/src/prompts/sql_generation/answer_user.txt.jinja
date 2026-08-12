@@ -1,0 +1,23 @@
+I need a concise answer to my original question based on the SQL query and its results.
+
+Original Question: {{ question }}
+
+SQL Query:
+```sql
+{{ sql }}
+```
+
+Query Results:
+```
+{{ results }}
+```
+
+{% if table_schemas %}
+The query used these tables:
+{{ table_schemas }}
+{% endif %}
+
+Please provide:
+1. A direct answer to my question (1-3 sentences)
+2. Any crucial caveats or assumptions (if needed)
+3. 1-2 potential follow-up questions (if relevant)

@@ -1,0 +1,24 @@
+You are evaluating the quality of a research briefing on decision-to-goal findings.
+
+---
+
+## Briefing Under Review
+
+{{ artifact_markdown }}
+
+---
+
+{{ rubric_text }}
+
+---
+
+## Instructions
+
+Evaluate the briefing against the five rubric dimensions, then return your assessment as structured output.
+
+- In the `reasoning` field, reason through each dimension before committing to its score, noting the key strength or weakness you observed. Keep it concise — roughly one or two sentences per dimension, under ~250 words total. Do not quote or restate the briefing at length.
+- Assign a **binary score** of 0 or 1 for each of the five dimensions (1 = the briefing clearly meets that dimension's bar, 0 = it does not).
+- Set **self_reported_overall** (0–5) to the sum of your five dimension scores.
+- **Length is not quality.** A longer briefing is not a better one. If a section repeats, restates, or pads earlier content without adding new information, that must LOWER the Information Density score and must NOT raise any other dimension. Mentally discard any restated or filler content and judge only the unique, substantive material.
+
+Remember: award a 1 only when the dimension's bar is genuinely met. Be calibrated, not generous.

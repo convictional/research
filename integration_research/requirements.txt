@@ -1,0 +1,17 @@
+db-dtypes
+lxml
+pandas
+openai
+pydantic
+pyyaml
+tiktoken
+faiss-cpu
+google-api-python-client
+google-auth
+google-auth-httplib2
+google-auth-oauthlib
+google-cloud-bigquery
+langchain
+langchain-anthropic
+langchain-community
+langchain-openai

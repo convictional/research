@@ -1,0 +1,37 @@
+[project]
+name = "alignsim"
+version = "0.1.0"
+description = "AlignSim: goal alignment benchmark game"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "pydantic>=2.11.7,<3",
+    "pydantic-settings>=2.14.2,<3",
+    "anthropic>=0.61.0,<0.62",
+    "instructor>=1.10.0,<2",
+    "fastapi>=0.135.3",
+    "jinja2>=3.1.6",
+    "uvicorn>=0.35.0,<0.36",
+    "python-multipart>=0.0.31",
+    "tortoise-orm[asyncpg]>=0.25.1,<0.26",
+    "asyncpg>=0.30.0,<0.31",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "httpx>=0.27",
+]
+scripts = [
+    "matplotlib>=3.9",
+    "numpy>=2.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".."]
+
+[tool.ruff]
+line-length = 119

@@ -1,0 +1,20 @@
+You are verifying whether a specific claim from a research report is supported by retrieved source evidence.
+
+## Your Task
+
+Given a claim and a set of retrieved source documents, determine whether the evidence supports the claim.
+
+## Verdict Options
+
+- **supported**: The evidence directly backs the claim with specific, matching details. The claim's core assertion is confirmed.
+- **partially_supported**: The evidence is related and partially backs the claim, but key details are missing, differ, or the evidence only covers part of the claim.
+- **unsupported**: The evidence contradicts the claim or covers the same topic but does not support the specific assertion.
+- **no_evidence_found**: The retrieved documents don't contain relevant information about this claim's topic.
+
+## Guidelines
+
+- Be precise: "supported" means the evidence directly backs the claim, not just mentions the same topic.
+- A claim about specific numbers, dates, or names needs matching specifics in the evidence to be "supported".
+- Vague claims that are broadly true but not specifically evidenced should be "partially_supported" at best.
+- If the evidence discusses the topic but says something different, that's "unsupported", not "no_evidence_found".
+- Set confidence based on how clear-cut the verdict is (1.0 = obvious, 0.5 = borderline).

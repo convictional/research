@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Speaker notes — Knowledge Collapse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg:      #1c1917;
+        --surface: #28231f;
+        --border:  #3a332e;
+        --text:    hsl(60, 9%, 96%);
+        --muted:   hsl(30, 6%, 55%);
+        --blue:    #2b7fff;
+        --green:   #5ea500;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 16px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── Top bar ─────────────────────────────────────────── */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 24px;
+        border-bottom: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+
+      .wordmark {
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.01em;
+        color: var(--muted);
+      }
+
+      .slide-counter {
+        font-size: 13px;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .status {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 4px;
+      }
+      .status.connected    { background: #192e03; color: var(--green); }
+      .status.disconnected { background: #460809; color: #e7000b; }
+      .status.waiting      { background: var(--surface); color: var(--muted); }
+
+      /* ── Main layout ─────────────────────────────────────── */
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 32px 40px;
+        gap: 28px;
+        overflow: hidden;
+      }
+
+      /* Current note — big and readable */
+      .note-current {
+        flex: 1;
+        font-size: 26px;
+        line-height: 1.6;
+        color: var(--text);
+        overflow-y: auto;
+      }
+
+      .note-current.empty {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      /* Previous / next previews */
+      .note-context {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        flex-shrink: 0;
+      }
+
+      .note-preview {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 14px 18px;
+      }
+
+      .note-preview .label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .note-preview .text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--muted);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .note-preview .text.empty {
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <span class="wordmark">Convictional — Speaker notes</span>
+      <span class="slide-counter" id="counter">—</span>
+      <span class="status waiting" id="status">Waiting for deck…</span>
+    </header>
+
+    <main>
+      <div class="note-current empty" id="note-current">Open slides.html in another tab to connect.</div>
+      <div class="note-context">
+        <div class="note-preview">
+          <div class="label">Previous</div>
+          <div class="text empty" id="note-prev">—</div>
+        </div>
+        <div class="note-preview">
+          <div class="label">Next</div>
+          <div class="text empty" id="note-next">—</div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const elCurrent = document.getElementById('note-current');
+      const elPrev    = document.getElementById('note-prev');
+      const elNext    = document.getElementById('note-next');
+      const elCounter = document.getElementById('counter');
+      const elStatus  = document.getElementById('status');
+
+      let notes = [];
+      let lastIndex = -1;
+
+      function render(index, total) {
+        lastIndex = index;
+        const note = notes[index] ?? '';
+
+        elCounter.textContent = total > 0 ? `${index + 1} / ${total}` : '—';
+
+        elCurrent.textContent = note || '(no note for this slide)';
+        elCurrent.classList.toggle('empty', !note);
+
+        const prev = notes[index - 1] ?? '';
+        elPrev.textContent = prev || '—';
+        elPrev.classList.toggle('empty', !prev);
+
+        const next = notes[index + 1] ?? '';
+        elNext.textContent = next || '—';
+        elNext.classList.toggle('empty', !next);
+      }
+
+      function setStatus(state) {
+        elStatus.className = 'status ' + state;
+        elStatus.textContent = { connected: 'Connected', disconnected: 'Lost connection', waiting: 'Waiting for deck…' }[state];
+      }
+
+      // Listen for messages broadcast from the deck.
+      const channel = new BroadcastChannel('kc-deck');
+      channel.onmessage = (e) => {
+        const { index, total, notesList } = e.data;
+        if (notesList) notes = notesList;
+        setStatus('connected');
+        render(index, total);
+      };
+
+      // Reconnect indicator: if no message for 8 s, show warning.
+      let watchdog;
+      channel.onmessage = (e) => {
+        clearTimeout(watchdog);
+        watchdog = setTimeout(() => setStatus('disconnected'), 8000);
+        const { index, total, notesList } = e.data;
+        if (notesList) notes = notesList;
+        setStatus('connected');
+        render(index, total);
+      };
+    </script>
+  </body>
+</html>

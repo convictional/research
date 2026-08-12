@@ -1,0 +1,71 @@
+# Configuration for LLM Alignment Experiment
+
+[database]
+# PostgreSQL database name
+db_name = "local_research_db"
+db_host = "localhost"
+db_port = 5432
+db_user = "postgres"  # Update if different
+
+[user]
+# User ID to extract standup entries for
+# You'll need to set this to your actual user ID from the database
+user_id = ""
+
+[models]
+# Gemini model configurations (using google-genai SDK naming)
+generator_model = "gemini-2.0-flash"
+judge_model = "gemini-2.0-pro"
+optimizer_model = "gemini-2.0-pro"
+
+[generation]
+# Temperature settings for different LLMs
+temperature_generator = 0.9  # Higher for more diverse predictions
+temperature_judge = 0.3      # Keep low for consistent evaluation
+temperature_optimizer = 1.3  # Higher for more creative instruction proposals
+
+# Token limits (32K each for generous headroom)
+max_tokens_generator = 32768
+max_tokens_judge = 32768
+max_tokens_optimizer = 32768
+
+[optimization]
+# OPRO optimization parameters
+max_iterations = 30
+candidates_per_iteration = 8
+mini_batch_size = 10
+plateau_threshold = 5  # Stop if no improvement for N iterations
+
+# Trajectory management
+max_trajectory_size = 20  # Keep best N instructions in meta-prompt
+num_exemplars = 3  # Number of examples to show in meta-prompt
+
+[data]
+# Dataset split ratios
+train_ratio = 0.6
+dev_ratio = 0.2
+test_ratio = 0.2
+
+# Minimum number of examples needed
+min_examples = 50
+
+# Database content cutoff date (latest content in seed DB)
+# Only use standup entries before this date to ensure context is available
+db_content_cutoff = "2025-05-19"
+
+# Standup files
+standup_h1_file = "Product Standups 2025H1.md"
+standup_h2_file = "Product Standups 2025H2.md"
+
+[context]
+# Context retrieval parameters
+top_k = 20  # Number of items to retrieve from hybrid search
+rerank = true  # Whether to rerank results
+
+# Content types to exclude (mutable content that we can't reconstruct historically)
+# Google docs change over time, so we can't know their state at a specific date
+exclude_content_types = ["google_doc"]
+
+[baseline]
+# Initial baseline instruction to start optimization
+instruction = "Analyze the context and predict today's top priorities."

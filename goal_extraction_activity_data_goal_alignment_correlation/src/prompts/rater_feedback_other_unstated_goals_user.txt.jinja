@@ -1,0 +1,25 @@
+Please analyze the following expert raters' feedback data for unstated business goals and provide your comprehensive analysis.
+
+## Expert Raters' Feedback Data
+
+{% for goal in other_goals_data %}
+### Goal {{ loop.index }}: {{ goal.goal_title }}
+
+**Goal Description:**
+{{ goal.goal_description }}
+
+**Expert rater 1 Rating:** {{ goal.rater2_rating }}/5
+
+**Expert rater 1 Reasoning:**
+{{ goal.rater2_rating_why }}
+
+**Expert rater 2 Rating:** {{ goal.rater3_rating }}/5
+
+**Expert rater 2 Reasoning:**
+{{ goal.rater3_rating_why }}
+
+---
+
+{% endfor %}
+
+Please provide your analysis following the framework outlined in the system prompt.

@@ -1,0 +1,295 @@
+#!/bin/bash
+set -euo pipefail
+
+# game_c4b — HTTP CLI wrapper for Condition 4b agents (Convictional substrate).
+#
+# Coordination is substrate-only: durable Posts (threads + comments + decisions) and a
+# shared Goals hierarchy — there is NO chat in C4b. The agent's function is read from
+# .function and the orchestrator URL from .orchestrator_url.
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+FUNCTION="$(cat "$SCRIPT_DIR/.function" 2>/dev/null || true)"
+BASE_URL="$(cat "$SCRIPT_DIR/.orchestrator_url" 2>/dev/null || echo "http://localhost:9000")"
+
+if [ -z "$FUNCTION" ]; then
+  echo "Error: .function file not found. This workspace is not initialized." >&2
+  exit 1
+fi
+
+# _api METHOD URL [JSON_DATA] — perform an HTTP request and pretty-print the JSON body on
+# 2xx. On any non-2xx, print "HTTP <code>" plus the server's error body to stderr and exit 1,
+# so the agent sees *why* a call failed instead of a silent failure (curl -f would hide it).
+_api() {
+  local method="$1" url="$2" data="${3:-}" resp code body
+  if [ "$method" = POST ]; then
+    resp=$(curl -s -w '\n%{http_code}' -X POST "$url" -H "Content-Type: application/json" -d "$data")
+  else
+    resp=$(curl -s -w '\n%{http_code}' "$url")
+  fi
+  code=$(printf '%s\n' "$resp" | tail -n1)
+  body=$(printf '%s\n' "$resp" | sed '$d')
+  if [ "$code" -ge 200 ] 2>/dev/null && [ "$code" -lt 300 ] 2>/dev/null; then
+    printf '%s\n' "$body" | jq . 2>/dev/null || printf '%s\n' "$body"
+  else
+    printf 'HTTP %s\n' "$code" >&2
+    printf '%s\n' "$body" | jq . >&2 2>/dev/null || printf '%s\n' "$body" >&2
+    exit 1
+  fi
+}
+
+usage() {
+  cat >&2 <<EOF
+Usage: ./game <command> [args]
+
+Observation & Status:
+  observe                          Your function's view of the game state
+  status                           Turn, MRR progress, game over state, unread Posts/Goals
+
+Queries:
+  query customer <id>              Customer details (stage, needs, health)
+  query feature <id>               Feature status and progress
+  query bugs                       All unresolved bugs
+  query rejections                 Full rejection history
+
+Compute:
+  compute maturity                 Product maturity score
+  compute satisfaction <id>        Customer rubric satisfaction
+  compute maturity-if <fid> <q>    Hypothetical maturity if feature shipped
+  compute capacity-cost --actions-file <path>   Per-pool cost check
+
+Actions:
+  submit --actions-file <path>     Submit your turn actions
+
+Posts (durable threads — your only communication channel):
+  posts                            List all Posts
+  post read <id>                   Read a Post with its comments and decision
+  post create "<title>" "<body>"   Create a new Post
+  post comment <id> "<text>"       Comment on a Post
+  post decide <id> "<text>"        Record a decision on a Post
+  decisions                        List all decisions recorded on Posts (decision, who, turn, Post)
+
+Goals (shared outcomes):
+  goals                            List the goal tree with owners, status, progress
+  goal create "<title>" "<desc>" [--parent <id>] [--owner <fn>]   Create a goal / sub-goal
+  goal update <id> <status> <progress> ["<note>"]                 Update a goal you created
+  goal comment <id> "<note>"                                      Comment on any goal (incl. company/native)
+
+Game Over:
+  game-over                        Check if the game has ended
+EOF
+  exit 1
+}
+
+[ $# -lt 1 ] && usage
+
+CMD="$1"
+shift
+
+case "$CMD" in
+  observe)
+    _api GET "$BASE_URL/agents/$FUNCTION/observe"
+    ;;
+
+  status)
+    _api GET "$BASE_URL/agents/$FUNCTION/status"
+    ;;
+
+  submit)
+    ACTIONS_FILE=""
+    while [[ $# -gt 0 ]]; do
+      case "$1" in
+        --actions-file) ACTIONS_FILE="$2"; shift 2 ;;
+        *) echo "Unknown flag: $1" >&2; exit 1 ;;
+      esac
+    done
+    if [ -z "$ACTIONS_FILE" ]; then
+      echo "Usage: ./game submit --actions-file <path>" >&2
+      exit 1
+    fi
+    if [ ! -f "$ACTIONS_FILE" ]; then
+      echo "Error: actions file '$ACTIONS_FILE' not found" >&2
+      exit 1
+    fi
+    ACTIONS=$(cat "$ACTIONS_FILE")
+    RESPONSE=$(curl -sw '\n%{http_code}' -X POST "$BASE_URL/agents/$FUNCTION/submit" \
+      -H "Content-Type: application/json" \
+      -d "{\"actions\": $ACTIONS}")
+    HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+    BODY=$(echo "$RESPONSE" | sed '$d')
+
+    if [ "$HTTP_CODE" = "409" ]; then
+      echo "$BODY" | jq .
+      echo "" >&2
+      echo "WARNING: You have unread Posts/Goals. Read them ('./game post read <id>' for each new Post, './game goals') first, then resubmit." >&2
+      exit 2
+    elif [ "$HTTP_CODE" = "400" ]; then
+      echo "$BODY" | jq .
+      exit 1
+    fi
+    echo "$BODY" | jq .
+    ;;
+
+  query)
+    [ $# -lt 1 ] && { echo "Usage: ./game query <type> [<id>]" >&2; exit 1; }
+    QTYPE="$1"; shift
+    case "$QTYPE" in
+      customer|feature)
+        [ $# -lt 1 ] && { echo "Usage: ./game query $QTYPE <id>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/query/$QTYPE?id=$1"
+        ;;
+      bugs|rejections)
+        _api GET "$BASE_URL/agents/$FUNCTION/query/$QTYPE"
+        ;;
+      *)
+        echo "Unknown query type: $QTYPE" >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  compute)
+    [ $# -lt 1 ] && { echo "Usage: ./game compute <type> [args]" >&2; exit 1; }
+    CTYPE="$1"; shift
+    case "$CTYPE" in
+      maturity)
+        _api GET "$BASE_URL/agents/$FUNCTION/compute/maturity"
+        ;;
+      satisfaction)
+        [ $# -lt 1 ] && { echo "Usage: ./game compute satisfaction <customer_id>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/compute/satisfaction?id=$1"
+        ;;
+      maturity-if)
+        [ $# -lt 2 ] && { echo "Usage: ./game compute maturity-if <feature_id> <quality>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/compute/maturity-if?id=$1&quality=$2"
+        ;;
+      capacity-cost)
+        ACTIONS_FILE=""
+        while [[ $# -gt 0 ]]; do
+          case "$1" in
+            --actions-file) ACTIONS_FILE="$2"; shift 2 ;;
+            *) echo "Unknown flag: $1" >&2; exit 1 ;;
+          esac
+        done
+        [ -z "$ACTIONS_FILE" ] && { echo "Usage: ./game compute capacity-cost --actions-file <path>" >&2; exit 1; }
+        ACTIONS=$(cat "$ACTIONS_FILE")
+        _api POST "$BASE_URL/agents/$FUNCTION/compute/capacity-cost" "{\"actions\": $ACTIONS}"
+        ;;
+      *)
+        echo "Unknown compute type: $CTYPE" >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  posts)
+    _api GET "$BASE_URL/agents/$FUNCTION/posts"
+    ;;
+
+  decisions)
+    _api GET "$BASE_URL/agents/$FUNCTION/decisions"
+    ;;
+
+  post)
+    [ $# -lt 1 ] && { echo "Usage: ./game post <read|create|comment|decide> ..." >&2; exit 1; }
+    SUBCMD="$1"; shift
+    case "$SUBCMD" in
+      read)
+        [ $# -lt 1 ] && { echo "Usage: ./game post read <id>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/posts/$1"
+        ;;
+      create)
+        [ $# -lt 2 ] && { echo "Usage: ./game post create \"<title>\" \"<body>\"" >&2; exit 1; }
+        TITLE="$1"; BODY="$2"
+        _api POST "$BASE_URL/agents/$FUNCTION/posts" \
+          "{\"title\": $(printf '%s' "$TITLE" | jq -Rs .), \"body\": $(printf '%s' "$BODY" | jq -Rs .)}"
+        ;;
+      comment)
+        [ $# -lt 2 ] && { echo "Usage: ./game post comment <id> \"<text>\"" >&2; exit 1; }
+        PID="$1"; shift; TEXT="$*"
+        _api POST "$BASE_URL/agents/$FUNCTION/posts/$PID/comments" \
+          "{\"text\": $(printf '%s' "$TEXT" | jq -Rs .)}"
+        ;;
+      decide)
+        [ $# -lt 2 ] && { echo "Usage: ./game post decide <id> \"<text>\"" >&2; exit 1; }
+        PID="$1"; shift; TEXT="$*"
+        _api POST "$BASE_URL/agents/$FUNCTION/posts/$PID/decision" \
+          "{\"text\": $(printf '%s' "$TEXT" | jq -Rs .)}"
+        ;;
+      *)
+        echo "Usage: ./game post <read|create|comment|decide> ..." >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  goals)
+    _api GET "$BASE_URL/agents/$FUNCTION/goals"
+    ;;
+
+  goal)
+    [ $# -lt 1 ] && { echo "Usage: ./game goal <create|update|comment> ..." >&2; exit 1; }
+    SUBCMD="$1"; shift
+    case "$SUBCMD" in
+      create)
+        TITLE=""; DESC=""; PARENT=""; OWNER=""
+        POSITIONAL=()
+        while [[ $# -gt 0 ]]; do
+          case "$1" in
+            --parent) PARENT="$2"; shift 2 ;;
+            --owner)  OWNER="$2"; shift 2 ;;
+            *) POSITIONAL+=("$1"); shift ;;
+          esac
+        done
+        [ ${#POSITIONAL[@]} -lt 1 ] && { echo "Usage: ./game goal create \"<title>\" [\"<desc>\"] [--parent <id>] [--owner <fn>]" >&2; exit 1; }
+        TITLE="${POSITIONAL[0]}"
+        DESC="${POSITIONAL[1]:-}"
+        _api POST "$BASE_URL/agents/$FUNCTION/goals" \
+          "$(jq -n \
+                --arg title "$TITLE" --arg desc "$DESC" \
+                --arg parent "$PARENT" --arg owner "$OWNER" \
+                '{title: $title, description: $desc}
+                 + (if $parent == "" then {} else {parent_id: $parent} end)
+                 + (if $owner == "" then {} else {owner: $owner} end)')"
+        ;;
+      update)
+        [ $# -lt 3 ] && { echo "Usage: ./game goal update <id> <status> <progress> [\"<note>\"]" >&2; exit 1; }
+        GID="$1"; STATUS="$2"; PROGRESS="$3"; shift 3; NOTE="$*"
+        # Pass progress as a string (--arg, not --argjson) so a non-numeric value can't
+        # abort jq client-side; the server coerces to float and validates. Show the server's
+        # error body on a 4xx instead of swallowing it (curl -f would hide the message).
+        RESPONSE=$(curl -sw '\n%{http_code}' -X POST "$BASE_URL/agents/$FUNCTION/goals/$GID/update" \
+          -H "Content-Type: application/json" \
+          -d "$(jq -n \
+                --arg status "$STATUS" --arg progress "$PROGRESS" --arg note "$NOTE" \
+                '{status: $status, progress: $progress, note: $note}')")
+        HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+        BODY=$(echo "$RESPONSE" | sed '$d')
+        echo "$BODY" | jq .
+        [ "$HTTP_CODE" -ge 400 ] 2>/dev/null && exit 1
+        ;;
+      comment)
+        [ $# -lt 2 ] && { echo "Usage: ./game goal comment <id> \"<note>\"" >&2; exit 1; }
+        GID="$1"; shift; NOTE="$*"
+        # A comment attaches a note to ANY goal (incl. company/native goals). The server keeps
+        # native progress computed live from game state; the note rides alongside. Surface a 4xx
+        # body (e.g. empty note / unknown goal) instead of swallowing it.
+        RESPONSE=$(curl -sw '\n%{http_code}' -X POST "$BASE_URL/agents/$FUNCTION/goals/$GID/comment" \
+          -H "Content-Type: application/json" \
+          -d "$(jq -n --arg note "$NOTE" '{note: $note}')")
+        HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+        BODY=$(echo "$RESPONSE" | sed '$d')
+        echo "$BODY" | jq .
+        [ "$HTTP_CODE" -ge 400 ] 2>/dev/null && exit 1
+        ;;
+      *)
+        echo "Usage: ./game goal <create|update|comment> ..." >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  game-over)
+    _api GET "$BASE_URL/orchestrator/game-over"
+    ;;
+
+  *)
+    echo "Unknown command: $CMD" >&2
+    usage
+    ;;
+esac

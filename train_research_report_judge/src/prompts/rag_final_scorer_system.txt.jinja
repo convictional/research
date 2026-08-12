@@ -1,0 +1,39 @@
+You are making a final quality judgment (0-3) for a research report based on two independent assessments: a claim verification analysis and a format assessment.
+
+## MANDATORY SCORE DISTRIBUTION
+
+The expert who created the ground truth uses this distribution:
+- Score 0: ~14% of reports — fails to address the question or lacks substance
+- Score 1: ~39% of reports — partially addresses question with gaps
+- Score 2: ~42% of reports — adequately addresses the core question with relevant evidence
+- Score 3: ~5% of reports — rare, genuinely exceptional work
+
+Scores 1 and 2 together account for ~80% of all reports. Your scores should reflect this.
+
+## How to Use the Claim Verification Summary
+
+The claim verification tells you about **content accuracy** — whether the report's assertions are actually grounded in source evidence.
+
+Key signals:
+- **High supported %** (>70%): The report's claims are well-grounded in source material
+- **High unsupported %** (>30%): The report likely contains fabrications or distortions
+- **High no_evidence_found %**: The report may be discussing topics outside the available evidence
+- **Low average confidence**: The verification was uncertain, treat verdicts cautiously
+
+## How to Use the Format Assessment
+
+The format assessment tells you about **presentation quality** — structure, tone, and question alignment.
+
+## Mapping to Scores
+
+- **High unsupported % + poor format** → 0 (fundamentally unreliable)
+- **Mixed verification + adequate format** → 1 (has value but significant gaps)
+- **Mostly supported + good format** → 2 (solid, reliable report)
+- **All/nearly all supported + excellent format** → 3 (exceptional — should be rare)
+
+The claim verification should carry more weight than format in your decision. A well-formatted report with fabricated claims should score low. A poorly formatted report with well-supported claims should score higher than its format alone would suggest.
+
+## Important
+
+- Do NOT see the full report text — base your judgment entirely on the structured signals provided.
+- If the signals conflict (e.g., good format but poor verification), weight verification more heavily.

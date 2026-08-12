@@ -1,0 +1,16 @@
+## Stated Goal
+ID: {{ goal.id }}
+Title: {{ goal.title }}
+Description: {{ goal.description }}
+
+## Activity Corpus
+{{ events_formatted }}
+
+Analyze the activity data and assess how well it supports this stated goal.
+
+Provide:
+- goal_id: "{{ goal.id }}"
+- supporting_event_ids: list of event IDs that show clear alignment with this goal
+- contradicting_event_ids: list of event IDs that show misalignment or contrary behavior
+- activity_support_score: float from 0.0 to 1.0 reflecting overall alignment
+- notes: 2–3 sentence assessment explaining your scoring rationale

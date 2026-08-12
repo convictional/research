@@ -1,0 +1,16 @@
+Verify whether this claim is supported by the retrieved evidence.
+
+## Research Question (for context)
+{{ question }}
+
+## Claim to Verify
+{{ claim }}
+
+## Retrieved Evidence
+{% for result in search_results %}
+### Source {{ loop.index }}: {{ result.title }}
+{{ result.content }}
+{% endfor %}
+{% if not search_results %}
+No relevant evidence was retrieved for this claim.
+{% endif %}

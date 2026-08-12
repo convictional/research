@@ -1,0 +1,5 @@
+# outputs and local artifacts — never commit spend data or bytecode
+output/
+*.csv
+*.local.json
+__pycache__/

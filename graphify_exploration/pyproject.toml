@@ -1,0 +1,12 @@
+[project]
+name = "graphify-exploration"
+version = "0.1.0"
+description = "Sandbox for exploring the graphify CLI/skill on the Decide codebase"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "graphifyy",
+]
+
+[tool.uv]
+package = false

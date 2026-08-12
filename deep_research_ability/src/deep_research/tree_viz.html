@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Research Tree with Enhanced Tooltips</title>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<style>
+body {
+  margin: 0; padding: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+#tree-container {
+  width: 100vw;
+  height: 100vh;
+  background: #fafafa;
+}
+.node {
+  cursor: pointer;
+}
+.node circle {
+  fill: #999;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+  transition: r 0.2s, stroke-width 0.2s;
+}
+.node:hover circle {
+  r: 6;
+  stroke-width: 2px;
+}
+.node.pinned circle {
+  r: 6.5;
+  stroke: #FF5722;
+  stroke-width: 2.5px;
+}
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+.node text {
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  max-width: 450px; /* Allow for longer text */
+}
+.node-iteration text {
+  font-weight: bold;
+  font-size: 14px;
+}
+.node-query text {
+  fill: #36648B;
+  font-style: italic;
+}
+.node-learning text {
+  fill: #4F4F4F;
+  font-size: 11px;
+  font-style: italic;
+}
+.node-learning:nth-child(odd) text {
+  fill: #2E8B57;
+}
+.node-learning:nth-child(even) text {
+  fill: #6B8E23;
+}
+/* Add some visual distinction between node types */
+.node-iteration circle {
+  fill: #3949AB;
+  stroke: #1A237E;
+}
+.node-query circle {
+  fill: #42A5F5;
+  stroke: #1976D2;
+}
+.node-learning circle {
+  fill: #81C784;
+  stroke: #388E3C;
+}
+.info-box {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 350px;
+  background: #f8f8f8;
+  padding: 15px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  max-height: 70vh;
+  overflow-y: auto;
+  transition: box-shadow 0.3s ease;
+}
+.info-box.pinned {
+  box-shadow: 0 0 0 2px #FF5722, 2px 2px 8px rgba(0,0,0,0.3);
+}
+.info-box h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pin-status {
+  font-size: 11px;
+  font-weight: normal;
+  color: #FF5722;
+  background: #FFF3E0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: none;
+}
+.pin-status.active {
+  display: inline-block;
+}
+.info-content {
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+.url-list {
+  margin: 5px 0;
+  padding-left: 10px;
+}
+.url-list a {
+  display: block;
+  color: #0277BD;
+  text-decoration: none;
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+.url-list a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div id="tree-container"></div>
+<div class="info-box" id="infoBox">
+  <h3>
+    <span>Node Details</span>
+    <span class="pin-status" id="pinStatus">Pinned</span>
+  </h3>
+  <div id="nodeDetails" class="info-content">Hover or click on a node to see details</div>
+</div>
+<script>
+// This will be replaced with your actual data
+var data = DATA_JSON_PLACEHOLDER;
+
+// Configuration
+var duration = 250;
+var nodeWidth = 10;
+var nodeHeight = 25;
+
+// Custom tree layout settings
+var dy = 200;        // horizontal distance between levels
+var dx = 75;        // vertical distance between nodes
+var learningOffset = 40; // Stagger offset for learning nodes
+
+// State tracking for pinned tooltip
+var pinnedNode = null;
+
+// Create the d3 hierarchy from our data
+var root = d3.hierarchy(data);
+
+// Create SVG
+var container = d3.select("#tree-container");
+var width = container.node().clientWidth;
+var height = container.node().clientHeight;
+
+var svg = container.append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .call(d3.zoom()
+      .scaleExtent([0.1, 3])
+      .on("zoom", function(event){
+        g.attr("transform", event.transform);
+      })
+    );
+
+// Add background click handler to clear pinned tooltips
+svg.on("click", function(event) {
+  // Only handle clicks directly on the SVG background (not on nodes)
+  if (event.target === this) {
+    clearPinnedNode();
+  }
+});
+
+// Center the initial view
+var g = svg.append("g")
+    .attr("transform", "translate(" + (width / 2) + "," + 50 + ")");
+
+var gLink = g.append("g")
+    .attr("fill", "none")
+    .attr("stroke", "#555")
+    .attr("stroke-opacity", 0.4)
+    .attr("stroke-width", 1.5);
+
+var gNode = g.append("g")
+    .attr("cursor", "pointer")
+    .attr("pointer-events", "all");
+
+// Initial layout calculation
+root.x0 = 0;
+root.y0 = 0;
+
+// Custom layout function that positions nodes with proper spacing
+function customLayout(root) {
+  // First, calculate basic tree layout
+  // This gives us the basic structure but we'll override y positions for levels
+  d3.tree().nodeSize([dx, dy])(root);
+
+  // Track which levels have learning nodes
+  let levelNodes = {};
+
+  // Step 1: Group nodes by their depth (level)
+  root.descendants().forEach(d => {
+    if (!levelNodes[d.depth]) {
+      levelNodes[d.depth] = [];
+    }
+    levelNodes[d.depth].push(d);
+  });
+
+  // Step 2: For each depth level, calculate vertical positions with proper spacing
+  Object.entries(levelNodes).forEach(([depth, nodes]) => {
+    // For each level, sort nodes by their calculated x position
+    nodes.sort((a, b) => a.x - b.x);
+
+    // Now process each node at this level
+    nodes.forEach((node, i) => {
+      // Set horizontal position based on depth
+      node.y = node.depth * dy;
+
+      // Special handling for learning nodes - stagger them
+      if (node.data.type === "learning") {
+        // Get parent (query) node
+        let parent = node.parent;
+        if (!parent) return;
+
+        // Get all learning siblings
+        let learningNodes = parent.children.filter(n => n.data.type === "learning");
+        let learningIndex = learningNodes.indexOf(node);
+        let totalLearnings = learningNodes.length;
+
+        // Calculate vertical position with staggering
+        if (totalLearnings > 1) {
+          // Create a zigzag pattern that gets wider as needed
+          let relativePos = learningIndex / (totalLearnings - 1); // 0 to 1
+          let baseX = parent.x; // Center around parent
+
+          // For odd number of learnings, center the middle one
+          if (totalLearnings % 2 === 1 && learningIndex === Math.floor(totalLearnings / 2)) {
+            node.x = baseX;
+          }
+          // For even indices, place above parent
+          else if (learningIndex % 2 === 0) {
+            let offsetAmount = learningOffset * (1 + Math.floor(learningIndex / 2) * 0.5);
+            node.x = baseX - offsetAmount;
+          }
+          // For odd indices, place below parent
+          else {
+            let offsetAmount = learningOffset * (1 + Math.floor(learningIndex / 2) * 0.5);
+            node.x = baseX + offsetAmount;
+          }
+        }
+      }
+    });
+  });
+}
+
+// Main update function
+function update(source) {
+  // Apply custom layout
+  customLayout(root);
+
+  var nodes = root.descendants();
+  var links = root.links();
+
+  // Create nodes
+  var node = gNode.selectAll("g.node")
+    .data(nodes, d => d.id || (d.id = ++nodeId));
+
+  // Enter new nodes
+  var nodeEnter = node.enter().append("g")
+    .attr("class", d => "node node-" + d.data.type)
+    .attr("transform", d => `translate(${source.y0},${source.x0})`)
+    .on("click", (event, d) => {
+      event.stopPropagation(); // Prevent SVG background click
+
+      // Toggle the node expansion
+      toggle(d);
+
+      // Pin/unpin tooltip behavior
+      handleNodeClick(d);
+
+      // Update the visual tree (after toggling)
+      update(d);
+    })
+    .on("mouseover", (event, d) => {
+      // Only show hover tooltip if no node is pinned
+      if (!pinnedNode) {
+        showInfo(d, false);
+      }
+    })
+    .on("mouseout", (event, d) => {
+      // Only clear tooltip if no node is pinned
+      if (!pinnedNode) {
+        clearInfo();
+      }
+    });
+
+  nodeEnter.append("circle")
+    .attr("r", 5)
+    .attr("fill", d => d.data.type === "iteration" ? "#3949AB" :
+                       d.data.type === "query" ? "#42A5F5" : "#81C784");
+
+  // Text labels with adjusted length
+  nodeEnter.append("text")
+    .attr("dy", "0.31em")
+    .attr("x", d => d.data.type === "learning" ? 8 : 10)
+    .attr("text-anchor", "start")
+    .text(d => {
+      // Dynamically adjust text length based on node type
+      const maxLength = d.data.type === "iteration" ? 50 :
+                        d.data.type === "query" ? 45 : 40;
+      const name = d.data.name || "";
+      return name.length > maxLength ? name.substring(0, maxLength) + "..." : name;
+    })
+    .clone(true).lower()
+    .attr("stroke-linejoin", "round")
+    .attr("stroke-width", 2)
+    .attr("stroke", "white");
+
+  // Transition nodes to their new position
+  var nodeUpdate = node.merge(nodeEnter).transition().duration(duration)
+    .attr("transform", d => `translate(${d.y},${d.x})`);
+
+  // Update pinned node styling
+  gNode.selectAll("g.node")
+    .classed("pinned", d => pinnedNode && d.id === pinnedNode.id);
+
+  // Exit old nodes
+  var nodeExit = node.exit().transition().duration(duration).remove()
+    .attr("transform", d => `translate(${source.y},${source.x})`);
+
+  // Create the link path generator for curved connections
+  var linkGenerator = d3.linkHorizontal()
+    .x(d => d.y)
+    .y(d => d.x);
+
+  // Update links
+  var link = gLink.selectAll("path")
+    .data(links, d => d.target.id);
+
+  // Enter new links
+  var linkEnter = link.enter().append("path")
+    .attr("d", d => {
+      var o = {x: source.x0, y: source.y0};
+      return linkGenerator({source: o, target: o});
+    });
+
+  // Transition links to their new position
+  link.merge(linkEnter).transition().duration(duration)
+    .attr("d", linkGenerator);
+
+  // Exit old links
+  link.exit().transition().duration(duration).remove()
+    .attr("d", d => {
+      var o = {x: source.x, y: source.y};
+      return linkGenerator({source: o, target: o});
+    });
+
+  // Store the old positions for transition
+  nodes.forEach(d => {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+// Collapse/expand toggling
+function toggle(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+}
+
+// Handle node click for tooltip pinning
+function handleNodeClick(d) {
+  if (pinnedNode && pinnedNode.id === d.id) {
+    // If clicking the currently pinned node, unpin it
+    clearPinnedNode();
+  } else {
+    // Pin the clicked node
+    setPinnedNode(d);
+  }
+}
+
+// Set a node as pinned
+function setPinnedNode(d) {
+  pinnedNode = d;
+  showInfo(d, true);
+
+  // Update UI to reflect pinned state
+  d3.select("#infoBox").classed("pinned", true);
+  d3.select("#pinStatus").classed("active", true);
+}
+
+// Clear pinned node
+function clearPinnedNode() {
+  pinnedNode = null;
+  clearInfo();
+
+  // Update UI to reflect unpinned state
+  d3.select("#infoBox").classed("pinned", false);
+  d3.select("#pinStatus").classed("active", false);
+
+  // Clear pinned styling from all nodes
+  gNode.selectAll("g.node").classed("pinned", false);
+}
+
+// Node info display with clickable URLs
+function showInfo(d, isPinned) {
+  var infoDiv = document.getElementById("nodeDetails");
+  let attrs = d.data.attributes || {};
+
+  // Start with a clean div with proper styling
+  let html = '<div class="info-content">';
+
+  // Add node type and name
+  html += `<p><b>Type:</b> ${d.data.type || "N/A"}</p>`;
+
+  // Don't repeat the name if it's the same as what's shown in the node
+  if (d.data.name !== d.data.attributes?.learning &&
+      d.data.name !== d.data.attributes?.query) {
+    html += `<p><b>Name:</b> ${d.data.name}</p>`;
+  }
+
+  // Format attributes with special handling for important fields
+  for (var key in attrs) {
+    let value = attrs[key];
+
+    // Skip empty values
+    if (value === null || value === undefined || value === '') continue;
+
+    // Format based on the key
+    if (key === 'learning' || key === 'query') {
+      html += `<p><b>${key.charAt(0).toUpperCase() + key.slice(1)}:</b></p>`;
+      html += `<p style="padding-left: 10px; border-left: 3px solid #ccc;">${value}</p>`;
+    }
+    else if (key === 'goals' && value) {
+      html += `<p><b>Goals:</b></p>`;
+      html += `<p style="padding-left: 10px; border-left: 3px solid #ccc;">${value}</p>`;
+    }
+    else if (key === 'urls' && value) {
+      // Handle URLs as a list of clickable links
+      if (Array.isArray(value) && value.length > 0) {
+        html += `<p><b>URLs:</b></p>`;
+        html += `<div class="url-list">`;
+        value.forEach(url => {
+          if (url && url.trim()) {
+            // Make sure URL has proper protocol for links to work
+            let formattedUrl = url;
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+              formattedUrl = 'https://' + url;
+            }
+            html += `<a href="${formattedUrl}" target="_blank">${url}</a>`;
+          }
+        });
+        html += `</div>`;
+      } else if (typeof value === 'string' && value.trim()) {
+        // Handle single URL as string
+        const urls = value.split(/,\s*/); // Split by commas
+        if (urls.length > 0) {
+          html += `<p><b>URLs:</b></p>`;
+          html += `<div class="url-list">`;
+          urls.forEach(url => {
+            if (url && url.trim()) {
+              // Make sure URL has proper protocol for links to work
+              let formattedUrl = url.trim();
+              if (!formattedUrl.startsWith('http://') && !formattedUrl.startsWith('https://')) {
+                formattedUrl = 'https://' + formattedUrl;
+              }
+              html += `<a href="${formattedUrl}" target="_blank">${url.trim()}</a>`;
+            }
+          });
+          html += `</div>`;
+        }
+      }
+    }
+    else if (key !== 'id') { // Skip id as it's not that useful for display
+      html += `<p><b>${key.charAt(0).toUpperCase() + key.slice(1)}:</b> ${value}</p>`;
+    }
+  }
+
+  html += '</div>';
+  infoDiv.innerHTML = html;
+}
+
+function clearInfo() {
+  document.getElementById("nodeDetails").innerHTML = '<div class="info-content">Hover or click on a node to see details</div>';
+}
+
+// Initialize node counter for ids
+var nodeId = 0;
+
+// Initial render
+update(root);
+
+// Auto-center the tree in the viewport
+function centerGraph() {
+  // Get bounding box of the entire graph
+  const nodes = root.descendants();
+  if (nodes.length === 0) return;
+
+  let minX = Infinity, maxX = -Infinity;
+  let minY = Infinity, maxY = -Infinity;
+
+  nodes.forEach(node => {
+    minX = Math.min(minX, node.x);
+    maxX = Math.max(maxX, node.x);
+    minY = Math.min(minY, node.y);
+    maxY = Math.max(maxY, node.y);
+  });
+
+  // Center the view with some padding
+  const centerX = (minX + maxX) / 2;
+  const centerY = (minY + maxY) / 2;
+  const scale = 0.9; // Slightly zoom out to show everything
+
+  svg.transition().duration(500).call(
+    d3.zoom().transform,
+    d3.zoomIdentity.translate(width/2 - centerY, height/2 - centerX).scale(scale)
+  );
+}
+
+// Run after a short delay to ensure tree is fully laid out
+setTimeout(centerGraph, 200);
+</script>
+</body>
+</html>

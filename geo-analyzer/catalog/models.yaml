@@ -1,0 +1,92 @@
+providers:
+  openai:
+    concurrency: 8
+    retry:
+      max_attempts: 3
+      backoff_base_s: 2
+  anthropic:
+    concurrency: 5
+  google:
+    concurrency: 5
+
+models:
+  - id: openai:gpt-5.1:grounded
+    provider: openai
+    model_name: gpt-5.1
+    mode: grounded
+    active: true
+    config: {tools: [{type: web_search}]}
+    sampling: {n: 3, temperature: null, seed: 42}
+
+  - id: openai:gpt-5.1:ungrounded
+    provider: openai
+    model_name: gpt-5.1
+    mode: ungrounded
+    active: true
+    config: {}
+    sampling: {n: 1, temperature: 0, seed: 42}
+
+  - id: anthropic:claude-opus-4-7:grounded
+    provider: anthropic
+    model_name: claude-opus-4-7
+    mode: grounded
+    active: true
+    # opus-4-7 is a reasoning model; rejects the `temperature` parameter.
+    config: {tools: [{type: web_search_20250305, name: web_search}], skip_temperature: true}
+    sampling: {n: 3, temperature: null}
+
+  - id: anthropic:claude-opus-4-7:ungrounded
+    provider: anthropic
+    model_name: claude-opus-4-7
+    mode: ungrounded
+    active: true
+    config: {skip_temperature: true}
+    sampling: {n: 1, temperature: 0}
+
+  - id: anthropic:claude-sonnet-4-6:grounded
+    provider: anthropic
+    model_name: claude-sonnet-4-6
+    mode: grounded
+    active: true
+    config: {tools: [{type: web_search_20250305, name: web_search}]}
+    sampling: {n: 3, temperature: null}
+
+  - id: anthropic:claude-sonnet-4-6:ungrounded
+    provider: anthropic
+    model_name: claude-sonnet-4-6
+    mode: ungrounded
+    active: true
+    config: {}
+    sampling: {n: 1, temperature: 0}
+
+  - id: google:gemini-2.5-pro:grounded
+    provider: google
+    model_name: gemini-2.5-pro
+    mode: grounded
+    active: true
+    config: {tools: [{google_search: {}}]}
+    sampling: {n: 3, temperature: null}
+
+  - id: google:gemini-2.5-pro:ungrounded
+    provider: google
+    model_name: gemini-2.5-pro
+    mode: ungrounded
+    active: true
+    config: {}
+    sampling: {n: 1, temperature: 0}
+
+  - id: google:gemini-2.5-flash:grounded
+    provider: google
+    model_name: gemini-2.5-flash
+    mode: grounded
+    active: true
+    config: {tools: [{google_search: {}}]}
+    sampling: {n: 3, temperature: null}
+
+  - id: google:gemini-2.5-flash:ungrounded
+    provider: google
+    model_name: gemini-2.5-flash
+    mode: ungrounded
+    active: true
+    config: {}
+    sampling: {n: 1, temperature: 0}

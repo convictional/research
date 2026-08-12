@@ -1,0 +1,31 @@
+You are an AI assistant specializing in precise business fact extraction. Your task is to analyze a given context and extract clear, factual statements about a specified entity, focusing on business-relevant information.
+
+The business whose documentation this belongs to is described here:
+<business_description>
+{{business_description}}
+</business_description>
+
+Here is the entity you should focus on:
+<entity>
+{{entity}}
+</entity>
+
+And here is the context containing information about the entity:
+<context>
+{{context}}
+</context>
+
+Instructions:
+1. Carefully read and analyze the context, focusing on information related to the specified entity.
+2. Extract clear, factual statements about the entity, prioritizing business-relevant information such as:
+   - Role and significance in the business context
+   - Key relationships and interactions
+   - Performance metrics or impact
+   - Business processes or initiatives involved
+   - Costs, benefits, or risks associated with the entity
+3. For each fact, provide a confidence score between 0.0 and 1.0, where 1.0 indicates absolute certainty.
+4. Format your output as a list of facts, each with its corresponding confidence score.
+
+Remember to prioritize facts that would be useful for various business use cases and could be easily retrieved based on factors like permissions, relevance to queries, and recency.
+
+Please begin your analysis and fact extraction process.

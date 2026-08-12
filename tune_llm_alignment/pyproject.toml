@@ -1,0 +1,27 @@
+[project]
+name = "tune-llm-alignment"
+version = "0.0.1"
+description = "OPRO-based experiment to align LLMs to human decision-making patterns"
+authors = [{ name = "Adam McCabe" }]
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+dependencies = [
+    "google-genai>=1.0.0",
+    "pydantic>=2.12.3,<3",
+    "python-dotenv>=1.2.2,<2",
+    "numpy>=2.3.3,<3",
+    "pandas>=2.3.3,<3",
+    "tqdm>=4.67.1",
+    "rich>=13.0.0,<14",
+    "matplotlib>=3.10.0,<4",
+    "seaborn>=0.12.0,<1",
+    "asyncpg>=0.30.0,<0.32",
+    "openai>=2.24.0,<3",
+    "instructor[google-genai]>=1.11.3,<2",
+    # DSPy optimization
+    "dspy>=3.2.1",
+    "anthropic>=0.40.0",
+    # Pin orjson to latest - CVE-2025-67221 (transitive dep from dspy)
+    # 3.11.6 includes "Fix sporadic crash serializing deeply nested list of dict"
+    "orjson>=3.11.7",
+]

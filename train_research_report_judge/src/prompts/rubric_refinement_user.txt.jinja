@@ -1,0 +1,22 @@
+The current quality rubric (v{{ current_rubric.version }}) has been evaluated against expert ratings and needs refinement based on disagreement analysis.
+
+Current rubric:
+{% for dim in current_rubric.dimensions %}
+## {{ dim.name }} (weight: {{ dim.weight }})
+{{ dim.description }}
+{% for anchor in dim.anchors %}
+- Score {{ anchor.score }}: {{ anchor.description }}
+{% endfor %}
+{% endfor %}
+
+Suggested rubric changes from disagreement analysis:
+{% for change in rubric_changes %}
+- {{ change }}
+{% endfor %}
+
+Suggested prompt/approach changes:
+{% for change in prompt_changes %}
+- {{ change }}
+{% endfor %}
+
+Produce an updated rubric that addresses these issues. Maintain the same general structure but adjust dimensions, weights, and scale anchors as needed. Keep 3-6 dimensions with weights summing to 1.0.

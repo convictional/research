@@ -1,0 +1,58 @@
+[project]
+name = "geo-analyzer"
+version = "0.1.0"
+description = "Generative Engine Optimization measurement harness for Convictional"
+authors = [{ name = "Bill Tarbell" }]
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+dependencies = [
+    "anthropic>=0.40,<1",
+    "google-genai>=1.0,<2",
+    "markdown>=3.6,<4",
+    "openai>=1.50,<2",
+    "pydantic>=2.11,<3",
+    "python-dotenv>=1.0,<2",
+    "pyyaml>=6.0,<7",
+    "rich>=13,<14",
+    "typer>=0.15,<0.16",
+]
+
+[project.scripts]
+geo-analyzer = "geo_analyzer.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+    "pytest-asyncio>=0.24,<0.25",
+    "ruff>=0.7,<0.8",
+    "pyright>=1.1.380,<2",
+    "types-markdown>=3.6,<4",
+    "types-pyyaml>=6,<7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/geo_analyzer"]
+
+[tool.ruff]
+line-length = 119
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+reportMissingTypeStubs = "warning"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "live: hits real provider APIs; opt-in only (run with -m live)",
+]

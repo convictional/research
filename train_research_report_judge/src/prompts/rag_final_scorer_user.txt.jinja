@@ -1,0 +1,27 @@
+Assign a final quality score (0-3) for this research report based on the assessments below.
+
+## Research Question
+{{ question }}
+
+## Claim Verification Summary
+
+Total claims analyzed: {{ rollup.total_claims }}
+- Supported: {{ rollup.supported }} ({{ (rollup.supported / rollup.total_claims * 100)|round(1) if rollup.total_claims > 0 else 0 }}%)
+- Partially supported: {{ rollup.partially_supported }} ({{ (rollup.partially_supported / rollup.total_claims * 100)|round(1) if rollup.total_claims > 0 else 0 }}%)
+- Unsupported: {{ rollup.unsupported }} ({{ (rollup.unsupported / rollup.total_claims * 100)|round(1) if rollup.total_claims > 0 else 0 }}%)
+- No evidence found: {{ rollup.no_evidence_found }} ({{ (rollup.no_evidence_found / rollup.total_claims * 100)|round(1) if rollup.total_claims > 0 else 0 }}%)
+- Average confidence: {{ rollup.avg_confidence|round(2) }}
+
+### Per-Claim Details
+{% for v in rollup.details %}
+- [{{ v.verdict }}] (confidence: {{ v.confidence|round(2) }}) {{ v.claim[:150] }}
+  Evidence: {{ v.evidence_summary[:200] }}
+{% endfor %}
+
+## Format Assessment
+
+- Structure: {{ format_assessment.structure_score }}/3
+- Length: {{ format_assessment.length_adequacy }}
+- Tone: {{ format_assessment.tone_score }}/3
+- Q-A Alignment: {{ format_assessment.qa_alignment_score }}/3
+- Notes: {{ format_assessment.notes }}

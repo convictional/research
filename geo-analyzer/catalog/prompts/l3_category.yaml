@@ -1,0 +1,20 @@
+- id: prompt.category.l3.what-is-org-health
+  tier: L3
+  text: "What is organizational health software?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.category.l3.best-org-health-platforms
+  tier: L3
+  text: "What are the best organizational health platforms?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.category.l3.org-health-vs-engagement
+  tier: L3
+  text: "What's the difference between organizational health software and employee engagement tools?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27

@@ -1,0 +1,73 @@
+Please evaluate the following strategic path comprehensively across all evaluation dimensions.
+
+## Strategic Path to Evaluate:
+
+**Path Title**: {{ path_title }}
+**Path Description**: {{ path_description }}
+
+### Path Structure:
+{% for node in path_nodes %}
+**{{ loop.index }}. {{ node.title }}** ({{ node.type }})
+{{ node.description }}
+{% if node.tags %}
+Tags: {{ node.tags | join(", ") }}
+{% endif %}
+
+{% endfor %}
+
+### Path Metrics:
+{% if quantitative_metrics %}
+- **Estimated Total Cost**: ${{ quantitative_metrics.total_cost_dollars | round(0) }}
+- **Estimated Timeline**: {{ quantitative_metrics.timeline_weeks }} weeks
+- **Risk Count**: {{ quantitative_metrics.risk_count }} identified risks
+- **Complexity Score**: {{ quantitative_metrics.complexity_score | round(2) }} (0-1 scale)
+- **Node Count**: {{ quantitative_metrics.node_count }} strategic steps
+{% endif %}
+
+### Edge Details:
+{% for edge in path_edges %}
+**{{ edge.source_title }} → {{ edge.target_title }}**
+{% if edge.conditions %}
+- Conditions: {{ edge.conditions | join(", ") }}
+{% endif %}
+{% if edge.cost_estimate %}
+- Cost: {{ edge.cost_estimate }}
+{% endif %}
+{% if edge.timeline_estimate %}
+- Timeline: {{ edge.timeline_estimate }}
+{% endif %}
+{% if edge.implementation_risks %}
+- Risks: {{ edge.implementation_risks | join(", ") }}
+{% endif %}
+
+{% endfor %}
+
+## Evaluation Request:
+
+Provide a comprehensive evaluation covering:
+
+1. **Goal Alignment Assessment**
+   - Score (0-1): How well does this path address organizational goals?
+   - Rationale: Detailed reasoning for your score
+   - Addressed Goals: Which specific goals does this path advance?
+   - Goal Gaps: What important goals remain unaddressed?
+
+2. **Risk Assessment**
+   - Score (0-1): How well does this path manage and mitigate risks?
+   - Rationale: Detailed reasoning for your score
+   - Identified Risks: Key risks you see in this approach
+   - Mitigation Strategies: How these risks could be addressed
+
+3. **Cost Assessment**
+   - Score (0-1): How cost-efficient is this strategic path?
+   - Rationale: Detailed reasoning for your score
+   - Cost Breakdown: Major cost components and considerations
+   - Optimization Opportunities: Ways to improve cost efficiency
+
+4. **Timeline Assessment**
+   - Score (0-1): How realistic and efficient is the timeline?
+   - Rationale: Detailed reasoning for your score
+   - Critical Path: Key timeline dependencies and bottlenecks
+   - Timeline Risks: Factors that could cause delays
+
+Focus on practical, implementable insights that would help an organization make informed decisions about pursuing this strategic path.

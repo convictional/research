@@ -1,0 +1,30 @@
+[project]
+name = "slack-usage-blog"
+version = "0.1.0"
+description = "Interactive essay on cognitive costs of workplace communication platforms"
+authors = [{ name = "Adam McCabe" }]
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+dependencies = [
+    "manim>=0.18.0,<0.19.0",
+    "plotly>=6.0.0,<7",
+    "numpy>=2.0.0,<3",
+    "pymunk>=7.1.0,<8",
+    "matplotlib>=3.10.6,<4",
+    "networkx>=3.4.2,<4",
+    "playwright>=1.55.0,<2",
+]
+
+[dependency-groups]
+development = ["ruff>=0.11.12,<0.12"]
+
+[tool.uv]
+package = false
+default-groups = ["development"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 119

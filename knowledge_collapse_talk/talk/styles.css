@@ -1,0 +1,550 @@
+/* ── Brand tokens (Convictional) ──────────────────────────────── */
+:root {
+  /* Warm stone palette */
+  --base-50:  hsl(38, 50%, 98%);
+  --base-100: #fffdf5;
+  --base-200: #f7f3ea;
+  --base-300: #efebe2;
+  --base-400: hsl(40, 20%, 85%);
+  --base-500: hsl(30, 10%, 65%);
+  --base-600: hsl(33, 5%, 32%);
+  --base-700: hsl(30, 6%, 25%);
+  --base-800: hsl(12, 6%, 15%);
+  --base-900: hsl(24, 10%, 10%);
+
+  --ink:        var(--base-900);
+  --ink-muted:  var(--base-600);
+  --ink-faint:  var(--base-500);
+  --paper:      var(--base-100);
+  --paper-2:    var(--base-200);
+  --paper-3:    var(--base-300);
+  --rule:       var(--base-400);
+
+  --blue:       #2b7fff;
+  --blue-bg:    #eff6ff;
+
+  /* Typography */
+  --font-accent: "loretta", "Iowan Old Style", "Georgia", serif;
+  --font-body:   "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono:   ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  /* Type scale (1920x1080) */
+  --t-display:  112px;  /* title card */
+  --t-section:  80px;   /* section divider */
+  --t-title:    64px;   /* slide h1 */
+  --t-subtitle: 44px;
+  --t-lead:     38px;   /* one-idea lead text */
+  --t-body:     30px;
+  --t-small:    26px;
+  --t-caption:  25px;   /* bumped to meet 24px min */
+  --t-label:    24px;   /* bumped to meet 24px min */
+
+  /* Spacing */
+  --s-edge:   100px;
+  --s-top:    100px;
+  --s-bottom: 90px;
+  --s-gap:    52px;
+  --s-item:   28px;
+}
+
+/* ── Reset on slides ──────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+deck-stage {
+  font-family: var(--font-body);
+}
+
+/* Every slide */
+.slide {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  padding: var(--s-top) var(--s-edge) var(--s-bottom);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide.paper-2 { background: var(--paper-2); }
+.slide.paper-3 { background: var(--paper-3); }
+.slide.ink     { background: var(--base-900); color: var(--base-100); }
+
+/* ── Wordmark & chrome ─────────────────────────────────────────── */
+.wordmark {
+  position: absolute;
+  top: 48px;
+  left: var(--s-edge);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-caption);
+  letter-spacing: -0.01em;
+  color: var(--ink-faint);
+}
+
+.slide-meta {
+  position: absolute;
+  top: 48px;
+  right: var(--s-edge);
+  font-family: var(--font-body);
+  font-size: var(--t-caption);
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 24px;
+}
+
+.eyebrow.accent { color: var(--blue); }
+
+/* ── Typography ────────────────────────────────────────────────── */
+h1, h2, h3 { margin: 0; font-weight: 400; }
+
+.h-display {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: var(--t-display);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.h-section {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: var(--t-section);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.h-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: var(--t-title);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 var(--s-gap);
+}
+
+.subtitle {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: var(--t-subtitle);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--t-lead);
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 1400px;
+  text-wrap: pretty;
+}
+
+.body, .slide p {
+  font-size: var(--t-body);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 0.9em;
+  text-wrap: pretty;
+}
+
+.muted { color: var(--ink-muted); }
+.faint { color: var(--ink-faint); }
+.accent { color: var(--blue); }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+/* Italics from the serif family read beautifully */
+.serif-em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ── Rule divider ──────────────────────────────────────────────── */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 32px 0;
+}
+
+.rule.short { width: 120px; margin: 0 0 40px; }
+
+/* ── Lists ─────────────────────────────────────────────────────── */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list > li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: var(--s-item);
+  font-size: var(--t-body);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.list > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 18px;
+  height: 1px;
+  background: var(--ink-faint);
+}
+
+.list.tight > li { margin-bottom: 18px; }
+
+/* Numbered list with blue numbers */
+.numlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: n;
+}
+.numlist > li {
+  counter-increment: n;
+  position: relative;
+  padding-left: 64px;
+  margin-bottom: 36px;
+  font-size: var(--t-body);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.numlist > li::before {
+  content: counter(n);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-accent);
+  font-size: calc(var(--t-body) * 1.1);
+  font-style: italic;
+  color: var(--blue);
+  line-height: 1.2;
+  width: 40px;
+  text-align: left;
+}
+
+/* ── Two-column layout ─────────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  flex: 1;
+  min-height: 0;
+}
+
+.two-col.tight { gap: 64px; }
+
+.col-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.col-label.accent { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* ── Math & formulas ───────────────────────────────────────────── */
+.math {
+  font-family: var(--font-accent);
+  font-style: italic;
+}
+
+.eq {
+  display: inline-block;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: calc(var(--t-body) * 1.3);
+  line-height: 1;
+  color: var(--ink);
+}
+
+.eq-block {
+  display: block;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--ink);
+  margin: 40px 0;
+  text-align: center;
+}
+
+/* ── Caption ───────────────────────────────────────────────────── */
+.caption {
+  font-size: var(--t-caption);
+  color: var(--ink-faint);
+  line-height: 1.5;
+  font-style: italic;
+  font-family: var(--font-accent);
+  font-weight: 400;
+}
+
+.caption .src { font-family: var(--font-body); font-style: normal; letter-spacing: 0.04em; }
+
+/* ── Pull quote ────────────────────────────────────────────────── */
+.pullquote {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 1.2;
+  color: var(--ink);
+  max-width: 1400px;
+  text-wrap: balance;
+  font-style: italic;
+}
+.pullquote .oq { color: var(--ink-faint); }
+
+/* ── Section divider ───────────────────────────────────────────── */
+.slide.section-divider {
+  background: var(--paper-2);
+  justify-content: space-between;
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+.section-divider .act-num {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 44px;
+  color: var(--ink-faint);
+  margin-bottom: 24px;
+}
+.section-divider .act-title {
+  font-family: var(--font-accent);
+  font-size: 140px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.section-divider .act-sub {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: var(--t-subtitle);
+  color: var(--ink-muted);
+  max-width: 1200px;
+  margin-top: 32px;
+  line-height: 1.25;
+}
+.section-divider .act-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: var(--t-caption);
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Callout ───────────────────────────────────────────────────── */
+.callout {
+  background: var(--paper-2);
+  border-left: 2px solid var(--blue);
+  padding: 28px 36px;
+  margin-top: 32px;
+  max-width: 1400px;
+}
+.slide.paper-2 .callout { background: var(--base-100); }
+.callout .callout-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  display: block;
+}
+.callout .callout-body {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── Stat / large number ───────────────────────────────────────── */
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.stat .n {
+  font-family: var(--font-accent);
+  font-size: 200px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.stat .n.accent { color: var(--blue); }
+.stat .lbl {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ── Diagrams — SVG container helpers ──────────────────────────── */
+.diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+}
+.diagram svg {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/* ── Content frame ─────────────────────────────────────────────── */
+.frame {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.spacer { flex: 1; }
+
+/* ── Top-of-slide section strip ────────────────────────────────── */
+.slide-chapter {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ── Assumption cards ──────────────────────────────────────────── */
+.assumption-grid {
+  display: grid;
+  gap: 28px;
+}
+.assumption-card {
+  background: var(--base-100);
+  border: 1px solid var(--rule);
+  padding: 32px 36px;
+  border-radius: 2px;
+  display: flex;
+  gap: 28px;
+  align-items: baseline;
+}
+.slide.paper-2 .assumption-card { background: var(--paper); }
+.assumption-card .a-num {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--blue);
+  flex-shrink: 0;
+  min-width: 48px;
+}
+.assumption-card .a-body {
+  font-size: var(--t-body);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* ── Question-card for discussion slide ────────────────────────── */
+.q-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.q-list > li {
+  counter-increment: q;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.q-list > li:last-child { border-bottom: 0; }
+.q-list > li::before {
+  content: counter(q, decimal-leading-zero);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--blue);
+}
+.q-list .q-body {
+  font-size: 34px;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+/* ── Paper reference tag ───────────────────────────────────────── */
+.ref-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--t-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  padding: 8px 14px;
+  background: var(--blue-bg);
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+/* ── Signal arrows / annotations for diagrams ──────────────────── */
+.annot {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 24px;
+  fill: var(--ink-muted);
+}
+.annot-strong { fill: var(--ink); }

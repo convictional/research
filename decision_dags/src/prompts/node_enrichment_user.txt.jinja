@@ -1,0 +1,44 @@
+Please provide a comprehensive people impact and resource requirements analysis for the {{ node_type }} node: "{{ node_title }}".
+
+**Node Details:**
+- **Type**: {{ node_type }} (Layer {{ node_layer }})
+- **Title**: {{ node_title }}
+- **Description**: {{ node_description }}
+{% if decision_type != "N/A" %}
+- **Decision Type**: {{ decision_type }}
+{% endif %}
+
+**Analysis Requirements:**
+
+1. **People Impacted** - For each person/role affected, specify:
+   - **role**: The specific role or title (e.g., "VP Marketing", "Development Team Lead", "Customer Success Managers")
+   - **impact**: How they will be affected and what will be required of them (be specific about actions, responsibilities, or changes)
+
+   Consider:
+   - Who makes decisions related to this node?
+   - Who implements or executes the work?
+   - Who are the end users or beneficiaries?
+   - Who provides support, approval, or enabling functions?
+   - Who might be affected by the outcomes?
+
+2. **Resource Requirements** - Specify resources needed using these categories:
+   - **personnel**: Roles, skills, and time commitments needed
+   - **budget**: Financial investment required (if quantifiable)
+   - **timeline**: Realistic time estimates for completion
+   - **tools**: Technology, platforms, or systems needed
+   - **external**: Third-party services, consultants, partnerships
+   - **other**: Additional resources (space, equipment, training, etc.)
+
+3. **Reasoning** - Provide detailed justification for your assessments, including:
+   - Key assumptions about organizational capacity
+   - Dependencies on other initiatives or resources
+   - Rationale for specific role assignments
+   - Factors that influenced resource estimates
+
+**Context Considerations:**
+- This is part of solving: "{{ problem_statement }}"
+- Consider the organizational goals and current context provided
+- Think about realistic implementation given organizational constraints
+- Be specific about roles and responsibilities rather than using generic terms
+
+Provide actionable insights that help leaders understand the true organizational impact and resource needs for successful implementation of this strategic element.

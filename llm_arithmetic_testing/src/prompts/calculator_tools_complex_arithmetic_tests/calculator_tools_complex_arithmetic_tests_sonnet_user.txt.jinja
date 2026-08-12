@@ -1,0 +1,17 @@
+Here is a user query that you must solve:
+
+{{ user_query }}
+
+Here is the history of previous calculations:
+{% if not calculation_history %}
+No calculations have been made yet.
+{% else %}
+{% for history in calculation_history %}
+- Calculation {{ loop.index }}:
+operation: {{ history.operation}}
+operands: {{ history.operands }}
+result: {{ history.result }}
+reasoning: {{ history.reasoning }}
+context: {{ history.context }}
+{% endfor %}
+{% endif %}

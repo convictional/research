@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.convictional.auto-research</string>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>$HOME/.local/bin/uv</string>
+		<string>run</string>
+		<string>python</string>
+		<string>-m</string>
+		<string>auto_research</string>
+	</array>
+
+	<key>WorkingDirectory</key>
+	<string>$REPO/experiments</string>
+
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PYTHONPATH</key>
+		<string>$REPO/experiments/auto_research</string>
+	</dict>
+
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>9</integer>
+		<key>Minute</key>
+		<integer>7</integer>
+	</dict>
+
+	<key>StandardOutPath</key>
+	<string>$HOME/Library/Logs/auto-research.log</string>
+	<key>StandardErrorPath</key>
+	<string>$HOME/Library/Logs/auto-research.log</string>
+</dict>
+</plist>

@@ -1,0 +1,51 @@
+Please assess the strategic coherence and narrative strength of this complete decision DAG addressing: "{{ problem_statement }}"
+
+**DAG Structure Overview:**
+- {{ total_nodes }} total nodes across {{ max_layer + 1 }} layers
+- {{ total_paths }} distinct strategic paths from root to leaves
+
+**Key Strategic Paths to Analyze:**
+{% for path in path_summaries %}
+{{ loop.index }}. {{ path.summary }}
+{% endfor %}
+
+**Assessment Requirements:**
+
+1. **Strategic Coherence Analysis (0.0-1.0)**:
+   - Does the DAG present a coherent strategic framework?
+   - Are the strategic paths logically connected and purposeful?
+   - How well do different parts of the DAG work together?
+
+2. **Narrative Strength Evaluation (0.0-1.0)**:
+   - Does the DAG tell a compelling strategic story?
+   - Would stakeholders understand the strategic logic?
+   - Is the progression from problem to solutions clear?
+
+3. **Logical Flow Assessment (0.0-1.0)**:
+   - Do decisions lead to relevant and meaningful options?
+   - Is the abstraction level appropriate at each layer?
+   - Are transitions between layers logical and well-motivated?
+
+4. **Strategic Gap Identification**:
+   - What critical strategic elements are missing?
+   - Are there disconnected or orphaned strategic elements?
+   - What would strengthen the overall strategic framework?
+
+5. **Coherence Issue Detection**:
+   - Identify contradictory or conflicting strategic directions
+   - Find areas where the strategic logic breaks down
+   - Note any confusing or unclear strategic elements
+
+**Organizational Context Considerations:**
+- The DAG should align with {{ organizational_goals|length if organizational_goals else 0 }} organizational goals
+- Consider patterns from {{ past_decisions|length if past_decisions else 0 }} past strategic decisions
+- Evaluate fit with organizational capacity and culture
+
+**Quality Scoring Guidelines:**
+- **0.9-1.0**: Exceptionally coherent, compelling strategic narrative
+- **0.7-0.8**: Strong coherence with minor gaps or inconsistencies
+- **0.5-0.6**: Adequate coherence but missing strategic connections
+- **0.3-0.4**: Weak coherence with significant strategic gaps
+- **0.0-0.2**: Poor coherence, confusing or contradictory strategy
+
+Provide specific, actionable recommendations for improving the strategic coherence and narrative strength of this DAG.

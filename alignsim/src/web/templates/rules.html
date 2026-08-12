@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}Game Rules{% endblock %}
+
+{% block content %}
+<h2>Game Rules &amp; Reference</h2>
+
+<!-- Goal -->
+<section>
+  <h3>Goal</h3>
+  <p>Grow MRR to <strong>$210,000/mo</strong> within <strong>48 turns</strong> while keeping churn rate below <strong>2%</strong> and runway above <strong>10 months</strong>.</p>
+  <p><strong>Scoring:</strong> All scores are uncapped (1.0 = hit target). Composite = sum of scores. Pareto = min of scores (weakest goal is your bottleneck). Both primary goals and function sub-goals are scored on both dimensions.</p>
+</section>
+
+<!-- Turn Structure -->
+<section>
+  <h3>Turn Structure</h3>
+  <p>Each turn you allocate <strong>capacity units</strong> across actions. Resolution happens in this order:</p>
+  <ol start="0">
+    <li><strong>Hiring & Firing</strong> — Sustain active hires, cancel unsustained, process new hires, tick pending, apply arrivals</li>
+    <li><strong>Engineering</strong> — Build features, fix bugs, infrastructure (tech debt reduction)</li>
+    <li><strong>Sales</strong> — Advance pipeline customers, engagement decay, timeline tick</li>
+    <li><strong>CS</strong> — Customer health updates (bug impact, support, competitive pressure)</li>
+    <li><strong>Marketing</strong> — Log investment (effects are lagged ~10 turns)</li>
+    <li><strong>Discovery</strong> — Reveal hidden customers</li>
+    <li><strong>Ops Projects</strong> — Process improvement work + bonus lifecycle</li>
+    <li><strong>Competitive events</strong> — Competitor actions fire on scheduled turns</li>
+    <li><strong>Bug injection</strong> — New bugs appear based on tech debt level (Poisson)</li>
+    <li><strong>Financial</strong> — Revenue collection, cost deduction, runway update</li>
+    <li><strong>Metrics</strong> — Churn tracking, stage advancement, history recording</li>
+  </ol>
+  <p>Invalid actions are <strong>dropped and their capacity is lost</strong> — bad decisions cost you.</p>
+</section>
+
+<!-- Pipeline -->
+<section>
+  <h3>Customer Pipeline</h3>
+  <table>
+    <thead><tr><th>Stage</th><th>How to Advance</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="stage-lead">Lead</td><td>Sell [outbound]</td><td>Hidden customers start here after discovery</td></tr>
+      <tr><td class="stage-prospect">Prospect</td><td>Sell [outbound or demo]</td><td>—</td></tr>
+      <tr><td class="stage-qualified">Qualified</td><td>Sell [demo]</td><td>One step from in-deal</td></tr>
+      <tr><td class="stage-in_deal">In Deal</td><td>Sell [proposal or negotiate]</td><td>Requires satisfaction &ge; 70% AND dealbreakers met</td></tr>
+      <tr><td class="stage-customer">Customer</td><td>—</td><td>Generates MRR, needs CS attention</td></tr>
+    </tbody>
+  </table>
+  <p>Each sell action has a <strong>base conversion probability</strong> modified by satisfaction and engagement. Hot engagement = +30%, cold = -30%. High competitive pressure reduces probability.</p>
+  <p><strong>Timeline (Action-Triggered):</strong> Discovered customers have no ticking clock until you engage them. The countdown starts on your <strong>first sell action</strong> targeting a customer (regardless of stage). Once active, it decrements every turn. If it hits 0, the customer <strong>resets to lead</strong> with a permanent 30% satisfaction penalty per reset (floored at 30% of original). Choose when to start each clock strategically.</p>
+</section>
+
+<!-- Satisfaction / Rubric -->
+<section>
+  <h3>Customer Satisfaction (Rubric)</h3>
+  <p>Each customer has a hidden rubric with four weighted components. A deal closes only when <strong>total satisfaction &ge; 70%</strong> and all dealbreaker features are shipped.</p>
+  <table>
+    <thead><tr><th>Component</th><th>What It Measures</th><th>How to Improve</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Feature Coverage</strong></td>
+        <td>Do you have the features they need, at sufficient quality? Formula: breadth &times; 0.4 + depth &times; 0.6 (breadth = fraction of needs met, depth = avg quality score across met needs)</td>
+        <td>Ship the features they need at higher quality</td>
+      </tr>
+      <tr>
+        <td><strong>Price</strong></td>
+        <td>Price sensitivity (inversely correlated with customer size)</td>
+        <td>Larger customers score higher automatically (0.6 to 1.0)</td>
+      </tr>
+      <tr>
+        <td><strong>Product Maturity</strong></td>
+        <td>Ratio of solid/polished features to total shipped. <strong>ALL shipped features count</strong>, not just the customer's needs.</td>
+        <td>Upgrade features from MVP to solid/polished. Shipping many MVPs hurts this.</td>
+      </tr>
+      <tr>
+        <td><strong>Support</strong></td>
+        <td>Customer health / 10</td>
+        <td>CS support actions, fix bugs affecting the customer</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Click any customer ID in the turn view to see their full satisfaction breakdown.</p>
+</section>
+
+<!-- Actions Reference -->
+<section>
+  <h3>Action Reference</h3>
+  <table>
+    <thead><tr><th>Action</th><th>Params</th><th>Effect</th><th>Strategy Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Build</strong></td>
+        <td>feature_id, quality (mvp/solid/polished), capacity</td>
+        <td>Progress = capacity / remaining_cost &times; 100%. For upgrades, you only pay the delta (solid cost - mvp cost). Ships when progress reaches 100%.</td>
+        <td>Dependencies must be shipped first. Building at solid/polished is more expensive but improves maturity for ALL customer rubrics.</td>
+      </tr>
+      <tr>
+        <td><strong>Fix Bugs</strong></td>
+        <td>bug_id (optional), capacity</td>
+        <td>Critical: 4 cap, Major: 2 cap, Minor: 1 cap to fix. If no bug_id, auto-targets highest severity.</td>
+        <td>Unresolved bugs reduce health of affected customers. Critical bugs can cause churn.</td>
+      </tr>
+      <tr>
+        <td><strong>Infrastructure</strong></td>
+        <td>capacity</td>
+        <td>Reduces tech debt. Every 5 capacity = 1.0 debt reduction.</td>
+        <td>Tech debt drives bug injection rate (lambda = debt &times; 0.3). Keep it manageable.</td>
+      </tr>
+      <tr>
+        <td><strong>Sell</strong></td>
+        <td>customer_id, sell_action (outbound/demo/proposal/negotiate), capacity</td>
+        <td>Rolls against conversion probability to advance customer one pipeline stage. More capacity improves engagement (affects future probability).</td>
+        <td>Match sell_action to stage: lead=outbound, prospect=outbound/demo, qualified=demo, in_deal=proposal/negotiate. Wrong action = wasted.</td>
+      </tr>
+      <tr>
+        <td><strong>Discover</strong></td>
+        <td>segment (optional A/B/C/D), capacity</td>
+        <td>Reveals hidden customers. Higher capacity = more likely to find harder-to-discover customers.</td>
+        <td>Discovery difficulty ranges from 3-5. Costs capacity proportional to difficulty.</td>
+      </tr>
+      <tr>
+        <td><strong>Support</strong></td>
+        <td>customer_id, support_action (health_check/churn_intervention/onboard), capacity</td>
+        <td>Each capacity unit adds +1.0 health (capped at 3 units effective). Prevents churn, enables expansion.</td>
+        <td>Churn: health &lt; 3 for 2 consecutive turns. Expansion: health &gt; 8 for 4 consecutive turns (+20% deal value).</td>
+      </tr>
+      <tr>
+        <td><strong>Market</strong></td>
+        <td>channel (content/events/outbound_campaign), capacity</td>
+        <td>Lagged effect: marketing investment from ~10 turns ago generates inbound leads (reveals hidden customers).</td>
+        <td>Invest early. The lag means turn-1 marketing pays off around turn 11.</td>
+      </tr>
+      <tr>
+        <td><strong>Hire</strong></td>
+        <td>hiring_function, target_function</td>
+        <td>Starts a new hiring process. Costs budget + 3 capacity from hiring pool. Creates a pending hire with a unique ID. Native: 6 turns (3 active + 3 auto), +4 cap. Cross-function: 12 turns (6+6), +3 cap.</td>
+        <td>Multiple concurrent hires allowed. Each needs sustaining during its active phase.</td>
+      </tr>
+      <tr>
+        <td><strong>Sustain Hire</strong></td>
+        <td>hire_id</td>
+        <td>Continue an active-phase hire. Costs 3 from the original hiring pool. Pre-committed before other actions. Miss a turn during active phase = hire cancelled, budget lost.</td>
+        <td>Don't start hires you can't sustain. 3 cap/turn from the hiring pool is a significant ongoing commitment.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Costs -->
+<section>
+  <h3>Financial Model</h3>
+  <p>Each turn: <strong>Revenue</strong> (MRR) minus <strong>Costs</strong> (team + overhead + maintenance) = net income added to budget.</p>
+  <ul>
+    <li><strong>Team cost:</strong> capacity/turn &times; $2,500 (so 40 capacity = $100,000/turn)</li>
+    <li><strong>Base overhead:</strong> $10,000/turn (rent, tools, etc.)</li>
+    <li><strong>Feature maintenance:</strong> Each shipped feature has a per-turn maintenance cost ($400-$900)</li>
+  </ul>
+  <p>Runway = budget / monthly burn (when costs &gt; revenue). If budget hits 0, the game ends in bankruptcy.</p>
+</section>
+
+<!-- Tech Debt -->
+<section>
+  <h3>Tech Debt &amp; Bugs</h3>
+  <p>Building features increases debt. Infrastructure reduces it.</p>
+  <table>
+    <thead><tr><th>Quality</th><th>Debt per 10 capacity</th></tr></thead>
+    <tbody>
+      <tr><td>MVP</td><td>+1.0</td></tr>
+      <tr><td>Solid</td><td>+0.5</td></tr>
+      <tr><td>Polished</td><td>+0.2</td></tr>
+      <tr><td>Infrastructure (per 5 cap)</td><td>-1.0</td></tr>
+    </tbody>
+  </table>
+  <p>Bug injection each turn: Poisson(lambda = debt_level &times; 0.3). Severity: 20% critical, 40% major, 40% minor.</p>
+  <table>
+    <thead><tr><th>Debt Level</th><th>Range</th><th>Expected Bugs/Turn</th></tr></thead>
+    <tbody>
+      <tr><td>Low</td><td>&lt; 5</td><td>&lt; 1.5</td></tr>
+      <tr><td>Medium</td><td>5-10</td><td>1.5-3.0</td></tr>
+      <tr><td>High</td><td>10-15</td><td>3.0-4.5</td></tr>
+      <tr><td>Critical</td><td>&gt; 15</td><td>&gt; 4.5</td></tr>
+    </tbody>
+  </table>
+</section>
+
+{% if game_active %}
+<a href="/turn" role="button" class="secondary">Back to Game</a>
+{% else %}
+<a href="/" role="button">Start a Game</a>
+{% endif %}
+{% endblock %}

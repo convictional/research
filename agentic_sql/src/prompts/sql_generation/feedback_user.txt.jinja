@@ -1,0 +1,45 @@
+I want to verify this BigQuery SQL query and its results:
+
+Original Question: {{ question }}
+
+Generated SQL:
+```sql
+{{ sql }}
+```
+
+Query Results:
+```
+{{ results }}
+```
+
+{% if table_schemas %}
+Database Schema Information:
+```
+{{ table_schemas }}
+```
+{% endif %}
+
+{% if similar_queries %}
+Similar Questions and Their Verified SQL:
+{% for query in similar_queries %}
+Question: {{ query.question }}
+SQL:
+```sql
+{{ query.sql }}
+```
+
+{% endfor %}
+{% endif %}
+
+Please analyze whether:
+1. The SQL query is correct and optimal for BigQuery
+2. The query results correctly answer my question
+3. There are any improvements that could be made to the query
+
+Check specifically for:
+- Proper BigQuery syntax (backticks for identifiers, not double quotes)
+- Fully qualified table names (project.dataset.table format)
+- Appropriate BigQuery functions for dates, strings, and aggregations
+
+If the query is correct and the results answer my question, please respond with 'VERIFIED'.
+If there are issues, please explain what's wrong and suggest corrections.

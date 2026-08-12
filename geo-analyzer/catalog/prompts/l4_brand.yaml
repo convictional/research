@@ -1,0 +1,20 @@
+- id: prompt.brand.l4.what-is-convictional
+  tier: L4
+  text: "What is Convictional?"
+  targets: [convictional_brand, convictional_legacy_dropship]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.brand.l4.convictional-product
+  tier: L4
+  text: "What does Convictional's product do today?"
+  targets: [convictional_brand, convictional_legacy_dropship]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.brand.l4.convictional-pricing
+  tier: L4
+  text: "How is Convictional priced and who is it for?"
+  targets: [convictional_brand, convictional_legacy_dropship]
+  version: 1
+  authored_at: 2026-04-27

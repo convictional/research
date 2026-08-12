@@ -1,0 +1,22 @@
+Here is the user's query and goal:
+
+<user_query>
+{{user_query.query}}
+</user_query>
+
+<user_goal>
+{{user_query.goal}}
+</user_goal>
+
+Here's the history of previous reasoning steps:
+<reasoning_history>
+{% if not reasoning_history %}
+No reasoning steps have been made yet.
+{% else %}
+{% for history in reasoning_history %}
+- Reasoning step {{loop.index}}:
+Reasong step type: {{history.type}}
+{{history.details}}
+{% endfor %}
+{% endif %}
+</reasoning_history>

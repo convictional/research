@@ -1,0 +1,50 @@
+Here is the information you need:
+
+<task_details>
+<task_title>
+Task title: {{ task.title }}
+</task_title>
+<task_description>
+Task description: {{ task.description }}
+</task_description>
+<task_comments>
+{% for c in task.workspace.comments %}
+<comment>
+- Comment {{ loop.index }}:
+Comment timestamp: {{ c.created_at }}
+User name: {{ c.user_name }}
+Comment content text: {{ c.content}}
+</comment>
+{% endfor %}
+</task_comments>
+</task_details>
+
+<goal_details>
+<goal_title>
+Goal title: {{ goal.title }}
+</goal_title>
+<goal_success_conditions>
+{% for sc in goal.success_conditions %}
+- Success condition {{ loop.index }}: {{ sc.description }}
+{% endfor %}
+</goal_success_conditions>
+<goal_comments>
+{% for c in goal.workspace.comments %}
+<comment>
+- Comment {{ loop.index }}:
+Comment timestamp: {{ c.created_at }}
+User name: {{ c.user_name }}
+Comment content text: {{ c.content}}
+</comment>
+{% endfor %}
+</goal_comments>
+</goal_details>
+
+<extracted_information>
+<task_leywords>Task keywords: {{ task.keywords }}</task_leywords>
+<goal_keywords>Goal keywords: {{ goal.keywords }}</goal_keywords>
+<keywords_cosine_similarity_score>Keywords similarity score: {{ goal.keywords_cosine_similarity_score }}</keywords_cosine_similarity_score>
+<task_entities>Task entities: {{ task.entities }}</task_entities>
+<goal_entities>Goal entities: {{ goal.entities }}</goal_entities>
+<entities_cosine_similarity_score>Entities similarity score: {{ goal.entities_cosine_similarity_score }}</entities_cosine_similarity_score>
+</extracted_information>

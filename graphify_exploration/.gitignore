@@ -1,0 +1,3 @@
+.claude/skills/*
+!.claude/skills/.gitkeep
+graphify-out/

@@ -1,0 +1,64 @@
+Please assess the organizational alignment of this strategic decision DAG addressing: "{{ problem_statement }}"
+
+**Strategic Scope:**
+- {{ total_nodes }} strategic nodes to evaluate for organizational alignment
+
+{% if organizational_goals %}
+**Organizational Goals to Assess Against ({{ organizational_goals|length }} total):**
+{% for goal in organizational_goals %}
+{{ loop.index }}. **{{ goal.title }}** ({{ goal.status if goal.status else 'Active' }})
+   {% if goal.description %}{{ goal.description }}{% endif %}
+   {% if goal.success_conditions %}Success Conditions: {{ goal.success_conditions | join(", ") }}{% endif %}
+   Priority: {% if goal.is_active %}High{% else %}Medium{% endif %}
+{% endfor %}
+{% else %}
+**Note**: Limited organizational goal information available. Assessment will focus on general strategic alignment principles.
+{% endif %}
+
+**Assessment Requirements:**
+
+1. **Overall Alignment Score (0.0-1.0)**:
+   - How well does the entire DAG serve organizational objectives?
+   - Are the most important goals adequately addressed?
+   - Is there balanced coverage of organizational priorities?
+
+2. **Goal Coverage Analysis (0.0-1.0)**:
+   - Which specific organizational goals are directly addressed?
+   - Which goals receive only indirect or weak support?
+   - What percentage of active goals have meaningful coverage?
+
+3. **Priority Alignment Assessment (0.0-1.0)**:
+   - Does the DAG complexity and depth match goal importance?
+   - Are high-priority goals receiving appropriate strategic attention?
+   - Is resource allocation implied by the DAG aligned with goal priorities?
+
+4. **Uncovered Goals Identification**:
+   - Which organizational goals are completely missing from the DAG?
+   - Are there critical organizational objectives not addressed?
+   - What goal gaps create the biggest strategic risks?
+
+5. **Misaligned Elements Detection**:
+   - Which parts of the DAG don't clearly support any organizational goal?
+   - Are there DAG elements that conflict with organizational direction?
+   - What strategic choices seem disconnected from organizational priorities?
+
+**Contextual Considerations:**
+- Consider {{ past_decisions|length if past_decisions else 0 }} past strategic decisions for consistency patterns
+- Evaluate against established organizational strategic direction
+- Account for stakeholder needs and organizational culture
+
+**Alignment Scoring Guidelines:**
+- **0.9-1.0**: Exceptional alignment, all major goals well-addressed
+- **0.7-0.8**: Strong alignment with minor gaps or imbalances
+- **0.5-0.6**: Adequate alignment but missing key goals or priorities
+- **0.3-0.4**: Weak alignment with significant goal coverage gaps
+- **0.0-0.2**: Poor alignment, major disconnects from organizational goals
+
+**Expected Recommendations:**
+Provide specific guidance on:
+- How to better address uncovered organizational goals
+- Ways to strengthen alignment with high-priority objectives
+- Strategies for removing or refocusing misaligned DAG elements
+- Approaches for balancing competing organizational priorities
+
+Focus on actionable alignment improvements that enhance the DAG's organizational value and strategic relevance.

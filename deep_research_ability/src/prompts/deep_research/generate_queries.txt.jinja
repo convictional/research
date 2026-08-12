@@ -1,0 +1,21 @@
+Given the following prompt from the user, generate a list of queries to research the topic.
+<topic>{{ query }}</topic>
+
+Return a maximum of {{ num_queries }} queries, but feel free to return less if the original prompt is clear.
+
+Instructions for internal application queries:
+    - You'll be searching organization activity and documents to help the user explore and answer this question.
+    - Query terms should be short (less than 5 words, ideally 3 or less) for a basic embedding and TD/IDF search.
+    - If the text seems like a good search on its own, just return the text as entered.
+    - Anything related to time (e.g. "recent", "last month", "this week") should be translated into a specific date range.
+    - If you see a specific date, use that date range. If you see a general date (e.g. "recently", "last month"), use the last 30 days, respecting the current date and time.
+    - If you recognize named entities, surround them with double quotes (e.g. "Hulk Hogan", "Apple"). Consider if a capitalized word is a named entity.
+
+Make sure each query is unique and not similar to each other.
+
+{% if learnings %}
+Here are some learnings from previous research to help generate more specific queries:
+{% for learning in learnings %}
+- {{ learning }}
+{% endfor %}
+{% endif %}

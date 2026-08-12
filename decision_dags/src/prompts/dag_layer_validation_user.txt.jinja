@@ -1,0 +1,44 @@
+Please perform a comprehensive MECE validation and organizational alignment assessment for Layer {{ layer }} ({{ layer_type }}) of this strategic decision DAG.
+
+**Layer Analysis Requirements:**
+
+1. **MECE Compliance Assessment**:
+   - Evaluate if the {{ nodes|length }} nodes are mutually exclusive (no meaningful overlap)
+   - Assess if they collectively cover the full {{ layer_type }} space
+   - Consider the organizational context and problem domain
+
+2. **Coverage Gap Analysis**:
+   - Identify any important {{ layer_type }}s missing from this layer
+   - Consider organizational goals that aren't addressed
+   - Account for successful patterns from past decisions
+
+3. **Redundancy Detection**:
+   - Find nodes that overlap significantly in scope or approach
+   - Identify semantic similarities that create confusion
+   - Note any nodes operating at different abstraction levels inappropriately
+
+4. **Organizational Alignment Check**:
+   - Assess how well each node aligns with organizational goals
+   - Identify nodes that don't support any clear organizational objective
+   - Consider cultural and strategic fit
+
+5. **Implementation Feasibility Review**:
+   - Evaluate if nodes are realistic given organizational capacity
+   - Consider resource constraints and capability gaps
+   - Assess timeline and complexity implications
+
+**Quality Scoring Criteria (0.0-1.0):**
+- **1.0**: Perfectly MECE, excellent organizational alignment, all nodes feasible and high-value
+- **0.8-0.9**: Strong MECE compliance, good alignment, most nodes feasible
+- **0.6-0.7**: Acceptable with minor gaps or overlaps, decent alignment
+- **0.4-0.5**: Significant MECE issues or alignment problems, some infeasible nodes
+- **0.0-0.3**: Poor MECE compliance, major alignment issues, many infeasible nodes
+
+**Context Considerations:**
+- This layer addresses: "{{ problem_statement }}"
+- Organizational capacity: {{ activity_insights.resource_indicators.total_active_users if activity_insights and activity_insights.resource_indicators else "Unknown" }} active team members
+- Collaboration level: {{ "%.0%"|format(activity_insights.collaboration_indicators.collaboration_ratio) if activity_insights and activity_insights.collaboration_indicators else "Unknown" }}
+- Available organizational goals and past decision patterns should inform your assessment
+
+**Expected Output:**
+Provide specific, actionable feedback that helps improve this layer's strategic value while maintaining alignment with organizational realities and constraints.

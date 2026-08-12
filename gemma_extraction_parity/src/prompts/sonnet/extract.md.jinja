@@ -1,0 +1,45 @@
+You are tasked with extracting a list of learnings from a given context as it relates to a specific topic and set of directions.
+Your goal is to identify unique and relevant information that can be used for further research on the topic.
+
+First, review the topic and directions:
+<topic>{{ topic }}</topic>
+<directions>{{ directions }}</directions>
+
+Now, carefully read through the following context:
+<context>
+{% for result in results %}
+    <result>
+        <id>{{ result.id }}</id>
+        <title>{{ result.title }}</title>
+        <author>{{ result.author }}</author>
+        <url>{{ result.source_url }}</url>
+        <created_at>{{ result.created_at }}</created_at>
+        <content>{{ result.index_content }}</content>
+    </result>
+{% endfor %}
+</context>
+
+Your task is to extract a list of learnings from the context that are relevant to the topic and directions provided.
+Return a maximum of {{ max_learnings }} learnings, but feel free to return less if the contents are clear.
+
+Follow these guidelines:
+1. Each learning should be unique and not repetitive.
+2. Include any entities mentioned in the context, such as people, places, companies, products, or things.
+3. Pay special attention to exact metrics, numbers, and dates. Dates are particularly important and should always be included when present.
+4. Ensure that each learning is directly related to the topic and directions.
+5. Present the learnings in a clear, concise manner.
+6. Go beyond bare facts — include explanatory context: WHY something happened, HOW it relates to the broader topic, and WHAT the implications are. When the source provides enough context, write 2-3 sentence learnings instead of single terse statements.
+   - Before: "Revenue grew 15% in Q3 2024.[^content:UUID]"
+   - After: "Revenue grew 15% in Q3 2024, driven by expansion into the European market after the company's partnership with DistributorX. This outpaced the industry average of 8% and marked the third consecutive quarter of accelerating growth.[^content:UUID]"
+6. Citations:
+   - You must provide citations for each learning, do not include a learning if you cannot cite a context source.
+   - Citations should be placed at the end of the the learning, and you must use a special footnote format.
+   - Instead of using standard footnote numbers, you will use the UUID of the source enclosed in square brackets and preceded by a caret symbol (^). The format should look like this: [^content:UUID]
+   - For example, if you're citing a source with the UUID "71f478a2-23a8-40fa-8edf-4b5d8820fdcf", you would insert the footnote as follows: [^content:71f478a2-23a8-40fa-8edf-4b5d8820fdcf]
+   - Here is a full example of the correct format:
+      <citations_example>According to recent studies, climate change is accelerating.[^content:47c97fb7-f734-482b-8385-9cd3df1d622e]
+      The data suggests a significant correlation between variables.[^content:9feb3ba5-4aba-4667-aedc-eaa57fa62d84]
+      Multiple researchers have confirmed these findings.[^content:47c97fb7-f734-482b-8385-9cd3df1d622e]</citations_example>
+
+Remember to focus on extracting information that is most relevant and useful for further research on the topic.
+Ensure that your learnings are diverse and cover different aspects of the topic as presented in the context.

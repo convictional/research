@@ -1,0 +1,26 @@
+Below are {{ cases|length }} cases where the automated scorer significantly disagreed with the expert (off by {{ min_gap }}+ points on the 0-3 scale).
+
+Current rubric being used:
+{% for dim in rubric.dimensions %}
+### {{ dim.name }} (weight: {{ dim.weight }})
+{{ dim.description }}
+{% for anchor in dim.anchors|sort(attribute='score') %}
+- Score {{ anchor.score }}: {{ anchor.description }}
+{% endfor %}
+{% endfor %}
+
+Disagreement cases:
+{% for case in cases %}
+---
+Case {{ loop.index }}:
+Question: {{ case.question }}
+Expert Score: {{ case.expert_score }}/3
+Predicted Score: {{ case.predicted_score }}/3
+Scorer's Justification: {{ case.justification }}
+
+Report excerpt:
+{{ case.research_output }}
+---
+{% endfor %}
+
+For each case, analyze why the scorer got it wrong. Then provide specific rubric changes and prompt changes that would help the scorer align better with the expert.

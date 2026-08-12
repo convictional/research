@@ -1,0 +1,38 @@
+# Model checkpoints and training outputs
+*.pt
+*.pth
+outputs/models/
+outputs/results/
+outputs/data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Feature extraction caches
+*.pkl
+*.joblib
+cache/
+
+# Training logs
+*.log
+
+# Temporary files
+.DS_Store
+*.tmp
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# Training results and outputs
+results/
+vertex_dataset/
+
+# Temporary working documents
+IMPROVEMENT_BACKLOG.md

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decisions → Goals · 3×3 Mapping Explorer</title>
+  <style>
+    :root {
+      --bg: #0e1116;
+      --panel: #161b22;
+      --border: #2b3340;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --goal: #f5b301;
+      --goal-unstated: #e8743b;
+      --decision: #2f9bdf;
+      --accent: #6ee7b7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex; height: 100vh; overflow: hidden;
+    }
+    #sidebar {
+      width: 340px; flex: none; background: var(--panel);
+      border-right: 1px solid var(--border); padding: 18px;
+      display: flex; flex-direction: column; gap: 16px; overflow-y: auto;
+    }
+    h1 { font-size: 16px; margin: 0; letter-spacing: .2px; }
+    .subtitle { color: var(--muted); font-size: 12px; margin-top: 4px; line-height: 1.4; }
+    table.matrix { border-collapse: collapse; width: 100%; }
+    table.matrix th, table.matrix td {
+      border: 1px solid var(--border); padding: 0; text-align: center; font-size: 12px;
+    }
+    table.matrix th { color: var(--muted); font-weight: 600; padding: 6px 4px; background: #1b212b; }
+    table.matrix th.rowhead { text-align: right; padding-right: 8px; width: 92px; }
+    table.matrix td.cell { cursor: pointer; transition: background .12s; }
+    table.matrix td.cell button {
+      width: 100%; height: 100%; border: none; background: transparent; color: var(--text);
+      cursor: pointer; padding: 10px 6px; font: inherit; line-height: 1.3;
+    }
+    table.matrix td.cell button .count { display: block; color: var(--muted); font-size: 10px; margin-top: 2px; }
+    table.matrix td.cell:hover { background: #20303f; }
+    table.matrix td.cell.active { background: #14323a; outline: 2px solid var(--accent); outline-offset: -2px; }
+    .legend { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+    .legend .row { display: flex; align-items: center; gap: 8px; }
+    .swatch { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+    .controls { display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
+    .controls label { display: flex; align-items: center; gap: 8px; color: var(--muted); cursor: pointer; }
+    .btn {
+      background: #1b212b; color: var(--text); border: 1px solid var(--border);
+      border-radius: 6px; padding: 7px 10px; font: inherit; font-size: 12px; cursor: pointer; text-align: left;
+    }
+    .btn:hover { background: #20303f; border-color: var(--accent); }
+    .info { font-size: 12px; color: var(--muted); line-height: 1.5; border-top: 1px solid var(--border); padding-top: 12px; }
+    .info b { color: var(--text); }
+    .info .selname { color: var(--accent); font-size: 13px; }
+    #main { flex: 1; position: relative; }
+    #graph { width: 100%; height: 100%; }
+    #placeholder {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 14px; text-align: center; padding: 40px; pointer-events: none;
+    }
+    #hud {
+      position: absolute; top: 12px; left: 12px; background: rgba(22,27,34,.85);
+      border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 12px;
+      max-width: 420px; line-height: 1.4; backdrop-filter: blur(4px);
+    }
+    #hud .cellname { color: var(--accent); font-weight: 600; }
+    code { background: #1b212b; padding: 1px 5px; border-radius: 4px; font-size: 11px; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <aside id="sidebar">
+    <div>
+      <h1>Decisions → Goals</h1>
+      <div class="subtitle">3×3 mapping explorer. Click any cell to render that condition × schema as a 3-D graph.</div>
+    </div>
+
+    <table class="matrix" id="matrix"><!-- built by app.js --></table>
+
+    <div class="legend">
+      <div class="row"><span class="swatch" style="background:var(--decision)"></span> Decision</div>
+      <div class="row"><span class="swatch" style="background:var(--goal)"></span> Goal (stated)</div>
+      <div class="row"><span class="swatch" style="background:var(--goal-unstated)"></span> Goal (unstated)</div>
+    </div>
+
+    <div class="controls">
+      <label><input type="checkbox" id="toggleParticles" checked /> Animate link direction</label>
+      <button id="resetView" class="btn">Reset / fit view</button>
+    </div>
+
+    <div class="info" id="info">
+      <div class="selname" id="selname">No cell selected</div>
+      <div id="counts"></div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div id="graph"></div>
+    <div id="placeholder">Select a cell from the matrix on the left to render its decision-to-goal graph.</div>
+    <div id="hud" style="display:none"></div>
+  </main>
+
+  <script src="https://unpkg.com/3d-force-graph"></script>
+  <script src="cell_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

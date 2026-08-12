@@ -1,0 +1,77 @@
+## Original DAG Structure
+```json
+{{ dag_json | tojson(indent=2) }}
+```
+
+## Mutation Proposal to Execute
+**Type**: {{ proposal.mutation_type }}
+**Confidence**: {{ proposal.confidence }}
+**Description**: {{ proposal.description }}
+**Reasoning**: {{ proposal.reasoning }}
+**Expected Improvements**: {{ proposal.expected_improvements | join(', ') }}
+
+### Specific Operations Requested
+{{ proposal.operations | tojson(indent=2) }}
+
+## Context
+{{ context }}
+
+## Task
+Generate a DIFF of node operations to execute the mutation proposal above. Return ONLY the changes needed, not the complete DAG.
+
+### Example Response Format
+```json
+{
+  "operations": [
+    {
+      "operation": "add",
+      "node_id": "option_2b",
+      "parent_id": "decision_2",
+      "node_data": {
+        "layer": 3,
+        "type": "option",
+        "title": "Leverage cloud infrastructure",
+        "description": "Migrate to cloud-based solutions for scalability",
+        "goal_impacts": {"scalability": "high", "efficiency": "medium"},
+        "tags": ["technology", "infrastructure"],
+        "confidence_score": 0.85
+      },
+      "edge_to_parent": {
+        "conditions": ["If current infrastructure limits growth"],
+        "likelihood": "high",
+        "cost_estimate": "medium-high",
+        "timeline_estimate": "6-9 months",
+        "implementation_risks": ["Migration complexity", "Training needs"]
+      }
+    },
+    {
+      "operation": "modify",
+      "node_id": "decision_3",
+      "node_data": {
+        "title": "Updated decision title with more clarity",
+        "description": "Enhanced description with specific metrics",
+        "decision_type": "implementation"  // Must be one of: strategic, implementation, resource, timing, risk, market, product
+      },
+      "child_edge_updates": [
+        {
+          "target_id": "option_3a",
+          "likelihood": "very-high",
+          "cost_estimate": "low"
+        }
+      ]
+    }
+  ],
+  "summary": "Added cloud infrastructure option and clarified implementation decision",
+  "reasoning": "The cloud option addresses scalability concerns identified in fitness evaluation...",
+  "expected_improvements": ["Better scalability path", "Clearer implementation choices"],
+  "confidence": 0.82
+}
+```
+
+### Important Guidelines
+1. **Layer Consistency**: Decision nodes must be on even layers (0, 2, 4...), options on odd layers (1, 3, 5...)
+2. **ID Generation**: Use descriptive IDs like "option_2b" or "decision_4_enhanced"
+3. **Edge Details**: Include comprehensive edge information when adding nodes
+4. **Preserve Existing**: Only modify what needs to change; preserve working elements
+
+Generate the mutation diff now, focusing on the specific improvements requested in the proposal.

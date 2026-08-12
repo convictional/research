@@ -1,0 +1,7 @@
+{
+  "system_prompt_tokens": 2478,
+  "user_prompt_tokens": 187,
+  "total_used_tokens": 2665,
+  "leftover_tokens": 197334,
+  "token_limit": 200000
+}

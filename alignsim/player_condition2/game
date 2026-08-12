@@ -1,0 +1,17 @@
+#!/bin/bash
+# Wrapper script: invokes the game CLI from the player workspace.
+# The game engine lives in the repo; the player workspace is separate.
+# Uses alignsim's own pyproject.toml/venv (not the full experiments monorepo).
+#
+# Reads .repo_root (written by sandbox_run.sh) for the experiments dir.
+# Falls back to ~/app/experiments for backward compatibility.
+
+if [ "${1:-}" = "init" ]; then
+  echo "Error: the game is already initialized by the harness. Do not call 'init' yourself." >&2
+  exit 1
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cat "$SCRIPT_DIR/.repo_root" 2>/dev/null)"
+REPO_ROOT="${REPO_ROOT:-$HOME/app/experiments}"
+PYTHONPATH="$REPO_ROOT" uv run --project "$REPO_ROOT/alignsim" python -m alignsim.src.game_cli "$@" --state-dir "$SCRIPT_DIR/state"

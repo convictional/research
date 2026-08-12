@@ -1,0 +1,97 @@
+You are extracting learnings from search results about a specific topic.
+
+## Topic
+
+{{ topic }}
+
+## Directions
+
+{{ directions }}
+
+## Search Results
+
+{% for result in results %}
+### Result: {{ result.title }}
+
+- **ID:** {{ result.id }}
+- **Author:** {{ result.author }}
+- **URL:** {{ result.source_url }}
+- **Date:** {{ result.created_at }}
+
+{{ result.index_content }}
+
+---
+{% endfor %}
+
+## Task
+
+Extract up to {{ max_learnings }} learnings from the search results above. You may return fewer if there aren't enough relevant facts.
+
+## Output Fields
+
+You must return three fields:
+
+1. **learnings**: A list of strings. Each string is one learning extracted from the results.
+2. **follow_up_questions**: A list of up to 3 follow-up questions that would help research this topic further.
+3. **follow_up_title**: A one or two word title summarizing the theme of the follow-up questions.
+
+## Extraction Rules
+
+Follow these rules exactly:
+
+1. Extract ONLY information that is explicitly stated in the search results. Do not infer, speculate, or add any information not present in the text.
+2. Each learning must cite its source using this exact format at the end: `[^content:UUID]` where UUID is the result's ID. Do not include a learning without a citation.
+3. Include every specific detail from the source: exact numbers, percentages, dollar amounts, dates, names of people, companies, products, and tools. If a result says "revenue grew 15% in Q3 2024" you must include "15%", "Q3 2024", and any named driver.
+4. Do not fabricate or round numbers. If the source says "$1.2M" do not write "$1M". If the source says "March 14" do not write "mid-March".
+5. Each learning should be 2-3 sentences when the source provides enough context. Include WHY something happened and WHAT the implications are, not just the bare fact. Include direct quotes from named individuals when the source provides them.
+6. One fact, one learning. If you find additional details about something you've already written about (the same goal, PR, event, person, or decision), MERGE those details into the existing learning — do not write a second learning about it. Before writing each new learning, check your previous learnings; if any of them is about the same underlying thing, edit that one instead.
+7. Prioritize distinct facts over count. A list of 30 unique facts is better than a list of 50 with overlap. If you can only find 20 distinct facts, return 20.
+
+## Quality Examples
+
+<!--
+  PUBLICATION NOTE (not part of the prompt's intent, but it is sent to the model):
+  These few-shot examples were originally lifted verbatim from real internal meetings and
+  documents. For the public release of this repository, every person and company name has been
+  replaced with a consistent pseudonym, and the one example that quoted company financials has
+  been rewritten around neutral facts. Treat the examples as synthetic. The structure, the
+  bad/good contrast, and the extraction lessons they teach are unchanged from the version that
+  produced the reported results.
+-->
+
+Below are examples showing the difference between shallow extractions (bad) and rich extractions (good) from the same source material. Study the source excerpt, then see how the good version captures specific details, quotes, and context that the bad version omits.
+
+### Example 1
+
+**Source excerpt (from an annual organisational review meeting):**
+> Dana confirmed the annual review covered "the org changes and the tooling spend" including the promotion of Priya and the wind-down of the legacy marketplace product... "we budgeted for four contractors and ended up using two" and "the December infra migration slipped into January." The team agreed a fresh 409A valuation would be needed before the next equity grant cycle... This directly enables the team to issue new equity to recent hires like Taylor and Robin.
+
+**Bad** (single fact, generic framing):
+"Priya Raman was promoted from VP of Customer Experience to Chief of Staff, representing a significant organizational personnel milestone during the company's transition.[^content:UUID]"
+
+**Good** (merges related facts from the same source, explains why it matters):
+"Priya Raman was promoted from VP of Customer Experience to Chief of Staff during 2025, and the company hired Taylor Voss and Robin as new employees, necessitating a 409A valuation to enable equity grants. These personnel changes reflect a deliberate organizational build-out phase in 2025, consistent with a company scaling its team to support a new product direction after a strategic pivot.[^content:UUID]"
+
+### Example 2
+
+**Source excerpt (from an engineering meeting about mailbox refactoring):**
+> Elias explained that "mailbox is very, very tied to email" and they "shoehorned posts in" using workarounds... Devin sketched a design where "collaboration.mailbox" contains a mailbox class... Marcus confirmed: "lots of small simple REST APIs, not one giant mailbox entries API." The team decided to have both a shared mailbox_entry table AND separate email_mailbox_entry and chat_mailbox_entry tables... Marcus emphasized "it's a lot easier if you're just like get me the mailbox entries for this person."
+
+**Bad** (states the decision but drops the people, quotes, and reasoning):
+"Engineering is working on a major refactoring of the mailbox system to support chat messages alongside emails in the inbox.[^content:UUID]"
+
+**Good** (names participants, includes direct quotes, explains the architectural reasoning):
+"The engineering team undertook a major architectural refactoring of the mailbox system to support chat messages alongside emails, moving the mailbox model from the email domain into a shared 'collaboration layer' abstraction with a unified mailbox_entry table alongside separate email_mailbox_entry and chat_mailbox_entry tables. Principal engineer Marcus Iyer explicitly advocated to 'take the time and be like okay we have a whole cycle here... really think about it, put it through its paces,' prioritizing long-term architectural clarity over short-term velocity.[^content:UUID]"
+
+### Example 3
+
+**Source excerpt (from a post-demo debrief about ICP and product strategy):**
+> Jordan noted "Problem relevance in the ICP is high"... Priya suggested positioning posts as "proposals" rather than full Slack replacement, noting "you don't need to, you can keep the social value" in Slack... Jordan stated "we need it to be good for the chief of staff's career like we need to make them look good"... Priya argued the most impressive capability for technical leadership would be "how do all the units of work align and bubble up to the stuff because that's like an impossible thing to answer from slack, and from their dashboards."
+
+**Bad** (vague summary, no quotes or names):
+"The team identified the Chief of Staff as a key champion for the product, noting the tool should help them move from manually updating spreadsheets to managing strategic organizational systems.[^content:UUID]"
+
+**Good** (captures the specific framing, names, and direct quotes):
+"The Chief of Staff was identified as a critical ICP champion role. Jordan stated 'we need it to be good for the chief of staff's career — we need to make them look good.' The Northwind example was cited as validation: their Chief of Staff Noor 'saw what we described as her job' and managed the goals spreadsheet. Taylor drew a parallel to Shopify's developer adoption strategy — the tool should free the Chief of Staff from spreadsheet management to do higher-impact alignment work.[^content:UUID]"
+
+Now extract distinct learnings from the search results above. Each learning should describe a different thing. Prioritize depth and specificity — include direct quotes, named individuals, dates, and concrete details from the source material.

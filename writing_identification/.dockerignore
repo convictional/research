@@ -1,0 +1,80 @@
+# Cache directories (can be huge with external data)
+cache/
+*/cache/
+
+# Temporary files
+/tmp
+*.tmp
+
+# Local results and checkpoints (NOT the models/ source code directory)
+results/
+runs/
+vertex_dataset/
+
+# Model checkpoints (these are huge and not needed in Docker image)
+models/checkpoints/
+*.pt
+*.pth
+best_model.pt
+checkpoint_*.pt
+
+# Large data files
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Local development files
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local config overrides
+local_config.py
+.local/
+
+# Baseline evaluation (local only)
+baselines/
+baseline_models/
+baseline_results/
+*.bin
+*.safetensors
+pytorch_model.bin
+model_weights/

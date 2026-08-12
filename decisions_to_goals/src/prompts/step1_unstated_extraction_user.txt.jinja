@@ -1,0 +1,15 @@
+Analyze the following organizational activity data and extract {{ num_goals }} distinct candidate unstated organizational goals.
+
+## Activity Events ({{ events_count }} events shown)
+{{ events_formatted }}
+
+## Recent Decisions ({{ decisions_count }} decisions shown)
+{{ decisions_formatted }}
+
+For each candidate goal:
+- Write a concise, action-oriented title (e.g. "Reduce customer onboarding friction")
+- Write a strategic description (2–3 sentences) explaining the goal's meaning and business rationale
+- Select 2–3 short quoted phrases or event titles from the data as supporting evidence
+- List the event IDs from the corpus that provide the strongest evidence for this goal
+
+Extract exactly {{ num_goals }} distinct candidate unstated goals. Goals should be non-overlapping and cover different strategic areas.

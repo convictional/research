@@ -1,0 +1,38 @@
+# Core ML/DL libraries
+torch>=2.13.0
+sentence-transformers>=3.1.0
+scikit-learn==1.7.1  # Pin to exact version for extractor compatibility
+numpy>=1.24.0
+
+# NLP libraries
+spacy>=3.8.0
+trafilatura>=1.12.2
+
+# Database
+asyncpg>=0.30.0
+
+# Google Cloud
+google-cloud-storage>=2.10.0
+google-cloud-bigquery>=3.22.0
+google-cloud-aiplatform>=1.38.0
+google-cloud-logging>=3.5.0
+
+# Data processing
+pandas>=2.0.0
+pydantic>=2.11.5
+h5py>=3.8.0
+
+# Utilities
+python-dotenv>=1.2.2
+tqdm>=4.65.0
+colorlog>=6.9.0
+
+# Experiment tracking (optional but useful)
+tensorboard>=2.14.0
+gcsfs>=2023.10.0
+wandb>=0.16.0
+
+# External datasets
+datasets>=2.14.0
+pyarrow>=23.0.1,<24.0.0  # Pin to <21.0.0 - PyExtensionType was removed in 21.0.0
+convokit>=3.0.0  # For Reddit corpus data

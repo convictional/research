@@ -1,0 +1,20 @@
+Here is the goal:
+
+<goal_details>
+<goal_title>
+Goal title: {{ goal.title }}
+</goal_title>
+<goal_success_conditions>
+{% for sc in goal.success_conditions %}
+- Success condition {{ loop.index }}: {{ sc.description }}
+{% endfor %}
+</goal_success_conditions>
+<goal_comments>
+{% for c in goal.workspace.comments %}
+- Comment {{ loop.index }}:
+Comment timestamp: {{ c.created_at }}
+User name: {{ c.user_name }}
+Comment content text: {{ c.content}}
+{% endfor %}
+</goal_comments>
+</goal_details>

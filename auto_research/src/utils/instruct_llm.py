@@ -1,0 +1,40 @@
+from typing import Type
+
+import instructor
+from anthropic import AsyncAnthropic
+from pydantic import BaseModel
+
+from ..settings import settings
+
+
+def get_async_instructor_client():
+    if settings.llm_model.startswith("claude"):
+        anthropic_client = AsyncAnthropic(api_key=settings.anthropic_api_key.get_secret_value(), timeout=900)
+        return instructor.from_anthropic(anthropic_client)
+
+    raise Exception("Unknown llm model")
+
+
+ASYNC_INSTRUCTOR_CLIENT = get_async_instructor_client()
+
+
+async def ainstruct_llm(
+    system_prompt: str,
+    user_prompt: str,
+    response_model: Type[BaseModel],
+    temperature: float = 0.1,
+    max_tokens: int = 8000,
+    llm_model: str = settings.llm_model,
+) -> BaseModel | None:
+    messages = [{"role": "user", "content": user_prompt}]
+
+    response = await ASYNC_INSTRUCTOR_CLIENT.messages.create(
+        model=llm_model,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        system=system_prompt,
+        messages=messages,
+        response_model=response_model,
+    )
+
+    return response

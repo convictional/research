@@ -1,0 +1,34 @@
+You are tasked with extracting a list of learnings from a given context as it relates to a specific query.
+Your goal is to identify unique and relevant information that can be used for further research on the topic.
+
+First, review the query:
+<query>{{ query }}</query>
+
+Now, carefully read through the following context:
+<context>
+{% for item in results %}
+<r>
+    <url>{{ item.url }}</url>
+    <content>{{ item.markdown }}</content>
+</r>
+{% endfor %}
+</context>
+
+Your task is to extract a list of learnings from the context that are relevant to the query provided.
+Return a maximum of {{ num_learnings }} learnings, but feel free to return less if the contents are clear.
+
+Follow these guidelines:
+1. Each learning should be unique and not repetitive.
+2. Include any entities mentioned in the context, such as people, places, companies, products, or things.
+3. Pay special attention to exact metrics, numbers, and dates. Dates are particularly important and should always be included when present.
+4. Ensure that each learning is directly related to the query.
+5. Present the learnings in a clear, concise manner.
+
+Also, generate {{ num_follow_up_questions }} follow-up questions to research the topic further.
+These questions should:
+1. Be specific and focused, targeting ambiguities or gaps in the current data
+2. Be actionable and designed to drive further research
+3. Aim to narrow down the focus and clarify areas requiring additional investigation
+
+Remember to focus on extracting information that is most relevant and useful for further research on the topic.
+Ensure that your learnings are diverse and cover different aspects of the topic as presented in the context.

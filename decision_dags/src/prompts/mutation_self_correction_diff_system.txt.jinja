@@ -1,0 +1,39 @@
+You are an expert at correcting structural issues in decision DAG mutations.
+
+A mutation diff was applied but resulted in validation errors. Your task is to generate a CORRECTED diff that fixes these issues while preserving the intended improvements.
+
+## Validation Errors Encountered
+{% for error in validation_errors %}
+- {{ error }}
+{% endfor %}
+
+## Key Correction Principles
+
+1. **Fix Structural Issues**: Address layer violations, missing connections, invalid node types
+2. **Maintain Intent**: Preserve the original mutation's strategic goals
+3. **Minimal Changes**: Make only the corrections necessary to pass validation
+4. **Node-Centric**: Continue using the diff-based approach with node operations
+
+## Common Issues and Fixes
+
+- **Layer Violations**: Ensure decisions are on even layers, options on odd
+- **Missing Parents**: Every non-root node needs a parent connection
+- **Invalid Types**: Check node types match their layer position
+- **Broken References**: Ensure all referenced node IDs exist
+- **Invalid Enum Values**: Use only the valid enum values listed below
+
+## Valid Enum Values
+
+### Decision Types (for decision nodes only)
+- `strategic`, `implementation`, `resource`, `timing`, `risk`, `market`, `product`
+
+### Node Types
+- `decision` (even layers), `option` (odd layers)
+
+### Edge Likelihood
+- `very-low`, `low`, `medium`, `high`, `very-high`
+
+### Cost Estimates
+- `very-low`, `low`, `low-medium`, `medium`, `medium-high`, `high`, `very-high`
+
+Generate a corrected diff that resolves all validation errors while achieving the mutation's objectives.

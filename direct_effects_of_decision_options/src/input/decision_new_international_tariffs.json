@@ -1,0 +1,60 @@
+{
+  "title": "Decision: Responding to Potential New International Tariffs",
+  "goals": "minimize impact on profit margins, maintain competitive pricing, ensure supply chain stability, and protect key market positions",
+  "options": [
+    {
+      "title": "Relocate Manufacturing",
+      "description": "Shift production to non-affected countries, establishing new manufacturing partnerships in Vietnam and Mexico over 12-month period"
+    },
+    {
+      "title": "Absorb and Adjust Pricing",
+      "description": "Maintain current supply chain while implementing strategic price increases and cost optimization to offset 15-20% tariff impact"
+    },
+    {
+      "title": "Localize Production",
+      "description": "Invest in domestic manufacturing capabilities to reduce international exposure, with 18-month transition timeline"
+    },
+    {
+      "title": "Hybrid Approach",
+      "description": "Combine partial manufacturing relocation with selective price adjustments, while negotiating with suppliers for cost sharing"
+    }
+  ],
+  "criteria": [
+    {
+      "title": "Financial Impact",
+      "description": "Direct cost increases, implementation costs, and impact on margins across product lines"
+    },
+    {
+      "title": "Timeline Feasibility",
+      "description": "Ability to implement changes before tariffs take effect and manage transition period"
+    },
+    {
+      "title": "Supply Chain Risk",
+      "description": "Potential disruptions, reliability of new suppliers, and quality control challenges"
+    },
+    {
+      "title": "Market Share Impact",
+      "description": "Effect on competitive position and potential loss of customers due to price changes"
+    },
+    {
+      "title": "Operational Complexity",
+      "description": "Changes required to logistics, inventory management, and production processes"
+    },
+    {
+      "title": "Regulatory Compliance",
+      "description": "Ability to meet various international trade regulations and certification requirements"
+    },
+    {
+      "title": "Geographic Diversification",
+      "description": "Resulting exposure to political and economic risks across different regions"
+    },
+    {
+      "title": "Customer Relationships",
+      "description": "Impact on existing customer contracts and long-term relationship management"
+    },
+    {
+      "title": "Long-term Flexibility",
+      "description": "Ability to adapt to future trade policy changes and market conditions"
+    }
+  ]
+}

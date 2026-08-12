@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knowledge Collapse — Convictional</title>
+
+    <!-- Typography -->
+    <link rel="stylesheet" href="https://use.typekit.net/lbl4dtu.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=2" />
+
+    <!-- Speaker notes — Adam's notes, one entry per slide -->
+    <script type="application/json" id="speaker-notes">
+[
+"Hey everyone, thanks for coming to my 'ted' talk today :)\n\nRoger originally posted about this paper from Ah-JEM-oh-loo, Kong, and Oz-DAH-lar and asked folks to check it out, as well as Matt and I to dig in a little deeper given that it was very math heavy.\n\nI personally found it to be an interesting read, and thought it reinforced much of what we've already landed on around preserving human judgement. Cam's post about lunch and learns gave me the idea to offer one for it.",
+
+"My goal today is two-fold, I'm hoping to walk through the model they presented at a conceptual level, and then have a couple of discussion questions we could chew on for the second half.\n\nI've followed the structure of the paper and broken the talk down into four sections:\n- the first will set up how the authors thought about this problem given what they are modelling quite abstract (in-so-far as it's effectively immeasureable).\n- the second will touch on the model, followed by it's dynamics and finally,\n- the implications from the paper, as well as some alternatives",
+
+"As mentioned, we'll start with the problem statement and the ways in which the author's frame it",
+
+"The paper uses the term learning as the main task that humans are trying to complete when solving any problem. This wasn't intuitive to me at first, but makes sense - we are always learning, particularly when solving a new problem (ask any fresh grad if they learned more in school or their first year-or-two on the job).\n\nOur brain at its core is a prediction engine - observing our state, making a prediction about what to do, executing, and observing. The execution phase itself breaks this down further into very atomic units - most of our brain's loop is 'learning' through observation of the state and how well our predictions align with what happens.",
+
+"Knowledge comes in two forms:\n- General knowledge\n- Idiosyncratic\n\nAs the slide states, general knowledge is the publically available knowledge that anyone can find and draw on. Idiosyncratic knowledge is the specific context of the situation.\n\nThe paper uses two examples:\n- a doctor who has access to medical literature or other experts is going to be much more likely to solve a case than a doctor who can only observe the patient's symptoms\n- a developer working in a completely unfamiliar language without access to the docs or source code. While you'd know general programming practices, logic and could guess at syntax - your chance of solving a bug is a lot lower than someone who has access to the documentation.\n\nThroughout the paper/talk, these knowledge types will keep re-occurring and frame the core of the model, but we'll get back to that.",
+
+"General knowledge is just that, general, but can be sub-divided into what the author's call 'Knowledge Islands'. These go beyond just fields of knowledge and can become very niche e.g. Convictional's proprietary explicit knowledge is a general knowledge island - however, restricted to only be accessible (hopefully) by us.\n\nA term you'll hear used throughout the talk as well are \"Common and Idiosyncratic states\".\n- Each island has a common state that represents the state of the general knowledge, as well as shared general knowledge (e.g. use of technology, language, shared physical states)\n- The idiosyncratic/private state is your own individual context and indiosyncratic knowledge - coming back to the previous slide, it's effectively your tacit knowledge in any given moment\n\nStates are temporal - they change with time, so when we say an \"island has a common state\", we mean \"at some point in time\".",
+
+"Alright, and that's what we need to set up the model which we'll see in section 3 forms a feedback loop - that can be good for our welfare, or not",
+
+"I already touched on this off the top of the talk, but now we have language to make it more specific.\n\nThe author's use the term 'agent' which is a typical economics term - but it only means a 'human' actor in some given Island. I'll try to use 'human' here on out, but forgive me if I missed any substitutions.\n\nSo, we already framed problem-solving in terms of learning which is a byproduct of the frequent predict <> observe about the world around us. Whether throwing a ball (predicting it's path) or selling to a customer (predicting their reaction), we make a prediction about our actions effect on both our:\n- common state: how does pitching this customer with this approach change Convictional's common state? Cam might predict that it'll close the customer, updating our shared general knowledge\n- private state: Cam might predict changes to his knowledge (what works), but also his own state (time, todo list impact, career, emotional state, etc)\n\nTaking this further, the human's actions according to their predictions create two 'signals' - things that get broadcast to the common and private states, allowing them to update.\n\nThe private signal can meaningfully update your private idiosyncratic state, while the general signal is 'infentisimel' relative to the swath of general knowledge - any single public signal doesn't move the needle, but compounded across humans on an island it does.",
+
+"Okay, I promise this and the next slide is the most math we get into, and I'm going to try and keep it visual.\n\nThe surface in this chart represents the gross payoff (what do you get?) from some learning task with the said payoff being tied to how accurately you predict your common or private state.\n\nAt first I didn't intuitively get this - how does predicting my state dictate my payoff? I understood it though when thought through some examples:\n- consider our developer debugging something - given their common and private states, they can see a range of options in front of them, they choose the one they are _most likely_ to believe will work (subject to some cost - more on that in a minute).\n- If they poorly predict their state (I'm going to fix this bug and be hearled as the second coming of Linus) then it means the bug wasn't fixed - or had unintented consequences on either or both of the private and common states\n\nSo, you can also (sort of) think of this surface as representing how likely you are to get a payoff.\n\nIn performing a learning task, there's only four states that you can be in - you either made good enough predictions or not, when you do, you move along one of the edges. The most payoff occurs when you predict both your common and private states well.",
+
+"The surace I showed on the previous slide was very general - I gave no information around it's shape or what any of the numbers mean. The authors do give some information on it's specific shape, which we can state in the form of two assumptions.\n\nThe first means that the edge of the surface from the start to (0,1) is 0. If you don't have good access to, or understanding of the common state, any learning task doesn't pay-off. Put another way, you can only solve a problem if you have access to general knowledge.\n\nThe second assumption means that you get more out of general knowledge if you have a good understanding of your private state (e.g. you can predict it well).\n- for example: a new hire at a company is less effective than one who has been there for some time given the differences in their private (tacit idiosyncratic) state.",
+
+"To actually measure the utility of an approach to a learning task though, we can't just look at whether you can predict the state well, we also have to consider it's cost of your learning effort relative to what you're going to get out of it.\n\nAlpha is just a parameter and it varies across islands (more on this later), but conceptually this make sense. The cost of effort required for problem solving across fields is different.\n- Consider regulated industries (e.g. medicine) where effort to problem solve is rigid, and high. Doctors spend years in medical school, require licensing and the cost of effort scales sharply according to access to the drug or tool.\n\nAlpha will come back - it ties to the 'elasticity' of effort\n- i.e. how much can you change your effort without change to your utility which is your payoff - cost.",
+
+"Alright we've set the environment up, and have a model conceptually defined - what we haven't yet introduced is AI, and how these states change given learning tasks, effort choices and cost.",
+
+"So, if we take the utility function we explored earlier that depended on a human's prediction quality and the cost of the learning effort, we can build a 'transition map', which is just a fancy word for a loop.\n\nWe'll call the 'state' of the common state at some point in time, t, \"X_t\".\n- think of this as the state of our content table at any given point in time\n\nWe can model agent actions by finding 'optimal' effort levels given various alphas that rely on the current common state, X_t and the human's idiosyncratic state.\n\nWe can then put those actions into a loop where the public and private signal produced by learning changes their conditions on the next task.\n\nThe authors call this loop F, and the key question they ask is, \"under what conditions does F give back more with each iteration that it got from the last\".",
+
+"AI does something for us that we've never had before - it can actually replace human learning effort.\n\nPreviously tools such as the internet, telegram, the printing press, stories, language were all technologies that _lowered_ the cost of learning effort, but they could not replace it.\n\nHumans were still forced to seek out, synthesize, and connect knowledge in order to learn/problem solve.\n\nAI can, importantly, synthesize and connect knowledge - google got pretty good at finding knowledge, but could not intelligently reason about connections. What's more, AI is good enough now that it actually replaces meaningful learning effort (not just drafting an email anymore).",
+
+"To incorporate AI into their model, the authors have to introduce some assumptions for its dynamics.\n\nAt first read, all three may feel wrong. I have my own thoughts, but for now am just going to present the author's framing.\n\nSo, the first here may seem wrong - an AI that solves a bug on night shift and outputs a bug report sure seems to contribute to general knowledge. The important distinction is that the authors are being very literal - in the process of generating tokens to a user, AI does not, by itself, contribute to common knowledge.\n- That night shift agent only contributes to general knowledge because Nick built a harness to make that possible.\n\nThe second could also be debated I think, this talk is an example of AI (at least) accelerating this contribution to our general knowledge. However, in the paper, an agent's public signal (how much they add to the pool of general knowledge given a learning effort) is unchanged by AI.\n\nFinally the last is the one I take most umbrance with personally, the authors implicitly assume that even with advances in AI, we won't see common signal contribution or human's ability to contribute to common signal changing. I can understand the second, it may be more personal choice (do I share/post this? do I ask this person a question or seek it out myself?) and the first is very literally correct, but this third one carries a lot of water and... well, moving on.",
+
+"Alright, the authors do a ton of math to get to this statement and we're just going to wave our hands at all of it. It's definitely correct, very economics typical, and produces some interesting dynamics.\n\nWe made some assumptions about AI in the last slide, and the tldr of what they do is to degrade the general knowledge state (X_t) as their capability increases\n- if AI can replace human learning effort, but at the cost of not producing any public signal, then the human's \"non-AI, public signal producing effort\" decreases as they rely more on AI\n- public signals from learning effort to general knowledge fall off, and the existing knowledge degrades over time (becomes stale)\n\nThe second observation effectively says that the larger the field is to begin with (before AI), the higher the capability of AI required to cause its collapse. This is because very broad fields require more effort given the breadth of connections to be made.\n\nConverseley, niche islands (like organizations) will be much more susceptible to collapse.",
+
+"I said alpha would come back, recall that alpha is the scaling of the cost associated with some learning effort. I also mentioned earlier that alpha can be thought of as the elatiscity of effort. High alpha leads to big changes in cost, while small alpha means that cost doesn't change much across effort levels.\n\nSomething that was unintuitive to me was that the high cost regimes are those that are most resilient to AI and knowledge collapse.\n\nIt is very much a somewhat complex property of the model, but intuitively we come back to our regulated industry example in which regardless of the state of general knowledge, humans are forced to take strict learning effort levels (crossing t's, dotting i's) in order to problem solve.\n\nOn the other hand, fields where the cost of effort doesn't change steeply, humans can change their approach without much impact to their outcomes. This opens the door to AI substituting for human effort.",
+
+"Waving our hands through some more math, we get to three scenarios broken into two categories.\n\nThe first category are those high-cost, inelastic, regulated-ish regimes. In these cases, humans are forced to exert learning effort, so substituting for AI isn't incentivized. The state of general knowledge cannot collapse to 0, instead it will settle at some stable point (where it doesn't change - the signals coming in make up for any degredation). That said, as AI is adopted, the stable point can slowly drift closer to 0.\n\nThe second category is more complicated - when effort is elastic, people are incentivized to replace learning effort with AI. Depending on the capability of AI, which the authors call 'tau_A', we can end up either in a complete collapse scenario (far right chart), or a multi-regime scenario where, depending on the size of the island to begin with - knowledge collapses or it doesn't.\n\nAgain, however, even in large islands that escape complete collapse, increasing AI capability means that the stable point drifts towards 0 (think of the middle chart shifting down to the right chart as AI get's better, tau_A increases).\n\nAnd that's the main result from this paper.",
+
+"The authors make some assumptions on both the model and AI that we just touched on, but what if we relax some of those?",
+
+"We can think of collapse being a coordination problem or 'public good' style problem. We're all individual motivated by idiosyncratic state (changes), and in elastic learning environments, we will optimize our personal effort.\n\nThe degree to which we are motivated by changes to the common or idiosyncratic state are laregely the degree to which we think some change to the common state will affect our idiosyncratic state.\n\nSo, yeah, hold onto that last point - we'll get to the discussion shortly.",
+
+"Okay - what if we relax the assumption on private effort? This was one of the assumptions I thought was a little hard to believe - mostly because, if we consider how an island starts (or how the first island started) it had to cold start out of idiosyncratic states alone.\n\nI propose that private effort alone can still provide value - but do agree that you get way more if you have access to general knowledge as well.\n\nSo, if we were to relax this, then we still emit some public signal even when general knowledge is not available (or very small). This means that complete collapse _can't_ happen - but stocks of general knowledge will still degrade to some lower level.",
+
+"AI can contribute to the general signal - it may require boot-strapping harnesses to allow it to do that (e.g. night shift, auto-research), but that we should not rule it out entirely.\n\nIn this case, knowledge collapse doesn't happen - but instead knowledge becomes primarly produced via AI. However, that is subject to the next assumption being relaxed - which is whether AI contribution to general signal improves with its ability. I'd argue, yes.\n\nAI has already started autonomously solving open erdos problems, contributing to research in chemistry, physics, CS, medicine, ... most sciences. What's more, AI may actually change how people decide to share - perhaps it strengthens a human's public signal?",
+
+"And, with that - thanks for bearing with me. I have a few questions, but we don't have to stick with them.",
+
+"I think the first is most interesting for us, and Roger has poked at this via the 'decision struggle' which should be human and taking place in the open, or how some folks have started writing human content and appending an AI appendix. However, curious for folks thoughts on whether those are things that need to be formalized, or if there are other implications for our product.",
+
+"Thanks. Paper is Acemoglu, Kong and Ozdaglar 2026 - happy to share it, section 1 is the one I'd recommend if you want to go deeper."
+]
+    </script>
+  </head>
+
+  <body>
+    <deck-stage width="1920" height="1080">
+
+      <!-- ═══════════════════════════════════════════════════════
+           01 · Title
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Title" class="slide">
+        <div class="wordmark">Convictional</div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; max-width: 1500px;">
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: var(--t-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 40px;">
+            Lunch &amp; learn · April 2026
+          </div>
+          <h1 class="h-display">Knowledge collapse.</h1>
+          <p class="subtitle muted" style="margin-top: 36px; max-width: 1200px;">
+            A paper about AI, human learning, and explicit knowledge.
+          </p>
+        </div>
+
+        <div style="font-family: var(--font-body); font-size: var(--t-caption); color: var(--ink-faint); line-height: 1.7; border-top: 1px solid var(--rule); padding-top: 28px; max-width: 900px;">
+          Based on <span class="serif-em">Acemoglu, Kong &amp; Ozdaglar</span> (2026),<br />
+          <em>&quot;AI, Human Cognition and Knowledge Collapse&quot;</em>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           02 · Roadmap
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Roadmap" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">Knowledge collapse · 01/24</div>
+
+        <p class="eyebrow" style="margin-top: 80px;">Where we're going</p>
+        <h2 class="h-title">Four acts.</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px 96px; max-width: 1600px; margin-top: 40px;">
+          <div>
+            <div style="font-family: var(--font-accent); font-style: italic; font-size: 36px; color: var(--blue); margin-bottom: 10px;">I · Foundations</div>
+            <p class="muted" style="font-size: 28px; margin: 0;">What the paper means by knowledge, learning, and the communities they live in.</p>
+          </div>
+          <div>
+            <div style="font-family: var(--font-accent); font-style: italic; font-size: 36px; color: var(--blue); margin-bottom: 10px;">II · The model</div>
+            <p class="muted" style="font-size: 28px; margin: 0;">A sketch of the math — just enough to see the machine underneath.</p>
+          </div>
+          <div>
+            <div style="font-family: var(--font-accent); font-style: italic; font-size: 36px; color: var(--blue); margin-bottom: 10px;">III · Dynamics</div>
+            <p class="muted" style="font-size: 28px; margin: 0;">What happens over time, where thresholds live, and how collapse appears.</p>
+          </div>
+          <div>
+            <div style="font-family: var(--font-accent); font-style: italic; font-size: 36px; color: var(--blue); margin-bottom: 10px;">IV · Implications</div>
+            <p class="muted" style="font-size: 28px; margin: 0;">Relaxing the assumptions, then three questions for the team.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           03 · Section — Foundations
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Act I — Foundations" class="slide section-divider">
+        <div class="wordmark">Convictional</div>
+        <div>
+          <div class="act-num">Act I</div>
+          <div class="act-title">Foundations.</div>
+          <p class="act-sub">Knowledge, learning, and the communities they live in.</p>
+        </div>
+        <div class="act-footer">
+          <span>Slides 04 – 06</span>
+          <span>~4 min</span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           04 · Knowledge & learning are symbiotic
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Knowledge &amp; learning" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">I · Foundations · 03/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Starting point</p>
+        <h2 class="h-title">Knowledge and learning feed each other.</h2>
+
+        <div style="margin-top: 24px; max-width: 900px;">
+          <p class="lead">
+            We <span class="serif-em">learn</span> by solving problems. When we do, we produce <span class="serif-em">knowledge</span> — for ourselves, and for everyone else working on similar problems.
+          </p>
+          <p class="lead muted" style="margin-top: 40px;">
+            In the paper, &quot;learning&quot; is just a formal name for problem-solving.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           05 · Two kinds of knowledge
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Two kinds of knowledge" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">I · Foundations · 04/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Definitions</p>
+        <h2 class="h-title">Knowledge comes in two flavours.</h2>
+
+        <div class="two-col" style="margin-top: 24px;">
+          <div>
+            <div class="col-label accent">General · G</div>
+            <p class="lead" style="margin-bottom: 24px;">
+              Shared, explicit, public.
+            </p>
+            <p class="body muted">
+              Papers, blog posts, docs, Stack Overflow answers, the wiki, the Slack thread from last October that solved it for everyone.
+            </p>
+            <p class="body muted">
+              Individually infinitesimal. Collectively the thing a field runs on.
+            </p>
+          </div>
+          <div>
+            <div class="col-label">Idiosyncratic · I</div>
+            <p class="lead" style="margin-bottom: 24px;">
+              Private, tacit, yours.
+            </p>
+            <p class="body muted">
+              Your intuition, your context, your taste. Motivations — safety, comfort, status, curiosity — and the judgment you've built from doing the work.
+            </p>
+            <p class="body muted">
+              Doesn't fit in a doc. Shows up when you make a call no one else is watching.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: auto; max-width: 1600px;">
+          <span class="callout-label">Two examples</span>
+          <p class="callout-body">A doctor with, and without, access to the medical literature. A developer debugging an unknown language with no documentation.</p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           06 · Islands
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Islands" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">I · Foundations · 05/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Where knowledge lives</p>
+        <h2 class="h-title">Communities of practice — &quot;islands.&quot;</h2>
+
+        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; flex: 1; align-items: center; min-height: 0;">
+          <div class="diagram" id="islands-diagram"></div>
+          <div>
+            <p class="lead" style="margin: 0 0 24px;">
+              An island is a community that shares context — a field, a company, a subreddit.
+            </p>
+            <p class="body muted" style="margin: 0 0 24px;">
+              Each island has a <strong>common state</strong>: the general knowledge everyone on it can draw on.
+            </p>
+            <p class="body muted" style="margin: 0;">
+              Islands grow and shrink. They overlap at the edges. Some are vast. Some are fourteen people on a Tuesday.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           07 · Section — The model
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Act II — The model" class="slide section-divider">
+        <div class="wordmark">Convictional</div>
+        <div>
+          <div class="act-num">Act II</div>
+          <div class="act-title">The model.</div>
+          <p class="act-sub">Without all that math.</p>
+        </div>
+        <div class="act-footer">
+          <span>Slides 08 – 11</span>
+          <span>~6 min</span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           08 · Learning as prediction
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Learning as prediction" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">II · The model · 07/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Modelling move</p>
+        <h2 class="h-title">Learning, as a prediction problem.</h2>
+
+        <div class="two-col" style="margin-top: 24px;">
+          <div>
+            <p class="lead">
+              To make it tractable, the authors reframe learning as <span class="serif-em">prediction</span>.
+            </p>
+            <p class="body muted" style="margin-top: 32px;">
+              An agent trying to solve something is an agent predicting two things:
+            </p>
+            <ul class="list" style="margin-top: 20px;">
+              <li>the outcome of the <strong>common world state</strong> — how the field, market, or peers will respond</li>
+              <li>the outcome of their <strong>private state</strong> — what will work for them specifically</li>
+            </ul>
+            <p class="body muted" style="margin-top: 24px;">
+              They update both iteratively as they work.
+            </p>
+          </div>
+
+          <div>
+            <div class="col-label">Each action produces</div>
+            <div style="display: flex; flex-direction: column; gap: 32px; margin-top: 20px;">
+              <div>
+                <div style="font-family: var(--font-accent); font-style: italic; font-size: 42px; color: var(--ink); line-height: 1;">A private signal</div>
+                <p class="body muted" style="margin: 12px 0 0;">Tacit knowledge that stays with the agent.</p>
+              </div>
+              <div>
+                <div style="font-family: var(--font-accent); font-style: italic; font-size: 42px; color: var(--blue); line-height: 1;">A public signal</div>
+                <p class="body muted" style="margin: 12px 0 0;">Explicit knowledge that goes into the island's common state. The pump that keeps general knowledge flowing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           09 · The agent's task — payoff lattice
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="The agent's task" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">II · The model · 08/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Success</p>
+        <h2 class="h-title">Getting both predictions right.</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 72px; flex: 1; align-items: center; min-height: 0;">
+          <div>
+            <p class="lead" style="margin: 0 0 32px;">
+              Four possible outcomes — <span class="serif-em">common</span> and <span class="serif-em">private</span>, each right or wrong.
+            </p>
+            <ul class="list tight" style="font-size: 28px;">
+              <li><strong>(0, 0)</strong> &nbsp;both wrong</li>
+              <li><strong>(1, 0)</strong> &nbsp;common right, private wrong</li>
+              <li><strong>(0, 1)</strong> &nbsp;common wrong, private right</li>
+              <li><strong>(1, 1)</strong> &nbsp;both right — the corner you want to live in</li>
+            </ul>
+            <p class="body muted" style="margin-top: 32px; font-size: 26px;">
+              Payoff is a function <span class="eq">f(G, I)</span> over the four corners — the degree to which what actually happened aligns with what you predicted.
+            </p>
+          </div>
+          <div class="diagram" id="payoff-diagram"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           10 · Two assumptions (non-AI)
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Two assumptions" class="slide paper-2">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">II · The model · 09/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Load-bearing</p>
+        <h2 class="h-title">Two assumptions that do a lot of work.</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 420px; gap: 48px; margin-top: 24px; flex: 1; min-height: 0; align-items: start;">
+          <div class="assumption-grid">
+            <div class="assumption-card">
+              <div class="a-num">01</div>
+              <div class="a-body">
+                <strong>Private effort only pays off when the common state is understood.</strong>
+                <div style="margin-top: 12px;" class="muted">Payoff from your private cleverness scales with how much general knowledge you've already absorbed. With zero general knowledge, your private effort returns zero.</div>
+              </div>
+            </div>
+            <div class="assumption-card">
+              <div class="a-num">02</div>
+              <div class="a-body">
+                <strong>General knowledge and private learning compound each other.</strong>
+                <div style="margin-top: 12px;" class="muted">Getting both predictions right is worth more than the sum of getting each right alone. Solid general knowledge amplifies the value of private effort — they're complements, not substitutes.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top: 0;">
+            <span class="callout-label">Flag this one</span>
+            <p class="callout-body">Is assumption 1 right? A doctor without medical literature can still stop the bleeding. We'll come back to both assumptions at the end.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           11 · Effort & cost — α curves
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Effort &amp; cost" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">II · The model · 10/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Cost of effort</p>
+        <h2 class="h-title">Alpha controls how fast the cost of effort compounds.</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 72px; flex: 1; align-items: center; min-height: 0;">
+          <div>
+            <div class="eq-block" style="font-size: 70px; text-align: left; margin: 0 0 28px;">
+              c(e) = <span style="display: inline-block; text-align: center; vertical-align: middle; line-height: 1.1;">
+                <span style="display: block; border-bottom: 2px solid currentColor; padding: 0 12px;">1</span>
+                <span style="display: block; padding: 0 12px; font-family: var(--font-body); font-style: italic;">α</span>
+              </span> · e<sup style="font-size: 0.6em; font-family: var(--font-body); font-style: italic; margin-left: 0.18em;">α</sup>
+            </div>
+            <p class="body muted" style="margin: 0 0 24px;">
+              <span style="font-family: var(--font-body); font-style: italic;">α</span> is the curvature — how steeply cost rises as effort increases.
+            </p>
+            <ul class="list tight" style="font-size: 28px;">
+              <li><strong>Low α</strong> &nbsp;cost is nearly linear — each unit of effort costs about the same</li>
+              <li><strong>High α</strong> &nbsp;cost compounds steeply — the juice has to be worth the squeeze</li>
+            </ul>
+            <p class="caption" style="margin-top: 28px; font-size: 22px;">
+              Alpha comes back as the first collapse threshold — and what it implies might surprise you.
+            </p>
+          </div>
+          <div class="diagram" id="cost-diagram"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           12 · Section — Dynamics
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Act III — Dynamics" class="slide section-divider">
+        <div class="wordmark">Convictional</div>
+        <div>
+          <div class="act-num">Act III</div>
+          <div class="act-title">Dynamics.</div>
+          <p class="act-sub">Run the loop. Watch for the cliff.</p>
+        </div>
+        <div class="act-footer">
+          <span>Slides 13 – 17</span>
+          <span>~8 min</span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           15 · The feedback loop
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="The feedback loop" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">III · Dynamics · 12/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">The engine</p>
+        <h2 class="h-title">The loop the authors call F.</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; flex: 1; align-items: center; min-height: 0;">
+          <div>
+            <p class="lead" style="margin: 0 0 28px;">
+              Each period, the model runs the same loop.
+            </p>
+            <p class="body muted" style="margin: 0 0 16px;">
+              F takes today's common knowledge <span class="eq">X<sub style="font-size:0.55em">t</sub></span> and returns tomorrow's <span class="eq">X<sub style="font-size:0.55em">t+1</sub></span>.
+            </p>
+            <p class="body muted" style="margin: 0;">
+              What matters is simple: does F give back <em>more</em> knowledge than it received, or <em>less</em>? Where it gives back exactly the same, the system has found a resting point.
+            </p>
+          </div>
+          <div class="diagram" id="loop-diagram"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           13 · Enter AI
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Enter AI" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">III · Dynamics · 13/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">The new tool</p>
+        <h2 class="h-title">AI reshapes the effort ↔ precision trade.</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 24px; max-width: 1680px;">
+          <div>
+            <div class="col-label">Problem-solving, before</div>
+            <p class="lead" style="margin-top: 20px;">
+              <span class="serif-em">Intensive private effort</span> → answer, with a public signal produced as a byproduct.
+            </p>
+          </div>
+          <div>
+            <div class="col-label accent">Problem-solving, after</div>
+            <p class="lead" style="margin-top: 20px;">
+              <span class="serif-em">AI recommendation</span> → answer. No effort, no byproduct.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: auto;">
+          <p class="body muted" style="max-width: 1500px;">
+            Humans have always adopted tools that improve precision-per-effort — writing, the internet, Stack Overflow. AI is the same move, further.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           14 · Three AI assumptions
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Three AI assumptions" class="slide paper-2">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">III · Dynamics · 14/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">How AI enters the model</p>
+        <h2 class="h-title">Three assumptions about AI.</h2>
+
+        <div class="assumption-grid" style="margin-top: 16px; max-width: 1600px;">
+          <div class="assumption-card">
+            <div class="a-num">01</div>
+            <div class="a-body">
+              <strong>AI doesn't improve general knowledge on its own.</strong>
+              <span class="muted"> It generates no common signal by itself.</span>
+            </div>
+          </div>
+          <div class="assumption-card">
+            <div class="a-num">02</div>
+            <div class="a-body">
+              <strong>Using AI doesn't change the human's public signal.</strong>
+              <span class="muted"> The human contributes the same amount to the common pool, whether or not AI was involved.</span>
+            </div>
+          </div>
+          <div class="assumption-card">
+            <div class="a-num">03</div>
+            <div class="a-body">
+              <strong>AI's ability to improve general knowledge doesn't scale with capability.</strong>
+              <span class="muted"> Implicit in the model — better AI means more precise private answers, not more common contribution.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="caption" style="margin-top: 28px; font-size: 22px;">
+          Number three is the one most worth poking at. We'll come back to it.
+        </p>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           16 · What the model predicts — two observations
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="What the model predicts" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">III · Dynamics · 15/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Headline results</p>
+        <h2 class="h-title">Two things fall out of the machine.</h2>
+
+        <div class="two-col" style="margin-top: 32px; align-items: stretch;">
+          <div>
+            <div class="col-label accent">Observation 1</div>
+            <p class="lead" style="margin: 20px 0 20px;">
+              General knowledge <span class="serif-em">degrades</span> as AI adoption increases.
+            </p>
+            <p class="body muted">
+              Humans spend less effort on learning. The public signal flow slows as AI substitutes for the work that used to produce it.
+            </p>
+          </div>
+          <div>
+            <div class="col-label accent">Observation 2</div>
+            <p class="lead" style="margin: 20px 0 20px;">
+              Optimal effort <span class="serif-em">rises</span> with the breadth of the field, <span class="serif-em">falls</span> with AI capability.
+            </p>
+            <p class="body muted">
+              Harder problems justify more effort. Better AI steals some of that justification.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           17 · The α threshold — big text slide
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="The α threshold" class="slide paper-2">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">III · Dynamics · 16/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Threshold one</p>
+        <h2 class="h-title">Whether collapse is possible at all depends on <span style="font-family: var(--font-body); font-style: italic;">α</span>.</h2>
+
+        <div class="two-col tight" style="margin-top: 20px; align-items: stretch; gap: 80px;">
+          <div style="padding: 28px 36px; background: var(--paper); border-left: 3px solid var(--ink-faint);">
+            <div style="font-family: var(--font-accent); font-style: italic; font-size: 32px; color: var(--ink-faint); margin-bottom: 8px;">High <span style="font-family: var(--font-body);">α</span> · inelastic effort</div>
+            <p class="lead" style="margin: 0 0 12px;">Knowledge <span class="serif-em">does not</span> collapse.</p>
+            <p class="body muted" style="margin: 0;">
+              Even when general knowledge is low, people keep working. Regulated industries, protected professions, anything with high switching costs.
+            </p>
+          </div>
+          <div style="padding: 28px 36px; background: var(--paper); border-left: 3px solid var(--blue);">
+            <div style="font-family: var(--font-accent); font-style: italic; font-size: 32px; color: var(--blue); margin-bottom: 8px;">Low <span style="font-family: var(--font-body);">α</span> · elastic effort</div>
+            <p class="lead" style="margin: 0 0 12px;">Knowledge <span class="serif-em">can</span> collapse.</p>
+            <p class="body muted" style="margin: 0;">
+              When general knowledge is low enough, people stop. Competitive markets, optional work, anywhere the math has to pencil out period by period.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 16px; max-width: 1600px;">
+          <span class="callout-label">The counter-intuitive part</span>
+          <p class="callout-body" style="font-size: 26px;">The steep, expensive cost curve (high <span style="font-family: var(--font-body);">α</span>) is the <em>safe</em> regime. With a flat curve, marginal cost barely changes with effort — so any drop in general knowledge causes a large drop in effort. With a steep curve, even small changes in effort carry large cost consequences — so people hold their effort steady even when conditions deteriorate.</p>
+        </div>
+
+        <p class="caption" style="margin-top: 12px; font-size: 22px;">Lemma 2 — there is a critical <span style="font-family: var(--font-body); font-style: italic;">α</span> above which the system is stable regardless of starting point.</p>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           18 · The τ_A threshold — bifurcation panels
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="The τ_A threshold" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">III · Dynamics · 17/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Threshold two</p>
+        <h2 class="h-title">The <span style="font-family: var(--font-body); font-style: italic;">α</span> regime shapes what AI capability can do.</h2>
+
+        <div class="diagram" id="fmap-diagram" style="margin-top: 8px;"></div>
+
+        <p class="caption" style="margin-top: 12px; text-align: center; font-size: 22px;">
+          Filled circles are stable fixed points, hollow are unstable. <em>Left:</em> with inelastic effort, a stable high-knowledge state always exists — AI capability lowers it but can't eliminate it. <em>Right two:</em> with elastic effort, a second threshold τ<sub style="font-size:0.7em">A</sub><sup style="font-size:0.6em">c</sup> determines whether that stable state can exist at all.
+        </p>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           19 · Section — Implications
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Act IV — Implications" class="slide section-divider">
+        <div class="wordmark">Convictional</div>
+        <div>
+          <div class="act-num">Act IV</div>
+          <div class="act-title">Implications.</div>
+          <p class="act-sub">What changes if we don't take the assumptions at face value.</p>
+        </div>
+        <div class="act-footer">
+          <span>Slides 20 – 22</span>
+          <span>~5 min</span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           20 · What collapse means (operationally)
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="What collapse means" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">IV · Implications · 19/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Read-out</p>
+        <h2 class="h-title">Collapse is a coordination failure on top of individual rationality.</h2>
+
+        <ul class="list tight" style="max-width: 1600px; margin-top: 24px;">
+          <li>As AI gets better, the minimum richness of general knowledge needed to sustain engagement <strong>goes up</strong>.</li>
+          <li>Growing general knowledge attracts effort — a <span class="serif-em">virtuous</span> cycle. Shrinking general knowledge repels effort — a <span class="serif-em">vicious</span> one.</li>
+          <li>At the individual level, using AI more is always rational. The collapse, when it happens, is a thousand sensible individual choices adding up to a collective deficit.</li>
+        </ul>
+
+        <div class="callout" style="margin-top: auto; max-width: 1600px;">
+          <span class="callout-label">Hold this one</span>
+          <p class="callout-body">Is the path to collapse inevitable if we just follow individual incentives? Or does it need a coordination failure stacked on top?</p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           21 · Relaxing assumption 1
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Relax assumption 1" class="slide paper-2">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">IV · Implications · 20/24</div>
+
+        <span class="ref-tag" style="margin-top: 80px;">Relax assumption 01</span>
+        <h2 class="h-title" style="margin-top: 12px;">Private effort has <em>some</em> value without general knowledge.</h2>
+
+        <div class="two-col" style="margin-top: 24px; align-items: start;">
+          <div>
+            <div class="col-label">In the model</div>
+            <p class="lead" style="margin-top: 20px;">
+              Payoff from private effort = 0 when general knowledge = 0.
+            </p>
+          </div>
+          <div>
+            <div class="col-label accent">Relaxed</div>
+            <p class="lead" style="margin-top: 20px;">
+              Private effort still returns <em>something</em> — and still emits <em>some</em> public signal.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: auto; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; max-width: 1500px;">
+          <div style="font-family: var(--font-accent); font-style: italic; font-size: 120px; color: var(--blue); line-height: 1;">⇒</div>
+          <p class="lead" style="margin: 0;">
+            A complete collapse <span class="serif-em">can't happen</span>. Strong AI slows the common signal but can't take it to zero. Knowledge degrades and stabilises at a lower level.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           22 · Relaxing assumption 2
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Relax assumption 2" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">IV · Implications · 21/24</div>
+
+        <span class="ref-tag">Relax assumption 02</span>
+        <h2 class="h-title" style="margin-top: 12px;">AI <em>can</em> contribute to the general signal.</h2>
+
+        <div class="two-col" style="margin-top: 24px; align-items: start;">
+          <div>
+            <div class="col-label">In the model</div>
+            <p class="lead" style="margin-top: 20px;">
+              AI adds nothing to the common pool.
+            </p>
+          </div>
+          <div>
+            <div class="col-label accent">Relaxed</div>
+            <p class="lead" style="margin-top: 20px;">
+              AI contributes directly to general knowledge — at a rate that can outpace human withdrawal.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: auto; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; max-width: 1600px;">
+          <div style="font-family: var(--font-accent); font-style: italic; font-size: 120px; color: var(--blue); line-height: 1;">⇒</div>
+          <p class="lead" style="margin: 0;">
+            Not collapse. <span class="serif-em">Substitution.</span> Human-generated general knowledge is replaced by AI-generated general knowledge.
+          </p>
+        </div>
+
+        <div class="callout" style="margin-top: 32px; max-width: 1600px;">
+          <span class="callout-label">The question this opens</span>
+          <p class="callout-body">Whether that's good or bad depends entirely on whether AI-generated general knowledge is <em>as good as</em> human-generated, for the purposes of the field.</p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           23 · Section — Discussion
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Act V — Discussion" class="slide section-divider">
+        <div class="wordmark">Convictional</div>
+        <div>
+          <div class="act-num">Act V</div>
+          <div class="act-title">Discussion.</div>
+          <p class="act-sub">Three questions. We can pick one or bounce between them.</p>
+        </div>
+        <div class="act-footer">
+          <span>Slide 24</span>
+          <span>rest of the time</span>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           24 · Three questions
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="Three questions" class="slide">
+        <div class="wordmark">Convictional</div>
+        <div class="slide-meta">V · Discussion · 23/24</div>
+
+        <p class="eyebrow accent" style="margin-top: 80px;">Open floor</p>
+        <h2 class="h-title">Three questions.</h2>
+
+        <ol class="q-list" style="max-width: 1650px; margin-top: 16px;">
+          <li>
+            <div class="q-body">
+              What does this imply for how we build Convictional? What are we already doing well — and what should we be thinking about differently?
+            </div>
+          </li>
+          <li>
+            <div class="q-body">
+              If a majority of the posts, decisions, and docs at Convictional were written or strongly shaped by AI — and the AI was good — is that a problem?
+            </div>
+          </li>
+          <li>
+            <div class="q-body">
+              Does private learning in the absence of general knowledge produce any signal or value? The paper says no. Is the paper right?
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════
+           25 · End card
+           ═══════════════════════════════════════════════════ -->
+      <section data-label="End" class="slide ink">
+        <div class="wordmark" style="color: rgba(255,253,245,0.55);">Convictional</div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; max-width: 1500px;">
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: var(--t-label); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,253,245,0.55); margin-bottom: 40px;">
+            Thanks.
+          </div>
+          <h1 class="h-display" style="color: var(--base-100);">Knowledge collapse.</h1>
+          <p class="subtitle" style="color: rgba(255,253,245,0.7); margin-top: 40px; max-width: 1200px;">
+            Acemoglu, Kong &amp; Ozdaglar (2026). Section 1 is the one to read first.
+          </p>
+        </div>
+
+        <div style="font-family: var(--font-body); font-size: var(--t-caption); color: rgba(255,253,245,0.45); line-height: 1.7; border-top: 1px solid rgba(255,253,245,0.15); padding-top: 28px; max-width: 900px;">
+          Convictional lunch &amp; learn · April 2026
+        </div>
+      </section>
+
+    </deck-stage>
+
+    <!-- Tweaks panel -->
+    <div id="tweaks-panel" style="display:none; position: fixed; bottom: 20px; right: 20px; background: #fffdf5; border: 1px solid #d6cfbf; padding: 20px 24px; z-index: 10000; font-family: Inter, sans-serif; font-size: 14px; width: 280px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+      <div style="font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #514a44; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #d6cfbf;">Tweaks</div>
+      <div style="margin-bottom: 16px;">
+        <label style="display:block; color:#514a44; margin-bottom:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.08em;">Accent color</label>
+        <div id="tw-accent-row" style="display:flex; gap:8px;"></div>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display:flex; align-items:center; gap:10px; color:#19140e; cursor:pointer;">
+          <input type="checkbox" id="tw-serif" checked /> Serif headings (Loretta)
+        </label>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display:flex; align-items:center; gap:10px; color:#19140e; cursor:pointer;">
+          <input type="checkbox" id="tw-meta" checked /> Show slide numbers
+        </label>
+      </div>
+      <div>
+        <label style="display:block; color:#514a44; margin-bottom:8px; font-size:12px; text-transform:uppercase; letter-spacing:0.08em;">Paper tint</label>
+        <div id="tw-paper-row" style="display:flex; gap:8px;"></div>
+      </div>
+    </div>
+
+    <script>
+      // ── Tweaks: persistent defaults ───────────────────────────
+      const TWEAKS = /*EDITMODE-BEGIN*/{
+        "accentColor": "#2b7fff",
+        "useSerif": true,
+        "showMeta": true,
+        "paperColor": "#efebe2"
+      }/*EDITMODE-END*/;
+
+      const ACCENTS = ["#2b7fff", "#c94f2c", "#1a8a5a", "#19140e"];
+      const PAPERS = ["#fffdf5", "#f7f3ea", "#efebe2", "#ffffff"];
+
+      function applyTweaks(t) {
+        document.documentElement.style.setProperty('--blue', t.accentColor);
+        document.documentElement.style.setProperty('--blue-bg', t.accentColor + '14');
+        document.documentElement.style.setProperty('--paper', t.paperColor);
+        document.querySelectorAll('.h-display, .h-title, .h-section, .subtitle, .section-divider .act-title')
+          .forEach(el => {
+            el.style.fontFamily = t.useSerif ? '' : 'Inter, sans-serif';
+            el.style.fontStyle = t.useSerif ? '' : 'normal';
+          });
+        document.querySelectorAll('.slide-meta').forEach(el => {
+          el.style.display = t.showMeta ? '' : 'none';
+        });
+      }
+
+      function pushEdit(patch) {
+        Object.assign(TWEAKS, patch);
+        applyTweaks(TWEAKS);
+        try { window.parent.postMessage({type:'__edit_mode_set_keys', edits: patch}, '*'); } catch(e){}
+      }
+
+      function buildTweaksUI() {
+        const row = document.getElementById('tw-accent-row');
+        ACCENTS.forEach(c => {
+          const b = document.createElement('button');
+          b.style.cssText = `width:32px; height:32px; border-radius:50%; border:2px solid ${c === TWEAKS.accentColor ? '#19140e' : 'transparent'}; background:${c}; cursor:pointer; padding:0;`;
+          b.onclick = () => {
+            pushEdit({accentColor: c});
+            [...row.children].forEach((x,i) => x.style.borderColor = ACCENTS[i] === c ? '#19140e' : 'transparent');
+          };
+          row.appendChild(b);
+        });
+        const prow = document.getElementById('tw-paper-row');
+        PAPERS.forEach(c => {
+          const b = document.createElement('button');
+          b.style.cssText = `width:32px; height:32px; border-radius:4px; border:2px solid ${c === TWEAKS.paperColor ? '#19140e' : '#d6cfbf'}; background:${c}; cursor:pointer; padding:0;`;
+          b.onclick = () => {
+            pushEdit({paperColor: c});
+            [...prow.children].forEach((x,i) => x.style.borderColor = PAPERS[i] === c ? '#19140e' : '#d6cfbf');
+          };
+          prow.appendChild(b);
+        });
+        document.getElementById('tw-serif').checked = TWEAKS.useSerif;
+        document.getElementById('tw-serif').onchange = e => pushEdit({useSerif: e.target.checked});
+        document.getElementById('tw-meta').checked = TWEAKS.showMeta;
+        document.getElementById('tw-meta').onchange = e => pushEdit({showMeta: e.target.checked});
+      }
+
+      // Register listener BEFORE announcing availability
+      window.addEventListener('message', (e) => {
+        const d = e.data || {};
+        if (d.type === '__activate_edit_mode') document.getElementById('tweaks-panel').style.display = 'block';
+        else if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').style.display = 'none';
+      });
+
+      // Apply defaults and build UI after diagrams mount
+      document.addEventListener('DOMContentLoaded', () => {
+        applyTweaks(TWEAKS);
+        buildTweaksUI();
+        try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e){}
+      });
+    </script>
+
+    <script src="deck-stage.js?v=2"></script>
+    <script src="diagrams.js?v=8"></script>
+    <script>
+      // Mount SVG diagrams into their slots.
+      function mountDiagrams() {
+        const mounts = [
+          { id: 'islands-diagram', fn: 'islandsSVG' },
+          { id: 'payoff-diagram', fn: 'payoffLatticeSVG' },
+          { id: 'loop-diagram', fn: 'feedbackLoopSVG' },
+          { id: 'cost-diagram', fn: 'costCurvesSVG' },
+          { id: 'fmap-diagram', fn: 'fMapNewSVG' },
+        ];
+        for (const m of mounts) {
+          const el = document.getElementById(m.id);
+          if (el && window.KCDiagrams && window.KCDiagrams[m.fn]) {
+            el.innerHTML = window.KCDiagrams[m.fn]();
+          }
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mountDiagrams);
+      } else {
+        mountDiagrams();
+      }
+    </script>
+
+    <script>
+      // Broadcast slide index + notes to notes.html via BroadcastChannel.
+      (() => {
+        const channel = new BroadcastChannel('kc-deck');
+        const notesTag = document.getElementById('speaker-notes');
+        const notesList = notesTag ? JSON.parse(notesTag.textContent || '[]') : [];
+
+        const deck = document.querySelector('deck-stage');
+        if (!deck) return;
+
+        const broadcast = (index) => {
+          channel.postMessage({ index, total: deck.length, notesList });
+        };
+
+        // Fire on every slide change.
+        deck.addEventListener('slidechange', (e) => broadcast(e.detail.index));
+        // Also fire once the deck initialises (slight delay to let deck-stage mount).
+        deck.addEventListener('slidechange', () => {}, { once: true });
+        setTimeout(() => broadcast(deck.index ?? 0), 200);
+      })();
+    </script>
+  </body>
+</html>

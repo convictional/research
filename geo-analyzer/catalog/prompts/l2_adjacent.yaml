@@ -1,0 +1,62 @@
+- id: prompt.adjacent.l2.engagement-tools
+  tier: L2
+  text: "What types of communication tools should be used for remote teams in the age of AI?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.adjacent.l2.feedback-software
+  tier: L2
+  text: "What is the best software for keeping company knowledge?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.adjacent.l2.alignment-tracking
+  tier: L2
+  text: "How do leadership teams track alignment and decision-making across teams?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.adjacent.l2.best-knowledge-base
+  tier: L2
+  text: "What's the best knowledge base software for a fast-moving company?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-05-05
+
+- id: prompt.adjacent.l2.best-team-chat
+  tier: L2
+  text: "What's the best team chat software for remote-first companies?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-05-05
+
+- id: prompt.adjacent.l2.best-goal-tracking
+  tier: L2
+  text: "What software should I use to track company goals and OKRs?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-05-05
+
+- id: prompt.adjacent.l2.best-email-client
+  tier: L2
+  text: "What's the best email client for executives?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-05-05
+
+- id: prompt.adjacent.l2.best-ai-knowledge-search
+  tier: L2
+  text: "What AI tool should knowledge workers use to search across their company's tools?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-05-05
+
+- id: prompt.adjacent.l2.best-meeting-recording
+  tier: L2
+  text: "What's the best software for recording and summarizing team meetings?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-05-05

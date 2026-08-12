@@ -1,0 +1,62 @@
+Please provide a comprehensive implementation analysis for the transition from "{{ source_node.title }}" to "{{ target_node.title }}".
+
+**Transition Details:**
+- **From**: {{ source_node.title }} ({{ source_node.type }})
+- **To**: {{ target_node.title }} ({{ target_node.type }})
+- **Condition**: {{ edge.condition }}
+- **Current Context**: {{ edge.label if edge.label else "Standard transition" }}
+
+{% if edge.existing_cost_estimate or edge.existing_timeline_estimate or edge.existing_risks %}
+**Existing Estimates to Review/Refine:**
+{% if edge.existing_cost_estimate %}
+- Current Cost Estimate: {{ edge.existing_cost_estimate }}
+{% endif %}
+{% if edge.existing_timeline_estimate %}
+- Current Timeline Estimate: {{ edge.existing_timeline_estimate }}
+{% endif %}
+{% if edge.existing_risks %}
+- Current Risk Assessment: {{ edge.existing_risks | join(", ") }}
+{% endif %}
+{% endif %}
+
+**Analysis Requirements:**
+
+1. **Cost Estimation**:
+   - Provide both a category (very-low, low, low-medium, medium, medium-high, high, very-high)
+   - Include a specific dollar estimate if quantifiable (can be None if not appropriate)
+   - Consider personnel time, external resources, tools, and overhead
+
+2. **Timeline Estimation**:
+   - Realistic time estimate in human-readable format (e.g., "2-4 weeks", "3-6 months")
+   - Account for organizational capacity and parallel work streams
+   - Include time for planning, execution, and validation
+
+3. **Implementation Risks**:
+   - Identify 3-5 specific, actionable risks
+   - Focus on risks unique to this transition
+   - Consider technical, resource, stakeholder, and operational risks
+
+4. **Success Conditions**:
+   - Define 2-4 clear, measurable conditions required for success
+   - Include both process and outcome requirements
+   - Consider stakeholder alignment and resource availability
+
+5. **Likelihood Assessment**:
+   - Evaluate probability of successful transition (very-low, low, medium, high, very-high)
+   - Consider organizational context and historical patterns
+
+6. **Resource Requirements**:
+   - Specific skills, roles, and tools needed
+   - Consider both internal and external resources
+
+7. **Dependencies**:
+   - Key prerequisites and dependencies
+   - Consider timing and coordination requirements
+
+**Context Considerations:**
+- This transition is part of solving: "{{ problem_statement }}"
+- Consider organizational capacity and existing initiatives
+- Leverage past successful patterns while avoiding known pitfalls
+- Ensure estimates are realistic given organizational culture and constraints
+
+Provide detailed reasoning for your estimates, including key assumptions and factors that influenced your assessment. Focus on practical, actionable insights that will help decision-makers understand the true implementation requirements.

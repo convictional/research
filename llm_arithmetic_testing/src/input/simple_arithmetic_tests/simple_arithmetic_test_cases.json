@@ -1,0 +1,5004 @@
+{
+  "test_cases": [
+    {
+      "num_a": -756.12,
+      "num_b": -425.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 946.69,
+      "num_b": 908.9,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 291.57,
+      "num_b": 213.28,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -763.38,
+      "num_b": 21.96,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 904.62,
+      "num_b": -168.0,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 512.93,
+      "num_b": -255.89,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 131.11,
+      "num_b": 171.16,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 472.5,
+      "num_b": 69.94,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 816.22,
+      "num_b": -395.53,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 502.98,
+      "num_b": -570.77,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 999.26,
+      "num_b": 39.58,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -276.75,
+      "num_b": 29.08,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 406.79,
+      "num_b": -112.86,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -819.62,
+      "num_b": 415.97,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -183.81,
+      "num_b": 20.04,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -354.86,
+      "num_b": -959.47,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 953.37,
+      "num_b": 389.4,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -704.73,
+      "num_b": 76.87,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -873.89,
+      "num_b": -109.66,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 862.35,
+      "num_b": -62.71,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 374.19,
+      "num_b": 455.48,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -658.08,
+      "num_b": -199.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 348.54,
+      "num_b": 570.32,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -942.3,
+      "num_b": 637.92,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 144.49,
+      "num_b": 426.08,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -191.34,
+      "num_b": 179.7,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -448.94,
+      "num_b": 718.16,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -787.05,
+      "num_b": -834.01,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 334.93,
+      "num_b": 16.4,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -233.1,
+      "num_b": 564.59,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 107.55,
+      "num_b": 6.58,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 756.92,
+      "num_b": 30.57,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -666.74,
+      "num_b": -202.85,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 189.53,
+      "num_b": 769.58,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 31.43,
+      "num_b": 39.28,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 711.64,
+      "num_b": 41.7,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 632.56,
+      "num_b": -819.21,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 723.26,
+      "num_b": 372.46,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -655.09,
+      "num_b": -257.53,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 950.98,
+      "num_b": -617.77,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -892.12,
+      "num_b": -22.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 272.95,
+      "num_b": -462.56,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -138.22,
+      "num_b": 85.27,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -520.13,
+      "num_b": 68.84,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 942.49,
+      "num_b": -630.77,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -935.97,
+      "num_b": 813.4,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 397.63,
+      "num_b": 99.84,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -318.13,
+      "num_b": -181.08,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -332.56,
+      "num_b": 72.97,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -174.72,
+      "num_b": 65.22,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -552.9,
+      "num_b": 10.01,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -563.78,
+      "num_b": 97.15,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 168.25,
+      "num_b": -81.22,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -369.51,
+      "num_b": 35.02,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 631.14,
+      "num_b": 8.6,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 11.8,
+      "num_b": 935.36,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 989.32,
+      "num_b": -67.44,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -904.58,
+      "num_b": 22.57,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -272.86,
+      "num_b": 2.0,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 818.35,
+      "num_b": 586.11,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 628.26,
+      "num_b": -916.76,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -208.52,
+      "num_b": -699.2,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 85.86,
+      "num_b": -217.64,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 445.77,
+      "num_b": 77.11,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -409.98,
+      "num_b": 88.66,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -455.28,
+      "num_b": -224.84,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 73.51,
+      "num_b": 17.75,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 338.66,
+      "num_b": 8.94,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 893.97,
+      "num_b": -466.19,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 696.36,
+      "num_b": 68.28,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 855.82,
+      "num_b": -993.55,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -208.0,
+      "num_b": 375.31,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -128.07,
+      "num_b": 445.58,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 935.87,
+      "num_b": 46.9,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -623.02,
+      "num_b": 585.51,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 513.51,
+      "num_b": -892.65,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -384.13,
+      "num_b": -861.55,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 950.94,
+      "num_b": -117.53,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -29.2,
+      "num_b": -545.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 863.36,
+      "num_b": 900.95,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 672.83,
+      "num_b": 23.91,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 294.13,
+      "num_b": 360.99,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 376.78,
+      "num_b": 413.13,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 378.51,
+      "num_b": 717.92,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 791.62,
+      "num_b": 94.84,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -475.9,
+      "num_b": -800.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -96.73,
+      "num_b": -563.69,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -518.84,
+      "num_b": -945.13,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -350.72,
+      "num_b": 982.06,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -187.19,
+      "num_b": 501.82,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -745.67,
+      "num_b": 68.1,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -908.29,
+      "num_b": 100.02,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -123.09,
+      "num_b": -664.96,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -198.49,
+      "num_b": 76.91,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 1.67,
+      "num_b": -479.59,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -261.83,
+      "num_b": 31.62,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -96.97,
+      "num_b": -944.39,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -530.26,
+      "num_b": 80.71,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 530.79,
+      "num_b": 78.67,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -806.54,
+      "num_b": 64.13,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 230.02,
+      "num_b": 791.07,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -727.39,
+      "num_b": 916.9,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 700.02,
+      "num_b": -897.23,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -406.55,
+      "num_b": -644.7,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 908.7,
+      "num_b": 152.82,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -535.36,
+      "num_b": 695.7,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 692.67,
+      "num_b": -687.43,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 432.76,
+      "num_b": 214.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 502.91,
+      "num_b": 481.64,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 847.74,
+      "num_b": -667.81,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 517.7,
+      "num_b": -7.45,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -739.76,
+      "num_b": -873.4,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -739.72,
+      "num_b": 81.44,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 235.15,
+      "num_b": 13.52,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 259.86,
+      "num_b": -944.39,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -938.7,
+      "num_b": 96.35,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 596.99,
+      "num_b": 3.87,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 515.68,
+      "num_b": 693.99,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -823.96,
+      "num_b": 45.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -921.7,
+      "num_b": 56.36,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 934.79,
+      "num_b": -441.03,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 837.44,
+      "num_b": 77.0,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -863.24,
+      "num_b": -315.79,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -345.11,
+      "num_b": -189.68,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 61.09,
+      "num_b": 731.67,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -46.72,
+      "num_b": 27.49,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -524.19,
+      "num_b": -648.51,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 879.84,
+      "num_b": -855.62,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 149.85,
+      "num_b": -48.71,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 952.74,
+      "num_b": -847.23,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 646.33,
+      "num_b": 225.56,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -940.55,
+      "num_b": 508.62,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 9.45,
+      "num_b": -921.65,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -860.03,
+      "num_b": 73.88,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 288.54,
+      "num_b": 90.16,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 96.42,
+      "num_b": 87.67,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 593.88,
+      "num_b": -347.41,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -705.89,
+      "num_b": 62.82,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -356.68,
+      "num_b": 554.32,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -51.81,
+      "num_b": -537.12,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 545.32,
+      "num_b": 85.11,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -845.06,
+      "num_b": -731.42,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 45.84,
+      "num_b": -227.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -905.02,
+      "num_b": 8.71,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 301.74,
+      "num_b": 452.25,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -786.48,
+      "num_b": 945.63,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -546.89,
+      "num_b": 869.16,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -126.89,
+      "num_b": 855.03,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -431.47,
+      "num_b": -873.38,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -716.25,
+      "num_b": 110.75,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -838.8,
+      "num_b": -133.28,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -998.53,
+      "num_b": 471.56,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -998.09,
+      "num_b": 362.82,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 566.07,
+      "num_b": -605.27,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 354.8,
+      "num_b": 797.19,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -189.69,
+      "num_b": -659.83,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -404.81,
+      "num_b": 367.89,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -765.99,
+      "num_b": 68.4,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -140.0,
+      "num_b": 585.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -166.18,
+      "num_b": -873.2,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 114.63,
+      "num_b": 673.13,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 372.57,
+      "num_b": 381.74,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -146.33,
+      "num_b": -15.98,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 262.38,
+      "num_b": 54.37,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -90.57,
+      "num_b": 85.34,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -404.17,
+      "num_b": 58.84,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -104.85,
+      "num_b": 37.34,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -568.76,
+      "num_b": -595.11,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 46.53,
+      "num_b": -297.66,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 849.95,
+      "num_b": 187.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -909.58,
+      "num_b": -42.69,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 709.86,
+      "num_b": 543.58,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -841.45,
+      "num_b": -3.12,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 662.47,
+      "num_b": 186.41,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -575.11,
+      "num_b": 999.3,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -267.7,
+      "num_b": 618.2,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 988.4,
+      "num_b": 568.81,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -222.21,
+      "num_b": -375.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -129.72,
+      "num_b": 19.59,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 942.2,
+      "num_b": 304.38,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -983.48,
+      "num_b": 204.56,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 779.82,
+      "num_b": 82.87,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -135.51,
+      "num_b": -467.13,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -40.1,
+      "num_b": -759.5,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 496.6,
+      "num_b": -349.75,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 381.36,
+      "num_b": 46.12,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -178.79,
+      "num_b": -111.24,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 17.58,
+      "num_b": 913.78,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 502.73,
+      "num_b": -338.46,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 322.15,
+      "num_b": -851.81,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 392.57,
+      "num_b": 416.15,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -759.61,
+      "num_b": 20.77,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -161.01,
+      "num_b": 636.62,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -180.25,
+      "num_b": 525.39,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -776.44,
+      "num_b": 25.68,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -964.72,
+      "num_b": 42.3,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -312.44,
+      "num_b": 15.57,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 547.11,
+      "num_b": 38.08,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 81.13,
+      "num_b": 46.54,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -77.85,
+      "num_b": -316.54,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 2.55,
+      "num_b": -949.69,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -292.25,
+      "num_b": -236.82,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -4.95,
+      "num_b": 400.52,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 463.43,
+      "num_b": 153.8,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 581.92,
+      "num_b": -942.91,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -629.04,
+      "num_b": -950.97,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 684.38,
+      "num_b": -286.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 716.01,
+      "num_b": 592.3,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -354.5,
+      "num_b": 882.21,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -555.14,
+      "num_b": 948.26,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -285.24,
+      "num_b": 8.62,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 470.63,
+      "num_b": 975.93,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 633.81,
+      "num_b": 460.0,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 471.47,
+      "num_b": 837.18,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 137.03,
+      "num_b": 710.91,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -527.9,
+      "num_b": 985.7,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 625.81,
+      "num_b": 320.63,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -701.68,
+      "num_b": -414.31,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -470.19,
+      "num_b": 51.59,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 857.77,
+      "num_b": 84.44,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -454.3,
+      "num_b": -602.94,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 840.2,
+      "num_b": 16.42,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -192.06,
+      "num_b": 48.42,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -710.62,
+      "num_b": 95.46,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 778.77,
+      "num_b": -612.53,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -242.18,
+      "num_b": -939.42,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -770.1,
+      "num_b": 2.76,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 731.33,
+      "num_b": 41.98,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -280.16,
+      "num_b": 102.06,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 929.35,
+      "num_b": 76.9,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 283.24,
+      "num_b": 97.99,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 711.93,
+      "num_b": -891.23,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 913.19,
+      "num_b": 414.36,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -936.04,
+      "num_b": -573.97,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -365.6,
+      "num_b": 88.55,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -471.87,
+      "num_b": 85.45,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 274.78,
+      "num_b": 19.07,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 953.36,
+      "num_b": -765.0,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 976.88,
+      "num_b": -833.91,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 238.68,
+      "num_b": 561.01,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 549.21,
+      "num_b": 864.65,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 602.09,
+      "num_b": -399.43,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -473.86,
+      "num_b": 123.7,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 761.5,
+      "num_b": -368.94,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 25.97,
+      "num_b": -790.58,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -474.84,
+      "num_b": -813.93,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -648.39,
+      "num_b": 4.46,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -982.64,
+      "num_b": 284.55,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 45.81,
+      "num_b": 65.34,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -952.12,
+      "num_b": 656.43,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 442.99,
+      "num_b": 10.27,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 222.68,
+      "num_b": 294.2,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -885.72,
+      "num_b": -181.5,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -73.3,
+      "num_b": 8.26,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -670.19,
+      "num_b": 965.89,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 660.97,
+      "num_b": -359.52,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -253.37,
+      "num_b": -94.95,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -593.9,
+      "num_b": 4.7,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 360.01,
+      "num_b": 83.11,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 986.56,
+      "num_b": 227.88,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -258.22,
+      "num_b": 56.56,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 121.4,
+      "num_b": -564.59,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 997.25,
+      "num_b": 6.19,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 675.73,
+      "num_b": 116.37,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -760.22,
+      "num_b": 80.14,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -189.07,
+      "num_b": -168.63,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -448.06,
+      "num_b": 338.89,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 844.41,
+      "num_b": -23.74,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 444.5,
+      "num_b": 536.73,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -20.78,
+      "num_b": -23.37,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 362.34,
+      "num_b": 89.53,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 691.28,
+      "num_b": 960.42,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 685.67,
+      "num_b": 151.66,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 322.37,
+      "num_b": 831.9,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -856.72,
+      "num_b": -643.47,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 646.0,
+      "num_b": 24.26,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -922.25,
+      "num_b": -508.55,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -72.16,
+      "num_b": 52.22,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 384.29,
+      "num_b": -740.65,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -733.84,
+      "num_b": 114.62,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -559.92,
+      "num_b": -541.16,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 609.84,
+      "num_b": -253.97,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -823.65,
+      "num_b": 692.82,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -689.58,
+      "num_b": 826.74,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -276.6,
+      "num_b": 20.62,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -963.7,
+      "num_b": 475.05,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 33.11,
+      "num_b": 492.35,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 58.7,
+      "num_b": 261.62,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -913.55,
+      "num_b": -876.12,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 862.11,
+      "num_b": -916.3,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -454.35,
+      "num_b": -537.72,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -772.04,
+      "num_b": 410.06,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -652.97,
+      "num_b": 3.49,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 632.28,
+      "num_b": -292.69,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -248.95,
+      "num_b": 489.78,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 394.76,
+      "num_b": 535.7,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 389.5,
+      "num_b": -122.87,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 594.48,
+      "num_b": 33.89,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 96.54,
+      "num_b": 486.72,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 147.38,
+      "num_b": 43.46,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -589.64,
+      "num_b": 396.14,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -526.22,
+      "num_b": -84.02,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -335.51,
+      "num_b": 51.55,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -54.22,
+      "num_b": -161.54,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 149.59,
+      "num_b": -666.59,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 595.61,
+      "num_b": -41.0,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 765.81,
+      "num_b": 25.05,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 974.08,
+      "num_b": 87.28,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -680.1,
+      "num_b": 2.36,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -962.65,
+      "num_b": 429.36,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -598.21,
+      "num_b": 74.99,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 960.5,
+      "num_b": -864.38,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 149.57,
+      "num_b": -577.72,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -994.18,
+      "num_b": -303.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 797.75,
+      "num_b": -841.09,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 619.87,
+      "num_b": 351.26,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -101.19,
+      "num_b": 244.2,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -90.91,
+      "num_b": 282.26,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -157.92,
+      "num_b": -162.52,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 478.79,
+      "num_b": -489.94,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 562.5,
+      "num_b": 889.38,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 75.81,
+      "num_b": 36.17,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -867.07,
+      "num_b": -694.45,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 5.24,
+      "num_b": 239.82,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 108.99,
+      "num_b": 626.52,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 810.95,
+      "num_b": -668.75,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -709.87,
+      "num_b": 20.27,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 45.24,
+      "num_b": 58.29,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -470.46,
+      "num_b": 111.08,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -678.68,
+      "num_b": 835.98,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -456.39,
+      "num_b": 10.68,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 652.44,
+      "num_b": -828.99,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 224.16,
+      "num_b": -477.96,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 380.77,
+      "num_b": 84.29,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -405.34,
+      "num_b": -586.91,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 203.07,
+      "num_b": 1.29,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 521.86,
+      "num_b": 238.9,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 176.88,
+      "num_b": -622.66,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -646.83,
+      "num_b": -548.99,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -47.16,
+      "num_b": -548.69,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 371.95,
+      "num_b": 379.34,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -641.12,
+      "num_b": 1.91,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 154.97,
+      "num_b": -152.77,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -916.44,
+      "num_b": 910.46,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -492.09,
+      "num_b": -665.56,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -918.64,
+      "num_b": -401.74,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 0.86,
+      "num_b": 931.35,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -952.1,
+      "num_b": 667.9,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 315.17,
+      "num_b": 784.08,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -216.66,
+      "num_b": 620.32,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 569.08,
+      "num_b": 15.05,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -816.68,
+      "num_b": 33.75,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 24.5,
+      "num_b": 451.12,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 588.8,
+      "num_b": 170.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -844.33,
+      "num_b": -941.84,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -33.89,
+      "num_b": 1.33,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 313.78,
+      "num_b": 798.61,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 182.94,
+      "num_b": 10.69,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -336.79,
+      "num_b": 59.35,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 306.29,
+      "num_b": 755.28,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -819.77,
+      "num_b": -266.61,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -17.1,
+      "num_b": -346.87,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -322.49,
+      "num_b": -788.68,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -792.9,
+      "num_b": 813.89,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 626.66,
+      "num_b": 69.11,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -171.63,
+      "num_b": 39.15,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 773.67,
+      "num_b": 23.61,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -539.53,
+      "num_b": 270.66,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 884.79,
+      "num_b": -850.02,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -920.15,
+      "num_b": 22.02,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 762.52,
+      "num_b": 209.81,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -883.3,
+      "num_b": -618.99,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 873.43,
+      "num_b": 580.81,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -138.3,
+      "num_b": 923.75,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 171.79,
+      "num_b": 1.67,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -488.33,
+      "num_b": 61.65,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -993.26,
+      "num_b": 795.49,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -889.28,
+      "num_b": 19.63,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 881.34,
+      "num_b": 388.07,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 130.26,
+      "num_b": 45.76,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -27.73,
+      "num_b": -343.07,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 529.56,
+      "num_b": 726.5,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -885.65,
+      "num_b": -237.77,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -25.02,
+      "num_b": -182.91,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -505.28,
+      "num_b": 83.71,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 797.48,
+      "num_b": 349.48,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -476.49,
+      "num_b": -512.67,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -688.31,
+      "num_b": -60.63,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 229.98,
+      "num_b": -91.48,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -950.46,
+      "num_b": 50.98,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 343.37,
+      "num_b": 42.65,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 16.65,
+      "num_b": -569.72,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -100.98,
+      "num_b": 10.53,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 677.16,
+      "num_b": -664.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -28.89,
+      "num_b": -674.18,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 833.8,
+      "num_b": -745.33,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -536.38,
+      "num_b": -19.2,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -583.58,
+      "num_b": 762.74,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 162.93,
+      "num_b": -221.97,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 378.77,
+      "num_b": -516.83,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -764.45,
+      "num_b": 300.27,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -502.45,
+      "num_b": 909.34,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 426.8,
+      "num_b": -395.77,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -193.58,
+      "num_b": -520.9,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 157.16,
+      "num_b": 46.61,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -721.94,
+      "num_b": 275.54,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 420.65,
+      "num_b": 75.37,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -525.94,
+      "num_b": 54.73,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -650.49,
+      "num_b": 63.73,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 563.32,
+      "num_b": -986.03,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 356.36,
+      "num_b": 111.93,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -986.07,
+      "num_b": 58.94,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 738.94,
+      "num_b": -59.97,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -108.43,
+      "num_b": -186.6,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -447.55,
+      "num_b": 187.86,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 711.78,
+      "num_b": 988.47,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 967.62,
+      "num_b": 172.8,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -611.29,
+      "num_b": -563.12,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -804.32,
+      "num_b": 608.4,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 174.18,
+      "num_b": 390.2,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 345.92,
+      "num_b": -0.48,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -628.92,
+      "num_b": 11.12,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -178.27,
+      "num_b": -322.11,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -85.16,
+      "num_b": 83.09,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -749.63,
+      "num_b": 12.12,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -128.46,
+      "num_b": -359.47,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 2.98,
+      "num_b": 275.72,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 637.65,
+      "num_b": 718.21,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -863.25,
+      "num_b": -910.8,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -124.25,
+      "num_b": -842.24,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 386.83,
+      "num_b": 215.74,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 278.56,
+      "num_b": 27.63,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -218.13,
+      "num_b": 66.4,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -824.65,
+      "num_b": -637.41,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 614.48,
+      "num_b": 862.15,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -410.05,
+      "num_b": -859.36,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 594.27,
+      "num_b": -986.17,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 6.7,
+      "num_b": 234.79,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 306.3,
+      "num_b": 950.7,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -368.41,
+      "num_b": 96.82,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 386.06,
+      "num_b": 55.0,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -204.4,
+      "num_b": -271.6,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 509.17,
+      "num_b": 73.09,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 936.99,
+      "num_b": -898.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 75.57,
+      "num_b": 59.42,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 166.5,
+      "num_b": 942.17,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 181.2,
+      "num_b": 71.54,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 697.21,
+      "num_b": 296.78,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -795.33,
+      "num_b": 11.01,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 290.87,
+      "num_b": -992.1,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 488.43,
+      "num_b": 906.97,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -472.78,
+      "num_b": 273.57,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 143.37,
+      "num_b": 36.54,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -926.74,
+      "num_b": -259.66,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 332.19,
+      "num_b": 451.42,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 591.31,
+      "num_b": 78.21,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -15.51,
+      "num_b": -151.59,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -181.41,
+      "num_b": -683.41,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -650.47,
+      "num_b": 937.26,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 246.95,
+      "num_b": -678.58,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 435.43,
+      "num_b": 89.9,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -973.04,
+      "num_b": 37.66,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 487.13,
+      "num_b": -278.12,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 889.05,
+      "num_b": -419.84,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -591.56,
+      "num_b": -81.53,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -256.93,
+      "num_b": 9.82,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -782.38,
+      "num_b": 69.84,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -18.92,
+      "num_b": -433.79,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -389.94,
+      "num_b": 55.82,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 433.43,
+      "num_b": 85.55,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 233.88,
+      "num_b": 178.48,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -97.54,
+      "num_b": 64.29,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 449.68,
+      "num_b": 577.88,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 23.46,
+      "num_b": -901.85,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 179.43,
+      "num_b": 649.74,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 427.0,
+      "num_b": 89.83,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -992.12,
+      "num_b": -116.57,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -147.28,
+      "num_b": -192.54,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -12.5,
+      "num_b": 126.63,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -722.03,
+      "num_b": -994.25,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 493.63,
+      "num_b": -879.29,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 593.52,
+      "num_b": -197.35,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 677.12,
+      "num_b": 93.63,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 218.33,
+      "num_b": -25.77,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 559.61,
+      "num_b": 391.98,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -148.9,
+      "num_b": 78.65,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -391.11,
+      "num_b": 310.29,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 681.17,
+      "num_b": 10.67,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 332.97,
+      "num_b": 26.12,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -330.44,
+      "num_b": 639.99,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 271.24,
+      "num_b": 123.95,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 600.25,
+      "num_b": -956.17,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 827.77,
+      "num_b": 23.42,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -850.13,
+      "num_b": 521.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 416.98,
+      "num_b": -484.07,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 117.01,
+      "num_b": 13.12,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -430.67,
+      "num_b": 26.51,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 448.13,
+      "num_b": 83.31,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -386.59,
+      "num_b": -438.86,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -284.06,
+      "num_b": 992.22,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -82.5,
+      "num_b": -365.55,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -424.28,
+      "num_b": -844.28,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -143.84,
+      "num_b": 126.39,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 555.86,
+      "num_b": 283.6,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 541.8,
+      "num_b": 37.11,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 973.45,
+      "num_b": -436.56,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 516.66,
+      "num_b": 537.0,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -431.67,
+      "num_b": -566.87,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 650.43,
+      "num_b": -580.82,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 18.05,
+      "num_b": 261.63,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 143.42,
+      "num_b": 61.89,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -865.99,
+      "num_b": 956.72,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -937.46,
+      "num_b": -945.04,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -426.66,
+      "num_b": 880.33,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 422.85,
+      "num_b": -120.05,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 690.14,
+      "num_b": 424.58,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -278.95,
+      "num_b": 937.54,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 261.24,
+      "num_b": 72.05,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -111.62,
+      "num_b": -664.8,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -905.0,
+      "num_b": -885.25,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -768.99,
+      "num_b": -73.68,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -766.17,
+      "num_b": -720.99,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -692.73,
+      "num_b": -369.57,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 625.79,
+      "num_b": 946.09,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 564.9,
+      "num_b": -675.57,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -642.09,
+      "num_b": -61.19,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -943.97,
+      "num_b": 12.88,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 847.53,
+      "num_b": 9.25,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -25.27,
+      "num_b": -613.0,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 357.54,
+      "num_b": 448.57,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 696.24,
+      "num_b": 794.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 260.1,
+      "num_b": 866.67,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 906.73,
+      "num_b": 24.63,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 386.3,
+      "num_b": 821.31,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 99.41,
+      "num_b": -59.35,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -445.76,
+      "num_b": 869.89,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 67.9,
+      "num_b": 858.2,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -412.43,
+      "num_b": 67.99,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 32.48,
+      "num_b": 1.11,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -791.97,
+      "num_b": 84.32,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 380.47,
+      "num_b": 41.75,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 749.15,
+      "num_b": -489.97,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 194.61,
+      "num_b": 966.93,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -229.28,
+      "num_b": -240.11,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -864.51,
+      "num_b": -66.9,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -174.82,
+      "num_b": -425.68,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 495.45,
+      "num_b": 977.9,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -263.13,
+      "num_b": 923.64,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 133.78,
+      "num_b": 535.48,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -290.61,
+      "num_b": 381.97,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -519.64,
+      "num_b": -937.83,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -526.95,
+      "num_b": 83.46,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -903.91,
+      "num_b": -0.14,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 555.45,
+      "num_b": -72.58,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 940.93,
+      "num_b": -653.13,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 15.41,
+      "num_b": -279.91,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -341.7,
+      "num_b": 152.07,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 956.36,
+      "num_b": -93.92,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -837.31,
+      "num_b": 476.15,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 208.21,
+      "num_b": 662.75,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -507.94,
+      "num_b": 60.04,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 78.66,
+      "num_b": -504.03,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -155.28,
+      "num_b": -150.1,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 983.77,
+      "num_b": -54.52,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -112.39,
+      "num_b": 598.2,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 609.92,
+      "num_b": 463.52,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -556.17,
+      "num_b": -337.78,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -429.67,
+      "num_b": 4.83,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -422.17,
+      "num_b": -55.29,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 319.75,
+      "num_b": 154.32,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -799.87,
+      "num_b": 37.02,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 367.2,
+      "num_b": 25.07,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -773.68,
+      "num_b": 850.26,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 844.55,
+      "num_b": 96.53,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -41.21,
+      "num_b": -507.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 892.11,
+      "num_b": 359.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -757.67,
+      "num_b": 72.3,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 500.96,
+      "num_b": 754.86,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 656.66,
+      "num_b": 42.97,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 569.99,
+      "num_b": 693.59,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -467.62,
+      "num_b": -726.19,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 405.88,
+      "num_b": -787.85,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -23.74,
+      "num_b": 44.9,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -81.31,
+      "num_b": -170.86,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -733.07,
+      "num_b": 804.75,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -859.71,
+      "num_b": 505.21,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 497.45,
+      "num_b": 89.55,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 715.23,
+      "num_b": 83.39,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -850.38,
+      "num_b": 22.79,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -935.35,
+      "num_b": 36.57,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 846.03,
+      "num_b": -424.8,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -79.98,
+      "num_b": 980.21,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 377.57,
+      "num_b": -768.92,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 805.68,
+      "num_b": -960.22,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -303.52,
+      "num_b": 199.24,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -509.25,
+      "num_b": -116.83,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -690.43,
+      "num_b": 440.98,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -697.31,
+      "num_b": 30.96,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 395.9,
+      "num_b": 179.68,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -66.26,
+      "num_b": 20.72,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 98.14,
+      "num_b": 80.1,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 142.46,
+      "num_b": 187.27,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -246.82,
+      "num_b": 111.07,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -69.02,
+      "num_b": 245.62,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 196.73,
+      "num_b": 88.75,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 545.07,
+      "num_b": 253.37,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -339.11,
+      "num_b": -329.17,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -694.84,
+      "num_b": -816.99,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -401.42,
+      "num_b": 17.17,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 371.33,
+      "num_b": 660.46,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -528.44,
+      "num_b": 585.66,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -246.66,
+      "num_b": 95.61,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -27.99,
+      "num_b": -82.12,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 487.67,
+      "num_b": 72.75,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -418.4,
+      "num_b": 715.22,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 386.02,
+      "num_b": 123.02,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -14.12,
+      "num_b": 785.56,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 686.78,
+      "num_b": 781.88,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -677.58,
+      "num_b": -645.46,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 573.36,
+      "num_b": -838.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -862.53,
+      "num_b": 69.42,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 662.87,
+      "num_b": -519.73,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -225.61,
+      "num_b": 423.87,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 813.97,
+      "num_b": 317.52,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 757.54,
+      "num_b": 96.3,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 231.91,
+      "num_b": 704.96,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -49.68,
+      "num_b": 426.94,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -61.69,
+      "num_b": 676.54,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -363.26,
+      "num_b": 91.89,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 54.15,
+      "num_b": -767.86,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -971.01,
+      "num_b": 772.8,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 122.16,
+      "num_b": 180.49,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 18.99,
+      "num_b": 87.73,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 340.96,
+      "num_b": 36.43,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -423.83,
+      "num_b": 492.63,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 587.28,
+      "num_b": -872.86,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -857.09,
+      "num_b": 42.89,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -501.22,
+      "num_b": -331.49,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -768.66,
+      "num_b": 108.59,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 10.04,
+      "num_b": 466.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -982.42,
+      "num_b": -921.95,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 877.05,
+      "num_b": -662.72,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -531.62,
+      "num_b": 59.95,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -499.97,
+      "num_b": 140.04,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -942.57,
+      "num_b": 64.2,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 569.72,
+      "num_b": 917.08,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 233.55,
+      "num_b": 150.93,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 306.74,
+      "num_b": -239.19,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -776.44,
+      "num_b": 54.23,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 182.42,
+      "num_b": 178.77,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 978.59,
+      "num_b": 788.72,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -101.54,
+      "num_b": 42.45,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -684.54,
+      "num_b": 172.18,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 818.38,
+      "num_b": -776.32,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -27.17,
+      "num_b": 660.66,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -327.03,
+      "num_b": -937.44,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 911.81,
+      "num_b": -17.91,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -672.39,
+      "num_b": 1.4,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 889.56,
+      "num_b": 28.51,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -236.76,
+      "num_b": -510.87,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -233.92,
+      "num_b": -928.86,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -320.05,
+      "num_b": 96.67,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -526.01,
+      "num_b": 42.31,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 216.56,
+      "num_b": 481.85,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 654.34,
+      "num_b": -786.39,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 697.97,
+      "num_b": 10.76,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 309.68,
+      "num_b": 583.44,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 661.2,
+      "num_b": 746.72,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -374.61,
+      "num_b": 24.68,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 54.38,
+      "num_b": 62.9,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 892.08,
+      "num_b": 26.72,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 543.38,
+      "num_b": 869.84,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 319.67,
+      "num_b": 254.0,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -618.54,
+      "num_b": 546.6,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 680.86,
+      "num_b": 81.52,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -784.0,
+      "num_b": -721.1,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 366.5,
+      "num_b": -868.22,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 657.96,
+      "num_b": 797.78,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -985.89,
+      "num_b": 877.31,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -28.27,
+      "num_b": -732.8,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -220.71,
+      "num_b": 352.66,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -856.3,
+      "num_b": 93.87,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 208.55,
+      "num_b": 337.28,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -411.25,
+      "num_b": 454.09,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 636.59,
+      "num_b": -878.41,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -925.05,
+      "num_b": -396.38,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -200.41,
+      "num_b": 86.1,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 857.11,
+      "num_b": 367.99,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 524.91,
+      "num_b": 118.74,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -549.36,
+      "num_b": 768.83,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 607.85,
+      "num_b": -543.31,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -600.86,
+      "num_b": -583.34,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -186.43,
+      "num_b": -881.34,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -758.78,
+      "num_b": -11.91,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -194.63,
+      "num_b": -528.75,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 479.98,
+      "num_b": 13.33,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -90.03,
+      "num_b": -950.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 880.31,
+      "num_b": 684.91,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 756.29,
+      "num_b": -709.55,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -510.83,
+      "num_b": 674.51,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 915.02,
+      "num_b": -758.29,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 85.04,
+      "num_b": -434.23,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 902.27,
+      "num_b": -391.52,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -810.97,
+      "num_b": 263.15,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -323.84,
+      "num_b": 117.01,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 35.21,
+      "num_b": 311.7,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -706.77,
+      "num_b": -698.43,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 109.55,
+      "num_b": 150.91,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 841.11,
+      "num_b": -279.06,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 843.29,
+      "num_b": 118.35,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 639.1,
+      "num_b": -761.09,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 406.19,
+      "num_b": 36.0,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -588.41,
+      "num_b": 96.25,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -972.69,
+      "num_b": 590.31,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 378.87,
+      "num_b": -325.49,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -377.11,
+      "num_b": 45.86,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 810.79,
+      "num_b": 18.7,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -857.49,
+      "num_b": -795.17,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 282.05,
+      "num_b": -807.52,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -891.72,
+      "num_b": 10.37,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 802.24,
+      "num_b": -687.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 823.04,
+      "num_b": -634.25,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 263.55,
+      "num_b": 631.03,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -672.59,
+      "num_b": -472.48,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 865.9,
+      "num_b": 632.0,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -868.15,
+      "num_b": 45.97,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 779.02,
+      "num_b": 93.98,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 448.54,
+      "num_b": 911.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 0.71,
+      "num_b": 10.26,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 925.97,
+      "num_b": 703.2,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 848.45,
+      "num_b": -948.69,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -346.0,
+      "num_b": 54.21,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 181.27,
+      "num_b": -98.58,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 107.21,
+      "num_b": 12.42,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 562.81,
+      "num_b": -254.3,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -787.26,
+      "num_b": -784.68,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -365.87,
+      "num_b": -85.38,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -566.84,
+      "num_b": 185.17,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 820.49,
+      "num_b": -899.1,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -742.56,
+      "num_b": 66.36,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 864.7,
+      "num_b": 649.8,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -171.89,
+      "num_b": -683.62,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -893.71,
+      "num_b": 90.37,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 920.84,
+      "num_b": -396.29,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -759.0,
+      "num_b": -403.82,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -751.46,
+      "num_b": 22.52,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 754.64,
+      "num_b": -115.03,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -951.83,
+      "num_b": -785.54,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 659.22,
+      "num_b": 810.98,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 97.96,
+      "num_b": 19.54,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -974.6,
+      "num_b": 50.91,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 803.92,
+      "num_b": -805.73,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -825.37,
+      "num_b": -366.03,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -593.83,
+      "num_b": 108.38,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 654.78,
+      "num_b": -200.9,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -806.55,
+      "num_b": -933.96,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -618.88,
+      "num_b": 66.66,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 670.3,
+      "num_b": -323.33,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -129.08,
+      "num_b": -4.76,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -310.87,
+      "num_b": 60.96,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 784.21,
+      "num_b": 78.58,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -223.03,
+      "num_b": 631.44,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -190.94,
+      "num_b": 24.78,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -908.69,
+      "num_b": 750.61,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 120.38,
+      "num_b": 479.25,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 736.56,
+      "num_b": 65.74,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 222.59,
+      "num_b": 847.91,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -733.56,
+      "num_b": -268.42,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 261.85,
+      "num_b": 20.33,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 916.78,
+      "num_b": -488.43,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -854.35,
+      "num_b": 74.84,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 208.18,
+      "num_b": -391.7,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 24.87,
+      "num_b": -665.93,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 544.33,
+      "num_b": 962.0,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -50.53,
+      "num_b": 38.43,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -107.24,
+      "num_b": -16.13,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -824.53,
+      "num_b": 39.26,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -550.71,
+      "num_b": -899.94,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -177.27,
+      "num_b": 78.38,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 483.0,
+      "num_b": 466.59,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 680.42,
+      "num_b": -301.56,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -74.93,
+      "num_b": -33.48,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 667.73,
+      "num_b": 2.69,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -74.15,
+      "num_b": -626.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 168.45,
+      "num_b": 81.19,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 71.37,
+      "num_b": 476.96,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -900.38,
+      "num_b": 82.99,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 372.02,
+      "num_b": 703.85,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -906.49,
+      "num_b": 814.89,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 582.42,
+      "num_b": 85.47,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -261.1,
+      "num_b": 611.03,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -164.12,
+      "num_b": 369.79,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -918.82,
+      "num_b": -529.72,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -127.46,
+      "num_b": 64.09,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -488.29,
+      "num_b": 998.45,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -170.92,
+      "num_b": 848.64,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -617.03,
+      "num_b": -638.99,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -59.42,
+      "num_b": 62.5,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 81.29,
+      "num_b": -914.21,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 200.79,
+      "num_b": 942.35,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 840.48,
+      "num_b": -587.43,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -476.44,
+      "num_b": 809.04,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -635.58,
+      "num_b": 212.5,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -226.47,
+      "num_b": -105.65,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 309.53,
+      "num_b": 313.6,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 311.32,
+      "num_b": -915.86,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -356.58,
+      "num_b": -709.44,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 823.96,
+      "num_b": -61.32,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -720.82,
+      "num_b": 533.65,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 582.84,
+      "num_b": 105.93,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -769.36,
+      "num_b": 408.22,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -522.73,
+      "num_b": 744.1,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -367.74,
+      "num_b": -133.14,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 170.7,
+      "num_b": -902.5,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 683.64,
+      "num_b": -30.78,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 114.24,
+      "num_b": -345.75,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -49.73,
+      "num_b": -648.49,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 343.45,
+      "num_b": -383.13,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 26.48,
+      "num_b": -553.98,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -797.09,
+      "num_b": 625.42,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 560.49,
+      "num_b": -442.59,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -618.87,
+      "num_b": -156.03,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 901.88,
+      "num_b": 92.26,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 108.18,
+      "num_b": 937.09,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -718.73,
+      "num_b": 184.36,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 654.01,
+      "num_b": 90.08,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -674.34,
+      "num_b": -330.7,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 507.69,
+      "num_b": 281.11,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -20.72,
+      "num_b": 803.95,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -108.18,
+      "num_b": 560.02,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 960.92,
+      "num_b": -391.41,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 99.65,
+      "num_b": -544.5,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -320.44,
+      "num_b": 863.06,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -609.55,
+      "num_b": -859.17,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 467.35,
+      "num_b": -550.99,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 69.57,
+      "num_b": 512.49,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -118.07,
+      "num_b": 605.74,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -229.85,
+      "num_b": -844.58,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -980.05,
+      "num_b": 270.62,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -572.46,
+      "num_b": -700.17,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -599.89,
+      "num_b": 950.76,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 59.13,
+      "num_b": 196.06,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -122.43,
+      "num_b": 732.51,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 942.13,
+      "num_b": 17.88,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 168.18,
+      "num_b": 696.05,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -589.94,
+      "num_b": 82.2,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 599.8,
+      "num_b": 139.0,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -408.99,
+      "num_b": 562.64,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -599.16,
+      "num_b": -17.36,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 372.24,
+      "num_b": 489.05,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -238.25,
+      "num_b": 937.6,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -107.62,
+      "num_b": 31.37,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -962.02,
+      "num_b": 678.7,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -290.72,
+      "num_b": -150.32,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -343.51,
+      "num_b": 43.59,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 692.66,
+      "num_b": -532.83,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -120.92,
+      "num_b": 365.71,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 873.98,
+      "num_b": 755.7,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 127.75,
+      "num_b": 54.29,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -10.19,
+      "num_b": 512.01,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 462.45,
+      "num_b": 97.18,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -16.96,
+      "num_b": 50.62,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -35.42,
+      "num_b": -997.62,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 213.72,
+      "num_b": 911.41,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -528.56,
+      "num_b": -342.09,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 484.54,
+      "num_b": -721.15,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 12.34,
+      "num_b": -67.5,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 478.82,
+      "num_b": -183.05,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -873.18,
+      "num_b": 685.06,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 433.45,
+      "num_b": -694.92,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -472.78,
+      "num_b": 34.06,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 88.72,
+      "num_b": 68.53,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 35.07,
+      "num_b": 19.59,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 611.29,
+      "num_b": -176.37,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 821.98,
+      "num_b": -124.78,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -216.55,
+      "num_b": -695.42,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -117.85,
+      "num_b": 42.92,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -653.82,
+      "num_b": -58.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -866.9,
+      "num_b": 150.11,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 210.5,
+      "num_b": 18.0,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 365.31,
+      "num_b": -118.39,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -404.05,
+      "num_b": 94.81,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -249.18,
+      "num_b": -892.38,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -926.77,
+      "num_b": -10.76,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 579.46,
+      "num_b": -879.34,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 199.12,
+      "num_b": -250.57,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -106.1,
+      "num_b": 55.86,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 437.2,
+      "num_b": 337.99,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 239.04,
+      "num_b": -904.74,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -914.27,
+      "num_b": 45.66,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -380.61,
+      "num_b": 59.36,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -247.06,
+      "num_b": 108.0,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 469.02,
+      "num_b": 352.84,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 734.62,
+      "num_b": -110.45,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -819.3,
+      "num_b": -863.65,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 894.53,
+      "num_b": 436.84,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -821.9,
+      "num_b": -596.17,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 932.13,
+      "num_b": 716.4,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 910.54,
+      "num_b": 376.32,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 751.85,
+      "num_b": -93.67,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -349.93,
+      "num_b": 98.44,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 347.24,
+      "num_b": 719.75,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 698.28,
+      "num_b": 739.39,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 411.83,
+      "num_b": -921.23,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 757.06,
+      "num_b": 425.19,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -426.6,
+      "num_b": -301.14,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 688.83,
+      "num_b": 85.14,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -848.65,
+      "num_b": 173.52,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 694.28,
+      "num_b": -854.09,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 173.48,
+      "num_b": -806.01,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 547.83,
+      "num_b": 49.56,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 575.34,
+      "num_b": 95.68,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 745.29,
+      "num_b": -344.58,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 464.3,
+      "num_b": 458.57,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -715.08,
+      "num_b": -1.35,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 818.39,
+      "num_b": 297.19,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -231.65,
+      "num_b": 8.0,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -874.64,
+      "num_b": 758.14,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 160.92,
+      "num_b": 47.15,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -700.17,
+      "num_b": 32.58,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -532.34,
+      "num_b": 222.89,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 812.29,
+      "num_b": -292.37,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -122.86,
+      "num_b": -768.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -550.26,
+      "num_b": 327.32,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 339.64,
+      "num_b": 54.19,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -849.88,
+      "num_b": -569.34,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -463.32,
+      "num_b": 66.35,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 320.84,
+      "num_b": -930.52,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -509.43,
+      "num_b": -530.43,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 402.44,
+      "num_b": 112.39,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 233.66,
+      "num_b": 13.86,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -765.26,
+      "num_b": 350.29,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 346.61,
+      "num_b": 0.66,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 649.58,
+      "num_b": 101.12,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 939.28,
+      "num_b": 514.41,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 541.68,
+      "num_b": 774.81,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -179.46,
+      "num_b": 589.86,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 825.49,
+      "num_b": 546.83,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -594.17,
+      "num_b": 574.12,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 589.67,
+      "num_b": 54.15,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -850.31,
+      "num_b": -831.36,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -221.1,
+      "num_b": 930.17,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -178.32,
+      "num_b": 68.16,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 942.17,
+      "num_b": 545.05,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 34.03,
+      "num_b": 57.03,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -649.12,
+      "num_b": 478.79,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 343.95,
+      "num_b": -50.97,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -482.69,
+      "num_b": -680.85,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 894.74,
+      "num_b": 588.75,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 840.49,
+      "num_b": 119.69,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -254.99,
+      "num_b": 745.85,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -617.17,
+      "num_b": 263.43,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 634.54,
+      "num_b": 7.64,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -234.78,
+      "num_b": 86.96,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -917.47,
+      "num_b": -462.23,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 191.09,
+      "num_b": -807.05,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 589.71,
+      "num_b": 730.06,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 971.52,
+      "num_b": 938.66,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 637.44,
+      "num_b": 767.97,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -568.27,
+      "num_b": -342.23,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 46.65,
+      "num_b": 61.17,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 747.43,
+      "num_b": -178.27,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 687.37,
+      "num_b": -989.06,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 376.62,
+      "num_b": 943.11,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 670.11,
+      "num_b": -419.45,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 622.72,
+      "num_b": 775.7,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 407.63,
+      "num_b": -255.35,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -125.19,
+      "num_b": 76.53,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -23.92,
+      "num_b": -987.69,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 40.22,
+      "num_b": 43.91,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -267.16,
+      "num_b": 535.35,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -625.49,
+      "num_b": -585.5,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -545.35,
+      "num_b": 996.91,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 212.74,
+      "num_b": -533.5,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -696.07,
+      "num_b": -137.59,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 391.1,
+      "num_b": -667.17,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 476.72,
+      "num_b": 40.12,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -788.8,
+      "num_b": 40.3,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -797.12,
+      "num_b": 964.4,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -793.33,
+      "num_b": 116.79,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -319.66,
+      "num_b": -616.19,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 177.07,
+      "num_b": 915.47,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -227.25,
+      "num_b": -193.47,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 79.34,
+      "num_b": -262.95,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 338.95,
+      "num_b": -779.08,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 274.46,
+      "num_b": 978.13,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": 753.92,
+      "num_b": 615.29,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -116.29,
+      "num_b": 3.28,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -629.8,
+      "num_b": 415.41,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -314.01,
+      "num_b": 93.65,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": -80.57,
+      "num_b": -865.18,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -711.98,
+      "num_b": -674.52,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -562.45,
+      "num_b": 36.02,
+      "operation_type": "divide"
+    },
+    {
+      "num_a": 809.56,
+      "num_b": -316.66,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -210.06,
+      "num_b": 688.19,
+      "operation_type": "add"
+    },
+    {
+      "num_a": -164.42,
+      "num_b": 922.55,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": 458.82,
+      "num_b": -496.41,
+      "operation_type": "subtract"
+    },
+    {
+      "num_a": -230.3,
+      "num_b": -400.07,
+      "operation_type": "add"
+    },
+    {
+      "num_a": 593.55,
+      "num_b": 760.12,
+      "operation_type": "multiply"
+    },
+    {
+      "num_a": -573.39,
+      "num_b": -35.8,
+      "operation_type": "subtract"
+    }
+  ]
+}

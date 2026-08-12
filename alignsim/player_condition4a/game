@@ -1,0 +1,249 @@
+#!/bin/bash
+set -euo pipefail
+
+# game_c4a — HTTP CLI wrapper for Condition 4a agents (channels substrate).
+#
+# Extends the Condition 3 client: chat is organised into named channels.
+# The agent's function is read from .function and the orchestrator URL from
+# .orchestrator_url.
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+FUNCTION="$(cat "$SCRIPT_DIR/.function" 2>/dev/null || true)"
+BASE_URL="$(cat "$SCRIPT_DIR/.orchestrator_url" 2>/dev/null || echo "http://localhost:9000")"
+
+if [ -z "$FUNCTION" ]; then
+  echo "Error: .function file not found. This workspace is not initialized." >&2
+  exit 1
+fi
+
+# _api METHOD URL [JSON_DATA] — perform an HTTP request and pretty-print the JSON body on
+# 2xx. On any non-2xx, print "HTTP <code>" plus the server's error body to stderr and exit 1,
+# so the agent sees *why* a call failed instead of a silent failure (curl -f would hide it).
+_api() {
+  local method="$1" url="$2" data="${3:-}" resp code body
+  if [ "$method" = POST ]; then
+    resp=$(curl -s -w '\n%{http_code}' -X POST "$url" -H "Content-Type: application/json" -d "$data")
+  else
+    resp=$(curl -s -w '\n%{http_code}' "$url")
+  fi
+  code=$(printf '%s\n' "$resp" | tail -n1)
+  body=$(printf '%s\n' "$resp" | sed '$d')
+  if [ "$code" -ge 200 ] 2>/dev/null && [ "$code" -lt 300 ] 2>/dev/null; then
+    printf '%s\n' "$body" | jq . 2>/dev/null || printf '%s\n' "$body"
+  else
+    printf 'HTTP %s\n' "$code" >&2
+    printf '%s\n' "$body" | jq . >&2 2>/dev/null || printf '%s\n' "$body" >&2
+    exit 1
+  fi
+}
+
+usage() {
+  cat >&2 <<EOF
+Usage: ./game <command> [args]
+
+Observation & Status:
+  observe                          Your function's view of the game state
+  status                           Turn number, MRR progress, game over state
+
+Queries:
+  query customer <id>              Customer details (stage, needs, health)
+  query feature <id>               Feature status and progress
+  query bugs                       All unresolved bugs
+  query rejections                 Full rejection history
+
+Compute:
+  compute maturity                 Product maturity score
+  compute satisfaction <id>        Customer rubric satisfaction
+  compute maturity-if <fid> <q>    Hypothetical maturity if feature shipped
+  compute capacity-cost --actions-file <path>   Per-pool cost check
+
+Actions:
+  submit --actions-file <path>     Submit your turn actions
+
+Channels & Chat:
+  chat read [--channel <name>]              Read new messages (all channels, or one channel)
+  chat send [--channel <name>] "<message>"  Post a message (defaults to the everyone channel)
+  chat channels                             List all channels
+  channel create <name>                     Create a new public channel
+
+Game Over:
+  game-over                        Check if the game has ended
+EOF
+  exit 1
+}
+
+[ $# -lt 1 ] && usage
+
+CMD="$1"
+shift
+
+case "$CMD" in
+  observe)
+    _api GET "$BASE_URL/agents/$FUNCTION/observe"
+    ;;
+
+  status)
+    _api GET "$BASE_URL/agents/$FUNCTION/status"
+    ;;
+
+  submit)
+    ACTIONS_FILE=""
+    while [[ $# -gt 0 ]]; do
+      case "$1" in
+        --actions-file) ACTIONS_FILE="$2"; shift 2 ;;
+        *) echo "Unknown flag: $1" >&2; exit 1 ;;
+      esac
+    done
+    if [ -z "$ACTIONS_FILE" ]; then
+      echo "Usage: ./game submit --actions-file <path>" >&2
+      exit 1
+    fi
+    if [ ! -f "$ACTIONS_FILE" ]; then
+      echo "Error: actions file '$ACTIONS_FILE' not found" >&2
+      exit 1
+    fi
+    ACTIONS=$(cat "$ACTIONS_FILE")
+    RESPONSE=$(curl -sw '\n%{http_code}' -X POST "$BASE_URL/agents/$FUNCTION/submit" \
+      -H "Content-Type: application/json" \
+      -d "{\"actions\": $ACTIONS}")
+    HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+    BODY=$(echo "$RESPONSE" | sed '$d')
+
+    if [ "$HTTP_CODE" = "409" ]; then
+      echo "$BODY" | jq .
+      echo "" >&2
+      echo "WARNING: You have unread chat messages. Run './game chat read' first, then resubmit." >&2
+      exit 2
+    elif [ "$HTTP_CODE" = "400" ]; then
+      echo "$BODY" | jq .
+      exit 1
+    fi
+    echo "$BODY" | jq .
+    ;;
+
+  query)
+    [ $# -lt 1 ] && { echo "Usage: ./game query <type> [<id>]" >&2; exit 1; }
+    QTYPE="$1"; shift
+    case "$QTYPE" in
+      customer|feature)
+        [ $# -lt 1 ] && { echo "Usage: ./game query $QTYPE <id>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/query/$QTYPE?id=$1"
+        ;;
+      bugs|rejections)
+        _api GET "$BASE_URL/agents/$FUNCTION/query/$QTYPE"
+        ;;
+      *)
+        echo "Unknown query type: $QTYPE" >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  compute)
+    [ $# -lt 1 ] && { echo "Usage: ./game compute <type> [args]" >&2; exit 1; }
+    CTYPE="$1"; shift
+    case "$CTYPE" in
+      maturity)
+        _api GET "$BASE_URL/agents/$FUNCTION/compute/maturity"
+        ;;
+      satisfaction)
+        [ $# -lt 1 ] && { echo "Usage: ./game compute satisfaction <customer_id>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/compute/satisfaction?id=$1"
+        ;;
+      maturity-if)
+        [ $# -lt 2 ] && { echo "Usage: ./game compute maturity-if <feature_id> <quality>" >&2; exit 1; }
+        _api GET "$BASE_URL/agents/$FUNCTION/compute/maturity-if?id=$1&quality=$2"
+        ;;
+      capacity-cost)
+        ACTIONS_FILE=""
+        while [[ $# -gt 0 ]]; do
+          case "$1" in
+            --actions-file) ACTIONS_FILE="$2"; shift 2 ;;
+            *) echo "Unknown flag: $1" >&2; exit 1 ;;
+          esac
+        done
+        [ -z "$ACTIONS_FILE" ] && { echo "Usage: ./game compute capacity-cost --actions-file <path>" >&2; exit 1; }
+        ACTIONS=$(cat "$ACTIONS_FILE")
+        _api POST "$BASE_URL/agents/$FUNCTION/compute/capacity-cost" "{\"actions\": $ACTIONS}"
+        ;;
+      *)
+        echo "Unknown compute type: $CTYPE" >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  chat)
+    [ $# -lt 1 ] && { echo "Usage: ./game chat read [--channel <name>] | ./game chat send [--channel <name>] \"<message>\" | ./game chat channels" >&2; exit 1; }
+    SUBCMD="$1"; shift
+    case "$SUBCMD" in
+      read)
+        # Optional --channel <name> filters to a single channel (a partial view that
+        # does NOT advance the read cursor). A full read (no channel) advances it.
+        CHANNEL=""
+        if [ "${1:-}" = "--channel" ]; then
+          [ $# -lt 2 ] && { echo "Usage: ./game chat read --channel <name>" >&2; exit 1; }
+          CHANNEL="$2"; shift 2
+        fi
+        SINCE=$(cat "$SCRIPT_DIR/.last_chat_seq" 2>/dev/null || echo 0)
+        URL="$BASE_URL/agents/$FUNCTION/chat?since=$SINCE"
+        [ -n "$CHANNEL" ] && URL="$URL&channel=$CHANNEL"
+        RESPONSE=$(curl -s -w '\n%{http_code}' "$URL")
+        HTTP_CODE=$(printf '%s\n' "$RESPONSE" | tail -n1)
+        RESULT=$(printf '%s\n' "$RESPONSE" | sed '$d')
+        if [ "$HTTP_CODE" -ge 400 ] 2>/dev/null; then
+          printf 'HTTP %s\n' "$HTTP_CODE" >&2
+          printf '%s\n' "$RESULT" | jq . >&2 2>/dev/null || printf '%s\n' "$RESULT" >&2
+          exit 1
+        fi
+        echo "$RESULT" | jq .
+        # A full read (no channel filter) advances the read cursor; a filtered read does not.
+        if [ -z "$CHANNEL" ]; then
+          LAST_SEQ=$(echo "$RESULT" | jq -r '.[-1].seq // empty' 2>/dev/null || true)
+          [ -n "$LAST_SEQ" ] && echo "$LAST_SEQ" > "$SCRIPT_DIR/.last_chat_seq"
+        fi
+        ;;
+      send)
+        # Optional --channel <name>; defaults to everyone.
+        CHANNEL="everyone"
+        if [ "${1:-}" = "--channel" ]; then
+          [ $# -lt 2 ] && { echo "Usage: ./game chat send --channel <name> \"<message>\"" >&2; exit 1; }
+          CHANNEL="$2"; shift 2
+        fi
+        [ $# -lt 1 ] && { echo "Usage: ./game chat send [--channel <name>] \"<message>\"" >&2; exit 1; }
+        MESSAGE="$*"
+        # printf (not echo) so no trailing newline leaks into the channel slug.
+        _api POST "$BASE_URL/agents/$FUNCTION/chat" \
+          "{\"message\": $(printf '%s' "$MESSAGE" | jq -Rs .), \"channel\": $(printf '%s' "$CHANNEL" | jq -Rs .)}"
+        ;;
+      channels)
+        _api GET "$BASE_URL/agents/$FUNCTION/channels"
+        ;;
+      *)
+        echo "Usage: ./game chat read [--channel <name>] | ./game chat send [--channel <name>] \"<message>\" | ./game chat channels" >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  channel)
+    [ $# -lt 1 ] && { echo "Usage: ./game channel create <name>" >&2; exit 1; }
+    SUBCMD="$1"; shift
+    case "$SUBCMD" in
+      create)
+        [ $# -lt 1 ] && { echo "Usage: ./game channel create <name>" >&2; exit 1; }
+        NAME="${1#\#}"
+        _api POST "$BASE_URL/agents/$FUNCTION/channels" "{\"name\": $(printf '%s' "$NAME" | jq -Rs .)}"
+        ;;
+      *)
+        echo "Usage: ./game channel create <name>" >&2; exit 1
+        ;;
+    esac
+    ;;
+
+  game-over)
+    _api GET "$BASE_URL/orchestrator/game-over"
+    ;;
+
+  *)
+    echo "Unknown command: $CMD" >&2
+    usage
+    ;;
+esac

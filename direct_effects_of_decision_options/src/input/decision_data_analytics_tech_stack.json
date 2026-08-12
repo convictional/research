@@ -1,0 +1,60 @@
+{
+  "title": "Decision: Selecting Data Analytics Technology Stack",
+  "goals": "enable data-driven decision making, improve reporting capabilities, establish scalable data infrastructure, and reduce time to insights",
+  "options": [
+    {
+      "title": "Full Snowflake Stack",
+      "description": "Keep Snowflake as data warehouse, with dbt for transformations, Fivetran for ETL, and Preset for visualization"
+    },
+    {
+      "title": "AWS Native Solution",
+      "description": "Use Amazon Redshift for warehousing, AWS Glue for ETL, Amazon QuickSight for visualization, and native AWS tools for transformation"
+    },
+    {
+      "title": "Open Source Stack",
+      "description": "Deploy PostgreSQL/ClickHouse for storage, Airbyte for ETL, dbt for transformations, and Metabase for visualization"
+    },
+    {
+      "title": "Modern Data Stack with BigQuery",
+      "description": "Utilize BigQuery for warehousing, Fivetran for ETL, dbt for transformations, and Looker for visualization"
+    }
+  ],
+  "criteria": [
+    {
+      "title": "Total Cost of Ownership",
+      "description": "Expected costs including licenses, implementation, maintenance, and team training"
+    },
+    {
+      "title": "Scalability",
+      "description": "Ability to handle growing data volumes, concurrent users, and complex transformations"
+    },
+    {
+      "title": "Ease of Implementation",
+      "description": "Time and effort required to set up, configure, and deploy the complete stack"
+    },
+    {
+      "title": "Team Expertise",
+      "description": "Current team knowledge and learning curve for new technologies"
+    },
+    {
+      "title": "Integration Capabilities",
+      "description": "Ability to connect with existing data sources and downstream applications"
+    },
+    {
+      "title": "Performance",
+      "description": "Query speed, data refresh rates, and overall system responsiveness"
+    },
+    {
+      "title": "Security Features",
+      "description": "Built-in security controls, compliance capabilities, and data governance features"
+    },
+    {
+      "title": "Vendor Lock-in Risk",
+      "description": "Dependency on specific vendors and ease of future migrations"
+    },
+    {
+      "title": "Community Support",
+      "description": "Size of user community, available resources, and third-party tooling"
+    }
+  ]
+}

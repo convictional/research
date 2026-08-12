@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Game Over{% endblock %}
+{% block content %}
+<article>
+  <h2>Game Over — {{ game_over_reason }}</h2>
+
+  {% if score %}
+  <div class="dashboard">
+    <div class="stat-card {{ 'success' if score.composite >= 1.0 else ('warning' if score.composite >= 0.5 else 'danger') }}">
+      <div class="label">Primary Composite</div>
+      <div class="value">{{ "%.2f"|format(score.composite) }}</div>
+      <div class="label">geo mean (1.0 = par)</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Primary Pareto</div>
+      <div class="value">{{ "%.2f"|format(score.pareto_score) }}</div>
+      <div class="label">min (retained)</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">MRR</div>
+      <div class="value">{{ "%.2f"|format(score.mrr_score) }}</div>
+      <div class="label">${{ "{:,}".format(score.final_mrr) }} / ${{ "{:,}".format(mrr_target) }}</div>
+    </div>
+    <div class="stat-card {{ 'success' if score.churn_score >= 1.0 else 'danger' }}">
+      <div class="label">Churn</div>
+      <div class="value">{{ "%.2f"|format(score.churn_score) }}</div>
+      <div class="label">avg rate: {{ "%.2f"|format(score.avg_churn_rate * 100) }}%</div>
+    </div>
+    <div class="stat-card {{ 'success' if score.runway_score >= 1.0 else ('danger' if score.runway_score < 0.5 else 'warning') }}">
+      <div class="label">Runway</div>
+      <div class="value">{{ "%.2f"|format(score.runway_score) }}</div>
+      <div class="label">{{ "%.1f"|format(score.final_runway_turns) }} turns</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="grid-2">
+    <div>
+      <h3>Customer Outcomes</h3>
+      <table>
+        <thead><tr><th>ID</th><th>Stage</th><th>Value</th><th>Health</th></tr></thead>
+        <tbody>
+          {% for c in pipeline %}
+          <tr>
+            <td>{{ c.id }}</td>
+            <td><span class="stage-{{ c.stage }}">{{ c.stage }}</span></td>
+            <td>${{ "{:,}".format(c.deal_value) }}/mo</td>
+            <td>{% if c.is_customer %}{{ c.health }}{% endif %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>Feature Outcomes</h3>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Status</th></tr></thead>
+        <tbody>
+          {% for f in features %}
+          <tr>
+            <td>{{ f.id }}</td>
+            <td>{{ f.name }}</td>
+            <td>
+              {% if f.status.startswith('shipped') %}
+                <span class="tag tag-{{ f.status.replace('shipped_', '') }}">{{ f.status }}</span>
+              {% else %}
+                <span class="tag tag-not-started">{{ f.status }}</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <a href="/" role="button">Play Again</a>
+</article>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% include "sql_generation/role_identity.txt.jinja" %}
+
+The current date and time is: {{ current_datetime }}
+
+Your goal is to:
+1. Analyze the original question and the feedback about your SQL query
+2. Carefully consider what went wrong with your previous query
+3. Generate an improved SQL query that addresses the feedback issues
+4. Explain your thought process for creating the improved query
+
+When improving BigQuery SQL, ensure:
+- Table names are fully qualified with project and dataset names: `${GCP_PROJECT}.dataset_name.table_name`
+- Backticks are used for identifiers (not double quotes)
+- Date and string functions follow BigQuery syntax conventions
+- Aggregation functions and window functions are properly applied
+- You understand the user's original question and the feedback about why the previous query didn't work

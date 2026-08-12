@@ -1,0 +1,18 @@
+Here is the task:
+
+<task_details>
+<task_title>
+Task title: {{ task.title }}
+</task_title>
+<task_description>
+Task description: {{ task.description }}
+</task_description>
+<task_comments>
+{% for c in task.workspace.comments %}
+- Comment {{ loop.index }}:
+Comment timestamp: {{ c.created_at }}
+User name: {{ c.user_name }}
+Comment content text: {{ c.content}}
+{% endfor %}
+</task_comments>
+</task_details>

@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knowledge Collapse — Convictional</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/lbl4dtu.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Reveal.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
+
+    <style>
+      /* ── Brand tokens ─────────────────────────────────────────── */
+      :root {
+        --bg:         #fffdf5;
+        --bg-offset:  #f7f3ea;
+        --border:     hsl(40, 20%, 85%);
+        --text:       hsl(24, 10%, 10%);
+        --text-muted: hsl(33, 5%, 32%);
+        --text-faint: hsl(30, 10%, 55%);
+        --blue:       #2b7fff;
+
+        --font-accent: "loretta", "Georgia", serif;
+        --font-body:   "Inter", system-ui, sans-serif;
+      }
+
+      /* ── Reveal overrides ─────────────────────────────────────── */
+      .reveal-viewport { background: var(--bg); }
+
+      .reveal {
+        font-family: var(--font-body);
+        font-size: 22px;
+        color: var(--text);
+      }
+
+      .reveal .slides section {
+        text-align: left;
+        padding: 60px 80px;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      /* slide number */
+      .reveal .slide-number {
+        font-family: var(--font-body);
+        font-size: 12px;
+        color: var(--text-faint);
+        background: transparent;
+        right: 24px;
+        bottom: 20px;
+      }
+
+      /* ── Typography ───────────────────────────────────────────── */
+      .reveal h1 {
+        font-family: var(--font-accent);
+        font-weight: 400;
+        font-size: 3.2em;
+        color: var(--text);
+        line-height: 1.15;
+        margin-bottom: 0.25em;
+      }
+
+      .reveal h2 {
+        font-family: var(--font-accent);
+        font-weight: 400;
+        font-size: 2em;
+        color: var(--text);
+        line-height: 1.2;
+        margin-bottom: 0.6em;
+      }
+
+      .reveal h3 {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 1em;
+        color: var(--blue);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.4em;
+      }
+
+      .reveal p {
+        line-height: 1.65;
+        color: var(--text);
+      }
+
+      .reveal ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .reveal ul li {
+        position: relative;
+        padding-left: 1.3em;
+        margin-bottom: 0.6em;
+        line-height: 1.55;
+        color: var(--text);
+      }
+
+      .reveal ul li::before {
+        content: "–";
+        position: absolute;
+        left: 0;
+        color: var(--text-faint);
+      }
+
+      .reveal ul li ul {
+        margin-top: 0.4em;
+      }
+
+      .reveal ul li ul li {
+        font-size: 0.88em;
+        color: var(--text-muted);
+        margin-bottom: 0.35em;
+      }
+
+      .reveal ul li ul li::before {
+        content: "·";
+        color: var(--text-faint);
+      }
+
+      .reveal ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: ol-counter;
+      }
+
+      .reveal ol li {
+        counter-increment: ol-counter;
+        position: relative;
+        padding-left: 2em;
+        margin-bottom: 0.75em;
+        line-height: 1.55;
+      }
+
+      .reveal ol li::before {
+        content: counter(ol-counter) ".";
+        position: absolute;
+        left: 0;
+        color: var(--blue);
+        font-weight: 600;
+      }
+
+      /* ── Section eyebrow label ────────────────────────────────── */
+      .eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.55em;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--text-faint);
+        margin-bottom: 0.5em;
+        display: block;
+      }
+
+      /* ── Title slide ──────────────────────────────────────────── */
+      .slide-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        max-width: 820px;
+      }
+
+      .slide-title .wordmark {
+        font-family: var(--font-body);
+        font-size: 0.6em;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--text-faint);
+        margin-bottom: 3em;
+      }
+
+      .slide-title h1 {
+        font-size: 4em;
+        margin-bottom: 0.3em;
+      }
+
+      .slide-title .subtitle {
+        font-size: 1.05em;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin-bottom: 2.5em;
+        max-width: 600px;
+      }
+
+      .slide-title .meta {
+        font-size: 0.65em;
+        color: var(--text-faint);
+        line-height: 1.7;
+        border-top: 1px solid var(--border);
+        padding-top: 1.2em;
+      }
+
+      /* ── Rule divider ─────────────────────────────────────────── */
+      .rule {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 1.2em 0;
+      }
+
+      /* ── "Question to keep in mind" callout ───────────────────── */
+      .callout {
+        background: var(--bg-offset);
+        border-left: 3px solid var(--border);
+        border-radius: 0 4px 4px 0;
+        padding: 0.85em 1.1em;
+        margin-top: 1.4em;
+        font-size: 0.85em;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+
+      .callout .callout-label {
+        font-weight: 600;
+        font-size: 0.78em;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text-faint);
+        display: block;
+        margin-bottom: 0.4em;
+      }
+
+      /* ── Diagram slide ────────────────────────────────────────── */
+      .diagram-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100%;
+      }
+
+      .diagram-wrap img {
+        max-width: 100%;
+        max-height: 62vh;
+        object-fit: contain;
+        border-radius: 4px;
+        margin: 0.8em 0;
+      }
+
+      .diagram-placeholder {
+        width: 420px;
+        height: 280px;
+        border: 1.5px dashed var(--border);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-faint);
+        font-size: 0.8em;
+        margin: 1em 0;
+        background: var(--bg-offset);
+      }
+
+      .caption {
+        font-size: 0.7em;
+        color: var(--text-faint);
+        margin-top: 0.4em;
+      }
+
+      /* ── Two-column layout ────────────────────────────────────── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3em;
+        align-items: start;
+      }
+
+      /* ── Observation block ────────────────────────────────────── */
+      .obs {
+        margin-bottom: 1.4em;
+      }
+
+      .obs .obs-label {
+        font-size: 0.72em;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 0.3em;
+      }
+
+      .obs p {
+        font-size: 0.88em;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* ── Discussion questions ─────────────────────────────────── */
+      .questions ol {
+        counter-reset: q-counter;
+      }
+
+      .questions ol li {
+        counter-increment: q-counter;
+        font-size: 1em;
+        line-height: 1.65;
+        margin-bottom: 1.4em;
+        padding-left: 2.2em;
+        color: var(--text);
+      }
+
+      .questions ol li::before {
+        content: counter(q-counter);
+        position: absolute;
+        left: 0;
+        width: 1.5em;
+        height: 1.5em;
+        background: var(--blue);
+        color: white;
+        border-radius: 50%;
+        font-size: 0.75em;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0.1em;
+      }
+
+      /* ── Math inline ──────────────────────────────────────────── */
+      .math {
+        font-family: "Georgia", serif;
+        font-style: italic;
+        color: var(--text);
+      }
+
+      .eq {
+        display: block;
+        font-family: "Georgia", serif;
+        font-size: 1.25em;
+        font-style: italic;
+        color: var(--text);
+        margin: 0.8em 0 0.8em 1.3em;
+        letter-spacing: 0.02em;
+      }
+
+      /* ── AI assumption items ──────────────────────────────────── */
+      .assumption-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: assumption;
+      }
+
+      .assumption-list li {
+        counter-increment: assumption;
+        position: relative;
+        padding: 1.1em 1.2em 1.1em 3.4em;
+        margin-bottom: 1em;
+        background: var(--bg-offset);
+        border-radius: 4px;
+        line-height: 1.55;
+      }
+
+      .assumption-list li::before {
+        content: counter(assumption);
+        position: absolute;
+        left: 1.1em;
+        top: 1.1em;
+        font-size: 0.75em;
+        font-weight: 600;
+        color: var(--blue);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ── Slide 0: Title ─────────────────────────────────── -->
+        <section>
+          <div class="slide-title">
+            <div class="wordmark">Convictional</div>
+            <h1>Knowledge Collapse</h1>
+            <p class="subtitle">
+              AI, Human Cognition, and the Future of What We Know
+            </p>
+            <div class="meta">
+              Based on Acemoglu, Kong &amp; Osdaglar (2026)<br />
+              Convictional team lunch-and-learn &middot; April 2026
+            </div>
+          </div>
+          <aside class="notes">
+            Welcome everyone. Today we're walking through a recent MIT economics paper that asks a deceptively simple question: what happens to the knowledge we share as a society when AI gets very good at answering questions for us?
+          </aside>
+        </section>
+
+        <!-- ── Slide 1: Laying the Land ───────────────────────── -->
+        <section>
+          <span class="eyebrow">Foundations</span>
+          <h2>Laying the land</h2>
+          <hr class="rule" />
+          <ul>
+            <li>Knowledge and learning are symbiotic — each feeds the other</li>
+            <li>
+              Learning broadly means <em>problem solving</em> in this paper — and provides value through two outputs:
+              <ul>
+                <li><strong>General knowledge</strong> — shared, explicit, public (docs, posts, papers)</li>
+                <li><strong>Idiosyncratic knowledge</strong> — internal reasoning, creativity, personal judgment</li>
+              </ul>
+            </li>
+            <li>
+              Agents here can be any decision-making system — we focus on <strong>humans and AI</strong>
+            </li>
+            <li>
+              Examples from the paper:
+              <ul>
+                <li>A doctor with vs. without access to the medical literature</li>
+                <li>A developer debugging an unknown language with no documentation</li>
+              </ul>
+            </li>
+          </ul>
+          <aside class="notes">
+            The key framing: learning isn't just a personal activity. It creates a public good — the shared body of knowledge a field runs on. The paper models both kinds, and asks what AI does to the equilibrium between them.
+          </aside>
+        </section>
+
+        <!-- ── Slide 2: Definitions cont. ─────────────────────── -->
+        <section>
+          <span class="eyebrow">Foundations</span>
+          <h2>How knowledge accumulates</h2>
+          <hr class="rule" />
+          <ul>
+            <li>
+              General knowledge builds from <em>individually infinitesimal contributions</em> — each agent adds a tiny sliver
+              <ul>
+                <li>Stack Overflow answers, blog posts, papers, documentation</li>
+                <li>No single agent creates a unified picture — but the corpus grows</li>
+              </ul>
+            </li>
+            <li>
+              Agents live on <strong>islands</strong> — communities of practice with a shared context (a field, a domain, a company)
+              <ul>
+                <li>Islands vary in size and change over time</li>
+                <li>Each island has a <em>common state</em>: the shared general knowledge of that domain</li>
+              </ul>
+            </li>
+            <li>Each agent also has an idiosyncratic state — their own motivations, context, private knowledge</li>
+          </ul>
+          <aside class="notes">
+            Think of an island as a community of practice — the Rust programming community, academic economics, or the Convictional team. The common state is what everyone on the island can draw on. The paper models how that common state evolves.
+          </aside>
+        </section>
+
+        <!-- ── Slide 3: Getting Mathy ──────────────────────────── -->
+        <section>
+          <span class="eyebrow">The Model</span>
+          <h2>Getting a little mathy</h2>
+          <hr class="rule" />
+          <ul>
+            <li>To model learning, the paper frames it as a <strong>prediction problem</strong></li>
+            <li>
+              An agent learning/problem-solving is an agent who predicts:
+              <ul>
+                <li>The outcome of the <em>common world state</em> — how peers, the field, the market will respond</li>
+                <li>The outcome of their own <em>private idiosyncratic state</em> — what will work for them specifically</li>
+              </ul>
+            </li>
+            <li>They update these predictions iteratively as they work the problem</li>
+            <li>
+              This action produces two signals:
+              <ul>
+                <li><strong>Private signal</strong> — tacit knowledge gained (stays with the agent)</li>
+                <li><strong>Public signal</strong> — explicit knowledge shared (contributes to the island's common state)</li>
+              </ul>
+            </li>
+          </ul>
+          <aside class="notes">
+            The prediction framing is a modelling convenience — it lets the paper use Bayesian signal processing. But it maps cleanly onto real problem-solving: you form a hypothesis, try something, observe the result, update your belief. The "public signal" is you writing up what you found.
+          </aside>
+        </section>
+
+        <!-- ── Slide 4: Agent's Task ───────────────────────────── -->
+        <section>
+          <span class="eyebrow">The Model</span>
+          <h2>The agent's task</h2>
+          <hr class="rule" />
+          <div class="diagram-wrap">
+            <ul style="margin-bottom: 0.6em;">
+              <li>
+                Success = making good predictions on both dimensions
+                <ul>
+                  <li>The four possible outcomes: (common wrong, private wrong), (common right, private wrong), (common wrong, private right), (common right, private right)</li>
+                </ul>
+              </li>
+              <li>Think of it as: how well does your solution align with what the world and your situation actually needed?</li>
+            </ul>
+            <div id="lattice-wrap">
+              <img
+                id="payoff-lattice"
+                src="assets/payoff_lattice.png"
+                alt="Payoff lattice: 2×2 grid of (common, private) prediction outcomes"
+                onerror="this.style.display='none'; document.getElementById('lattice-placeholder').style.display='flex';"
+              />
+              <div class="diagram-placeholder" id="lattice-placeholder" style="display:none;">
+                diagram: payoff lattice
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            The payoff function f takes four inputs corresponding to whether the agent got the common and idiosyncratic predictions right. Getting the common state right is necessary to benefit from getting the private state right — you need to understand the field to benefit from your own creativity within it.
+          </aside>
+        </section>
+
+        <!-- ── Slide 5: Model Assumptions ─────────────────────── -->
+        <section>
+          <span class="eyebrow">The Model</span>
+          <h2>Model assumptions</h2>
+          <hr class="rule" />
+          <ul>
+            <li>
+              <strong>Assumption 1:</strong> Personal learning effort helps <em>only if</em> the agent already has a good grasp of the common state
+              <ul>
+                <li>Private effort payoff scales with general knowledge</li>
+                <li>Private effort with no general knowledge foundation has no payoff</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Assumption 2:</strong> Using AI doesn't change the public signal an agent produces
+              <ul>
+                <li>AI helps the agent get better answers — but those answers don't add more to the common knowledge pool</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Question to keep in mind</span>
+            Is Assumption 1 right? Does private knowledge really have zero value without general knowledge? A doctor with no medical literature can still stop bleeding — and their report of how they did it is a powerful general signal.
+          </div>
+          <aside class="notes">
+            These two assumptions do a lot of work. Assumption 1 creates the dependency that makes collapse possible. Assumption 2 is what breaks the AI-knowledge feedback loop — AI improves individual decisions but doesn't feed back into the common knowledge pool. We'll revisit both at the end.
+          </aside>
+        </section>
+
+        <!-- ── Slide 6: Utility and Cost ───────────────────────── -->
+        <section>
+          <span class="eyebrow">The Model</span>
+          <h2>Utility and cost</h2>
+          <hr class="rule" />
+          <ul>
+            <li>Every agent weighs <strong>cost of effort</strong> against <strong>expected payoff</strong></li>
+            <li>Cost of effort is modelled as:
+              <span class="eq">c(e) = (1/α) · e<sup>α</sup></span>
+            </li>
+            <li>
+              <span class="math">α</span> controls the <em>curvature</em> — how fast cost rises with effort
+              <ul>
+                <li>Low α ≈ flat cost curve — effort is cheap, people keep working even as payoff drops</li>
+                <li>High α ≈ steep cost curve — effort is expensive, people cut back quickly when payoff falls</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="diagram-wrap" style="margin-top:0.6em;">
+            <img
+              src="assets/cost_curves.png"
+              alt="Cost curves c(e) = (1/α)·e^α for α = 1.1, 1.5, 2.0, 3.0"
+            />
+          </div>
+          <aside class="notes">
+            Alpha is the key structural parameter. Think of it as the elasticity of effort — how much does cost change for a small change in effort? High alpha means effort is inelastic: people will keep working even when conditions deteriorate. Low alpha means elastic: people stop quickly when the math doesn't pencil out.
+          </aside>
+        </section>
+
+        <!-- ── Slide 7: Implications ───────────────────────────── -->
+        <section>
+          <span class="eyebrow">Entering AI</span>
+          <h2>Implications of the setup</h2>
+          <hr class="rule" />
+          <ul>
+            <li>Agents want to be right — particularly when effort is costly</li>
+            <li>
+              They adopt tools that improve the <strong>precision-per-effort</strong> ratio
+              <ul>
+                <li>The internet: same learning capacity, less effort to access knowledge</li>
+                <li>Stack Overflow: crowdsourced answers, reducing time-to-understanding</li>
+              </ul>
+            </li>
+            <li>
+              Enter <strong>agentic AI</strong> — a tool capable of drastically reshaping the effort ↔ precision equation
+            </li>
+            <li>
+              In some domains, problem solving shifts from:
+              <ul>
+                <li><em>Intensive private learning effort</em> → generating public signals as a byproduct</li>
+                <li>to → <em>AI recommendations</em> substituting for that effort entirely</li>
+              </ul>
+            </li>
+          </ul>
+          <aside class="notes">
+            This is the crux. AI doesn't just help individuals — it changes what effort looks like at the population level. If everyone on an island switches from learning-by-doing to consuming AI recommendations, the flow of new signals into the common knowledge pool dries up.
+          </aside>
+        </section>
+
+        <!-- ── Slide 8: AI Assumptions ─────────────────────────── -->
+        <section>
+          <span class="eyebrow">Entering AI</span>
+          <h2>AI assumptions</h2>
+          <hr class="rule" />
+          <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 1.2em;">
+            The paper formalises how AI enters the model with three assumptions:
+          </p>
+          <ol class="assumption-list">
+            <li>
+              AI does not <em>improve</em> the general knowledge available to other community members. It generates no common signal by itself.
+            </li>
+            <li>
+              Using AI does not change the public signal that the agent produces. The agent contributes the same amount to the island's common state whether or not they used AI to find the answer.
+            </li>
+            <li>
+              AI's ability to improve general knowledge (or the agent's ability when using AI) does not change as AI capability increases. This is implicit — capability scales up precision of private answers, not public contribution.
+            </li>
+          </ol>
+          <aside class="notes">
+            Assumption 3 is the one most worth scrutinising for the discussion. It says AI capability improvements don't unlock new pathways for AI to contribute to common knowledge. We'll return to this when we relax assumptions at the end.
+          </aside>
+        </section>
+
+        <!-- ── Slide 9: Making the Model Dynamic ──────────────── -->
+        <section>
+          <span class="eyebrow">Dynamics</span>
+          <h2>Making the model dynamic</h2>
+          <hr class="rule" />
+          <ul>
+            <li>We've defined agents and their task — now we ask: how does the island's common knowledge evolve over time?</li>
+            <li>
+              The model runs as a <strong>feedback loop</strong> each period:
+              <ul>
+                <li>Agents use current common knowledge to solve problems → producing private and public signals</li>
+                <li>Public signals update the island's common state for the next period</li>
+                <li>Updated common state changes how much effort is optimal next period</li>
+                <li>Changed effort changes the signals produced — and so on</li>
+              </ul>
+            </li>
+            <li>
+              The authors call this map <strong><span class="math">F</span></strong> — it takes today's common knowledge stock <span class="math">X<sub>t</sub></span> and returns tomorrow's <span class="math">X<sub>t+1</sub></span>
+            </li>
+          </ul>
+          <aside class="notes">
+            F is the heart of the model. Everything else is in service of characterising the shape of F and where it intersects the 45-degree line — because those intersections are the equilibria. We'll look at that next.
+          </aside>
+        </section>
+
+        <!-- ── Slide 10: Model Observations ───────────────────── -->
+        <section>
+          <span class="eyebrow">Dynamics</span>
+          <h2>What the model implies</h2>
+          <hr class="rule" />
+          <div class="two-col">
+            <div>
+              <div class="obs">
+                <div class="obs-label">Observation 1</div>
+                <p>General knowledge degrades as AI adoption increases. Humans spend less effort on learning; the public signal flow slows to a trickle as AI substitutes for human problem-solving.</p>
+              </div>
+              <div class="obs">
+                <div class="obs-label">Observation 2</div>
+                <p>Optimal effort increases with the <em>breadth of the field</em> — harder problems require more effort — and decreases as AI gets more capable.</p>
+              </div>
+              <div class="obs">
+                <div class="obs-label">Proposition 2</div>
+                <p>The map <span class="math">F(X)</span> increases with aggregate private effort, and decreases as AI capability increases.</p>
+              </div>
+            </div>
+            <div>
+              <div class="obs">
+                <div class="obs-label">Lemma 2 — the critical α</div>
+                <p>There is a critical cost parameter:</p>
+                <ul style="margin-top:0.5em;">
+                  <li>If effort is <strong>inelastic</strong> (high α) — knowledge does not collapse, even at low levels. People keep working.</li>
+                  <li>If effort is <strong>elastic</strong> (low α) — islands with low general knowledge will collapse to zero. People stop when the payoff drops.</li>
+                </ul>
+              </div>
+              <p style="font-size:0.8em; color: var(--text-faint); margin-top:0.8em;">
+                Think of elasticity: a regulated industry keeps investing even when returns fall. A competitive market stops the moment the math doesn't work.
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            Lemma 2 is the structural result that makes collapse possible. It says collapse isn't inevitable — it depends on whether effort is elastic enough to fall all the way to zero. In practice, different domains have different effective elasticities.
+          </aside>
+        </section>
+
+        <!-- ── Slide 11: Putting it Altogether ────────────────── -->
+        <section>
+          <span class="eyebrow">Knowledge Collapse</span>
+          <h2>Putting it altogether</h2>
+          <hr class="rule" />
+          <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 0.6em;">
+            When effort is elastic (low α), AI capability <span class="math">τ<sub>A</sub></span> becomes the decisive variable. The shape of <span class="math">F</span> changes as <span class="math">τ<sub>A</sub></span> increases:
+          </p>
+          <div class="diagram-wrap">
+            <img
+              src="assets/f_diagrams.png"
+              alt="Three F(X) diagrams: below, at, and above the collapse threshold τ_A^C"
+            />
+            <p class="caption">
+              Left: multiple equilibria — high-knowledge state exists. Centre: borderline — the stable state is vanishing. Right: only collapse remains.
+              The dots mark stable (filled) and unstable (hollow) fixed points.
+            </p>
+          </div>
+          <aside class="notes">
+            The three panels show the saddle-node bifurcation as AI capability crosses tau_A^C. Below the threshold you have a choice of where the system lands — above it, collapse is the only long-run outcome regardless of starting conditions. The trajectory below the 45-degree line is what makes X=0 absorbing.
+          </aside>
+        </section>
+
+        <!-- ── Slide 12: AI Implications ──────────────────────── -->
+        <section>
+          <span class="eyebrow">Implications</span>
+          <h2>What this means for AI adoption</h2>
+          <hr class="rule" />
+          <ul>
+            <li>
+              As AI gets better, the <strong>minimum quality of the common knowledge base</strong> required to sustain engagement goes up — the field needs to be rich enough in unsolved problems to keep effort worthwhile
+            </li>
+            <li>
+              Growing general knowledge <em>attracts</em> effort — a virtuous cycle. Collapsing general knowledge <em>repels</em> effort — a vicious one.
+            </li>
+            <li>
+              AI capability is a tool that can attract effort toward genuinely hard problems — <em>if</em> those problems are visible and valued
+            </li>
+            <li>
+              Idiosyncratic motivations — safety, comfort, status, the desire to minimise effort — naturally push us toward using better AI, substituting rather than learning
+            </li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Question to keep in mind</span>
+            Is the path to collapse inevitable if we just follow individual incentives? Or does it require some collective coordination failure on top of that?
+          </div>
+          <aside class="notes">
+            The model says: at the individual level, using AI more is always rational. The collapse is a coordination problem — everyone defects from learning individually, and the collective stock of knowledge degrades. Classic public goods problem.
+          </aside>
+        </section>
+
+        <!-- ── Slide 13: Some Notes ────────────────────────────── -->
+        <section>
+          <span class="eyebrow">Caveats</span>
+          <h2>Some notes on the assumptions</h2>
+          <hr class="rule" />
+          <p style="font-size:0.9em; color:var(--text-muted); margin-bottom:0.8em;">What changes if we relax the two key assumptions?</p>
+          <ul>
+            <li>
+              <strong>Relax Assumption 1</strong> (private effort has zero value without general knowledge):
+              <ul>
+                <li>A complete collapse cannot occur — strong AI slows the common signal but can't reduce it to zero</li>
+                <li>Knowledge degrades but stabilises at a lower level rather than hitting zero</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Relax Assumption 2</strong> (AI doesn't contribute to general signal):
+              <ul>
+                <li>Instead of collapse, you get a <em>substitution</em> — human-generated general knowledge is replaced by AI-generated general knowledge</li>
+                <li>Whether this is bad depends entirely on whether AI-generated knowledge is as good as human-generated knowledge for the purposes of the field</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Question to keep in mind</span>
+            If the future is predominantly AI-generated general knowledge, is that a bad thing? What would we lose that we don't currently value, and what would we gain?
+          </div>
+          <aside class="notes">
+            The paper covers these in Section 5. The key insight from relaxing assumption 2 is that the dystopian outcome isn't collapse in the traditional sense — it's a shift in who (what) generates the common knowledge that everyone else uses. The question is whether AI knowledge is a good substitute.
+          </aside>
+        </section>
+
+        <!-- ── Slide 14: Discussion ────────────────────────────── -->
+        <section>
+          <span class="eyebrow">Discussion</span>
+          <h2>Questions for the team</h2>
+          <hr class="rule" />
+          <div class="questions">
+            <ol>
+              <li>
+                What, if anything, does this imply for how we build Convictional? What are we doing well already — and what should we be thinking about differently?
+              </li>
+              <li>
+                Is a predominantly AI-generated general knowledge future a bad thing? If AI was good enough, and most of the posts, decisions, and docs at Convictional were written or strongly shaped by AI — is that a problem?
+              </li>
+              <li>
+                Does private learning in the absence of general knowledge produce any signal or value? Can individual judgment compound without a shared foundation to build on?
+              </li>
+            </ol>
+          </div>
+          <aside class="notes">
+            Open it up. The three questions are designed to move from product-specific (Q1) to philosophical (Q3), with Q2 as the bridge. The paper's answer to Q3 is "no" under Assumption 1 — but that's exactly what's worth questioning.
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        transition: "fade",
+        transitionSpeed: "slow",
+        controls: true,
+        controlsLayout: "bottom-right",
+        progress: false,
+        slideNumber: "c/t",
+        width: 1600,
+        height: 900,
+        margin: 0.04,
+        plugins: [RevealNotes],
+      });
+    </script>
+  </body>
+</html>

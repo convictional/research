@@ -1,0 +1,19 @@
+<user_query>
+{{ test_case.user_query }}
+</user_query>
+
+{% if test_case.attachments %}
+CSV data attachments:
+  {% for attachment in test_case.attachments %}
+    <csv_attachment_{{ loop.index }}>
+      <description>
+      {{ attachment.description }}
+      </description>
+      <data>
+      {{ attachment.data }}
+      </data>
+    </csv_attachment_{{ loop.index }}>
+  {% endfor %}
+{% else %}
+  <no_attachments>This test case has no csv data attachments</no_attachments>
+{% endif %}

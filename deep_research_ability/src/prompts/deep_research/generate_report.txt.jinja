@@ -1,0 +1,105 @@
+**Objective:**
+Create a comprehensive business report that synthesizes findings from internal research and documentation. The report should blend narrative elements with bullet points to ensure all important information is captured clearly for business stakeholders.
+
+---
+
+**Input Data:**
+
+- **Original Query:**
+  `{{ query }}`
+
+- **Clarification Q&A:**
+  {% for qa in clarifications %}
+  - **Question:** {{ qa.question }}
+  - **Answer:** {{ qa.answer }}
+  {% endfor %}
+
+- **Research Findings:**
+  {% for learning in learnings %}
+  - {{ learning }}
+  {% endfor %}
+
+---
+
+**Report Requirements:**
+
+1. **Executive Summary:**
+   - Begin with an **executive summary** that highlights key findings and their business impact.
+
+2. **Language & Tone:**
+   - Use **clear, direct business language**.
+   - Avoid academic/technical jargon where possible.
+   - Target a **Fleischer Kleinman reading level of 3**.
+
+3. **Document Structure:**
+   - Use **clear section headings** (H1, H2, H3) for easy scanning.
+   - Start each section with a **brief summary**.
+   - Integrate **tables or lists** for structured data.
+   - Incorporate both narrative paragraphs and bullet points for key takeaways.
+   - **Cite the author or contributor** when known, including the date and source if available.
+
+4. **Content Organization:**
+   - **Incorporate all relevant findings** from the research.
+   - **Group related insights** to create a coherent business story.
+   - Highlight **strategic patterns and emerging trends**.
+   - Call-out any **information gaps or conflicting data points**.
+
+5. **Actionable Insights:**
+   - Provide **actionable recommendations** based on the findings.
+   - Conclude with **concrete next steps and resource requirements**.
+
+---
+
+**Formatting Guidelines (Markdown):**
+
+- **Hierarchical Headings:**
+  Use `#`, `##`, `###` for titles, sections, and sub-sections.
+
+- **Lists:**
+  - Use **bulleted lists** for key takeaways.
+  - Use **numbered lists** for ordered steps or recommendations.
+
+- **Emphasis:**
+  - **Bold** key points and findings.
+  - Use **quoted text** for important insights or direct quotes.
+
+- **Tables/Lists for Structured Data:**
+  - Format any tabular data using Markdown tables or lists as needed.
+
+---
+
+**Example Structure:**
+
+```markdown
+# Executive Summary
+A concise summary of key findings and their business impact.
+
+# Introduction
+A brief overview of the original query and the context of the research.
+
+# Key Findings
+## Finding 1: [Title/Topic]
+- **Summary:** Brief summary of the finding.
+- **Details:**
+  - Key points in bullet form.
+  - *Quoted Insight:* "Direct quote or highlighted information."
+- **Source/Attribution:** [Author, Date, Source]
+
+## Finding 2: [Title/Topic]
+- **Summary:** Brief summary of the finding.
+- **Details:**
+  - Key points in bullet form.
+  - *Quoted Insight:* "Direct quote or highlighted information."
+- **Source/Attribution:** [Author, Date, Source]
+
+# Strategic Analysis
+- **Patterns and Trends:** Overview of strategic patterns and emerging trends.
+- **Information Gaps:** Any gaps or conflicting data points.
+
+# Recommendations
+- **Actionable Steps:** Detailed recommendations with next steps.
+- **Resource Requirements:** Any required resources or further research needed.
+
+# Conclusion
+A summary of the report and final thoughts on the next steps.
+```

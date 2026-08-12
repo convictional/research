@@ -1,0 +1,19 @@
+Sonnet vs Tiktoken Token Counts - Linear Regression Analysis
+=================================================================
+
+Slope: 1.123292
+Intercept: 6.263835
+R²: 0.999721
+RMSE: 28.739167
+
+95% Confidence Intervals:
+  Slope: [1.122127, 1.124457]
+  Intercept: [2.647793, 9.879877]
+
+67% Confidence Intervals:
+  Slope: [1.122713, 1.123871]
+  Intercept: [4.467943, 8.059727]
+
+Standard Errors (Sigma):
+  Slope: 0.000594
+  Intercept: 1.842716

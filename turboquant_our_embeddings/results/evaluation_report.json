@@ -1,0 +1,114 @@
+{
+  "experiment": "turboquant_our_embeddings",
+  "num_documents": 1000,
+  "num_queries": 130,
+  "num_pairs": 5000,
+  "seed": 42,
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dim": 1536,
+  "float32_retrieval_ms": 4.0806669858284295,
+  "results_by_bit_width": {
+    "2": {
+      "bit_width": 2,
+      "compression_ratio": 15.503875968992247,
+      "memory_per_vector_bytes": 396.288,
+      "quantize_seconds": 0.017830541939474642,
+      "dequantize_seconds": 0.012064749957062304,
+      "vector_reconstruction_mse": 5.197751670493744e-05,
+      "pairwise_spearman_rho": 0.9918958260903024,
+      "pairwise_spearman_p": 0.0,
+      "similarity_mse": 0.0010737682884004928,
+      "similarity_mae": 0.028437685027718543,
+      "similarity_max_abs_error": 0.09213588386774063,
+      "retrieval_float32_scan_ms": 4.0806669858284295,
+      "retrieval_decompress_ms": 11.336687486618757,
+      "retrieval_decompressed_scan_ms": 4.213624517433345,
+      "retrieval_decompress_total_ms": 15.550312004052103,
+      "retrieval_code_ip_ms": 260.81472949590534,
+      "query_ranking_deq": {
+        "mean_rho": 0.9887354636403944,
+        "median_rho": 0.989278889085909,
+        "mean_top_k_overlap": 0.9084615384615384,
+        "mean_rbo": 0.8983540207559206,
+        "mean_displacement": 11.521008403361344,
+        "num_queries": 130
+      },
+      "query_ranking_code_ip": {
+        "mean_rho": 0.9912994738953667,
+        "median_rho": 0.9916882875386768,
+        "mean_top_k_overlap": 0.8984615384615385,
+        "mean_rbo": 0.8811722429522261,
+        "mean_displacement": 11.969696969696969,
+        "num_queries": 130
+      }
+    },
+    "3": {
+      "bit_width": 3,
+      "compression_ratio": 10.443864229765014,
+      "memory_per_vector_bytes": 588.288,
+      "quantize_seconds": 0.02285695797763765,
+      "dequantize_seconds": 0.011534165940247476,
+      "vector_reconstruction_mse": 1.527392669231631e-05,
+      "pairwise_spearman_rho": 0.9980268434707059,
+      "pairwise_spearman_p": 0.0,
+      "similarity_mse": 0.00010460377307951238,
+      "similarity_mae": 0.008391236299276352,
+      "similarity_max_abs_error": 0.03364083170890808,
+      "retrieval_float32_scan_ms": 4.0806669858284295,
+      "retrieval_decompress_ms": 11.170083424076438,
+      "retrieval_decompressed_scan_ms": 4.1489790310151875,
+      "retrieval_decompress_total_ms": 15.319062455091625,
+      "retrieval_code_ip_ms": 506.96104153757915,
+      "query_ranking_deq": {
+        "mean_rho": 0.99744726789349,
+        "median_rho": 0.9975907395762842,
+        "mean_top_k_overlap": 0.9546153846153845,
+        "mean_rbo": 0.9418126961112707,
+        "mean_displacement": 10.76271186440678,
+        "num_queries": 130
+      },
+      "query_ranking_code_ip": {
+        "mean_rho": 0.9976420290350239,
+        "median_rho": 0.9977772017638649,
+        "mean_top_k_overlap": 0.9446153846153847,
+        "mean_rbo": 0.9342450725171308,
+        "mean_displacement": 10.708333333333334,
+        "num_queries": 130
+      }
+    },
+    "4": {
+      "bit_width": 4,
+      "compression_ratio": 7.874015748031496,
+      "memory_per_vector_bytes": 780.288,
+      "quantize_seconds": 0.029805958038195968,
+      "dequantize_seconds": 0.011295042000710964,
+      "vector_reconstruction_mse": 4.207429356029024e-06,
+      "pairwise_spearman_rho": 0.9994195325441264,
+      "pairwise_spearman_p": 0.0,
+      "similarity_mse": 1.380407771780202e-05,
+      "similarity_mae": 0.0029220455035567283,
+      "similarity_max_abs_error": 0.01548004150390625,
+      "retrieval_float32_scan_ms": 4.0806669858284295,
+      "retrieval_decompress_ms": 11.223458452150226,
+      "retrieval_decompressed_scan_ms": 4.092417017091066,
+      "retrieval_decompress_total_ms": 15.315875469241291,
+      "retrieval_code_ip_ms": 995.0082915020175,
+      "query_ranking_deq": {
+        "mean_rho": 0.9992860835587233,
+        "median_rho": 0.9993130173088955,
+        "mean_top_k_overlap": 0.9669230769230769,
+        "mean_rbo": 0.9648293246401332,
+        "mean_displacement": 10.348837209302326,
+        "num_queries": 130
+      },
+      "query_ranking_code_ip": {
+        "mean_rho": 0.999316295135155,
+        "median_rho": 0.9993411693372164,
+        "mean_top_k_overlap": 0.9692307692307692,
+        "mean_rbo": 0.9624428554964046,
+        "mean_displacement": 10.35,
+        "num_queries": 130
+      }
+    }
+  }
+}

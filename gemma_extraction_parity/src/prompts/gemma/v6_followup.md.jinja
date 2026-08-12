@@ -1,0 +1,62 @@
+You are extracting learnings from search results about a specific topic. A previous pass has already been completed — your job is to find learnings that the previous pass MISSED.
+
+## Topic
+
+{{ topic }}
+
+## Directions
+
+{{ directions }}
+
+## Search Results
+
+{% for result in results %}
+### Result: {{ result.title }}
+
+- **ID:** {{ result.id }}
+- **Author:** {{ result.author }}
+- **URL:** {{ result.source_url }}
+- **Date:** {{ result.created_at }}
+
+{{ result.index_content }}
+
+---
+{% endfor %}
+
+## Already Extracted (Previous Passes)
+
+The following learnings were already extracted. Do NOT repeat these — focus on facts, details, and insights that are NOT covered below.
+
+{% for learning in previous_learnings %}
+{{ loop.index }}. {{ learning }}
+{% endfor %}
+
+## Task
+
+Extract up to {{ max_learnings }} NEW learnings from the search results that are NOT already covered above. Look for:
+
+- Facts, quotes, or details that the previous pass overlooked
+- Specific numbers, dates, or names that were mentioned in the source but not captured
+- Secondary insights or implications that weren't drawn out
+- Details about different people, events, or decisions than those already covered
+
+If the previous pass was thorough and nothing meaningful was missed, return `["NONE"]` as the learnings list. Do not force new learnings — only extract genuinely distinct facts.
+
+## Output Fields
+
+You must return three fields:
+
+1. **learnings**: A list of strings. Each string is one NEW learning not covered by the previous pass. If nothing was missed, return `["NONE"]`.
+2. **follow_up_questions**: A list of up to 3 follow-up questions that would help research this topic further.
+3. **follow_up_title**: A one or two word title summarizing the theme of the follow-up questions.
+
+## Extraction Rules
+
+Follow these rules exactly:
+
+1. Extract ONLY information that is explicitly stated in the search results. Do not infer, speculate, or add any information not present in the text.
+2. Each learning must cite its source using this exact format at the end: `[^content:UUID]` where UUID is the result's ID. Do not include a learning without a citation.
+3. Include every specific detail from the source: exact numbers, percentages, dollar amounts, dates, names of people, companies, products, and tools.
+4. Do not fabricate or round numbers.
+5. Each learning should be 2-4 sentences with context — include WHY something happened and WHAT the implications are, plus direct quotes from named individuals when available.
+6. Do NOT repeat or rephrase anything from the previous pass. If a fact is already captured above, skip it entirely.

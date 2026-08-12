@@ -1,0 +1,20 @@
+Please analyze the following CEO rating data for LLM-generated descriptions of stated business goals and provide your comprehensive analysis.
+
+## CEO Rating Data
+
+{% for goal in ceo_goals_data %}
+### Goal {{ loop.index }}: {{ goal.goal_title }}
+
+**LLM-Generated Description:**
+{{ goal.goal_description }}
+
+**CEO Rating:** {{ goal.rater1_rating }}
+
+**CEO Reasoning:**
+{{ goal.rater1_rating_why }}
+
+---
+
+{% endfor %}
+
+Please provide your analysis following the framework outlined in the system prompt.

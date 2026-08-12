@@ -1,0 +1,95 @@
+## MANDATORY SCORE DISTRIBUTION — Read This First
+
+You are scoring research reports on a 0-3 scale. The expert who created the ground truth uses this distribution:
+
+- Score 0: {{ train_distribution[0] }}% of reports — fails to address the question or lacks substance
+- Score 1: {{ train_distribution[1] }}% of reports — partially addresses question with gaps
+- Score 2: {{ train_distribution[2] }}% of reports — adequately addresses the core question with relevant evidence. This is a GOOD score for a competent report.
+- Score 3: {{ train_distribution[3] }}% of reports — rare but NOT impossible. About 1 in 20 reports earns this for genuinely exceptional work.
+
+Scores 1 and 2 together account for ~80% of all reports. Your scores should reflect this.
+
+## Using the Critique
+
+An independent critic has reviewed this report. The critic is **deliberately harsh** — they are instructed to find every possible weakness, even in strong reports. Use the critique as input, but apply your own judgment about how severe the weaknesses actually are.
+
+**Guidelines for mapping critique to scores:**
+
+- **Critical severity** → score 0 (report fundamentally fails to address the question)
+- **Significant severity** → score 0 or 1 (if the alignment gap is fundamental, score 0; if the report provides partial value despite major gaps, score 1)
+- **Moderate severity** → score 2 (the report adequately addresses the question despite some issues — this is where most competent reports land)
+- **Minor severity** → score 2 or 3 (a report with only minor weaknesses and strong overall quality can earn a 3)
+
+**Important:** Nearly all reports will have SOME weaknesses listed by the critic. Having weaknesses does not automatically mean a low score — most reports score 1 or 2 despite having weaknesses. A report can have 2-3 moderate weaknesses and still score 2 if it adequately addresses the core question.
+
+## Using the Claim Analysis
+
+If a claim quality analysis is provided, use it to assess **content quality** — a proxy for correctness that the critique alone cannot capture:
+
+- **High specificity + low hedging + citations** → the report likely has real, grounded information. Lean toward score 2 or 3.
+- **High vagueness + heavy hedging + few citations** → the report likely padded with generic content to mask lack of real evidence. Lean toward score 0 or 1.
+- **Internal inconsistencies** → the report merged conflicting sources uncritically. Penalize proportionally.
+- **Low relevance ratio** → many claims don't address the question, even if individually well-supported. This is a strong signal for score 0 or 1.
+
+The claim analysis helps distinguish between reports that LOOK similar (same length, structure) but differ in substance. Pay attention to the specificity-to-vagueness ratio.
+
+## Using the Source Evidence Verification
+
+If a source evidence verification is provided, it shows whether the report's claims are actually supported by the original source documents. This is the strongest signal for content accuracy:
+
+- **High supported %** (>60%) with high confidence → claims are well-grounded. This is a positive signal but does NOT automatically mean a high score — the report must also answer the question well.
+- **High partially supported %** is common and normal — it means the source material covers the topic but the report adds interpretation or specifics beyond what's directly stated. Treat this as neutral, not negative.
+- **Unsupported claims** are a genuine red flag — the report asserts something the evidence contradicts. Weight this heavily.
+- **No evidence found** may mean the source database doesn't cover that topic — treat cautiously, not as a negative signal.
+
+**Important:** The verification checks factual grounding, not analytical quality. A report can have all claims supported but still score low if it answers the wrong question or lacks depth. Use verification as one input alongside the critique, not as the primary driver of your score.
+
+## Quality Rubric
+
+{% for dim in rubric.dimensions %}
+### {{ dim.name }} (weight: {{ dim.weight }})
+{{ dim.description }}
+{% for anchor in dim.anchors|sort(attribute='score') %}
+- **{{ anchor.score }}**: {{ anchor.description }}
+{% endfor %}
+
+{% endfor %}
+
+## Scoring Process
+
+1. Read the critique — note severity and specific weaknesses
+2. Read the claim analysis (if provided) — note specificity ratio, hedging, citation support, relevance
+3. Score each rubric dimension (0-3), using both the critique findings and claim quality signals
+4. Compute overall score as weighted combination, rounded to nearest integer
+5. Check your score against the distribution: ~{{ train_distribution[0]|int }}% should be 0, ~{{ train_distribution[1]|int }}% should be 1, ~{{ train_distribution[2]|int }}% should be 2, ~{{ train_distribution[3]|int }}% should be 3
+{% if contrastive_pairs %}
+
+## Contrastive Examples — Score 1 vs Score 2 Boundary
+
+These pairs show length-matched reports where the expert scored one as 1 and the other as 2. Study what distinguishes them:
+
+{% for r1, r2 in contrastive_pairs %}
+---
+**Score 1 report** (question: {{ r1.question[:100] }}...):
+{{ r1.research_output[:1000] }}{% if r1.research_output|length > 1000 %}
+[...{{ r1.research_output|length }} total chars]{% endif %}
+
+**Score 2 report** (question: {{ r2.question[:100] }}...):
+{{ r2.research_output[:1000] }}{% if r2.research_output|length > 1000 %}
+[...{{ r2.research_output|length }} total chars]{% endif %}
+
+---
+{% endfor %}
+{% endif %}
+
+## Calibration Examples
+
+{% for example in calibration_examples %}
+---
+**Expert Score: {{ example.quality_score }}/3**
+Question: {{ example.question }}
+Report excerpt: {{ example.research_output[:calibration_max_chars] }}{% if example.research_output|length > calibration_max_chars %}
+
+[...report continues, {{ example.research_output|length }} total chars]{% endif %}
+---
+{% endfor %}

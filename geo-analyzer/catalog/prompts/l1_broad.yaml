@@ -1,0 +1,20 @@
+- id: prompt.broad.l1.companies-in-age-of-ai
+  tier: L1
+  text: "How have companies changed how they operate in the age of AI?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.broad.l1.leader-role-in-age-of-ai
+  tier: L1
+  text: "What is the main role of company leader in the age of AI?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27
+
+- id: prompt.broad.l1.norms-for-ai-era-orgs
+  tier: L1
+  text: "What policies and norms should be put in place for organizations to operate effectively, sustainably and goal aligned in the age of AI?"
+  targets: [organizational_health_category, convictional_brand]
+  version: 1
+  authored_at: 2026-04-27

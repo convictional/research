@@ -1,0 +1,48 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS": "1",
+    "BASH_DEFAULT_TIMEOUT_MS": "660000",
+    "BASH_MAX_TIMEOUT_MS": "660000"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "./hooks/pre-bash.sh",
+        "matcher": "Bash"
+      },
+      {
+        "type": "command",
+        "command": "./hooks/pre-file-access.sh",
+        "matcher": "Read"
+      },
+      {
+        "type": "command",
+        "command": "./hooks/pre-file-access.sh",
+        "matcher": "Glob"
+      },
+      {
+        "type": "command",
+        "command": "./hooks/pre-file-access.sh",
+        "matcher": "Grep"
+      },
+      {
+        "type": "command",
+        "command": "./hooks/pre-file-access.sh",
+        "matcher": "Write"
+      },
+      {
+        "type": "command",
+        "command": "./hooks/pre-file-access.sh",
+        "matcher": "Edit"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "./hooks/post-submit.sh",
+        "matcher": "Bash(*game submit*)"
+      }
+    ]
+  }
+}

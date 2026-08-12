@@ -1,0 +1,24 @@
+{
+  "test_cases": [
+    {
+      "user_query": "I have $1,000 budget for hotels and food. Hotel A is $500 a night, includes all AV equipment, food is not included, renting conference rooms are $400 per day. Hotel B is $350 a night, does not include AV equipment, food is not included, and renting conference rooms are $200 a day.",
+      "user_goal": "Find the most cost-effective venue for a business event within a fixed budget while maximizing available amenities"
+    },
+    {
+      "user_query": "My bakery makes custom cakes and regular pastries. Wedding cakes cost about $1000 each but take a lot of time. Regular pastries sell quickly but don't make as much money. I have $15,000 to put into the business and could hire either a wedding cake specialist or two regular bakers.",
+      "user_goal": "Determine the most profitable allocation of resources between high-margin specialty products and quick-selling regular items"
+    },
+    {
+      "user_query": "Looking at warehouse space for our company. Downtown location is $12,000 monthly with good access to highways. Other location is in the industrial area, $5,000 monthly but needs about $200,000 in renovations. Both offering 5-year lease terms.",
+      "user_goal": "Evaluate long-term costs and benefits of different warehouse locations considering both immediate and future expenses"
+    },
+    {
+      "user_query": "Running a team of 10 developers. Could hire two senior devs at $150k each or four junior ones at $80k. Seniors work faster but juniors are cheaper. Only have one manager who can train people.",
+      "user_goal": "Optimize team productivity and cost-effectiveness while considering management capacity and long-term team development"
+    },
+    {
+      "user_query": "My company ships about 10,000 packages per month. Looking at either building our own delivery system or using shipping companies. Building our own would cost about $500,000 upfront. Customer reviews mention slow shipping as a problem.",
+      "user_goal": "Improve shipping efficiency and customer satisfaction while evaluating cost-effectiveness of in-house versus outsourced delivery"
+    }
+  ]
+}

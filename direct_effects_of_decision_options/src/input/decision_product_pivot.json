@@ -1,0 +1,60 @@
+{
+  "title": "Decision: Strategic Product Pivot for Entire Company",
+  "goals": "capitalize on emerging market opportunities, ensure long-term company viability, leverage existing technical capabilities, and maximize return on investment",
+  "options": [
+    {
+      "title": "Enterprise AI Focus",
+      "description": "Pivot from general SaaS tools to specialized AI-powered enterprise solutions, targeting Fortune 500 companies with high-touch sales model"
+    },
+    {
+      "title": "Vertical Integration",
+      "description": "Transform from horizontal platform to full-stack solution for healthcare sector, including specialized compliance and workflow features"
+    },
+    {
+      "title": "Developer Infrastructure",
+      "description": "Shift to providing developer-focused APIs and infrastructure, monetizing our core technology as a platform service"
+    },
+    {
+      "title": "SMB Automation Suite",
+      "description": "Refocus on small/medium business market with integrated automation tools, featuring low-code solutions and self-service options"
+    }
+  ],
+  "criteria": [
+    {
+      "title": "Market Size",
+      "description": "Total addressable market and realistic market penetration potential"
+    },
+    {
+      "title": "Revenue Impact",
+      "description": "Expected changes to revenue model, customer lifetime value, and cash flow"
+    },
+    {
+      "title": "Technical Feasibility",
+      "description": "Ability to leverage existing technology and required new development"
+    },
+    {
+      "title": "Customer Transition",
+      "description": "Impact on existing customers and migration path for current userbase"
+    },
+    {
+      "title": "Team Alignment",
+      "description": "Current team capabilities and required organizational changes"
+    },
+    {
+      "title": "Competition Level",
+      "description": "Competitive landscape and barriers to entry in new market"
+    },
+    {
+      "title": "Time to Market",
+      "description": "Expected timeline to launch viable product and achieve market fit"
+    },
+    {
+      "title": "Investment Required",
+      "description": "Capital needed for product development, marketing, and organizational changes"
+    },
+    {
+      "title": "Risk Profile",
+      "description": "Major risks including market acceptance, technical challenges, and regulatory concerns"
+    }
+  ]
+}

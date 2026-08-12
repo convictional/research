@@ -1,0 +1,49 @@
+I need you to improve a SQL query based on feedback. Here's the information:
+
+Original Question: {{ question }}
+
+Attempt #{{ attempt_counter }} - SQL Query:
+```sql
+{{ sql }}
+```
+
+Query Results:
+```
+{{ results }}
+```
+
+Feedback from verification:
+```
+{{ feedback }}
+```
+
+{% if suggested_sql %}
+Suggested SQL from previous feedback:
+```sql
+{{ suggested_sql }}
+```
+{% endif %}
+
+{% if table_schemas %}
+Database Schema Information:
+```
+{{ table_schemas }}
+```
+{% endif %}
+
+{% if similar_queries %}
+Similar Questions and Their Verified SQL:
+{% for query in similar_queries %}
+Question: {{ query.question }}
+SQL:
+```sql
+{{ query.sql }}
+```
+
+{% endfor %}
+{% endif %}
+
+Please analyze what went wrong with the query and generate an improved SQL query that correctly answers the original question.
+Explain your reasoning for the changes you've made.
+
+Make sure your improved query adheres to BigQuery SQL syntax, including proper table qualifications and backticks for identifiers.

@@ -1,0 +1,81 @@
+\documentclass[11pt, oneside]{article}
+\usepackage{geometry}
+\geometry{letterpaper}
+%geometry{landscape}
+%\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{amsmath} % Added for mathematical symbols
+\usepackage{amssymb}
+
+\title{Parallelize Graph Calls}
+\author{Adam}
+%\date{}
+
+\begin{document}
+\maketitle
+If we want to parallelize the extraction step, we'll need a robust deduplication approach. This messy doc lays out a naive, worst case approach in which we have to decompose our graph into disconnected sub-graphs each of approximately equal size. We then need to check each sub-graph for duplicates and then check each pair of sub-graphs for duplicates. We then need to repeat this process until we have no duplicates. This is a worst case scenario, but it gives us a starting point for thinking about the problem.
+
+\section{Graph and Tokens Definitions}
+Call our graph, $G$ with nodes, $\mathcal{N}$ and edges, $\mathcal{E}$:
+\[ G = \{ \mathcal{N}, \mathcal{E} \} \]
+
+\[ \mathcal{N} = \{n \in \text{nodes} \} \quad \mathcal{E} = \{ e \in \text{edges} \} \]
+
+\[ \text{size}(G) = |\mathcal{N}| \]
+
+Given a model, $M$, our token limit is $T_M$. Given a node, we count the tokens needed to represent it to the LLM (name and description) using a token function, $\mathcal{T}_M$.
+\\
+\\
+\(\mathcal{T}_M(\mathcal{N})\) is approximately normally distributed about its mean on $\mathbb{N}$ (for nodes)
+
+\[ \mathcal{T}_M(\mathcal{N}) \sim \mathcal{N}(\mu_\mathcal{N}, \sigma_\mathcal{N}) \]
+
+$\therefore$ we can include \(\frac{T_M}{\mu_\mathcal{N}}\) total nodes; call this the ``Model Graph Capacity'', $C_M$.
+\\
+\\
+Ex: For Anthropic, the token limit is \( T_A = 200k \)
+\\
+\\
+Assume approximately 50 tokens per node, \( \mu_\mathcal{N} = 50 \), implying \( C_M = 4000 \).
+\\
+\\
+\section{Async Deduplication}
+If we go async we need to de-dupe. Let's look at a concrete example:
+
+\[ \text{say } \text{size}(G) = 16,000 \]
+
+\[ G = \bigoplus_{i=1}^{4} g_i \]
+
+To de-dupe we need to:
+\begin{enumerate}
+    \item check each \( g_i \) individually
+    \item check each pair of components \( g_i \oplus g_j \), note that due to the fact that components are disconnected, we have:
+\end{enumerate}
+
+\[ \text{size}(g_i \oplus g_j) = \text{size}(g_i) + \text{size}(g_j) \]
+
+We need to subdivide any components \(g_i\) that were not reduced by at least a factor of 2 in step 1. Assume the worst case in which we don't see this reduction in any of our components, \(g_i\). Therefore, we subdivide each \(g_i\) into \(g_{i1}\) and \(g_{i2}\) and perform pairwise graph component deduplication:
+
+So we get to:
+\[ |\{g_i \}| = \frac{\text{size}(G)}{C_n} \]
+
+We reduce further by at least a factor of 2 in step 2, so we have:
+
+\[ |\{g_i g_j \}| = 2 \frac{\text{size}(G)}{C_n} \]
+
+Putting this all together, we count the total individual calls in step (1) above, as well as all the pairwise compares to give:
+
+\[ |\{g_i \}| + |\{g_i g_j \}| (|g_i| - 1) \]
+
+\[ = \frac{\text{size}(G)}{C_n} + \frac{2 \text{size}(G)}{C_n^2} \left(\frac{\text{size}(G)}{C_n} - 1\right) \]
+
+\[ = 2 \left( \frac{\text{size}(G)}{C_n} \right)^2 \]
+
+So for our quantities,
+
+\[ \text{size}(G) = 16k \]
+\[ C_n = 4k \]
+
+\[ \text{\# LLM  calls } = 2 \left( \frac{16000}{4000} \right)^2 = 32 \]
+
+\end{document}

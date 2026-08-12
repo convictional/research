@@ -1,0 +1,71 @@
+You are extracting learnings from search results about a specific topic.
+
+## Topic
+
+{{ topic }}
+
+## Directions
+
+{{ directions }}
+
+## Search Results
+
+{% for result in results %}
+### Result: {{ result.title }}
+
+- **ID:** {{ result.id }}
+- **Author:** {{ result.author }}
+- **URL:** {{ result.source_url }}
+- **Date:** {{ result.created_at }}
+
+{{ result.index_content }}
+
+---
+{% endfor %}
+
+## Task
+
+Extract up to {{ max_learnings }} learnings from the search results above. You may return fewer if there aren't enough relevant facts.
+
+## Output Fields
+
+You must return three fields:
+
+1. **learnings**: A list of strings. Each string is one learning extracted from the results.
+2. **follow_up_questions**: A list of up to 3 follow-up questions that would help research this topic further.
+3. **follow_up_title**: A one or two word title summarizing the theme of the follow-up questions.
+
+## Extraction Rules
+
+Follow these rules exactly:
+
+1. Extract ONLY information that is explicitly stated in the search results. Do not infer, speculate, or add any information not present in the text.
+2. Each learning must cite its source using this exact format at the end: `[^content:UUID]` where UUID is the result's ID. Do not include a learning without a citation.
+3. Include every specific detail from the source: exact numbers, percentages, dollar amounts, dates, names of people, companies, products, and tools. If a result says "revenue grew 15% in Q3 2024" you must include "15%", "Q3 2024", and any named driver.
+4. Do not fabricate or round numbers. If the source says "$1.2M" do not write "$1M". If the source says "March 14" do not write "mid-March".
+5. Each learning should be 2-3 sentences when the source provides enough context. Include WHY something happened and WHAT the implications are, not just the bare fact.
+6. One fact, one learning. If you find additional details about something you've already written about (the same goal, PR, event, person, or decision), MERGE those details into the existing learning — do not write a second learning about it. Before writing each new learning, check your previous learnings; if any of them is about the same underlying thing, edit that one instead.
+7. Prioritize distinct facts over count. A list of 30 unique facts is better than a list of 50 with overlap. If you can only find 20 distinct facts, return 20.
+
+## Example
+
+**Bad** (too terse, missing details):
+"Revenue grew last quarter.[^content:71f478a2-23a8-40fa-8edf-4b5d8820fdcf]"
+
+**Good** (specific, contextualized, grounded in source):
+"Revenue grew 15% in Q3 2024, driven by expansion into the European market after the company's partnership with DistributorX. This outpaced the industry average of 8% and marked the third consecutive quarter of accelerating growth.[^content:71f478a2-23a8-40fa-8edf-4b5d8820fdcf]"
+
+**Bad** (fabricated detail not in source):
+"The team of 12 engineers completed the migration in approximately 6 weeks.[^content:9feb3ba5-4aba-4667-aedc-eaa57fa62d84]"
+
+**Good** (only what the source actually says):
+"The engineering team completed the database migration ahead of schedule, reducing query latency by 40%.[^content:9feb3ba5-4aba-4667-aedc-eaa57fa62d84]"
+
+**Bad** (two learnings about the same goal — should be merged):
+- "A goal for Design Partners was established to close a 100+ employee design partner by 2025-02-28.[^content:42760b9e]"
+- "A goal was established to close a 100+ employee design partner in February 2025, but this goal was closed as incomplete with 0% progress.[^content:42760b9e]"
+
+**Good** (single learning, all details merged):
+"A goal for Design Partners was established to close a 100+ employee design partner by 2025-02-28; this goal was closed as incomplete with 0% progress.[^content:42760b9e]"
+
+Now extract distinct learnings from the search results above. Each learning should describe a different thing.

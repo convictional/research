@@ -1,0 +1,57 @@
+## Current Path Analysis
+
+### Path Structure
+```json
+{{ dag_json | tojson(indent=2) }}
+```
+
+### Current Fitness Scores
+{% for dimension, score in current_scores.items() %}
+- **{{ dimension.replace('_', ' ').title() }}**: {{ "%.2f" | format(score) }}{% if score < 0.6 %} ⚠️ **WEAK AREA**{% endif %}
+{% endfor %}
+
+### Problem Context
+{{ context }}
+
+{% if fitness_scorecard %}
+### Detailed Fitness Analysis
+{{ fitness_scorecard.reasoning }}
+
+#### Areas Needing Improvement
+{% for dimension, score in current_scores.items() %}
+{% if score < 0.6 %}
+- **{{ dimension.replace('_', ' ').title() }}** ({{ "%.2f" | format(score) }}): Needs significant improvement
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if inspiration_context %}
+### Inspiration from Successful Variants
+{{ inspiration_context }}
+{% endif %}
+
+{% if dynamic_learning_context %}
+### Learning from Evolution History
+{{ dynamic_learning_context }}
+{% endif %}
+
+## Task
+Generate {{ num_proposals }} strategic mutation proposals to improve this path's fitness, focusing on the weak areas identified above.
+
+Each proposal should be a JSON object with the following structure:
+```json
+{
+  "mutation_type": "string",
+  "confidence": 0.0-1.0,
+  "description": "string",
+  "reasoning": "string",
+  "expected_improvements": ["string"],
+  "operations": {
+    "target_nodes": ["node_id"],
+    "target_edges": ["edge_id"],
+    "modifications": "detailed instructions"
+  }
+}
+```
+
+Return your proposals as a JSON array of mutation objects. Focus on the most impactful improvements for the identified weak areas.

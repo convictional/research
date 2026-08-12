@@ -1,0 +1,63 @@
+Please assess the implementation feasibility of this strategic decision DAG for: "{{ problem_statement }}"
+
+**DAG Implementation Scope:**
+- {{ total_nodes }} strategic elements to potentially implement
+- {{ max_layer + 1 }} layers of strategic decisions and options
+- Multiple strategic paths requiring coordination and execution
+
+**Organizational Context:**
+{% if activity_insights and activity_insights.resource_indicators %}
+- **Team Size**: {{ activity_insights.resource_indicators.total_active_users }} active members
+- **High-Capacity Resources**: {{ activity_insights.resource_indicators.engagement_distribution.high_engagement }} highly engaged team members
+- **Collaboration Level**: {{ "%.0%"|format(activity_insights.collaboration_indicators.collaboration_ratio) if activity_insights.collaboration_indicators else "Unknown" }}% collaborative work
+{% else %}
+- Limited organizational capacity data available
+{% endif %}
+
+**Assessment Requirements:**
+
+1. **Overall Feasibility Score (0.0-1.0)**:
+   - Consider organizational capacity constraints
+   - Account for resource availability and competing priorities
+   - Evaluate realistic implementation timelines
+
+2. **Resource Adequacy Analysis (0.0-1.0)**:
+   - Are there sufficient people with the right skills?
+   - Is the scope manageable given team size and engagement levels?
+   - What resource gaps need to be addressed?
+
+3. **Timeline Realism Assessment (0.0-1.0)**:
+   - Are implied timelines realistic for this organizational context?
+   - Does the strategy account for learning curves and adaptation time?
+   - Is there adequate time for coordination and stakeholder alignment?
+
+4. **Capability Gap Identification**:
+   - What specific capabilities are missing for successful implementation?
+   - Which skills or expertise need to be developed or acquired?
+   - Are capability gaps addressable within reasonable timeframes?
+
+5. **Resource Constraint Analysis**:
+   - What are the primary resource bottlenecks or constraints?
+   - How do competing organizational priorities impact feasibility?
+   - What resource allocation conflicts need to be resolved?
+
+**Contextual Factors to Consider:**
+- Organization has {{ organizational_goals|length if organizational_goals else 0 }} active goals potentially competing for resources
+- Track record from {{ past_decisions|length if past_decisions else 0 }} past strategic decisions
+- Available organizational knowledge and experience base
+
+**Feasibility Scoring Guidelines:**
+- **0.9-1.0**: Highly feasible with current resources and capacity
+- **0.7-0.8**: Feasible with minor resource adjustments or timeline extensions
+- **0.5-0.6**: Moderately feasible but requires significant resource planning
+- **0.3-0.4**: Challenging feasibility, major resource or capability gaps
+- **0.0-0.2**: Poor feasibility, fundamental resource or capability mismatches
+
+**Expected Recommendations:**
+Provide specific, actionable guidance on:
+- Resource allocation strategies
+- Capability development priorities
+- Timeline optimization approaches
+- Risk mitigation for implementation challenges
+
+Focus on practical feasibility that accounts for real organizational constraints and capabilities.

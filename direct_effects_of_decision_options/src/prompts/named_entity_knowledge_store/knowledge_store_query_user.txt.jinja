@@ -1,0 +1,23 @@
+Here is the decision context you need to analyze:
+
+<decision_context>
+<decision_title>{{decision.title}}</decision_title>
+
+<decision_goals>{{decision.goals}}</decision_goals>
+
+<decision_criteria>
+{% for criterion in decision.criteria %}
+<criterion>
+<criterion_title>{{criterion.title}}</criterion_title>
+<criterion_description>{{criterion.description}}</criterion_description>
+</criterion>
+{% endfor %}
+</decision_criteria>
+
+<decision_option>
+<option_title>{{option.title}}</option_title>
+<option_description>{{option.description}}</option_description>
+</decision_option>
+</decision_context>
+
+Please proceed with your analysis and query string creation based on the provided decision context.

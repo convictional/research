@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block title %}{{ c.id }} Detail{% endblock %}
+
+{% block content %}
+<h2>
+  {{ c.id }}
+  <span class="stage-{{ c.stage }}" style="font-size:0.7em; margin-left:0.5rem;">{{ c.stage }}</span>
+</h2>
+
+<!-- Overview -->
+<div class="dashboard">
+  <div class="stat-card">
+    <div class="label">Deal Value</div>
+    <div class="value">${{ "{:,}".format(c.deal_value) }}/mo</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Segment</div>
+    <div class="value">{{ c.segment }}</div>
+    <div class="label">size {{ c.size }}</div>
+  </div>
+  <div class="stat-card {{ 'sat-high' if c.satisfaction >= 0.7 else ('sat-mid' if c.satisfaction >= 0.5 else 'sat-low') }}">
+    <div class="label">Satisfaction</div>
+    <div class="value">{{ "%.1f"|format(c.satisfaction * 100) }}%</div>
+    <div class="label">need {{ "%.0f"|format(min_rubric * 100) }}% to close</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Engagement</div>
+    <div class="value">{{ c.engagement }}</div>
+  </div>
+  {% if c.is_customer %}
+  <div class="stat-card {{ 'danger' if c.health < 5 else ('warning' if c.health < 7 else 'success') }}">
+    <div class="label">Health</div>
+    <div class="value">{{ c.health }}</div>
+  </div>
+  {% endif %}
+  {% if c.timeline > 0 and not c.is_customer %}
+  <div class="stat-card {{ 'danger' if c.timeline <= 3 else ('warning' if c.timeline <= 6 else '') }}">
+    <div class="label">Timeline</div>
+    <div class="value">{{ c.timeline }}</div>
+    <div class="label">turns left</div>
+  </div>
+  {% endif %}
+  {% if c.competitive_pressure > 0 %}
+  <div class="stat-card warning">
+    <div class="label">Competition</div>
+    <div class="value">{{ c.competitive_pressure }}</div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Satisfaction Breakdown -->
+<section>
+  <h3>Satisfaction Breakdown</h3>
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Weight</th><th>Score</th><th>Weighted</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Feature Coverage</td>
+        <td>{{ c.rubric_weights.feature_coverage }}</td>
+        <td>{{ "%.1f"|format(c.satisfaction_breakdown.feature_coverage * 100) }}%</td>
+        <td>{{ "%.1f"|format(c.rubric_weights.feature_coverage * c.satisfaction_breakdown.feature_coverage * 100) }}%</td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>{{ c.rubric_weights.price }}</td>
+        <td>{{ "%.1f"|format(c.satisfaction_breakdown.price * 100) }}%</td>
+        <td>{{ "%.1f"|format(c.rubric_weights.price * c.satisfaction_breakdown.price * 100) }}%</td>
+      </tr>
+      <tr>
+        <td>Product Maturity</td>
+        <td>{{ c.rubric_weights.maturity }}</td>
+        <td>{{ "%.1f"|format(c.satisfaction_breakdown.maturity * 100) }}%</td>
+        <td>{{ "%.1f"|format(c.rubric_weights.maturity * c.satisfaction_breakdown.maturity * 100) }}%</td>
+      </tr>
+      <tr>
+        <td>Support</td>
+        <td>{{ c.rubric_weights.support }}</td>
+        <td>{{ "%.1f"|format(c.satisfaction_breakdown.support * 100) }}%</td>
+        <td>{{ "%.1f"|format(c.rubric_weights.support * c.satisfaction_breakdown.support * 100) }}%</td>
+      </tr>
+      <tr style="font-weight:700; border-top: 2px solid var(--pico-muted-border-color);">
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td class="{{ 'sat-high' if c.satisfaction >= 0.7 else ('sat-mid' if c.satisfaction >= 0.5 else 'sat-low') }}">
+          {{ "%.1f"|format(c.satisfaction * 100) }}%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Feature Needs -->
+<section>
+  <h3>Feature Needs</h3>
+  {% if c.dealbreakers %}
+  <p><strong>Dealbreakers (must be shipped to close):</strong> {{ c.dealbreakers|join(', ') }}
+    {% if c.dealbreakers_met %}<span class="sat-high">— all met</span>{% else %}<span class="sat-low">— NOT MET</span>{% endif %}
+  </p>
+  {% endif %}
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>Status</th><th>MVP Score</th><th>Solid Score</th><th>Polished Score</th><th>Current</th></tr>
+    </thead>
+    <tbody>
+      {% for fn in c.feature_needs %}
+      <tr>
+        <td><strong>{{ fn.feature_id }}</strong> — {{ fn.feature_name }}</td>
+        <td>
+          {% if fn.shipped %}
+            <span class="tag tag-{{ fn.status.replace('shipped_', '') }}">{{ fn.status }}</span>
+          {% else %}
+            <span class="tag tag-not-started">{{ fn.status }}</span>
+          {% endif %}
+        </td>
+        <td>{{ fn.scores.get('mvp', '-') }}</td>
+        <td>{{ fn.scores.get('solid', '-') }}</td>
+        <td>{{ fn.scores.get('polished', '-') }}</td>
+        <td>
+          {% if fn.shipped_quality %}
+            <strong>{{ fn.current_score }}</strong>
+          {% else %}
+            <span style="color:var(--pico-muted-color);">0</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<!-- Health History (for active customers) -->
+{% if c.is_customer and c.health_history %}
+<section>
+  <h3>Health History</h3>
+  <div style="display:flex; gap:0.5rem; align-items:end; height:60px;">
+    {% for h in c.health_history %}
+    <div style="width:20px; background:{{ '#27ae60' if h >= 7 else ('#f39c12' if h >= 5 else '#c0392b') }}; height:{{ (h / 10 * 100)|int }}%;" title="Turn {{ loop.index }}: {{ h }}"></div>
+    {% endfor %}
+  </div>
+  <div style="font-size:0.75rem; color:var(--pico-muted-color); margin-top:0.25rem;">
+    {% for h in c.health_history %}{{ h }}{% if not loop.last %} → {% endif %}{% endfor %}
+  </div>
+  {% if c.turns_below_churn > 0 %}
+  <p class="sat-low"><strong>{{ c.turns_below_churn }} consecutive turns below churn threshold</strong> (churns at 2)</p>
+  {% endif %}
+  {% if c.turns_above_expansion > 0 %}
+  <p class="sat-high"><strong>{{ c.turns_above_expansion }} consecutive turns above expansion threshold</strong> (expands at 4)</p>
+  {% endif %}
+</section>
+{% endif %}
+
+<!-- Action History -->
+<section>
+  <h3>Action &amp; Event History</h3>
+  {% if c.action_history %}
+  <table>
+    <thead><tr><th>Turn</th><th>Action / Event</th></tr></thead>
+    <tbody>
+      {% for h in c.action_history %}
+      <tr>
+        <td>{{ h.turn }}</td>
+        <td>{{ h.action }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p style="color:var(--pico-muted-color);">No actions or events involving this customer yet.</p>
+  {% endif %}
+</section>
+
+<a href="/turn" role="button" class="secondary">Back to Turn {{ turn }}</a>
+{% endblock %}

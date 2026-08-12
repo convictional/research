@@ -1,0 +1,52 @@
+{
+  "title": "Decision: Adding a Sales Person to the Team",
+  "goals": "increase revenue, expand market reach, improve customer relationships, and establish repeatable sales process",
+  "options": [
+    {
+      "title": "Hire Full-Time Enterprise Sales Representative",
+      "description": "Bring on an experienced sales professional focused on large accounts with base salary of $80-100k plus commission"
+    },
+    {
+      "title": "Hire Junior Sales Development Representative (SDR)",
+      "description": "Hire an entry-level sales person to handle lead qualification and pipeline building at $50-60k base salary"
+    },
+    {
+      "title": "Continue Founder-Led Sales",
+      "description": "Maintain current approach with founders handling all sales activities while optimizing processes"
+    },
+    {
+      "title": "Hire Part-Time/Contract Sales Person",
+      "description": "Engage an experienced sales professional on a part-time or contract basis to test the waters"
+    }
+  ],
+  "criteria": [
+    {
+      "title": "Financial Impact",
+      "description": "Cost of salary, commission, and benefits versus expected revenue generation"
+    },
+    {
+      "title": "Market Readiness",
+      "description": "Whether our product and market are mature enough for dedicated sales"
+    },
+    {
+      "title": "Process Documentation",
+      "description": "State of our sales playbook, materials, and onboarding documentation"
+    },
+    {
+      "title": "Management Bandwidth",
+      "description": "Team's capacity to train and manage a new sales hire effectively"
+    },
+    {
+      "title": "Lead Pipeline",
+      "description": "Quality and quantity of existing leads to support a full-time sales role"
+    },
+    {
+      "title": "Cultural Fit",
+      "description": "Impact on company culture and team dynamics"
+    },
+    {
+      "title": "Timing",
+      "description": "Alignment with company growth stage and market conditions"
+    }
+  ]
+}

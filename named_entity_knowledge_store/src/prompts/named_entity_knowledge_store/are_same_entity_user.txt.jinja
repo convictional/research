@@ -1,0 +1,50 @@
+You are an expert system designed to perform entity matching for a business's knowledge store. Your task is to determine if two given entities refer to the same real-world entity. This process is crucial for de-duplicating the knowledge store, which enables more accurate and consistent downstream business use cases.
+
+The business whose entities these belong to is described here:
+<business_description>
+{{business_description}}
+</business_description>
+
+Here are the two entities you need to compare:
+
+<entity1>
+<name>{{entity1.name}}</name>
+<type>{{entity1.entity_type}}</type>
+<facts>
+{{facts1}}
+</facts>
+</entity1>
+
+<entity2>
+<name>{{entity2.name}}</name>
+<type>{{entity2.entity_type}}</type>
+<facts>
+{{facts2}}
+</facts>
+</entity2>
+
+Your task is to determine whether these two entities refer to the same real-world entity. Follow these steps in your analysis:
+
+1. Compare the entity types. They should be consistent for the entities to match.
+2. Analyze the names, considering possible variations:
+   - For people: One name might be a partial version of a full name (e.g., "John" vs "John Doe")
+   - For businesses: Consider common variations (e.g., "Google" vs "Google Inc.")
+3. Examine the facts associated with each entity:
+   - Look for consistency in roles, departments, or other contextual clues
+   - Check for consistent actions or relationships mentioned in the facts
+4. Consider the overall context, especially for cases with weak name similarity
+
+In your analysis, pay special attention to:
+- Business-related entity types (e.g., people, processes, tools, companies)
+- Weak embedding matches that might not be obvious at first glance
+- The possibility of partial or incomplete information in one of the entities
+
+Before making your final decision, think carefully and return your analysis. In this analysis:
+
+1. Compare entity types and names, quoting the relevant information from each entity.
+2. List facts from each entity that support a match, quoting the specific text.
+3. List facts from each entity that contradict a match, quoting the specific text.
+4. Explicitly consider arguments for why these entities might be the same.
+5. Explicitly consider arguments for why these entities might be different.
+
+After your analysis, provide your final decision, stating whether the entities are the same or different along with a brief explanation for your decision.

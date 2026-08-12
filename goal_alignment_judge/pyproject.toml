@@ -1,0 +1,30 @@
+[project]
+name = "goal-alignment-judge"
+version = "0.0.1"
+description = "DSPy-based pointwise judge for goal alignment scoring"
+authors = [{ name = "Adam McCabe" }]
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+dependencies = [
+    "dspy>=3.2.1",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.14.2",
+    "numpy>=2.3.0",
+    "pandas>=2.3.0",
+    "scikit-learn>=1.7.0",
+    "scipy>=1.14.0",
+    "matplotlib>=3.10.0",
+    "cloudpickle>=3.1.0",
+    "asyncpg>=0.30.0,<0.32",
+    "openai>=2.24.0",
+]
+
+[tool.uv]
+package = false
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 119

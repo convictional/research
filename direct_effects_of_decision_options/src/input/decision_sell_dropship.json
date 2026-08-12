@@ -1,0 +1,60 @@
+{
+  "title": "Decision: Selling Dropship Division",
+  "goals": "focus on core business strengths, reduce operational complexity, maximize return on division sale, and ensure smooth transition for existing customers",
+  "options": [
+    {
+      "title": "Complete Sale to Strategic Buyer",
+      "description": "Sell entire dropship division to established e-commerce company at $12M valuation, including all customers, contracts, and technology"
+    },
+    {
+      "title": "Private Equity Sale",
+      "description": "Sell to PE firm at $10M with potential earnout based on 2-year performance metrics and continued operational involvement"
+    },
+    {
+      "title": "Management Buyout",
+      "description": "Allow current division management to purchase the unit at $8M with vendor financing and ongoing technology licensing agreement"
+    },
+    {
+      "title": "Partial Sale with Joint Venture",
+      "description": "Sell 60% stake while maintaining strategic partnership and shared technology infrastructure for key customers"
+    }
+  ],
+  "criteria": [
+    {
+      "title": "Financial Terms",
+      "description": "Purchase price, payment structure, and potential earnout or royalty arrangements"
+    },
+    {
+      "title": "Customer Impact",
+      "description": "Effect on existing customers and likelihood of maintaining current business relationships"
+    },
+    {
+      "title": "Employee Retention",
+      "description": "Job security for division employees and retention of key personnel"
+    },
+    {
+      "title": "Technology Separation",
+      "description": "Complexity of separating shared systems, data, and infrastructure"
+    },
+    {
+      "title": "Contract Obligations",
+      "description": "Ability to transfer or maintain existing supplier and customer contracts"
+    },
+    {
+      "title": "Brand Impact",
+      "description": "Effect on company reputation and relationships with remaining business units"
+    },
+    {
+      "title": "Transaction Speed",
+      "description": "Expected timeline to close deal and complete transition"
+    },
+    {
+      "title": "Ongoing Liabilities",
+      "description": "Potential future obligations, warranties, or guarantees after sale"
+    },
+    {
+      "title": "Competitive Implications",
+      "description": "Impact on market position and potential future competition from divested unit"
+    }
+  ]
+}

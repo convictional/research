@@ -1,0 +1,28 @@
+## Canonical Goals ({{ goals_count }} goals)
+{{ goals_formatted }}
+
+{% if has_alignment_report %}
+## Goal Relationships
+{{ alignment_report_formatted }}
+{% endif %}
+
+Write a comprehensive markdown summary of this organization's goal landscape using the following structure:
+
+# Organizational Goal Landscape Summary
+
+## Overview
+[2–3 sentences describing the organization's overall strategic direction based on these goals]
+
+## Goal Clusters
+[Group the goals into 2–4 thematic clusters. For each cluster: a short name, the goal IDs it contains, and a sentence explaining the theme]
+
+{% if has_alignment_report %}
+## Strategic Synergies
+[The 2–3 most important synergies to leverage, with a sentence on how to capitalize on each]
+
+## Key Tensions
+[The 2–3 most critical tensions to navigate, with a sentence on how to manage each]
+{% endif %}
+
+## Goal Inventory
+[One-line entry per canonical goal: ID, title, and whether stated or unstated]

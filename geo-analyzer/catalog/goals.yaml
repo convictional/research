@@ -1,0 +1,27 @@
+- id: brand-sov-l3-2026q3
+  subject: convictional_brand
+  metric: share_of_voice
+  tier: L3
+  target: 0.25
+  created_at: 2026-04-27
+  target_date: 2026-09-01
+  notes: "Q3 positioning target"
+
+- id: category-mention-l2-2026q3
+  subject: organizational_health_category
+  metric: mention_presence
+  tier: L2
+  target: 0.30
+  created_at: 2026-04-27
+  target_date: 2026-07-01
+  notes: "Category awareness milestone"
+
+- id: legacy-dropship-l4-eoy
+  subject: convictional_legacy_dropship
+  metric: brand_legacy_conflation
+  tier: L4
+  target: 0.05
+  direction: below
+  created_at: 2026-04-27
+  target_date: 2026-12-01
+  notes: "Legacy association must fade"

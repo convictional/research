@@ -1,0 +1,37 @@
+## Original DAG (Before Mutation)
+```json
+{{ original_dag_json | tojson(indent=2) }}
+```
+
+## Failed Mutation Diff
+```json
+{{ failed_diff.dict() | tojson(indent=2) }}
+```
+
+## Validation Errors
+{% for error in validation_errors %}
+- {{ error }}
+{% endfor %}
+
+## Original Mutation Goal
+**Type**: {{ original_proposal.mutation_type }}
+**Description**: {{ original_proposal.description }}
+**Reasoning**: {{ original_proposal.reasoning }}
+
+## Context
+{{ context }}
+
+## Task
+Generate a CORRECTED mutation diff that:
+1. Fixes all validation errors listed above
+2. Maintains the strategic intent of the original mutation
+3. Uses the same node-centric operation format
+4. Ensures structural validity (alternating pattern, proper connections)
+
+### Focus Areas
+- If layer violations exist, adjust node layers or types
+- If references are broken, ensure all parent/child IDs are valid
+- If edges are missing, include proper edge_to_parent data
+- Preserve the improvements the mutation was trying to achieve
+
+Generate the corrected diff now, ensuring it will pass validation while achieving the mutation goals.

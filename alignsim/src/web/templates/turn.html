@@ -1,0 +1,909 @@
+{% extends "base.html" %}
+{% block title %}Turn {{ turn }}{% endblock %}
+{% block nav %}<li>Turn {{ turn }} / {{ max_turns }}</li>{% endblock %}
+
+{% block extra_head %}
+<style>
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--pico-muted-border-color); margin-bottom: 1rem; }
+  .tab-btn {
+    padding: 0.5rem 1rem; cursor: pointer; border: none; background: none;
+    font-size: 0.85rem; font-weight: 600; color: var(--pico-muted-color);
+    border-bottom: 2px solid transparent; margin-bottom: -2px;
+  }
+  .tab-btn.active { color: var(--pico-primary); border-bottom-color: var(--pico-primary); }
+  .tab-btn:hover { color: var(--pico-primary); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .detail-back { font-size: 0.85rem; margin-bottom: 0.5rem; display: inline-block; cursor: pointer; }
+  .detail-section { margin-bottom: 1rem; }
+  .detail-section h4 { margin-bottom: 0.3rem; font-size: 0.9rem; }
+  .health-bar-row { display: flex; gap: 3px; align-items: end; height: 50px; }
+  .health-bar-col { width: 16px; border-radius: 2px 2px 0 0; }
+  .mini-dashboard { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .mini-stat { text-align: center; padding: 0.4rem 0.6rem; background: var(--pico-card-background-color); border: 1px solid var(--pico-muted-border-color); border-radius: 6px; }
+  .mini-stat .label { font-size: 0.65rem; color: var(--pico-muted-color); text-transform: uppercase; }
+  .mini-stat .value { font-size: 1.1rem; font-weight: 700; }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- ============ DASHBOARD ============ -->
+<div class="dashboard">
+  <div class="stat-card {{ 'success' if mrr_pct >= 80 else ('warning' if mrr_pct >= 50 else '') }}">
+    <div class="label">MRR</div>
+    <div class="value">${{ "{:,}".format(mrr) }}</div>
+    <div class="label">{{ mrr_pct }}% of ${{ "{:,}".format(mrr_target) }}</div>
+  </div>
+  <div class="stat-card {{ 'success' if runway >= min_runway else ('danger' if runway < 6 else 'warning') }}">
+    <div class="label">Runway</div>
+    <div class="value">{{ "%.1f"|format(runway) }} turns</div>
+    <div class="label">min: {{ min_runway }} turns</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Capacity</div>
+    <div class="value" style="font-size: 0.85rem;">E:{{ eng_capacity }} S:{{ sales_capacity }} CS:{{ support_capacity }} M:{{ marketing_capacity }}{% if ops_capacity > 0 %} O:{{ ops_capacity }}{% endif %}</div>
+    <div class="label">{{ capacity }} total{% if sales_momentum > 0 %} · mom:{{ "%.2f"|format(sales_momentum) }}{% endif %}</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Budget</div>
+    <div class="value">${{ "{:,}".format(budget) }}</div>
+  </div>
+  <div class="stat-card {{ 'danger' if debt_level == 'critical' else ('warning' if debt_level in ('medium', 'high') else '') }}">
+    <div class="label">Tech Debt</div>
+    <div class="value">{{ debt_level }}</div>
+    <div class="label">{{ debt_value }}</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Maturity</div>
+    <div class="value">{{ "%.0f"|format(maturity * 100) }}%</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Active</div>
+    <div class="value">{{ active_customers }}</div>
+    <div class="label">customers</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Turns Left</div>
+    <div class="value">{{ turns_remaining }}</div>
+  </div>
+</div>
+
+<!-- ============ EVENTS ============ -->
+{% if events %}
+<details open>
+  <summary>Last Turn Events ({{ events|length }})</summary>
+  <ul class="events-list">
+    {% for e in events %}
+    <li>{{ e }}</li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
+
+<!-- ============ MAIN GRID: TABS + ACTIONS ============ -->
+<div class="grid-2">
+
+<!-- LEFT: Tabbed Info Panels -->
+<div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('game-state')">Game State</button>
+    <button class="tab-btn" onclick="switchTab('customer-detail')" id="tab-btn-customer">Customer Detail</button>
+    <button class="tab-btn" onclick="switchTab('history')">History</button>
+  </div>
+
+  <!-- TAB: Game State -->
+  <div id="tab-game-state" class="tab-content active">
+    <!-- PIPELINE / CUSTOMERS -->
+    <section>
+      <h3>Customers &amp; Pipeline</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Stage</th><th>Size</th><th>Value</th>
+            <th>Satisfaction</th><th>Needs</th><th>Timeline</th><th>Health</th><th>Engage</th><th>Sell Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in pipeline %}
+          <tr>
+            <td><strong><a href="#" onclick="showCustomer('{{ c.id }}'); return false;">{{ c.id }}</a></strong></td>
+            <td><span class="stage-{{ c.stage }}">{{ c.stage }}</span></td>
+            <td>{{ c.size }}</td>
+            <td>${{ "{:,}".format(c.deal_value) }}/mo</td>
+            <td>
+              <span class="{{ 'sat-high' if c.satisfaction >= 0.7 else ('sat-mid' if c.satisfaction >= 0.5 else 'sat-low') }}">
+                {{ "%.1f"|format(c.satisfaction * 100) }}%
+              </span>
+              {% if c.stage == 'in_deal' %}
+                {% if c.satisfaction >= 0.7 and c.dealbreakers_met %}&#10003;{% elif not c.dealbreakers_met %}&#128274;{% endif %}
+              {% endif %}
+            </td>
+            <td>
+              {% for fn in c.feature_needs %}
+                <span class="tag {{ 'tag-' + fn.status.replace('shipped_', '') if fn.shipped else 'tag-not-started' }}" title="{{ fn.feature_id }}: {{ fn.status }}{% for k,v in fn.scores.items() %} {{ k }}={{ v }}{% endfor %}">
+                  {{ fn.feature_id }}
+                </span>
+              {% endfor %}
+              {% if c.dealbreakers %}
+                <small>(req: {{ c.dealbreakers|join(', ') }})</small>
+              {% endif %}
+            </td>
+            <td>{% if c.timeline_active and c.timeline > 0 and not c.is_customer %}{{ c.timeline }}{% if c.timeline_resets > 0 %} <small>(×{{ c.timeline_resets }})</small>{% endif %}{% endif %}</td>
+            <td>{% if c.is_customer %}{{ c.health }}{% endif %}</td>
+            <td>{{ c.engagement }}</td>
+            <td style="font-size:0.75rem;">
+              {% if c.min_sell_capacity and not c.is_customer %}
+                {% for action, cost in c.min_sell_capacity.items() %}{{ action }}:{{ cost }}{% if not loop.last %} {% endif %}{% endfor %}
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FEATURES -->
+    <section>
+      <h3>Features</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Status</th><th>Progress</th>
+            <th>Cost (mvp/solid/pol)</th><th>Deps</th><th>Demanded By</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for f in features %}
+          <tr>
+            <td><strong>{{ f.id }}</strong></td>
+            <td>{{ f.name }}</td>
+            <td>
+              {% if f.status.startswith('shipped') and f.current_target %}
+                <span class="tag tag-in-progress">{{ f.status }} &rarr; {{ f.current_target }}</span>
+              {% elif f.status.startswith('shipped') %}
+                <span class="tag tag-{{ f.status.replace('shipped_', '') }}">{{ f.status }}</span>
+              {% elif f.status == 'in_progress' %}
+                <span class="tag tag-in-progress">building &rarr; {{ f.current_target }}</span>
+              {% else %}
+                <span class="tag tag-not-started">{{ f.status }}</span>
+              {% endif %}
+            </td>
+            <td>{% if f.status == 'in_progress' or f.current_target %}{{ f.progress }}%{% endif %}</td>
+            <td>{{ f.cost.get('mvp', '-') }} / {{ f.cost.get('solid', '-') }} / {{ f.cost.get('polished', '-') }}</td>
+            <td>
+              {% for d in f.depends_on %}
+                <span class="{{ 'shipped' if f.deps_met else 'blocked' }}">{{ d }}</span>
+              {% endfor %}
+            </td>
+            <td>{{ f.demanded_by|join(', ') }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- BUGS -->
+    {% if bugs %}
+    <section>
+      <h3>Bug Backlog ({{ bugs|length }})</h3>
+      <table>
+        <thead><tr><th>ID</th><th>Severity</th><th>Feature</th><th>Age</th><th>Affects</th></tr></thead>
+        <tbody>
+          {% for b in bugs %}
+          <tr>
+            <td>{{ b.id }}</td>
+            <td><span class="severity-{{ b.severity }}">{{ b.severity }}</span></td>
+            <td>{{ b.feature_id }}</td>
+            <td>{{ b.turns_unresolved }} turns</td>
+            <td>{{ b.affected_customers|join(', ') }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+
+    <!-- PENDING HIRES -->
+    {% if pending_hires %}
+    <section>
+      <h3>Pending Hires</h3>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Target</th><th>Hired By</th><th>Phase</th><th>Active Progress</th><th>Turns Left</th><th>+Cap</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          {% for h in pending_hires %}
+          <tr>
+            <td><strong>{{ h.id }}</strong></td>
+            <td>{{ h.target_function }}</td>
+            <td>{{ h.hiring_function }}{% if h.is_cross_function %} (cross){% endif %}</td>
+            <td>
+              {% if h.needs_sustain %}
+              <span style="color:#c0392b; font-weight:700;">ACTIVE</span>
+              {% else %}
+              <span style="color:#27ae60;">Auto</span>
+              {% endif %}
+            </td>
+            <td>{{ h.active_turns_completed }}/{{ h.active_turns_required }}</td>
+            <td>{{ h.turns_remaining }}</td>
+            <td>+{{ h.capacity_on_arrival }}</td>
+            <td>
+              {% if h.needs_sustain %}
+              <small style="color:#c0392b;">Submit sustain_hire!</small>
+              {% else %}
+              <small style="color:#27ae60;">No action needed</small>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+
+    <!-- OPS PROJECTS -->
+    {% if ops_observation.available_projects or ops_observation.active_projects or ops_observation.completed_projects or ops_observation.active_bonuses %}
+    <section>
+      <h3>Ops Projects</h3>
+      {% if ops_observation.active_projects %}
+      <h4 style="font-size:0.85rem;">In Progress</h4>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Target</th><th>Progress</th><th>Support Cap Invested</th></tr></thead>
+        <tbody>
+          {% for p in ops_observation.active_projects %}
+          <tr>
+            <td><strong>{{ p.id }}</strong></td><td>{{ p.name }}</td><td>{{ p.target_function }}</td>
+            <td>{{ p.progress_turns }}/{{ p.duration_turns }} turns</td><td>{{ p.target_team_capacity_invested }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      {% if ops_observation.available_projects %}
+      <h4 style="font-size:0.85rem; margin-top:0.75rem;">Available</h4>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Target</th><th>Size</th><th>Ops Cost/Turn</th><th>Duration</th><th>Description</th></tr></thead>
+        <tbody>
+          {% for p in ops_observation.available_projects %}
+          <tr>
+            <td><strong>{{ p.id }}</strong></td><td>{{ p.name }}</td><td>{{ p.target_function }}</td>
+            <td>{{ p.size }}</td><td>{{ p.ops_capacity_cost }}</td><td>{{ p.duration_turns }} turns</td>
+            <td style="font-size:0.75rem;">{{ p.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      {% if ops_observation.completed_projects %}
+      <h4 style="font-size:0.85rem; margin-top:0.75rem;">Completed</h4>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Target</th><th>Completed Turn</th></tr></thead>
+        <tbody>
+          {% for p in ops_observation.completed_projects %}
+          <tr><td><strong>{{ p.id }}</strong></td><td>{{ p.name }}</td><td>{{ p.target_function }}</td><td>{{ p.completed_turn }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      {% if ops_observation.active_bonuses %}
+      <h4 style="font-size:0.85rem; margin-top:0.75rem;">Active Bonuses</h4>
+      <table>
+        <thead><tr><th>Project</th><th>Target</th><th>Effect</th><th>Turns Left</th></tr></thead>
+        <tbody>
+          {% for b in ops_observation.active_bonuses %}
+          <tr><td>{{ b.project_id }}</td><td>{{ b.target_function }}</td><td>{{ b.effectiveness }}</td><td>{{ b.turns_remaining }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </section>
+    {% endif %}
+  </div>
+
+  <!-- TAB: Customer Detail -->
+  <div id="tab-customer-detail" class="tab-content">
+    <a class="detail-back" onclick="switchTab('game-state')">&larr; Back to Game State</a>
+    <div id="customer-detail-content">
+      <p style="color:var(--pico-muted-color);">Click a customer ID in the Game State tab to view their detail.</p>
+    </div>
+  </div>
+
+  <!-- TAB: History -->
+  <div id="tab-history" class="tab-content">
+    <a class="detail-back" onclick="switchTab('game-state')">&larr; Back to Game State</a>
+    {% if history %}
+      {% for t in history|reverse %}
+      <details {{ 'open' if loop.first else '' }}>
+        <summary>
+          <strong>Turn {{ t.turn }}</strong> &mdash;
+          MRR: ${{ "{:,}".format(t.mrr) }} |
+          Runway: {{ t.runway }} turns |
+          Cap: {{ t.capacity_used }}/{{ t.capacity_available }}
+          {% if t.churn_count %} | Churn: {{ t.churn_count }}{% endif %}
+        </summary>
+        <div class="grid-2">
+          <div>
+            <h4>Actions ({{ t.actions|length }})</h4>
+            {% if t.actions %}
+            <ul style="margin:0; padding-left:1.2rem;">
+              {% for a in t.actions %}
+              <li style="font-size:0.85rem;">{{ a }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <p style="font-size:0.85rem; color:var(--pico-muted-color);">No actions</p>
+            {% endif %}
+            {% if t.rejected %}
+            <h4 style="color:#c0392b; margin-top:0.5rem;">Rejected</h4>
+            <ul style="margin:0; padding-left:1.2rem;">
+              {% for r in t.rejected %}
+              <li style="font-size:0.85rem; color:#c0392b;">{{ r.reason }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          <div>
+            <h4>Events ({{ t.events|length }})</h4>
+            {% if t.events %}
+            <ul class="events-list">
+              {% for e in t.events %}
+              <li>{{ e }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <p style="font-size:0.85rem; color:var(--pico-muted-color);">No events</p>
+            {% endif %}
+          </div>
+        </div>
+      </details>
+      {% endfor %}
+    {% else %}
+      <p style="color:var(--pico-muted-color);">No turns played yet.</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- RIGHT: Action Builder (always visible) -->
+<div>
+  <section>
+    <h3>Actions for Turn {{ turn }}</h3>
+    <div style="margin-bottom: 0.5rem; font-size: 0.85rem;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1rem;">
+        <span>Eng: <strong><span id="cap-eng-used">0</span>/{{ eng_capacity }}</strong></span>
+        <span>Sales: <strong><span id="cap-sales-used">0</span>/{{ sales_capacity }}</strong></span>
+        <span>Support: <strong><span id="cap-support-used">0</span>/{{ support_capacity }}</strong></span>
+        <span>Marketing: <strong><span id="cap-mkt-used">0</span>/{{ marketing_capacity }}</strong></span>
+        {% if ops_capacity > 0 %}<span>Ops: <strong><span id="cap-ops-used">0</span>/{{ ops_capacity }}</strong></span>{% endif %}
+      </div>
+      <div class="capacity-bar" style="margin-top: 0.3rem;"><div class="fill" id="cap-fill" style="width: 0%"></div></div>
+    </div>
+
+    <!-- Action form -->
+    <div id="action-form">
+      <div class="form-row">
+        <label>
+          Type
+          <select id="a-type" onchange="updateActionFields()">
+            <option value="">-- select --</option>
+            <option value="build">Build Feature</option>
+            <option value="sell">Sell to Customer</option>
+            <option value="support">Support Customer</option>
+            <option value="fix_bugs">Fix Bugs</option>
+            <option value="infrastructure">Infrastructure</option>
+            <option value="discover">Discover Customers</option>
+            <option value="market">Marketing</option>
+            <option value="hire">Hire (start new)</option>
+            <option value="sustain_hire">Sustain Hire</option>
+            <option value="fire">Fire</option>
+            {% if ops_capacity > 0 %}
+            <option value="ops_project">Ops Project</option>
+            <option value="ops_project_support">Ops Project Support</option>
+            {% endif %}
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-build" class="form-row" style="display:none">
+        <label>
+          Feature
+          <select id="a-feature">
+            {% for f in features %}
+            <option value="{{ f.id }}" {{ 'disabled' if not f.deps_met and not f.status.startswith('shipped') }}>
+              {{ f.id }} &mdash; {{ f.name }} ({{ f.status }}){% if not f.deps_met and not f.status.startswith('shipped') %} [BLOCKED]{% endif %}
+            </option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          Quality
+          <select id="a-quality">
+            <option value="mvp">MVP</option>
+            <option value="solid">Solid</option>
+            <option value="polished">Polished</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-sell" class="form-row" style="display:none">
+        <label>
+          Customer
+          <select id="a-sell-customer">
+            {% for c in pipeline if not c.is_customer %}
+            <option value="{{ c.id }}">{{ c.id }} ({{ c.stage }}, ${{ "{:,}".format(c.deal_value) }})</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          Action
+          <select id="a-sell-action">
+            <option value="outbound">Outbound</option>
+            <option value="demo">Demo</option>
+            <option value="proposal">Proposal</option>
+            <option value="negotiate">Negotiate</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-support" class="form-row" style="display:none">
+        <label>
+          Customer
+          <select id="a-support-customer">
+            {% for c in pipeline if c.is_customer %}
+            <option value="{{ c.id }}">{{ c.id }} (health={{ c.health }})</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          Action
+          <select id="a-support-action">
+            <option value="health_check">Health Check</option>
+            <option value="churn_intervention">Churn Intervention</option>
+            <option value="onboard">Onboard</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-fix_bugs" class="form-row" style="display:none">
+        <label>
+          Bug (optional, blank = auto)
+          <select id="a-bug-id">
+            <option value="">Auto (highest severity)</option>
+            {% for b in bugs %}
+            <option value="{{ b.id }}">{{ b.id }} ({{ b.severity }}, {{ b.feature_id }})</option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-discover" class="form-row" style="display:none">
+        <label>
+          Target Features (comma-separated, e.g. F01,F02; leave empty for broad)
+          <input type="text" id="a-target-features" placeholder="F01,F02">
+        </label>
+      </div>
+
+      <div id="fields-market" class="form-row" style="display:none">
+        <label>
+          Channel
+          <select id="a-channel">
+            <option value="content">Content</option>
+            <option value="events">Events</option>
+            <option value="outbound_campaign">Outbound Campaign</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-hire" class="form-row" style="display:none">
+        <label>
+          Hiring function (pays cost)
+          <select id="a-hire-hiring-function">
+            <option value="engineering">Engineering</option>
+            <option value="sales">Sales</option>
+            <option value="cs">CS</option>
+            <option value="marketing">Marketing</option>
+            <option value="ops">Ops</option>
+          </select>
+        </label>
+        <label>
+          Target function (gets headcount)
+          <select id="a-hire-target-function">
+            <option value="engineering">Engineering</option>
+            <option value="sales">Sales</option>
+            <option value="cs">CS</option>
+            <option value="marketing">Marketing</option>
+            <option value="ops">Ops</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-sustain_hire" class="form-row" style="display:none">
+        <label>
+          Hire ID
+          <select id="a-sustain-hire-id">
+            {% for h in pending_hires %}
+            {% if h.needs_sustain %}
+            <option value="{{ h.id }}">{{ h.id }} — {{ h.target_function }} ({{ h.active_turns_completed }}/{{ h.active_turns_required }} active)</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-fire" class="form-row" style="display:none">
+        <label>
+          Function
+          <select id="a-fire-function">
+            <option value="engineering">Engineering</option>
+            <option value="sales">Sales</option>
+            <option value="cs">CS</option>
+            <option value="marketing">Marketing</option>
+            <option value="ops">Ops</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-ops_project" class="form-row" style="display:none">
+        <label>
+          Project
+          <select id="a-ops-project-id">
+            {% for p in ops_observation.available_projects %}
+            <option value="{{ p.id }}">{{ p.id }} — {{ p.name }} ({{ p.size }}, {{ p.ops_capacity_cost }} ops cap)</option>
+            {% endfor %}
+            {% for p in ops_observation.active_projects %}
+            <option value="{{ p.id }}">{{ p.id }} — {{ p.name }} (in progress {{ p.progress_turns }}/{{ p.duration_turns }})</option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+
+      <div id="fields-ops_project_support" class="form-row" style="display:none">
+        <label>
+          Active Project
+          <select id="a-ops-support-project-id" onchange="updateActionFields()">
+            {% for p in ops_observation.active_projects %}
+            <option value="{{ p.id }}" data-target-function="{{ p.target_function }}">
+              {{ p.id }} — {{ p.name }} (target: {{ p.target_function }}, {{ p.progress_turns }}/{{ p.duration_turns }} turns)
+            </option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+
+      <div class="form-row" id="capacity-row">
+        <label class="small">
+          Capacity <span id="cap-pool-hint" style="font-size:0.75rem; color:var(--pico-muted-color);"></span>
+          <input type="number" id="a-capacity" value="4" min="1" max="{{ capacity }}">
+        </label>
+      </div>
+      <div>
+        <button type="button" onclick="addAction()" style="margin-top: 0.5rem;">Add Action</button>
+      </div>
+    </div>
+
+    <!-- Queued actions -->
+    <h4 style="margin-top: 1rem;">Queued Actions</h4>
+    <div id="action-queue" class="action-queue"></div>
+
+    <!-- Submit -->
+    <form method="post" action="/submit" id="submit-form">
+      <input type="hidden" name="actions_json" id="actions-json" value="[]">
+      <button type="submit" class="contrast" style="margin-top: 1rem; width: 100%;">
+        Submit Turn {{ turn }}
+      </button>
+    </form>
+  </section>
+</div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const POOLS = {
+  engineering: {{ eng_capacity }},
+  sales: {{ sales_capacity }},
+  support: {{ support_capacity }},
+  marketing: {{ marketing_capacity }},
+  ops: {{ ops_capacity }},
+};
+const MAX_CAP = {{ capacity }};
+const HIRE_CAP_COST = 3;
+const MIN_RUBRIC = {{ min_rubric }};
+const MIN_SELL_CAP = {{ customer_details | tojson }};  // used for sell min display
+let actions = [];
+
+function getPool(type, action) {
+  if (['build','fix_bugs','infrastructure'].includes(type)) return 'engineering';
+  if (['sell','discover'].includes(type)) return 'sales';
+  if (type === 'support') return 'support';
+  if (type === 'market') return 'marketing';
+  if (type === 'hire') {
+    const func = action ? action.hiring_function : '';
+    return {engineering:'engineering', sales:'sales', cs:'support', marketing:'marketing', ops:'ops'}[func] || 'engineering';
+  }
+  if (type === 'sustain_hire') {
+    const hireId = action ? action.hire_id : document.getElementById('a-sustain-hire-id')?.value;
+    const hires = {{ pending_hires | tojson }};
+    const h = hires.find(x => x.id === hireId);
+    if (h) return {engineering:'engineering', sales:'sales', cs:'support', marketing:'marketing', ops:'ops'}[h.hiring_function] || 'engineering';
+    return 'engineering';
+  }
+  if (type === 'fire') return 'none';  // fire has no capacity cost
+  if (type === 'ops_project') return 'ops';
+  if (type === 'ops_project_support') {
+    // For pool hint (action=null): read DOM live
+    const sel = document.getElementById('a-ops-support-project-id');
+    if (sel && sel.selectedOptions.length > 0) {
+      const tf = sel.selectedOptions[0].dataset.targetFunction;
+      const map = {engineering:'engineering', sales:'sales', support:'support', marketing:'marketing'};
+      return map[tf] || 'engineering';
+    }
+    // For queued actions: use stored target_function
+    if (action && action.target_function) {
+      const map = {engineering:'engineering', sales:'sales', support:'support', marketing:'marketing'};
+      return map[action.target_function] || 'engineering';
+    }
+    return 'engineering';
+  }
+  return 'engineering';
+}
+
+// Customer detail data embedded from server
+const customerDetails = {{ customer_details | tojson }};
+
+// ============ TABS ============
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  // Find matching button
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    if (btn.textContent.trim().toLowerCase().replace(' ', '-') === tabId.replace('-', ' ').toLowerCase()
+        || (tabId === 'game-state' && btn.textContent.trim() === 'Game State')
+        || (tabId === 'customer-detail' && btn.textContent.trim() === 'Customer Detail')
+        || (tabId === 'history' && btn.textContent.trim() === 'History')) {
+      btn.classList.add('active');
+    }
+  });
+}
+
+function showCustomer(customerId) {
+  const c = customerDetails[customerId];
+  if (!c) return;
+  const container = document.getElementById('customer-detail-content');
+  container.innerHTML = renderCustomerDetail(c);
+  document.getElementById('tab-btn-customer').textContent = 'Customer: ' + customerId;
+  switchTab('customer-detail');
+}
+
+function renderCustomerDetail(c) {
+  const satClass = c.satisfaction >= 0.7 ? 'sat-high' : (c.satisfaction >= 0.5 ? 'sat-mid' : 'sat-low');
+  const sb = c.satisfaction_breakdown;
+  const rw = c.rubric_weights;
+
+  let html = '';
+
+  // Mini dashboard
+  html += `<div class="mini-dashboard">
+    <div class="mini-stat"><div class="label">Deal Value</div><div class="value">$${c.deal_value.toLocaleString()}/mo</div></div>
+    <div class="mini-stat"><div class="label">Segment</div><div class="value">${c.segment}</div></div>
+    <div class="mini-stat"><div class="label">Satisfaction</div><div class="value ${satClass}">${(c.satisfaction*100).toFixed(1)}%</div><div class="label">need ${(MIN_RUBRIC*100).toFixed(0)}%</div></div>
+    <div class="mini-stat"><div class="label">Engagement</div><div class="value">${c.engagement}</div></div>`;
+  if (c.is_customer) {
+    const hClass = c.health < 5 ? 'sat-low' : (c.health < 7 ? 'sat-mid' : 'sat-high');
+    html += `<div class="mini-stat"><div class="label">Health</div><div class="value ${hClass}">${c.health}</div></div>`;
+  }
+  if (c.timeline_active && c.timeline > 0 && !c.is_customer) {
+    const tClass = c.timeline <= 3 ? 'sat-low' : (c.timeline <= 6 ? 'sat-mid' : '');
+    const resets = c.timeline_resets > 0 ? ` <small>(×${c.timeline_resets})</small>` : '';
+    html += `<div class="mini-stat"><div class="label">Timeline</div><div class="value ${tClass}">${c.timeline}${resets}</div><div class="label">turns left</div></div>`;
+  }
+  html += '</div>';
+
+  // Satisfaction breakdown
+  html += `<div class="detail-section"><h4>Satisfaction Breakdown</h4><table>
+    <thead><tr><th>Component</th><th>Weight</th><th>Score</th><th>Weighted</th></tr></thead><tbody>`;
+  const components = [
+    ['Feature Coverage', rw.feature_coverage, sb.feature_coverage],
+    ['Price', rw.price, sb.price],
+    ['Product Maturity', rw.maturity, sb.maturity],
+    ['Support', rw.support, sb.support],
+  ];
+  components.forEach(([name, weight, score]) => {
+    html += `<tr><td>${name}</td><td>${weight}</td><td>${(score*100).toFixed(1)}%</td><td>${(weight*score*100).toFixed(1)}%</td></tr>`;
+  });
+  html += `<tr style="font-weight:700; border-top:2px solid var(--pico-muted-border-color)">
+    <td>Total</td><td></td><td></td><td class="${satClass}">${(c.satisfaction*100).toFixed(1)}%</td></tr>`;
+  html += '</tbody></table></div>';
+
+  // Feature needs
+  html += '<div class="detail-section"><h4>Feature Needs</h4>';
+  if (c.dealbreakers && c.dealbreakers.length > 0) {
+    const metClass = c.dealbreakers_met ? 'sat-high' : 'sat-low';
+    const metText = c.dealbreakers_met ? 'all met' : 'NOT MET';
+    html += `<p><strong>Dealbreakers:</strong> ${c.dealbreakers.join(', ')} <span class="${metClass}">&mdash; ${metText}</span></p>`;
+  }
+  html += `<table><thead><tr><th>Feature</th><th>Status</th><th>MVP</th><th>Solid</th><th>Polished</th><th>Current</th></tr></thead><tbody>`;
+  c.feature_needs.forEach(fn => {
+    const statusTag = fn.shipped
+      ? `<span class="tag tag-${fn.status.replace('shipped_','')}">${fn.status}</span>`
+      : `<span class="tag tag-not-started">${fn.status}</span>`;
+    const current = fn.shipped_quality ? `<strong>${fn.current_score}</strong>` : '<span style="color:var(--pico-muted-color)">0</span>';
+    html += `<tr><td><strong>${fn.feature_id}</strong> &mdash; ${fn.feature_name}</td><td>${statusTag}</td>
+      <td>${fn.scores.mvp ?? '-'}</td><td>${fn.scores.solid ?? '-'}</td><td>${fn.scores.polished ?? '-'}</td><td>${current}</td></tr>`;
+  });
+  html += '</tbody></table></div>';
+
+  // Health history (active customers)
+  if (c.is_customer && c.health_history && c.health_history.length > 0) {
+    html += '<div class="detail-section"><h4>Health History</h4><div class="health-bar-row">';
+    c.health_history.forEach((h, i) => {
+      const color = h >= 7 ? '#27ae60' : (h >= 5 ? '#f39c12' : '#c0392b');
+      const pct = (h / 10 * 100);
+      html += `<div class="health-bar-col" style="background:${color}; height:${pct}%;" title="Turn ${i+1}: ${h}"></div>`;
+    });
+    html += '</div><div style="font-size:0.75rem; color:var(--pico-muted-color); margin-top:0.25rem;">';
+    html += c.health_history.join(' &rarr; ');
+    html += '</div>';
+    if (c.turns_below_churn > 0) {
+      html += `<p class="sat-low"><strong>${c.turns_below_churn} consecutive turns below churn threshold</strong> (churns at 2)</p>`;
+    }
+    if (c.turns_above_expansion > 0) {
+      html += `<p class="sat-high"><strong>${c.turns_above_expansion} consecutive turns above expansion threshold</strong> (expands at 4)</p>`;
+    }
+    html += '</div>';
+  }
+
+  // Action history
+  html += '<div class="detail-section"><h4>Action &amp; Event History</h4>';
+  if (c.action_history && c.action_history.length > 0) {
+    html += '<table><thead><tr><th>Turn</th><th>Action / Event</th></tr></thead><tbody>';
+    c.action_history.forEach(h => {
+      html += `<tr><td>${h.turn}</td><td>${h.action}</td></tr>`;
+    });
+    html += '</tbody></table>';
+  } else {
+    html += '<p style="color:var(--pico-muted-color);">No actions or events yet.</p>';
+  }
+  html += '</div>';
+
+  return html;
+}
+
+// ============ ACTION BUILDER ============
+function updateActionFields() {
+  const type = document.getElementById('a-type').value;
+  const allFields = ['build','sell','support','fix_bugs','discover','market','hire','sustain_hire','fire','ops_project','ops_project_support'];
+  allFields.forEach(f => {
+    const el = document.getElementById('fields-' + f);
+    if (el) el.style.display = (f === type) ? 'flex' : 'none';
+  });
+  document.getElementById('capacity-row').style.display = (['hire', 'fire', 'sustain_hire'].includes(type)) ? 'none' : 'flex';
+  // Show pool hint
+  const hint = document.getElementById('cap-pool-hint');
+  if (type === 'hire') {
+    hint.textContent = `(costs ${HIRE_CAP_COST} cap + budget; must sustain each active turn)`;
+  } else if (type === 'sustain_hire') {
+    hint.textContent = `(costs ${HIRE_CAP_COST} from hiring pool; pre-committed before other actions)`;
+  } else if (type && type !== 'hire') {
+    const pool = getPool(type, null);
+    hint.textContent = `(${pool} pool: ${POOLS[pool]})`;
+  } else {
+    hint.textContent = '';
+  }
+}
+
+function addAction() {
+  const type = document.getElementById('a-type').value;
+  if (!type) return;
+
+  const cap = (['hire', 'fire', 'sustain_hire'].includes(type)) ? 0 : parseInt(document.getElementById('a-capacity').value) || 0;
+  let action = { action_type: type, capacity: cap };
+  let label = type;
+
+  if (type === 'build') {
+    action.feature_id = document.getElementById('a-feature').value;
+    action.quality = document.getElementById('a-quality').value;
+    label = `Build ${action.feature_id} &rarr; ${action.quality} (${cap})`;
+  } else if (type === 'sell') {
+    action.customer_id = document.getElementById('a-sell-customer').value;
+    action.sell_action = document.getElementById('a-sell-action').value;
+    label = `Sell ${action.customer_id} [${action.sell_action}] (${cap})`;
+  } else if (type === 'support') {
+    action.customer_id = document.getElementById('a-support-customer').value;
+    action.support_action = document.getElementById('a-support-action').value;
+    label = `Support ${action.customer_id} [${action.support_action}] (${cap})`;
+  } else if (type === 'fix_bugs') {
+    action.bug_id = document.getElementById('a-bug-id').value || null;
+    label = `Fix Bugs${action.bug_id ? ' (' + action.bug_id + ')' : ' (auto)'} (${cap})`;
+  } else if (type === 'infrastructure') {
+    label = `Infrastructure (${cap})`;
+  } else if (type === 'discover') {
+    const raw = document.getElementById('a-target-features').value.trim();
+    action.target_features = raw ? raw.split(',').map(s => s.trim()).filter(Boolean) : [];
+    label = `Discover${action.target_features.length ? ' [' + action.target_features.join(',') + ']' : ''} (${cap})`;
+  } else if (type === 'market') {
+    action.channel = document.getElementById('a-channel').value;
+    label = `Market [${action.channel}] (${cap})`;
+  } else if (type === 'hire') {
+    action.hiring_function = document.getElementById('a-hire-hiring-function').value;
+    action.target_function = document.getElementById('a-hire-target-function').value;
+    const cross = action.hiring_function !== action.target_function;
+    label = cross
+      ? `Hire ${action.target_function} (cross from ${action.hiring_function})`
+      : `Hire ${action.target_function}`;
+  } else if (type === 'sustain_hire') {
+    action.hire_id = document.getElementById('a-sustain-hire-id').value;
+    label = `Sustain Hire ${action.hire_id}`;
+  } else if (type === 'fire') {
+    action.function = document.getElementById('a-fire-function').value;
+    label = `Fire ${action.function}`;
+  } else if (type === 'ops_project') {
+    action.project_id = document.getElementById('a-ops-project-id').value;
+    label = `Ops Project ${action.project_id} (${cap} cap)`;
+  } else if (type === 'ops_project_support') {
+    const sel = document.getElementById('a-ops-support-project-id');
+    action.project_id = sel.value;
+    action.target_function = sel.selectedOptions[0]?.dataset.targetFunction || 'engineering';
+    label = `Ops Support ${action.project_id} [${action.target_function}] (${cap} cap)`;
+  }
+
+  actions.push({ data: action, label: label, capacity: cap });
+  renderQueue();
+}
+
+function removeAction(idx) {
+  actions.splice(idx, 1);
+  renderQueue();
+}
+
+function renderQueue() {
+  const queue = document.getElementById('action-queue');
+
+  // Compute per-pool usage
+  const used = { engineering: 0, sales: 0, support: 0, marketing: 0, ops: 0 };
+  actions.forEach(a => {
+    const pool = getPool(a.data.action_type, a.data);
+    if (a.data.action_type === 'hire' || a.data.action_type === 'sustain_hire') {
+      if (pool !== 'none') used[pool] += HIRE_CAP_COST;
+    } else {
+      used[pool] += a.capacity;
+    }
+  });
+
+  queue.innerHTML = actions.map((a, i) =>
+    `<div class="action-item">
+      <span>${a.label}</span>
+      <button type="button" onclick="removeAction(${i})" class="secondary outline">&times;</button>
+    </div>`
+  ).join('');
+
+  // Update per-pool displays
+  document.getElementById('cap-eng-used').textContent = used.engineering;
+  document.getElementById('cap-sales-used').textContent = used.sales;
+  document.getElementById('cap-support-used').textContent = used.support;
+  document.getElementById('cap-mkt-used').textContent = used.marketing;
+  const opsEl = document.getElementById('cap-ops-used');
+  if (opsEl) {
+    opsEl.textContent = used.ops;
+    opsEl.style.color = used.ops > POOLS.ops ? '#c0392b' : '';
+  }
+
+  // Color per-pool displays if over
+  ['eng','sales','support','mkt'].forEach((abbr, i) => {
+    const poolKey = ['engineering','sales','support','marketing'][i];
+    const el = document.getElementById('cap-' + abbr + '-used');
+    el.style.color = used[poolKey] > POOLS[poolKey] ? '#c0392b' : '';
+  });
+
+  const totalCap = Object.values(used).reduce((s, v) => s + v, 0);
+  const pct = Math.min(totalCap / MAX_CAP * 100, 100);
+  const fill = document.getElementById('cap-fill');
+  fill.style.width = pct + '%';
+  const anyOver = Object.keys(used).some(k => used[k] > POOLS[k]);
+  fill.className = 'fill' + (anyOver ? ' over' : '');
+
+  document.getElementById('actions-json').value = JSON.stringify(actions.map(a => a.data));
+}
+</script>
+{% endblock %}

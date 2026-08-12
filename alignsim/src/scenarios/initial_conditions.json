@@ -1,0 +1,304 @@
+{
+  "_description": "Catalog of interesting game starting conditions for AlignSim. Each entry defines financial state, goal targets, and calibration overrides that create a distinct strategic situation. These become scenario presets that can be combined with different customer/feature/competitor configurations.",
+
+  "conditions": [
+    {
+      "id": "burning_runway",
+      "name": "Burning Runway",
+      "description": "Post-seed startup with product-market fit signals but cash-flow negative. Must close deals to survive. The default playtest condition.",
+      "narrative": "You've raised a seed round, built an MVP, landed 4 early customers, and have a healthy pipeline. But your burn rate exceeds revenue and the clock is ticking. You need to convert pipeline to revenue before the money runs out.",
+      "financials": {
+        "starting_budget": 500000,
+        "base_cost_per_turn": 10000,
+        "starting_mrr": 80000,
+        "capacity_per_turn": 40
+      },
+      "goal_overrides": {
+        "mrr_target": 210000,
+        "max_churn_rate": 0.02,
+        "min_runway_turns": 10,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500
+      },
+      "initial_customer_profile": {
+        "active": 4,
+        "in_deal": 3,
+        "pipeline": 5,
+        "hidden": 8
+      },
+      "initial_product_state": "4 features shipped at MVP, 8 unshipped with dependency chains",
+      "initial_bugs": ["major:F01:C05,C08"],
+      "key_tensions": [
+        "Burn rate creates urgency to close deals quickly",
+        "Bug in F01 threatens largest customer (C05) — fix vs. build new",
+        "Competitor launches at turn 8 create time pressure on pipeline",
+        "Need to roughly triple MRR in 48 turns"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.30-0.50",
+        "balanced_strategy": "0.70-0.80",
+        "optimal_play": "0.85-0.95"
+      }
+    },
+
+    {
+      "id": "pre_revenue",
+      "name": "Pre-Revenue",
+      "description": "Pre-revenue startup with a product and pipeline but zero customers. Pure burn. Must find and close first customers from scratch.",
+      "narrative": "You've built a product but have no paying customers yet. Your entire team is funded by runway. Every turn without revenue brings you closer to death. You need to discover, qualify, and close customers — fast.",
+      "financials": {
+        "starting_budget": 400000,
+        "base_cost_per_turn": 8000,
+        "starting_mrr": 0,
+        "capacity_per_turn": 30
+      },
+      "goal_overrides": {
+        "mrr_target": 150000,
+        "max_churn_rate": 0.03,
+        "min_runway_turns": 8,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500
+      },
+      "initial_customer_profile": {
+        "active": 0,
+        "in_deal": 0,
+        "pipeline": 6,
+        "hidden": 14
+      },
+      "initial_product_state": "3 features shipped at MVP, 9 unshipped",
+      "initial_bugs": [],
+      "key_tensions": [
+        "Zero revenue means pure burn — every turn counts",
+        "Smaller team (30 capacity) limits parallelism",
+        "Must discover and convert customers from cold pipeline",
+        "Lower MRR target but starting from zero is harder",
+        "No existing customer relationships to expand"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.10-0.25",
+        "balanced_strategy": "0.55-0.70",
+        "optimal_play": "0.80-0.90"
+      }
+    },
+
+    {
+      "id": "profitable_growth",
+      "name": "Profitable Growth",
+      "description": "Profitable company with healthy margins. Challenge is hitting aggressive growth targets without destabilizing the existing business.",
+      "narrative": "You're cash-flow positive with a solid customer base. The board wants you to double revenue in 48 turns. You have the budget to invest, but growing too fast creates tech debt, bugs, and churn risk. The constraint isn't survival — it's sustainable growth.",
+      "financials": {
+        "starting_budget": 800000,
+        "base_cost_per_turn": 15000,
+        "starting_mrr": 150000,
+        "capacity_per_turn": 50
+      },
+      "goal_overrides": {
+        "mrr_target": 300000,
+        "max_churn_rate": 0.015,
+        "min_runway_turns": 12,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500
+      },
+      "initial_customer_profile": {
+        "active": 10,
+        "in_deal": 4,
+        "pipeline": 6,
+        "hidden": 10
+      },
+      "initial_product_state": "6 features shipped (mix of MVP and solid), 6 unshipped",
+      "initial_bugs": ["minor:F02:C04", "minor:F03:C07"],
+      "key_tensions": [
+        "Profitable but aggressive 2x growth target",
+        "Tighter churn constraint (1.5%) — existing customers matter more",
+        "Larger team generates more tech debt if building fast",
+        "More active customers means more CS load",
+        "Hiring could help but takes time and increases burn"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.35-0.50",
+        "balanced_strategy": "0.70-0.85",
+        "optimal_play": "0.90-0.98"
+      }
+    },
+
+    {
+      "id": "churn_crisis",
+      "name": "Churn Crisis",
+      "description": "Company with good revenue but a churn problem. Multiple customers at risk due to accumulated tech debt and bugs. Must stabilize before growing.",
+      "narrative": "Revenue looks good on paper, but under the surface you're losing customers. Tech debt is high, bugs are piling up, and several key accounts are at risk. If you focus only on growth, the base erodes. If you focus only on retention, you miss the target. Threading the needle is the game.",
+      "financials": {
+        "starting_budget": 600000,
+        "base_cost_per_turn": 12000,
+        "starting_mrr": 120000,
+        "capacity_per_turn": 40
+      },
+      "goal_overrides": {
+        "mrr_target": 200000,
+        "max_churn_rate": 0.02,
+        "min_runway_turns": 10,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500,
+        "bug_injection_multiplier": 0.4
+      },
+      "initial_customer_profile": {
+        "active": 8,
+        "in_deal": 2,
+        "pipeline": 4,
+        "hidden": 6
+      },
+      "initial_product_state": "5 features shipped at MVP (none solid/polished), 7 unshipped, tech debt starting at 'high'",
+      "initial_bugs": [
+        "critical:F01:C01,C05",
+        "major:F02:C03,C06",
+        "major:F03:C04",
+        "minor:F01:C02"
+      ],
+      "key_tensions": [
+        "Must fix bugs to stop churn before it spirals",
+        "High tech debt means more bugs every turn if not addressed",
+        "Bug fixes and infra compete with feature work for engineering capacity",
+        "Some at-risk customers are high-value — losing them tanks MRR",
+        "Need to grow MRR 67% while also fighting fires"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.15-0.30",
+        "balanced_strategy": "0.55-0.70",
+        "optimal_play": "0.80-0.90"
+      }
+    },
+
+    {
+      "id": "competitive_siege",
+      "name": "Competitive Siege",
+      "description": "Well-funded competitors are aggressively targeting your customer base and pipeline. Feature parity and speed-to-market are critical.",
+      "narrative": "Two well-funded competitors have entered your market. They're launching features faster, cutting prices, and actively poaching your pipeline. Your product is good but not differentiated enough. You need to ship the right features at the right quality to defend your position while still growing.",
+      "financials": {
+        "starting_budget": 550000,
+        "base_cost_per_turn": 10000,
+        "starting_mrr": 100000,
+        "capacity_per_turn": 40
+      },
+      "goal_overrides": {
+        "mrr_target": 220000,
+        "max_churn_rate": 0.02,
+        "min_runway_turns": 10,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500
+      },
+      "initial_customer_profile": {
+        "active": 6,
+        "in_deal": 3,
+        "pipeline": 5,
+        "hidden": 6
+      },
+      "initial_product_state": "4 features shipped at MVP, 8 unshipped",
+      "initial_bugs": ["minor:F01:C03"],
+      "key_tensions": [
+        "Competitors launch features every 6-8 turns across all segments",
+        "Pipeline customers get poached if you don't close fast enough",
+        "Existing customers face competitive pressure on health",
+        "Must decide: compete on features or differentiate on quality?",
+        "Price pressure means deals are harder to close"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.20-0.35",
+        "balanced_strategy": "0.60-0.75",
+        "optimal_play": "0.85-0.92"
+      }
+    },
+
+    {
+      "id": "resource_constrained",
+      "name": "Resource Constrained",
+      "description": "Small team with limited capacity and tight budget. Every allocation decision is high-stakes. Can't do everything — must ruthlessly prioritize.",
+      "narrative": "You're a small team punching above your weight. 25 capacity units means you can't build, sell, and support simultaneously at scale. The market opportunity is there but you simply can't pursue all of it. The game is about focus and sequencing — doing fewer things well beats doing many things poorly.",
+      "financials": {
+        "starting_budget": 300000,
+        "base_cost_per_turn": 6000,
+        "starting_mrr": 50000,
+        "capacity_per_turn": 25
+      },
+      "goal_overrides": {
+        "mrr_target": 160000,
+        "max_churn_rate": 0.025,
+        "min_runway_turns": 8,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500
+      },
+      "initial_customer_profile": {
+        "active": 3,
+        "in_deal": 2,
+        "pipeline": 4,
+        "hidden": 11
+      },
+      "initial_product_state": "3 features shipped at MVP, 9 unshipped",
+      "initial_bugs": [],
+      "key_tensions": [
+        "25 capacity means you can't do everything every turn",
+        "Must pick 2-3 priorities per turn, not 5",
+        "Hiring helps but takes 6 turns and increases burn",
+        "Large hidden customer pool rewards discovery but costs capacity",
+        "Tripling MRR with a tiny team requires focus"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.15-0.30",
+        "balanced_strategy": "0.55-0.70",
+        "optimal_play": "0.80-0.90"
+      }
+    },
+
+    {
+      "id": "late_stage_push",
+      "name": "Late Stage Push",
+      "description": "Mature product with many features shipped. Goal is the final push to a large MRR target. The challenge is orchestrating a complex operation at scale.",
+      "narrative": "You have a mature product, a large team, and a big customer base. But the board wants aggressive numbers and the market is getting crowded. You have many levers to pull — the challenge is pulling the right ones in the right order. Coordination across functions is the bottleneck, not raw capability.",
+      "financials": {
+        "starting_budget": 1200000,
+        "base_cost_per_turn": 20000,
+        "starting_mrr": 200000,
+        "capacity_per_turn": 60
+      },
+      "goal_overrides": {
+        "mrr_target": 400000,
+        "max_churn_rate": 0.015,
+        "min_runway_turns": 12,
+        "target_turn": 48
+      },
+      "calibration_overrides": {
+        "team_cost_per_capacity": 2500
+      },
+      "initial_customer_profile": {
+        "active": 15,
+        "in_deal": 5,
+        "pipeline": 8,
+        "hidden": 12
+      },
+      "initial_product_state": "8 features shipped (mix of MVP/solid/polished), 4 unshipped tier-3 features",
+      "initial_bugs": ["major:F02:C04,C09", "minor:F05:C11"],
+      "key_tensions": [
+        "Large team = more capacity but also more tech debt generation",
+        "15 active customers need CS attention — can't neglect any",
+        "Tight churn constraint (1.5%) with a big base means even 1 churn hurts",
+        "Many parallel workstreams to coordinate",
+        "Doubling MRR requires significant new customer acquisition"
+      ],
+      "expected_score_ranges": {
+        "random_strategy": "0.30-0.45",
+        "balanced_strategy": "0.65-0.80",
+        "optimal_play": "0.88-0.96"
+      }
+    }
+  ]
+}

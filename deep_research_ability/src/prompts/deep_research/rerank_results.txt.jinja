@@ -1,0 +1,21 @@
+Research Goal: {{ query }}
+
+You have {{ results|length }} search results to evaluate. Review each result and rank them by their relevance and usefulness for the research goal.
+
+Return only the indices of the top {{ top_k }} most relevant results in order of importance.
+
+Search Results:
+{% for result in results %}
+[{{ result.index }}] {{ result.url }}
+{{ result.content }}
+---
+{% endfor %}
+
+Consider:
+1. Direct relevance to the research goal
+2. Information quality and depth
+3. Source credibility
+4. Unique insights not found in other results
+5. Recency and timeliness of information
+
+Provide your response as a list of indices representing the best {{ top_k }} results in ranked order.

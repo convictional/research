@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}New Game{% endblock %}
+{% block content %}
+<article>
+  <h2>Start a New Game</h2>
+  <p>AlignSim: a turn-based strategy game benchmarking goal alignment. You control all roles (CEO, Sales, Product, Engineering, CS) and must grow MRR while managing runway and churn.</p>
+  <form method="post" action="/start">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+      <label>
+        Seed
+        <input type="number" name="seed" value="42">
+      </label>
+      <label>
+        Max Turns
+        <input type="number" name="max_turns" value="48" min="4" max="96">
+      </label>
+      <label>
+        Scenario
+        <select name="scenario">
+          <option value="playtest" selected>Playtest</option>
+          <option value="seed_stage">Seed Stage (ops projects)</option>
+        </select>
+      </label>
+    </div>
+    <button type="submit">Start Game</button>
+  </form>
+</article>
+{% endblock %}

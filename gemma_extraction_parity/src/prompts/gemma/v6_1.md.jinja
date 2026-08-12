@@ -1,0 +1,226 @@
+You are extracting learnings from search results about a specific topic.
+
+## Topic
+
+{{ topic }}
+
+## Directions
+
+{{ directions }}
+
+## Search Results
+
+{% for result in results %}
+### Result: {{ result.title }}
+
+- **ID:** {{ result.id }}
+- **Author:** {{ result.author }}
+- **URL:** {{ result.source_url }}
+- **Date:** {{ result.created_at }}
+
+{{ result.index_content }}
+
+---
+{% endfor %}
+
+## Task
+
+Extract up to {{ max_learnings }} learnings from the search results above. You may return fewer if there aren't enough relevant facts.
+
+## Output Fields
+
+You must return three fields:
+
+1. **learnings**: A list of strings. Each string is one learning extracted from the results.
+2. **follow_up_questions**: A list of up to 3 follow-up questions that would help research this topic further.
+3. **follow_up_title**: A one or two word title summarizing the theme of the follow-up questions.
+
+## Extraction Rules
+
+Follow these rules exactly:
+
+1. Extract ONLY information that is explicitly stated in the search results. Do not infer, speculate, or add any information not present in the text.
+2. Each learning must cite its source. The citation format is `[^content:ID]` placed at the end of the learning, where **ID is the literal value from the `**ID:**` line of the search result, copied character-for-character**. Citation IDs are 36-character hex-and-hyphen UUIDs (e.g. `156a8004-337f-46a8-a67c-868399e6dadc`). **NEVER construct an ID from the result's title, author name, document type, or topic description.** If you cannot find the literal ID in the `**ID:**` field of the source, do not write the learning.
+3. Include every specific detail from the source: exact numbers, percentages, dollar amounts, dates, names of people, companies, products, and tools. If a result says "revenue grew 15% in Q3 2024" you must include "15%", "Q3 2024", and any named driver.
+4. Do not fabricate or round numbers. If the source says "$1.2M" do not write "$1M". If the source says "March 14" do not write "mid-March".
+5. Each learning should be 2-4 sentences with enough context to stand alone. Include WHY something happened and WHAT the implications are, not just the bare fact. Include direct quotes from named individuals when the source provides them.
+6. One fact, one learning. If you find additional details about something you've already written about (the same goal, PR, event, person, or decision), MERGE those details into the existing learning — do not write a second learning about it. Before writing each new learning, check your previous learnings; if any of them is about the same underlying thing, edit that one instead.
+7. When two or more search results describe the same underlying event, decision, person, or goal, write ONE learning that combines details from each, concatenating their literal `**ID:**` values at the end without separators (e.g. `[^content:156a8004-337f-46a8-a67c-868399e6dadc][^content:28b2e01c-ae7e-4990-86e9-847d52610f2c]`). Do not write a separate learning per source.
+8. Prioritize distinct facts over count. A list of 30 unique facts is better than a list of 50 with overlap. If you can only find 20 distinct facts, return 20.
+
+## How to Identify a Learning
+
+A learning is a fact plus the supporting context a reader needs to understand it without re-reading the source. To identify learnings in a search result, scan the text for these signals:
+
+1. **Events involving named people** — meetings, decisions, promotions, PRs, launches, incidents. Capture the named individuals, their roles when mentioned, and the date.
+2. **Direct quotes from named individuals** — verbatim quotes are high-value signal. If a named person is quoted making a meaningful claim, the quote MUST appear in your learning, attributed by name.
+3. **Decisions and trade-offs** — moments where the team chose between options, including the reasoning given for the choice. Both the decision and the alternative considered are part of the learning.
+4. **Numerical facts** — dollar amounts, percentages, counts, durations, dates, deadlines, runway, goal progress. Use the exact value from the source.
+5. **Stated reasons** — when the source explicitly explains WHY something happened ("because", "so that", "this means", "implies", "necessitating"), fold the reasoning into the learning rather than reporting the fact alone.
+6. **Phase or period context** — when an event occurs within a known company phase (post-pivot, pre-launch, customer discovery, application development) and the source surfaces that context, include the phase framing.
+
+Before writing each learning, check that it passes the **stand-alone test**: a reader who has never seen the source should be able to read your learning and understand what happened, who was involved, when, and why it matters.
+
+## Quality Examples
+
+<!--
+  PUBLICATION NOTE (not part of the prompt's intent, but it is sent to the model):
+  These few-shot examples were originally lifted verbatim from real internal meetings and
+  documents. For the public release of this repository, every person and company name has been
+  replaced with a consistent pseudonym, and the one example that quoted company financials has
+  been rewritten around neutral facts. Treat the examples as synthetic. The structure, the
+  bad/good contrast, and the extraction lessons they teach are unchanged from the version that
+  produced the reported results.
+-->
+
+Below are examples showing the difference between shallow extractions (bad) and rich extractions (good) from the same source material. Each example shows the source in the **exact format used in the Search Results section above** — note how the citation ID at the end of each Bad/Good extraction is copied verbatim from the `**ID:**` field of its source, never constructed from the title or document type.
+
+### Example 1 — All facts from a single short source
+
+**Source:**
+> ### Result: Winter Launch
+>
+> - **ID:** 156a8004-337f-46a8-a67c-868399e6dadc
+> - **Author:** Sam Okafor
+> - **URL:** No URL
+> - **Date:** 2024-11-27
+>
+> # Goal: Winter Launch
+> January: Successful Winter 2025 Launch
+> Creator: Sam Okafor
+> Target date: 2025-01-27
+> Status: on track
+> Progress: 0%
+> Completed at: 2025-01-31 (4 days late)
+
+**Bad** (one detail, drops creator, target, and the on-track/0%-progress contradiction):
+"The Winter 2025 Launch was completed on January 31, 2025, 4 days late.[^content:156a8004-337f-46a8-a67c-868399e6dadc]"
+
+**Good** (every fact in the source folded into one learning, with the visible contradiction surfaced):
+"The Winter 2025 Launch was a formal company goal created by Sam Okafor, targeted for January 27, 2025, and completed four days late on January 31, 2025. The goal was tracked as 'on track' with 0% recorded progress throughout, indicating a compressed, all-or-nothing final push to delivery rather than steady incremental progress.[^content:156a8004-337f-46a8-a67c-868399e6dadc]"
+
+### Example 2 — Preserving a verbatim quote and the strategic framing it implies
+
+**Source:**
+> ### Result: Activation
+>
+> - **ID:** 28b2e01c-ae7e-4990-86e9-847d52610f2c
+> - **Author:** Priya Raman
+> - **URL:** No URL
+> - **Date:** 2026-02-26
+>
+> # Goal: Activation
+> Customers are actively using goals to run their business
+> Creator: Priya Raman
+> Owner: Jordan Ellery
+>
+> ### Update from Jordan Ellery at 2026-02-26
+> It's not going well with this goal. This was the main goal I set at the start of the year, to become the system of record for goals for at least one ICP customer, and then figure out how to repeat it. We've evolved our thinking and focused more on posts as a way to slay decision recording and collaboration in a single feature. Our goals feature is pretty nice, so I think it requires us to revive some historical conversations about goals. We had hoped it would be Cartogram, but they are ghosting, as are Ledgerly. We aren't pursuing Beacon, Kernelworks is still on hold, etc. I think ultimately we're going to have to find a new ICP customer to adopt goals.
+
+**Bad** (paraphrases away Jordan's verbatim quote, drops the named failed prospects, no strategic frame):
+"The product strategy evolved from focusing on goals adoption to focusing on posts as the main wedge after the original goals adoption goal failed.[^content:28b2e01c-ae7e-4990-86e9-847d52610f2c]"
+
+**Good** (preserves Jordan's verbatim quote attributed by name, names the failed prospects, surfaces the strategic-pivot framing):
+"Jordan Ellery disclosed in a February 2026 update on the 'Activation' goal that 'we've evolved our thinking and focused more on posts as a way to slay decision recording and collaboration in a single feature' — a pivot away from goals-spreadsheet replacement as the primary wedge. The original goal was to make at least one ICP customer the system of record for goals; Cartogram and Ledgerly ghosted, Beacon was dropped, and Kernelworks stalled, forcing the team to broaden the search for a new ICP goals-adoption customer.[^content:28b2e01c-ae7e-4990-86e9-847d52610f2c]"
+
+### Example 3 — Merging related facts from the same source under a phase frame
+
+**Source:**
+> ### Result: Annual Organisational Review
+>
+> - **ID:** fe5e1d07-93cc-4f27-8d53-066cecff7264
+> - **Author:** Dana Whitfield
+> - **URL:** No URL
+> - **Date:** 2026-04-02
+>
+> Dana confirmed the annual review covered "the org changes and the tooling spend" including the promotion of Priya and the wind-down of the legacy marketplace product... "we budgeted for four contractors and ended up using two" and "the December infra migration slipped into January." The team agreed a fresh 409A valuation would be needed before the next equity grant cycle... This directly enables the team to issue new equity to recent hires like Taylor and Robin.
+
+**Bad** (single fact, generic framing):
+"Priya Raman was promoted from VP of Customer Experience to Chief of Staff, representing a significant organizational personnel milestone during the company's transition.[^content:fe5e1d07-93cc-4f27-8d53-066cecff7264]"
+
+**Good** (merges related facts from the same source, explains why it matters):
+"Priya Raman was promoted from VP of Customer Experience to Chief of Staff during 2025, and the company hired Taylor Voss and Robin as new employees, necessitating a 409A valuation to enable equity grants. These personnel changes reflect a deliberate organizational build-out phase in 2025, consistent with a company scaling its team to support a new product direction after a strategic pivot.[^content:fe5e1d07-93cc-4f27-8d53-066cecff7264]"
+
+### Example 4 — Named participants, verbatim quotes, and architectural reasoning
+
+**Source:**
+> ### Result: Mailbox refactoring meeting
+>
+> - **ID:** 0b807a8a-2ca6-446a-831d-1b3a1df509e7
+> - **Author:** Marcus Iyer
+> - **URL:** https://meet.example.com/xxx-xxxx-xxx
+> - **Date:** 2026-03-24
+>
+> Elias explained that "mailbox is very, very tied to email" and they "shoehorned posts in" using workarounds... Devin sketched a design where "collaboration.mailbox" contains a mailbox class... Marcus confirmed: "lots of small simple REST APIs, not one giant mailbox entries API." The team decided to have both a shared mailbox_entry table AND separate email_mailbox_entry and chat_mailbox_entry tables... Marcus emphasized "it's a lot easier if you're just like get me the mailbox entries for this person."
+
+**Bad** (states the decision but drops the people, quotes, and reasoning):
+"Engineering is working on a major refactoring of the mailbox system to support chat messages alongside emails in the inbox.[^content:0b807a8a-2ca6-446a-831d-1b3a1df509e7]"
+
+**Good** (names participants, includes direct quotes, explains the architectural reasoning):
+"The engineering team undertook a major architectural refactoring of the mailbox system to support chat messages alongside emails, moving the mailbox model from the email domain into a shared 'collaboration layer' abstraction with a unified mailbox_entry table alongside separate email_mailbox_entry and chat_mailbox_entry tables. Principal engineer Marcus Iyer explicitly advocated to 'take the time and be like okay we have a whole cycle here... really think about it, put it through its paces,' prioritizing long-term architectural clarity over short-term velocity.[^content:0b807a8a-2ca6-446a-831d-1b3a1df509e7]"
+
+### Example 5 — Multiple attributed quotes capturing one strategic conversation
+
+**Source:**
+> ### Result: casey
+>
+> - **ID:** 66dba7ab-7831-4457-a9ec-5b713ca78864
+> - **Author:** Jordan Ellery
+> - **URL:** No URL
+> - **Date:** No date
+>
+> Jordan noted "Problem relevance in the ICP is high"... Priya suggested positioning posts as "proposals" rather than full Slack replacement, noting "you don't need to, you can keep the social value" in Slack... Jordan stated "we need it to be good for the chief of staff's career like we need to make them look good"... Priya argued the most impressive capability for technical leadership would be "how do all the units of work align and bubble up to the stuff because that's like an impossible thing to answer from slack, and from their dashboards."
+
+**Bad** (vague summary, no quotes or names):
+"The team identified the Chief of Staff as a key champion for the product, noting the tool should help them move from manually updating spreadsheets to managing strategic organizational systems.[^content:66dba7ab-7831-4457-a9ec-5b713ca78864]"
+
+**Good** (captures the specific framing, names, and direct quotes):
+"The Chief of Staff was identified as a critical ICP champion role. Jordan stated 'we need it to be good for the chief of staff's career — we need to make them look good.' The Northwind example was cited as validation: their Chief of Staff Noor 'saw what we described as her job' and managed the goals spreadsheet. Taylor drew a parallel to Shopify's developer adoption strategy — the tool should free the Chief of Staff from spreadsheet management to do higher-impact alignment work.[^content:66dba7ab-7831-4457-a9ec-5b713ca78864]"
+
+### Example 6 — Multiple distinct issues from one meeting, consolidated with attributable quotes
+
+**Source:**
+> ### Result: Meeting at https://meet.example.com/xxx-xxxx-xxx
+>
+> - **ID:** 1793b5a0-1a98-4ee5-a620-6ca3d0d2e402
+> - **Author:** Dana Whitfield
+> - **URL:** https://meet.example.com/xxx-xxxx-xxx
+> - **Date:** 2026-04-02
+>
+> Priya: "I would expect to type in whatever I'm typing in and press Enter and see a search results page. I think 10 recent results is painfully bad."... When Dana created a custom view by sender, the sorting took so long that Dana said "I hate that I can't do anything while this is happening" and Priya agreed "it should run in the background for sure." For first-time users with full inboxes, Priya warned "they would instantly lose trust in the sorting feature."... The meeting title auto-detection failed, showing "meeting at" instead of "Dana Priya."
+
+**Bad** (one issue picked from the meeting, others dropped, no attribution):
+"A product review identified that search results are limited to 10 results, which Priya described as 'painfully bad.'[^content:1793b5a0-1a98-4ee5-a620-6ca3d0d2e402]"
+
+**Good** (multiple distinct UX issues from the same meeting consolidated into one learning, each with attributable quotes):
+"A comprehensive Posts product review by Dana Whitfield and Priya Raman identified several critical UX issues pre-customer-launch: search results are capped at 10 recent items with no full results page, which Priya called 'painfully bad'; custom view sorting blocks the UI and cannot be backgrounded, with Priya warning first-time users 'would instantly lose trust in the sorting feature' because they can't bulk archive before sorting; and meeting title auto-detection fails, displaying 'meeting at' instead of attendee names like 'Dana Priya.'[^content:1793b5a0-1a98-4ee5-a620-6ca3d0d2e402]"
+
+### Example 7 — Merging two sources into a single cross-document learning
+
+**Source 1:**
+> ### Result: casey
+>
+> - **ID:** 66dba7ab-7831-4457-a9ec-5b713ca78864
+> - **Author:** Jordan Ellery
+> - **URL:** No URL
+> - **Date:** No date
+>
+> The team reviewed a demo call with Casey, a technical leader at a 90-person company with a 30% engineering team. Jordan noted "Problem relevance in the ICP is high"... The team agreed to create custom demo data showing the prospect's actual org structure and goal hierarchy for the next conversation.
+
+**Source 2:**
+> ### Result: Transcript highlight from casey
+>
+> - **ID:** 0bd5b286-fdf8-4ffb-92e0-2386344adad9
+> - **Author:** Priya Raman
+> - **URL:** No URL
+> - **Date:** No date
+>
+> Sam's 'demo data improvement PR' recently merged, enabling generation of new prompt-driven demo environments in approximately 20 minutes. Rowan Petrov at Rivera Analytics (a 70-person distributed firm) was another active discovery call.
+
+**Bad** (single source, drops the cross-document linkage and prospect names; uses only one citation ID):
+"Sam's demo data improvement PR enabled the team to generate prompt-driven demo environments in approximately 20 minutes.[^content:0bd5b286-fdf8-4ffb-92e0-2386344adad9]"
+
+**Good** (one learning merges both sources, concatenates both literal `**ID:**` values, ties the tactical PR to the active prospect set):
+"By early 2026, Convictional was in an active customer-discovery and demo phase — running calls with technical leaders Casey Lindgren (90-person SaaS) and Rowan Petrov (a 70-person distributed firm at Rivera Analytics) — while simultaneously building tooling to mirror those prospects' organizations in demo data. Sam's 'demo data improvement PR' merged shortly before, enabling prompt-driven generation of synthetic demo environments in approximately 20 minutes tailored to each prospect's org structure and goal hierarchy.[^content:66dba7ab-7831-4457-a9ec-5b713ca78864][^content:0bd5b286-fdf8-4ffb-92e0-2386344adad9]"
+
+Now extract distinct learnings from the search results above. Each learning should describe a different thing. Prioritize depth and specificity — include direct quotes, named individuals, dates, and concrete details from the source material. **Every citation ID at the end of a learning must be copied verbatim from the `**ID:**` field of a search result; never construct an ID from a title, author, or topic description.**

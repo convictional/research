@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlignSim — {% block title %}Game{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <style>
+    :root {
+      --pico-font-size: 14px;
+    }
+    body { max-width: 1400px; margin: 0 auto; padding: 1rem; }
+    .dashboard { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .stat-card {
+      background: var(--pico-card-background-color);
+      border: 1px solid var(--pico-muted-border-color);
+      border-radius: 8px; padding: 0.75rem 1rem; min-width: 120px; text-align: center;
+    }
+    .stat-card .label { font-size: 0.75rem; color: var(--pico-muted-color); text-transform: uppercase; }
+    .stat-card .value { font-size: 1.4rem; font-weight: 700; }
+    .stat-card.danger .value { color: #c0392b; }
+    .stat-card.success .value { color: #27ae60; }
+    .stat-card.warning .value { color: #f39c12; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    table { font-size: 0.85rem; margin-bottom: 0.5rem; }
+    th, td { padding: 0.35rem 0.5rem; }
+    .stage-customer { color: #27ae60; font-weight: 600; }
+    .stage-in_deal { color: #2980b9; font-weight: 600; }
+    .stage-qualified { color: #8e44ad; }
+    .stage-prospect { color: #f39c12; }
+    .stage-lead { color: var(--pico-muted-color); }
+    .sat-high { color: #27ae60; }
+    .sat-mid { color: #f39c12; }
+    .sat-low { color: #c0392b; }
+    .severity-critical { color: #c0392b; font-weight: 700; }
+    .severity-major { color: #e67e22; font-weight: 600; }
+    .severity-minor { color: var(--pico-muted-color); }
+    .shipped { color: #27ae60; }
+    .not-shipped { color: var(--pico-muted-color); }
+    .blocked { color: #c0392b; }
+    .events-list { list-style: none; padding: 0; margin: 0; }
+    .events-list li { padding: 0.25rem 0; border-bottom: 1px solid var(--pico-muted-border-color); font-size: 0.85rem; }
+    .events-list li:last-child { border-bottom: none; }
+    .action-queue { min-height: 60px; }
+    .action-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.4rem 0.6rem; margin: 0.25rem 0;
+      background: var(--pico-card-background-color); border: 1px solid var(--pico-muted-border-color);
+      border-radius: 4px; font-size: 0.85rem;
+    }
+    .action-item button { margin: 0; padding: 0.2rem 0.5rem; font-size: 0.75rem; }
+    .capacity-bar { height: 8px; background: #eee; border-radius: 4px; margin: 0.5rem 0; }
+    .capacity-bar .fill { height: 100%; border-radius: 4px; background: #2980b9; transition: width 0.2s; }
+    .capacity-bar .fill.over { background: #c0392b; }
+    details { margin-bottom: 0.5rem; }
+    details summary { cursor: pointer; font-weight: 600; padding: 0.3rem 0; }
+    .tag { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.75rem; }
+    .tag-mvp { background: #ffeaa7; color: #6c5a00; }
+    .tag-solid { background: #81ecec; color: #005f5f; }
+    .tag-polished { background: #a29bfe; color: #2d2880; }
+    .tag-not-started { background: #dfe6e9; color: #636e72; }
+    .tag-in-progress { background: #74b9ff; color: #003366; }
+    h3 { margin-bottom: 0.5rem; }
+    section { margin-bottom: 1.5rem; }
+    #action-form select, #action-form input { margin-bottom: 0.25rem; }
+    .form-row { display: flex; gap: 0.5rem; align-items: end; flex-wrap: wrap; }
+    .form-row > * { flex: 1; min-width: 100px; }
+    .form-row > .small { flex: 0.5; min-width: 60px; }
+    .needs-tooltip { cursor: help; border-bottom: 1px dotted var(--pico-muted-color); }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header>
+    <nav>
+      <ul><li><strong><a href="/turn" style="text-decoration:none">AlignSim</a></strong></li></ul>
+      <ul>
+        <li><a href="/turn">Turn</a></li>
+        <li><a href="/rules" target="_blank">Rules</a></li>
+        {% block nav %}{% endblock %}
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

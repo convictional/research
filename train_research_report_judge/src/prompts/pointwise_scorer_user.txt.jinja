@@ -1,0 +1,74 @@
+Rate the quality of this research report using the critique findings below.
+
+## Independent Critique
+
+Question asks for: {{ critique.question_asks_for }}
+Report provides: {{ critique.report_actually_provides }}
+Alignment gap: {{ critique.alignment_gap }}
+Overall severity: {{ critique.severity }}
+
+Weaknesses found:
+{% for w in critique.weaknesses %}
+- {{ w }}
+{% endfor %}
+
+Strengths found:
+{% for s in critique.strengths %}
+- {{ s }}
+{% endfor %}
+{% if claim_analysis %}
+
+## Claim Quality Analysis
+
+{{ claim_analysis.summary }}
+
+Of {{ claim_analysis.total_claims }} total claims, {{ claim_analysis.claims|length }} key claims were analyzed:
+- Specific claims: {{ claim_analysis.claims|selectattr("is_specific")|list|length }}/{{ claim_analysis.claims|length }}
+- Hedged claims: {{ claim_analysis.claims|selectattr("is_hedged")|list|length }}/{{ claim_analysis.claims|length }}
+- Claims with citations: {{ claim_analysis.claims|selectattr("has_citation")|list|length }}/{{ claim_analysis.claims|length }}
+- Claims relevant to question: {{ claim_analysis.claims|selectattr("is_relevant")|list|length }}/{{ claim_analysis.claims|length }}
+{% if claim_analysis.internal_inconsistencies %}
+
+Internal inconsistencies found:
+{% for inc in claim_analysis.internal_inconsistencies %}
+- {{ inc }}
+{% endfor %}
+{% endif %}
+
+Key claims:
+{% for c in claim_analysis.claims[:8] %}
+- [{{ "specific" if c.is_specific else "vague" }}{{ ", hedged" if c.is_hedged else "" }}{{ ", cited" if c.has_citation else "" }}{{ ", relevant" if c.is_relevant else ", tangential" }}] {{ c.claim }}
+{% endfor %}
+{% endif %}
+{% if rag_verification %}
+
+## Source Evidence Verification
+
+An independent system retrieved source documents and verified each claim from the report against the original evidence. Results:
+
+- Claims verified: {{ rag_verification.total_claims }}
+- Supported by evidence: {{ rag_verification.supported }} ({{ (rag_verification.supported / rag_verification.total_claims * 100)|round(1) if rag_verification.total_claims > 0 else 0 }}%)
+- Partially supported: {{ rag_verification.partially_supported }} ({{ (rag_verification.partially_supported / rag_verification.total_claims * 100)|round(1) if rag_verification.total_claims > 0 else 0 }}%)
+- Unsupported: {{ rag_verification.unsupported }} ({{ (rag_verification.unsupported / rag_verification.total_claims * 100)|round(1) if rag_verification.total_claims > 0 else 0 }}%)
+- No evidence found: {{ rag_verification.no_evidence_found }} ({{ (rag_verification.no_evidence_found / rag_verification.total_claims * 100)|round(1) if rag_verification.total_claims > 0 else 0 }}%)
+- Average verification confidence: {{ rag_verification.avg_confidence|round(2) }}
+
+Per-claim details:
+{% for v in rag_verification.details %}
+- [{{ v.verdict }}] (conf={{ v.confidence|round(2) }}) {{ v.claim[:120] }}
+{% endfor %}
+{% endif %}
+{% if variant or community_relation %}
+
+## Report Metadata
+
+{% if variant %}Pipeline variant: {{ variant }}{% endif %}
+{% if community_relation %}Community relation: {{ community_relation }}{% endif %}
+{% endif %}
+
+## Report to Score
+
+Question: {{ question }}
+
+Report:
+{{ research_output }}

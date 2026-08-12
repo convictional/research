@@ -1,0 +1,121 @@
+- id: convictional_brand
+  kind: brand
+  aliases:
+    - convictional
+    - Convictional
+    - convictional.com
+  definition: >
+    Convictional is a software platform for organizational health, helping customers
+    improve how their companies are run through collaboration tools that promote goal alignment, decision quality, human wellbeing and improved financial results.
+  competitors:
+    - notion
+    - slack
+    - lattice
+    - google_docs
+    - superhuman
+    - glean
+    - basecamp
+    - hey
+    - campfire
+  owned_domains:
+    - convictional.com
+
+- id: organizational_health_category
+  kind: category
+  aliases:
+    - organizational health
+    - org health
+    - organizational health software
+    - organizational health platform
+  definition: >
+    Organizational Health is a class of tools that give companies the ability to align, execute, and renew faster than the competition. 
+  competitors: []
+
+- id: convictional_legacy_dropship
+  kind: anti_brand
+  legacy_of: convictional_brand
+  aliases:
+    - dropship
+    - dropshipping
+    - drop shipping platform
+    - dropshipping software
+    - dropship integration
+  definition: >
+    Legacy association of the Convictional name with dropship / B2B retail
+    integration tooling. We want this association to fade.
+
+- id: notion
+  kind: brand
+  aliases: [Notion, notion.so]
+  definition: >
+    Workspace tool combining docs, wikis, databases, and lightweight project
+    management. Most teams use it primarily for knowledge base and team docs.
+  owned_domains: [notion.so]
+
+- id: slack
+  kind: brand
+  aliases: [Slack, slack.com]
+  definition: >
+    Channel-based team chat. The default for async/sync team communication
+    in tech-forward companies.
+  owned_domains: [slack.com]
+
+- id: lattice
+  kind: brand
+  aliases: [Lattice, lattice.com]
+  definition: >
+    Performance management and goal/OKR tracking platform for HR-led
+    company operating systems.
+  owned_domains: [lattice.com]
+
+- id: google_docs
+  kind: brand
+  aliases: ["Google Docs", "Google Doc", docs.google.com]
+  definition: >
+    Collaborative document editor; Google's answer to Microsoft Word.
+    Often the default for cross-team writing in Google-Workspace shops.
+  owned_domains: [docs.google.com]
+
+- id: superhuman
+  kind: brand
+  aliases: [Superhuman, superhuman.com]
+  definition: >
+    High-end email client emphasizing speed, keyboard shortcuts, and
+    AI-assisted triage. Targets executives and high-volume email users.
+  owned_domains: [superhuman.com]
+
+- id: glean
+  kind: brand
+  aliases: [Glean, glean.com]
+  definition: >
+    Enterprise AI search across SaaS tools — Slack, Drive, Notion, etc.
+    Knowledge-discovery layer rather than a knowledge-creation layer.
+  owned_domains: [glean.com]
+
+- id: basecamp
+  kind: brand
+  aliases: [Basecamp, basecamp.com]
+  definition: >
+    All-in-one project management and team collaboration tool from 37signals.
+    Widely cited as the original "stop using 5 tools, use 1" consolidation
+    play — combines messaging, to-dos, scheduling, and docs.
+  owned_domains: [basecamp.com]
+
+- id: hey
+  kind: brand
+  aliases: ["HEY email", "HEY by 37signals", hey.com]
+  definition: >
+    Reimagined email client from 37signals. Competes with Superhuman in the
+    paid-email-client space; pitches inbox triage, screening, and the
+    "Imbox" prioritization model. Note: 'HEY' as a bare word is too
+    ambiguous to alias safely (everyday interjection); only contextual
+    forms are listed.
+  owned_domains: [hey.com]
+
+- id: campfire
+  kind: brand
+  aliases: [Campfire, "ONCE Campfire"]
+  definition: >
+    Group chat from 37signals, sold under the ONCE brand as a one-time
+    purchase (no subscription). Channels, DMs, files — direct framing
+    challenge to Slack's SaaS pricing model.

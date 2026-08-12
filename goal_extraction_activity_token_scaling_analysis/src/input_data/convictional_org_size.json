@@ -1,0 +1,4 @@
+{
+  "_comment": "Baseline organization size used to anchor the token-scaling model. Only `count` is read by the code (see data_modelling.load_baseline_org_size). The original file also listed each employee by name; that roster was removed before open-sourcing and is not needed to run the analysis.",
+  "count": 14
+}
