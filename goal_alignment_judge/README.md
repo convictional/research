@@ -1,5 +1,7 @@
 # Goal Alignment Judge
 
+**Author:** Adam McCabe
+
 Per-user LLM-as-a-judge scorer that predicts whether a user would pin, delete, or leave content neutral for a given organizational goal. Uses DSPy's GEPA optimizer to discover personalized scoring prompts from individual rater signal.
 
 ## Status

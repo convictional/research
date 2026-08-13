@@ -1,5 +1,7 @@
 # LoRA Cassettes
 
+**Author:** Adam McCabe
+
 Episodic LoRA adapter training for encoder-based retrieval. Train lightweight adapters (~10MB) that swap in/out like cassette tapes, fine-tuned on specific corpus slices for improved retrieval quality.
 
 **Key Features:**

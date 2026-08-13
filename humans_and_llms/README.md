@@ -1,5 +1,7 @@
 # Human-LLM Scaling: Mathematical Framework and Analysis
 
+**Author:** Adam McCabe
+
 An exploration of how trust in LLMs impacts workforce composition and organizational structure.
 
 ## Overview

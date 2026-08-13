@@ -1,5 +1,7 @@
 # AlignSim
 
+**Author:** Adam McCabe
+
 A turn-based strategy game that benchmarks goal alignment. Players (AI or human) run a SaaS startup over 48 turns, allocating capacity across five functions: engineering, sales, customer success, marketing, and operations. The core research question: given the same game, goals, and starting conditions, does the coordination substrate affect goal attainment?
 
 For the full design rationale, see [ALIGNSIM_IDEA.md](ALIGNSIM_IDEA.md). For the benchmark protocol, see [BENCHMARK.md](BENCHMARK.md).

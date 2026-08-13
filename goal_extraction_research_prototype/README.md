@@ -1,5 +1,7 @@
 # Goal extraction research prototype
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This experiment researches extracting company goals from content.
 
 Furthermore, we want to distinguish between stated and unstated goals, and contrast the two to find alignments and tensions between what the company is working on and the company's formally stated goals.

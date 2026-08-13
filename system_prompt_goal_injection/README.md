@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This experiment is for how to best inject goals into a company's system prompt.
 
 This experiment was motivated by a customer with roughly 30 objectives and 200+ key results (i.e. OKRs) that we would translate/map to Goals and Success Conditions in the app.

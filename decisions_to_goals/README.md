@@ -1,5 +1,7 @@
 # decisions\_to\_goals
 
+**Authors:** Aryan Gupta, Adam McCabe
+
 An experiment that evaluates three different **decision→goal mapping schemas** by compressing each mapping into a fixed-length neutral summary, then scoring the summaries with a 9-judge MoE LLM ensemble.
 
 **Models:** Claude Opus 4.7 (mining + judging), Sonnet 4.6 (mapping + summarization + judging), Haiku 4.5 (judging).

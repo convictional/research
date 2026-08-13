@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This experiment is for testing LLM arithmetic calculations.
 
 This issue for this experiment is #2510 (internal GitHub issue, not public).

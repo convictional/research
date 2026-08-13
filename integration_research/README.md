@@ -1,5 +1,7 @@
 # Data Integration Experimentation
 
+**Author:** Adam McCabe
+
 This mini-codebase constructs Decision and Metric classes and includes 'database' context on our BigQuery instance - specifically our `star_schema` and `staging` tables, with minimal specificity in the prompts and all context retrieved via RAG. We augment the knowledge with RAG against Guru. The code here uses Langchain as it allows for more easily swapping out foundation models between OpenAI and Anthropic (although that doesn't work as well as you'd like without significant prompt updates).
 
 ## Process

@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This analysis is for testing activity data scaling when it comes to the goal extraction prototype work, specifically step 2 of that prototype work.
 
 Step 2 mined activity data from the app for unstated and stated goals. There were questions about fitting activity data context into context limits. Thus, this experiment looks at token sizes of tasks, discussions, meetings, and decisions from the app to test scaling of these objects to a larger company.

@@ -1,5 +1,7 @@
 # TurboQuant Our Embeddings
 
+**Author:** Adam McCabe
+
 ## Hypothesis
 
 [TurboQuant](https://arxiv.org/pdf/2504.19874) (arXiv:2504.19874) can compress our 1536-dim `text-embedding-3-small` embeddings to 3-bit precision (~6x compression) while preserving cosine similarity ranking with near-zero accuracy loss.

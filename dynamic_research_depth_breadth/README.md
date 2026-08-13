@@ -1,5 +1,7 @@
 # Dynamic Research Depth/Breadth
 
+**Author:** Adam McCabe
+
 An experiment to dynamically adjust research tree depth and breadth based on topic complexity, with adaptive early branch termination. Instead of using fixed (depth=2, breadth=3) for all research, the system classifies topics by complexity and allocates more resources to harder questions — while letting the LLM prune unproductive branches early to control cost.
 
 **Status**: Complete — 4 trials over ~2 weeks. Final version (v4) achieved 74% dynamic win rate on info quality across 42 blind ratings from 9 raters (70% excluding the researcher). Adaptive branch termination was the key differentiator, improving both info quality and style relative to earlier versions. Ready for production consideration.

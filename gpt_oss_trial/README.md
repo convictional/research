@@ -1,5 +1,7 @@
 # GPT-OSS Vertex AI Benchmark
 
+**Author:** Adam McCabe
+
 Comprehensive benchmark suite for testing OpenAI's open-weight GPT-OSS 120B model, served on Vertex AI Model Garden, with comparison capabilities against Claude Sonnet 4.5.
 
 > Note: GPT-OSS is OpenAI's open-weight model family. Vertex AI is only the serving

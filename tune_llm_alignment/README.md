@@ -1,5 +1,7 @@
 # Automatic LLM Prompt Tuning
 
+**Author:** Adam McCabe
+
 Experiment exploring techniques to automatically tune LLM prompts without manual prompt engineering.
 
 ## Why This Matters
