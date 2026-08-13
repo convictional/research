@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This experiment is for tailored web search results for a given user and org.
 
 This is meant to showcase tailoring web search results, and is meant to compliment #2140 (internal PR, not public) for inspiration of applying web search in the app.

@@ -1,5 +1,7 @@
 # Authorship Verification System
 
+**Authors:** Adam McCabe, Thomas Gorham
+
 A Siamese neural network system for verifying authorship using semantic embeddings and stylometric analysis, trained on internal team data and Reddit discussion data.
 
 > ### Read this first

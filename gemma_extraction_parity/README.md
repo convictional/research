@@ -1,5 +1,7 @@
 # Gemma vs Sonnet Extraction Parity
 
+**Author:** Adam McCabe
+
 ## Question
 
 Can Gemma 4 26B replace Claude Sonnet 4.6 for the learning extraction step in deep research without degrading report quality?

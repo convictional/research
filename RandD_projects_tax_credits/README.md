@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This "experiment" is for R&D project tax credit work that we have done.
 
 The main idea is to use knowledge data (e.g. GitHub) to extract qualified R&D projects from, for the purposes of R&D tax credits.

@@ -1,5 +1,7 @@
 # Exploring the Graphify tool
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This "experiment" is meant to be an exploration of the [Graphify](https://github.com/safishamsi/graphify) tool.
 
 The main goal is to explore the usage of the tool, and document any learnings about it that could be useful to us.

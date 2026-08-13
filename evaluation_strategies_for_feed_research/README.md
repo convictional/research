@@ -1,5 +1,7 @@
 # Researching evaluation strategies for Convictional Feed
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This "experiment" is a log of research done related to potential evaluation strategies for the Convictional Feed.
 
 Basically, this directory holds information related to best practices in the community and how feed-related algorithms are evaluated.

@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This experiment is for digging into tool use that is built into the Anthropic API.
 
 The app task for this experiment is found [internal app task, not public].

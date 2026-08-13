@@ -1,5 +1,7 @@
 # Platform Costs
 
+**Author:** Adam McCabe
+
 This 'experiment' is really some ad-hoc analysis that runs visualizations and summary stats against our `llmrequests` table in postgres (via BigQuery). We focus on extracting token counts by `object` which groups individual requests into one of our first class models (e.g. Decision Process, Meetings, Threads, etc.). In addition we extract counts of threads, meetings and decisions to understand Recall AI cost and velocity of decision & thread creation.
 
 A high-level summary was written up in an internal doc, which is not public.

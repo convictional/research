@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This "experiment" is for 2025 SR&ED R&D project tax credit work that we have done.
 
 The main idea is to use knowledge data (e.g. GitHub, app Tasks) to extract qualified R&D projects from, for the purposes of SR&ED R&D tax credits.

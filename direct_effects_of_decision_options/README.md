@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This experiment is for finding "Direct effects" of decision options using an LLM.
 
 By "direct effects", we mean direct cause and effect relations - that is, cause and effects that are very likely given a decision option.

@@ -1,5 +1,7 @@
 # Activity Querying
 
+**Authors:** Ben Crouse, Adam McCabe
+
 SQL queries for analyzing organizational activity data, knowledge flows, and collaboration patterns. These queries help understand how information moves through an organization, identify knowledge bridges, and measure department productivity.
 
 ## Contents

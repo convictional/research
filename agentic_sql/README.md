@@ -1,5 +1,7 @@
 # Agentic SQL Analysis
 
+**Author:** Adam McCabe
+
 This experiment houses code related to evaluating agentic SQL analysis frameworks (e.g. User question -> ... -> data narrative). Testing with an approach inspired by [vanna](https://github.com/vanna-ai/vanna) which uses historical, verified, SQL queries to help reinforce the contextual understanding of the data schema and business logic.
 
 ## Overview

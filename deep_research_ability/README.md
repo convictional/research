@@ -1,5 +1,7 @@
 # Deep Research Ability
 
+**Author:** Adam McCabe
+
 This experiment has been updated to match our production implementation of Research in Threads and runs over our content seed (which reflects Convictional's content indexed in threads). In particular, it has access to a search tool which mimics our production SearchContentJob allowing it to find content from our `content` table in postgres. This is inspired by the Deep Research features offered by [Google](https://blog.google/products/gemini/google-gemini-deep-research/) and [OpenAI](https://openai.com/index/introducing-deep-research/).
 
 The original POC of the experiment was taken from the typescript implementation, [`dzhng/deep-research`](https://github.com/dzhng/deep-research), as well as an update to the search tool to mimic our production search over our content table.

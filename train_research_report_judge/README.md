@@ -1,5 +1,7 @@
 # Train Research Report Judge (LLM-as-a-Judge)
 
+**Author:** Adam McCabe
+
 An experiment to train an automated judge that replicates expert quality scoring (0–3 scale) of research reports. The scorer discovers quality rubrics from expert-labeled data, then iteratively refines them through disagreement analysis.
 
 **Status**: Complete — 11 trials exhausted. The scorer reliably matches the expert's score *distribution* (adjacent match 0.95) but cannot predict which *specific* reports are good or bad (best Spearman 0.326, target ≥0.7). Prompt engineering, ensemble voting, claim decomposition, metadata injection, and RAG-based source verification all failed to improve discrimination. The most promising next direction is pairwise ranking — we have a strong A/B dataset from human eval outputs that could support this.

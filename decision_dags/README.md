@@ -1,5 +1,7 @@
 # Decision DAGs Experiment
 
+**Author:** Adam McCabe
+
 A strategic planning system that builds Decision DAGs (Directed Acyclic Graphs) to explore decision spaces, evaluate strategic paths, and evolve optimal solutions.
 
 ## Documentation

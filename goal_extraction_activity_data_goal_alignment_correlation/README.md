@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 > **Data availability:** All input, intermediate, and output data for this experiment
 > (`src/data/`) was a verbatim production export containing meeting summaries, personal data, and
 > expert-rater annotations keyed to named individuals. **It was removed before open-sourcing.**

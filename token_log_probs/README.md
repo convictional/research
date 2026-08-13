@@ -1,5 +1,7 @@
 # Token Probabilities
 
+**Author:** Adam McCabe
+
 Along with our tokens, we can ask OpenAI to return the log-probabilities of the individual tokens. By setting `temperature` to 0, we can force the language model to always select the most likely token. Linearlizing these log probabilities, we get an understandable probability distribution over the tokens which we can use to infer confidence by looking at the 'steepness' of the drop-off in probability.
 
 Running the playground, starting from the `decide` directory, run the following commands:

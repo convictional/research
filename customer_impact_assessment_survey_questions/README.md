@@ -1,5 +1,7 @@
 # Customer impact assessment survey questions
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This "experiment" is basically a log for coming up with customer impact assessment survey questions.
 
 The corresponding GitHub issue is internal and not public.

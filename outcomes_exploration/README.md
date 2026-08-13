@@ -1,4 +1,7 @@
 # Outcomes Exploration
+
+**Author:** Adam McCabe
+
 **Date Completed:** July 20, 2026
 
 - Initial Proposal [internal discussion post, not public]

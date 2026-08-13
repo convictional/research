@@ -1,5 +1,7 @@
 # geo-analyzer
 
+**Authors:** Bill Tarbell, Adam McCabe
+
 > Measure how Convictional shows up in the answers people are getting from
 > ChatGPT, Claude, and Gemini — and whether the dropship-era version of us
 > is fading from those answers.

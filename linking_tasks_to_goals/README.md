@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Adam McCabe, Matt Chequers
+
 This experiment/research bet is related to linking (external) "tasks" to goals in Convictional.
 
 The app task for this experiment is found [internal app task, not public].

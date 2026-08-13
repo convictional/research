@@ -1,5 +1,7 @@
 # Slack Adoption Study Experiment
 
+**Author:** Adam McCabe
+
 > ## ⚠️ Status: NOT COMPLETED — no causal estimate was produced
 >
 > **This study was abandoned before any estimation was run. There are no results.** What exists

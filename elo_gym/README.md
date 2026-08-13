@@ -1,5 +1,7 @@
 # LLM ElO Arena
 
+**Author:** Adam McCabe
+
 Taken from the well known public LLM ELO Arena, this idea leverages ELO to provide us with a quantifiable performance metric for any models or chains we want to introduce.
 
 ELO, is a formula for calculating ratings of competitors in a game based on their pair-wise wins and losses. Here, we use human judgement to rank at least 2 model outputs in order to then modify each model's ELO. 

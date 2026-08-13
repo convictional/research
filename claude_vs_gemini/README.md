@@ -1,5 +1,7 @@
 # Gemini vs. Claude in Prod
 
+**Author:** Adam McCabe
+
 I tested whether Gemini 3 Pro can replace Anthropic Claude as the LLM provider across prod's three main AI-powered services: research reports, meeting summaries, and custom inbox views. This document covers how I ran the experiment, what I found, and what an engineering team would need to know before migrating.
 
 > **Note on this published version.** The experiment ran against a live production

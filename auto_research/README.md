@@ -1,5 +1,7 @@
 # Auto Research Ideation
 
+**Author:** Adam McCabe
+
 Scans ArXiv daily for SOTA techniques that could improve Decide. Builds up codebase context over time and produces detailed research plans for a human researcher to review.
 
 ## Usage

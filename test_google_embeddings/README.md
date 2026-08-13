@@ -1,5 +1,7 @@
 # Test Google Embeddings
 
+**Author:** Adam McCabe
+
 ## Hypothesis
 
 Google (GCP) managed embeddings perform as well as OpenAI embeddings for our content search use case, and could serve as a drop-in replacement if we migrate to GCP for LLM services.

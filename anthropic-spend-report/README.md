@@ -1,5 +1,7 @@
 # anthropic-spend-report
 
+**Author:** Adam McCabe
+
 A **Claude Code skill** that reports **Anthropic API spend per person per month**
 for our Claude Console org, split into `claude_code` / `dev` / `service` usage.
 Dollars come from the Admin Cost API and are allocated to API keys by token

@@ -1,5 +1,7 @@
 # Multi-Vector Search Experiment
 
+**Authors:** Adam McCabe, Matt Chequers
+
 Validating whether Multi-Vector (ColBERT) search outperforms Single-Vector search for Decide's content, with analysis of performance trade-offs.
 
 ## TL;DR - End-to-End Workflow

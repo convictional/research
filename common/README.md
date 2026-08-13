@@ -1,5 +1,7 @@
 # Overview
 
+**Authors:** Matt Chequers, Adam McCabe
+
 This `commmon/` directory is meant to house common helper functions and logic that are useful across multiple experiments.
 
 For example, function definitions for sending LLM requests, pickle file I/O, prompt templating setup, etc, are pieces of logic that is used across multiple experiments. Rather than defining that logic separately in each experiment, one can simply import from the `common` module.
