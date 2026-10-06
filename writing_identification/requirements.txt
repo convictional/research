@@ -1,6 +1,6 @@
 # Core ML/DL libraries
 torch>=2.13.0
-sentence-transformers>=3.1.0
+sentence-transformers>=5.6.0
 scikit-learn==1.7.1  # Pin to exact version for extractor compatibility
 numpy>=1.24.0
 
