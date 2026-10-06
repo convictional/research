@@ -33,6 +33,6 @@ gcsfs>=2023.10.0
 wandb>=0.16.0
 
 # External datasets
-datasets>=2.14.0
+datasets>=5.0.1
 pyarrow>=23.0.1,<24.0.0  # Pin to <21.0.0 - PyExtensionType was removed in 21.0.0
 convokit>=3.0.0  # For Reddit corpus data
